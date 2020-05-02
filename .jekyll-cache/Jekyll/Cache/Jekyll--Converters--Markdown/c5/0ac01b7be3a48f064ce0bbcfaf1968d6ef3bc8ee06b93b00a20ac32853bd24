@@ -1,12 +1,4 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Articles</title>
-  </head>
-  <body>
-    <p>Layout: article.html</p>
-    <h2 id="about">About</h2>
+I"à<h2 id="about">About</h2>
 
 <p>Articles page
 .
@@ -16,6 +8,4 @@
 <p><strong>Disclaimer:</strong> This website is under constant modification.
 If you find something isnâ€™t right then,
 I might be doing some change in the back-end.</p>
-
-  </body>
-</html>
+:ET

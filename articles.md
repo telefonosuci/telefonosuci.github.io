@@ -1,12 +1,12 @@
 ---
-layout: default
-title: About
-permalink: /about/
+layout: article
+title: Articles
+permalink: /articles/
 ---
 
 ## About
 
-WebJeda is a web designing company
+Articles page
 .
 .
 .
