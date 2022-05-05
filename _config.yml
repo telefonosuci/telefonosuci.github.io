@@ -1,10 +1,8 @@
-title: My personal site
-author: GitHub User
+title: Devsuci
+author: Suci San
 email: telefonosuci@gmail.com
 description: > # this means to ignore newlines until "show_exerpts:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Develop is not joke, in Okinawa.
 show_excerpts: true # set to true to show excerpts on the homepage
 
 # Minima date format
@@ -12,8 +10,8 @@ show_excerpts: true # set to true to show excerpts on the homepage
 sass:
   sass_dir: _sass
 plainwhite:
-  name: Enrico Succhielli
-  tagline: Developer
+  name: Plain White
+  tagline: Dev
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
 
