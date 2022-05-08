@@ -2,7 +2,7 @@ title: Devsuci
 author: Suci San
 email: telefonosuci@gmail.com
 description: > # this means to ignore newlines until "show_exerpts:"
-  Develop is not joke, in Okinawa.
+  In Okinawa, programming, very serious business! [Miyagi]
 show_excerpts: true # set to true to show excerpts on the homepage
 
 # Minima date format
@@ -11,7 +11,7 @@ sass:
   sass_dir: _sass
 plainwhite:
   name: Enrico Succhielli
-  tagline: Dev
+  tagline: Full Metal Jacket Developer
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
 
