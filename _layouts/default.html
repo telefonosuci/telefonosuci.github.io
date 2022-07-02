@@ -96,7 +96,14 @@
           {{ "now" | date: "%Y" }}</p>
       </section>
       <section class="content">
-        {{ content }}
+
+        <div class="page-title">
+          {{page.title}}
+        </div>
+
+        <div>
+          {{ content }}
+        </div>
       </section>
     </main>
     {%- if site.plainwhite.analytics_id -%}

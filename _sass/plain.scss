@@ -65,6 +65,10 @@ main {
     margin: 0;
   }
 
+  .page-title {
+    height: 200px;
+  }
+
   .content {
     @media screen and (min-width: $mobileW + 1) {
       max-width: calc(100% - #{$leftWidth});
@@ -72,6 +76,7 @@ main {
       width: 100%;
     }
   }
+  
   .about {
     display: flex;
     height: 100vh;
@@ -81,7 +86,7 @@ main {
       padding: 10vh 0;
     }
     @media screen and (min-width: $mobileW + 1) {
-      position: fixed;
+      width: 285px;
       max-width: 285px;
     }
     min-width: $leftWidth;
