@@ -4,6 +4,16 @@
     {%- include head.html -%}
   </head>
   <body>
+    <div class="suci-nav suci-cont__center">
+      <div class="suci-cont__def">
+        <nav>
+          {%- for el in site.plainwhite.navigation -%}
+            <a href="/{{ el }}">{{ el }}</a>
+
+          {%- endfor -%}
+        </nav>
+      </div>
+    </div>
     <main class="container">
       <section class="about">
         <a href="/"><img class="def-lay-profile-image" src="{{ "/assets/portfolio.jpg" | relative_url }}" alt="{{ site.plainwhite.name }}"></a>
