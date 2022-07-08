@@ -15,7 +15,7 @@
       </div>
     </div>
     <main class="container">
-      <section class="about">
+      <aside class="about">
         <a href="/"><img class="def-lay-profile-image" src="{{ "/assets/portfolio.jpg" | relative_url }}" alt="{{ site.plainwhite.name }}"></a>
         <div class="container badges-box">
           <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/telefonosuci?style=for-the-badge">
@@ -103,8 +103,9 @@
         {%- endif -%}
 
         <p>&copy;
-          {{ "now" | date: "%Y" }}</p>
-      </section>
+          {{ "now" | date: "%Y" }}
+        </p>
+      </aside>
       <section class="content">
         {{ content }}
 
