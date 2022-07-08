@@ -280,3 +280,15 @@ main {
     height: 150px;
     border-radius: 75px;
 }
+
+.tutorial-container {
+  @media screen and (min-width: $mobileW + 1) {
+    margin-top: $leftWidth;
+  }
+}
+
+.tutorial-link {
+  @media screen and (min-width: $mobileW + 1) {
+    padding: 0 32px;
+  }
+}
