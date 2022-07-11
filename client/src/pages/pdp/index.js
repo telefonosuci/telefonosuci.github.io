@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     rComponents: cList
   });
 
-  console.log("LOADING PDP");
+  console.log("LOADING PDP, will become load post");
   // pdp.load();
 
 });
