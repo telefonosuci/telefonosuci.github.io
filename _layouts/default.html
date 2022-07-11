@@ -4,12 +4,11 @@
     {%- include head.html -%}
   </head>
   <body>
-    <div class="suci-nav suci-cont__center">
-      <div class="suci-cont__def">
-        <nav>
+    <div class="suc-navbar suc-cont__center">
+      <div class="suc-cont__def">
+        <nav class="suc-navbar__nav">
           {%- for el in site.plainwhite.navigation -%}
-            <a href="/{{ el }}">{{ el }}</a>
-
+            <a href="/{{ el.url }}">{{ el.name }}</a>
           {%- endfor -%}
         </nav>
       </div>
@@ -18,8 +17,8 @@
       <aside class="about">
         <a href="/"><img class="def-lay-profile-image" src="{{ "/assets/portfolio.jpg" | relative_url }}" alt="{{ site.plainwhite.name }}"></a>
         <div class="container badges-box">
-          <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/telefonosuci?style=for-the-badge">
-          <img alt="GitHub followers" src="https://img.shields.io/github/followers/telefonosuci?style=for-the-badge">  
+          <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/telefonosuc?style=for-the-badge">
+          <img alt="GitHub followers" src="https://img.shields.io/github/followers/telefonosuc?style=for-the-badge">  
         </div>
         <h2 id="title">
           <a href="/">{{ site.plainwhite.name }}</a>
@@ -90,17 +89,6 @@
             </a>
           {%- endif -%}
         </ul>
-        {%- if site.plainwhite.navigation -%}
-          <nav class="navigation">
-            <ul>
-              {% for link in site.plainwhite.navigation %}
-                <li>
-                  <a href="{{ link.url }}">{{ link.title }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </nav>
-        {%- endif -%}
 
         <p>&copy;
           {{ "now" | date: "%Y" }}

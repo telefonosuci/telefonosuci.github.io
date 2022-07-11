@@ -1,0 +1,19 @@
+.suc-navbar {
+  background-color: black;
+  color: white;
+  padding: 8px;
+
+
+  &__nav {
+    a {
+      color: white;
+      text-decoration: none;
+      margin-right: 8px;
+    }
+  
+    a:visited {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
