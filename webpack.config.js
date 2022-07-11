@@ -2,20 +2,20 @@ const path = require("path");
 // const scss = require("./client/webpack/scss");
 const entry = require("./client/webpack/entries").entry;
 const aliases = require("./client/webpack/aliases");
-// const copyAssets = require('./client/webpack/copyAssets');
+const rootPath = require('./client/webpack/rootPath');
 
 // entry.scss = './src/style/sass/main.scss';
 
 console.log("Webpack entries: ", entry);
 
-module.exports = {
-  watch: true,
+module.exports = env => ({
+  watch: Boolean(env.watch),
   mode: "development",
   entry,
   devtool: 'inline-source-map',
   output: {
-    path: path.resolve("assets"),
-    filename: "[name]-page-bundle.js",
+    path: rootPath.bundleDestination,
+    filename: "[name]-bundle.js",
   },
   resolve: {
     alias: aliases,
@@ -48,4 +48,4 @@ module.exports = {
     ]
   },
   // plugins: [...scss.plugins, ...copyAssets.plugins],
-};
+});

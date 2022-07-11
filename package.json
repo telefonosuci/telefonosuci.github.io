@@ -1,13 +1,14 @@
 {
-  "name": "webar-shopify-theme",
-  "description": "Custom Shopify theme",
+  "name": "github-site-client",
+  "description": "Github site client",
   "version": "1.0.0",
   "engines": {
     "node": "17.4.0",
     "npm": "8.3.1"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --config webpack.config.js --env watch=true"
   },
   "repository": {
     "type": "git",
@@ -21,9 +22,13 @@
   },
   "homepage": "https://github.com/webar-52100/webar-shopify",
   "dependencies": {
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/preset-react": "^7.18.6",
     "babel-loader": "^8.2.5",
     "eslint-loader": "^4.0.2",
     "webpack": "^5.73.0",

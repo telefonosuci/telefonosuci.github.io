@@ -10,13 +10,14 @@ const vendor = 'vendors';
 const entriesNames = [
   // FFRONTEND SECTIONS ENTRIES //
   'home',
+  'pdp',
 ];
 
 const entry = {};
 
 entriesNames.forEach(name => {
   console.log('Building: ', name);
-  entry[name] = path.join(root, '/src/pages/', name, '/index.js');
+  entry[name] = path.join(root, 'src/pages/', name, '/index.js');
 });
 
 entry[vendor] = vendorsLibraries;
