@@ -69,7 +69,6 @@ main {
   }
 
   .page-title {
-    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,7 +97,7 @@ main {
     
     @media screen and (max-width: $mobileW) {
       height: auto;
-      padding: 10vh 0;
+      padding: 6vh 0;
     }
     
     @media screen and (min-width: $mobileW + 1) {
