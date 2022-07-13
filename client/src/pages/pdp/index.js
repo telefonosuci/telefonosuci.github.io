@@ -2,6 +2,8 @@ import React from 'react';
 import Page from '@App/page.js';
 import TextBanner from '@/components/text-banner/TextBanner';
 
+import init, {greet} from "@Lib/hello-wasm/hello_wasm.js";
+     
 document.addEventListener('DOMContentLoaded', () => {
   
   const cList = [
@@ -17,6 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   console.log("LOADING PDP, will become load post");
-  // pdp.load();
+  pdp.load();
 
 });
