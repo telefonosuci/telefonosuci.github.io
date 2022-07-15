@@ -1,5 +1,4 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const StyleLintPlugin = require("stylelint-webpack-plugin");
 
 module.exports = {
   rule: {
@@ -14,6 +13,5 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin(),
-    new StyleLintPlugin(),
   ],
 };

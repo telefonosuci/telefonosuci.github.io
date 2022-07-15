@@ -1,5 +1,5 @@
 const path = require("path");
-// const scss = require("./client/webpack/scss");
+const scss = require("./client/webpack/scss");
 const entry = require("./client/webpack/entries").entry;
 const aliases = require("./client/webpack/aliases");
 const rootPath = require('./client/webpack/rootPath');
@@ -31,13 +31,13 @@ module.exports = env => ({
       },
       {
         test: /\.css$/,
-        // exclude: /(node_modules)/, // Remove this 
+        // exclude: / (node_modules)/, // Remove this 
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
         ],
-      },
-      // scss.rule,
+      }
+      //scss.rule,
       /*
       {
         test: /\.(jpg|jpeg|png|woff|woff2|eot|ttf|svg)$/,

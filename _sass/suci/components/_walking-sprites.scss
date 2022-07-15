@@ -1,0 +1,55 @@
+.walking-sprites {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__usefull-objects {
+    border: 2px solid blue;
+    border-radius: 4px;
+    max-width: 256px;
+    padding: 10px;
+    min-height: 88px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  &__assigned-objects {
+    border: 2px solid red;
+    border-radius: 4px;
+    display: flex;
+    padding: 10px;
+    min-height: 88px;
+  }
+
+  &__sprites-navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    padding: 20px;
+  }
+}
+
+.walking-sprites h1 {
+  text-align: center;
+}
+
+/*
+    Custom changes for object list
+  */
+
+.ObjectDraggable {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin: 0 4px;
+  background: url('https://i.pinimg.com/564x/a3/82/c8/a382c8bf0e2ea05d2fc18d75b3bb7fe9.jpg');
+  overflow: hidden;
+
+  &.object-pizza {
+    background-position: -20px -4px;
+  }
+}

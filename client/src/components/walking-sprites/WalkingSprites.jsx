@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { v4 } from 'uuid'
 import Dragula from 'dragula'
 
-import './WalkingSprites.module.css'
 
 const initialState = {
   spritesRed: {
@@ -111,7 +110,7 @@ const initialState = {
 
 };
 
-const WalkingSprites = (props) => {
+const WalkingSprites = ({props}) => {
   
   const [stateSpriteIndex, setStateSpriteIndex] = useState(0)
   const [powersState, setPowerState] = useState(initialState.spritesRed.sprites[stateSpriteIndex].powers)
