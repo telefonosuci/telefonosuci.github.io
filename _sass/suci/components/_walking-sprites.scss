@@ -3,24 +3,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 32px;
 
   &__usefull-objects {
-    border: 2px solid blue;
+    border: 2px solid $netar-smooth-black;
     border-radius: 4px;
-    max-width: 256px;
+    width: 356px;
     padding: 10px;
     min-height: 88px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    text-align: center;
+    display: flex;
+    justify-content: center;
   }
 
   &__assigned-objects {
-    border: 2px solid red;
+    border: 2px solid $netar-yellow;
     border-radius: 4px;
     display: flex;
     padding: 10px;
     min-height: 88px;
+    width: 356px;
+    display: flex;
+    justify-content: center;
   }
 
   &__sprites-navigation {

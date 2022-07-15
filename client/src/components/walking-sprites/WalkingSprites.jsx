@@ -186,7 +186,7 @@ const WalkingSprites = ({props}) => {
       </div>
 
       <div className="walking-sprites__sprites-navigation">
-        <span onClick={setPreviousActive}>Previous</span><span onClick={logPowers}>Log powers</span><span onClick={setNextActive}>Next</span>
+        <span onClick={setPreviousActive}>&lt; Previous</span><span onClick={setNextActive}>Next &gt;</span>
       </div>
 
       <div className="walking-sprites__assigned-objects drag-n-drop">
