@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { v4 } from 'uuid'
-import React from "react"
-import { useState } from 'react'
 import Dragula from 'dragula'
+
 import './WalkingSprites.module.css'
 
 const initialState = {
