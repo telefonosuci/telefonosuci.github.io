@@ -113,6 +113,7 @@ const initialState = {
 const WalkingSprites = ({props}) => {
   
   const [stateSpriteIndex, setStateSpriteIndex] = useState(0)
+  /*
   const [powersState, setPowerState] = useState(initialState.spritesRed.sprites[stateSpriteIndex].powers)
 
   useEffect(() => {
@@ -125,7 +126,7 @@ const WalkingSprites = ({props}) => {
   useEffect(() => {
     setPowerState(initialState.spritesRed.sprites[stateSpriteIndex].powers)
   }, [stateSpriteIndex]);
-
+*/
   const setPreviousActive = () => {
     if (stateSpriteIndex > 0)
       setStateSpriteIndex(stateSpriteIndex - 1);
@@ -135,7 +136,7 @@ const WalkingSprites = ({props}) => {
     if (stateSpriteIndex < initialState.spritesRed.sprites.length - 1)
       setStateSpriteIndex(stateSpriteIndex + 1);
   }
-
+/*
   const logPowers = () => {
     console.log('Current powers: ', powersState);
   }
@@ -152,7 +153,7 @@ const WalkingSprites = ({props}) => {
 /**
  * 
  * TODO: Only the last item get added to powers and chart is not updated correctly
- */
+ *
   const updatePowers = powers => {
     console.log('Current powers: ', powersState)
     console.log('Plus: ', powers)
@@ -172,10 +173,13 @@ const WalkingSprites = ({props}) => {
   useEffect(() => {
     console.log('Powers updated, effect triggered (update chart now): ', powersState);
   }, [powersState]);
-
+*/
   return (
     <div className="walking-sprites">
       
+      <div className='walking-sprites__header-text'>
+        <h1>Scegli il tuo sviluppatore ideale e compila il form!</h1>
+      </div>
 
       <div className="Character Character--walk-down">
 
@@ -189,6 +193,8 @@ const WalkingSprites = ({props}) => {
         <span onClick={setPreviousActive}>&lt; Previous</span><span onClick={setNextActive}>Next &gt;</span>
       </div>
 
+
+      {/*
       <div className="walking-sprites__assigned-objects drag-n-drop">
       </div>
 
@@ -198,6 +204,7 @@ const WalkingSprites = ({props}) => {
           <span key={index} className={`ObjectDraggable object-${object.name}`} data-object-id={index}></span>
         ))}
       </div>
+      */}
       
     </div>
   );

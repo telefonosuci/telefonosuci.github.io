@@ -5,6 +5,12 @@
   align-items: center;
   margin-bottom: 32px;
 
+  &__header-text {
+    h1 {
+      line-height: 32px;
+    }
+  }
+
   &__usefull-objects {
     border: 2px solid $netar-smooth-black;
     border-radius: 4px;
