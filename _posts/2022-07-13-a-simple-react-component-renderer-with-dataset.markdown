@@ -5,8 +5,6 @@ date:   2020-07-13 21:03:36 +0530
 categories: Frontend
 ---
 
-# A simple React component renderer with dataset
-
 In a frontend application is nice to have a single object that is thacking care of the rendering of your components. So we can build a little framework and give a bit of structure to our application avoiding the repetition of same logic in our code.
 
 ```javascript
