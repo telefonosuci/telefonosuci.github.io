@@ -3,6 +3,7 @@ const path = require("path");
 const entry = require("./client/webpack/entries").entry;
 const aliases = require("./client/webpack/aliases");
 const rootPath = require('./client/webpack/rootPath');
+const copyAssets = require('./client/webpack/copyAssets');
 
 // entry.scss = './src/style/sass/main.scss';
 
@@ -28,6 +29,14 @@ module.exports = env => ({
         exclude: /node_modules/,
         use: ["babel-loader", "eslint-loader"],
       },
+      {
+        test: /\.css$/,
+        // exclude: /(node_modules)/, // Remove this 
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+        ],
+      },
       // scss.rule,
       /*
       {
@@ -47,5 +56,5 @@ module.exports = env => ({
       */
     ]
   },
-  // plugins: [...scss.plugins, ...copyAssets.plugins],
+  plugins: [...copyAssets.plugins],
 });

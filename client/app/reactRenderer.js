@@ -4,7 +4,9 @@ import { createRoot } from 'react-dom/client';
 class Renderer {
   static render(el) {
 
-    const container = document.getElementById(el.selector)
+    const container = document.getElementById(el.selector);
+    console.log("contatore cont: ", container);
+   
     const root = createRoot(container);
     // Initial render: Render an element to the root.
     console.log("RENDERING: ", el.selector);
@@ -13,6 +15,9 @@ class Renderer {
     
 
     root.render(<el.component props={container.dataset}></el.component>);
+
+
+    
   }
 }
 

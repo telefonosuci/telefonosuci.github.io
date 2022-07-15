@@ -19,6 +19,8 @@ class Page {
     
     if(this._autoloadReact){
       this._autoloadReact.forEach(el => {
+
+        
         Renderer.render(el);
       });
     }
