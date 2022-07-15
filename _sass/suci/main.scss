@@ -1,9 +1,11 @@
 @import "./base/variables";
 @import "./base/containers";
 @import "./base/typo";
+@import "./base/mixins";
 
 @import "./vendor/walking-sprites";
 
 @import "./components/navbar";
 @import "./components/walking-sprites";
 
+@import "./pages/contact";
