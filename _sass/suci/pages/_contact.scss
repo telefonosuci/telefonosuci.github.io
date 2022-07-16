@@ -1,6 +1,6 @@
 .page-contact {
   &__formContainer {
-    @include sm {
+    @include media-only-sm {
       padding: 0 20px;
     }
   }

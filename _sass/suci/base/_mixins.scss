@@ -1,6 +1,6 @@
 // Small devices
-@mixin media-sm {
-  @media (min-width: #{$screen-sm-min}) {
+@mixin media-only-sm {
+  @media (max-width: #{$screen-sm-min}) {
       @content;
   }
 }
