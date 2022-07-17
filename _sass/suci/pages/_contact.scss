@@ -2,10 +2,10 @@
   &__formContainer {
     @include media-only-sm {
       padding: 0 20px;
-    }
-
-    .btn-primary {
-      width: 100%;
+      
+      & .btn-primary {
+        width: 100%;
+      }
     }
   }
 }
