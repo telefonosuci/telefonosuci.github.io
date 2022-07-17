@@ -3,5 +3,10 @@
     @include media-only-sm {
       padding: 0 20px;
     }
+
+    .btn.btn-primary.btn-md {
+      width: 100%;
+    }
+
   }
 }
