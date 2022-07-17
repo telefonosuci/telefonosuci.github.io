@@ -11,7 +11,7 @@ sass:
   sass_dir: _sass
 plainwhite:
   name: Enrico Succhielli
-  tagline: Full Metal Jacket Developer
+  tagline: Pixel maniac web Developer
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
   navigation: 
