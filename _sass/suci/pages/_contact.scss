@@ -4,7 +4,7 @@
       padding: 0 20px; 
     }
 
-    & .btn-primary {
+    .btn-primary {
       @include media-only-sm {
         width: 100%; 
       }
