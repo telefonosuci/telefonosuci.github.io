@@ -1,10 +1,12 @@
 .page-contact {
   &__formContainer {
     @include media-only-sm {
-      padding: 0 20px;
-      
-      & .btn-primary {
-        width: 100%;
+      padding: 0 20px; 
+    }
+
+    & .btn-primary {
+      @include media-only-sm {
+        width: 100%; 
       }
     }
   }
