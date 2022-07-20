@@ -1,4 +1,19 @@
 .suc-cont {
+
+  margin: 0 auto;
+  
+  @include media-xl {
+    max-width: 1200px;
+  } 
+
+  @include media-lg {
+    max-width: 800px;
+  } 
+
+  @include media-md {
+    max-width: 600px;
+  }
+
   &__center {
     text-align: center;
   }
