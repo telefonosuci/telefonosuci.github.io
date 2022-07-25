@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/webar-52100/webar-shopify",
   "dependencies": {
+    "bootstrap": "^5.2.0",
     "chart.js": "^3.8.0",
     "dragula": "^3.7.3",
     "prop-types": "^15.8.1",

@@ -3,6 +3,7 @@ const { root } = require('./rootPath');
 
 const vendorsLibraries = [
   'react',
+  'bootstrap'
 ];
 
 const vendor = 'vendors';
