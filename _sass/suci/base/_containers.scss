@@ -1,7 +1,8 @@
 .suc-cont {
 
   margin: 0 auto;
-  
+  padding: 16px;
+
   @include media-xl {
     max-width: 1200px;
   } 
