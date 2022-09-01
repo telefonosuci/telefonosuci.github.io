@@ -7,11 +7,11 @@
   } 
 
   @include media-lg {
-    max-width: 800px;
+    max-width: 1000px;
   } 
 
   @include media-md {
-    max-width: 600px;
+    max-width: 800px;
   }
 
   &__center {
