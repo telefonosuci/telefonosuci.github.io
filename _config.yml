@@ -8,7 +8,12 @@ show_excerpts: true # set to true to show excerpts on the homepage
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
 sass:
-  sass_dir: _sass
+  # sass_dir: _sass
+  load_paths:
+      - _sass
+      - node_modules
+
+include: ["node_modules"]
 plainwhite:
   name: Enrico Succhielli
   tagline: Pixel maniac web Developer
@@ -47,3 +52,7 @@ plainwhite:
 plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
+  - jekyll-multiple-languages-plugin
+
+# The first item of languages will be used as the default.
+languages: ["en", "it"]

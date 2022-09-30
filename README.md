@@ -14,5 +14,5 @@ Thanks to [thelehhman.com](https://thelehhman.com) for theme template.
 
 ### run Jekyll
 
-``` bundle exec jekyll server ```
+``` bundle exec jekyll serve ```
 
