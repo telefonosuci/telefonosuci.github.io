@@ -5,19 +5,20 @@
   </head>
   <body>
     <div class="suc-navbar suc-cont__center">
-      <div class="suc-cont__def">
+      <div class="suc-cont suc-cont__def suc-navbar__container">
         <nav class="suc-navbar__nav">
           {%- for el in site.plainwhite.navigation -%}
             <a href="/{{ el.url }}">{{ el.name }}</a>
           {%- endfor -%}
         </nav>
+      
+        <div class="language-bar">
+          <a href="/en"><img src="{{ "/assets/icons/icons8-gran-bretagna-48.png" | relative_url }}" /></a>
+          <a href="/it"><img src="{{ "/assets/icons/icons8-italy-48.png" | relative_url }}" /></a>
+        </div>
       </div>
     </div>
 
-    <div class="suc-cont">
-      <a href="/en"><img src="{{ "/assets/icons/icons8-gran-bretagna-48.png" | relative_url }}" /></a>
-
-    </div>
     <main class="suc-cont">      
       <aside class="about suc-about">
         <a href="/"><img class="def-lay-profile-image" src="{{ "/assets/portfolio.jpg" | relative_url }}" alt="{{ site.plainwhite.name }}"></a>
