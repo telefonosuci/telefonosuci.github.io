@@ -9,7 +9,7 @@ const initialState = {
     id: 0,
     sprites: [{
       id: v4(),
-      image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/WalkingDemo-ZAK-SHEET.png",
+      image: "/assets/images/sprites/WalkingDemo-ZAK-SHEET.png",
       active: true,
       powers: {
         coding: 10,
@@ -21,7 +21,7 @@ const initialState = {
     },
     {
       id: v4(),
-      image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/WalkingDemo-HANK-2-SHEET.png",
+      image: "/assets/images/sprites/WalkingDemo-HANK-2-SHEET.png",
       active: false,
       powers: {
         coding: 10,
@@ -33,7 +33,7 @@ const initialState = {
     },
     {
       id: v4(),
-      image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/WalkingDemo-EMMY-SHEET.png",
+      image: "/assets/images/sprites/WalkingDemo-EMMY-SHEET.png",
       active: false,
       powers: {
         coding: 10,
@@ -45,7 +45,7 @@ const initialState = {
     },
     {
       id: v4(),
-      image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/WalkingDemo-BEAR-SHEET.png",
+      image: "/assets/images/sprites/WalkingDemo-BEAR-SHEET.png",
       active: false,
       powers: {
         coding: 10,
