@@ -55,4 +55,5 @@ plugins:
   - jekyll-multiple-languages-plugin
 
 # The first item of languages will be used as the default.
+lang: en
 languages: ["en", "it"]

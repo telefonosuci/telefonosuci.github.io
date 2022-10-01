@@ -24,4 +24,10 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .language-bar {
+    .language-image {
+      height: 32px;
+    }
+  }
 }

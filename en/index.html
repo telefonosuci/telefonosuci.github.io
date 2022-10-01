@@ -1,15 +1,12 @@
 ---
 layout: default
+lang: en
 ---
-<!--
-<script src="{{ "/assets/bundles/home-bundle.js" | relative_url }}"></script>
--->
+
 {%- if page.title -%}
   <h1 class="page-heading">{{ page.title }}</h1>
 {%- endif -%}
 
-
-{{ content }}
 
 {%- if site.posts.size > 0 -%}
   <ul class="posts">
@@ -17,7 +14,15 @@ layout: default
       <h1 id="posts-label">posts</h1>
     </li>
 
-    {%- for post in site.posts -%}
+    <li>
+      <p>lang: {{ page.lang }}</p>
+     
+    </li>
+    
+    {% assign selectedPosts = site.posts | where:"lang", page.lang %}
+
+
+    {%- for post in selectedPosts -%}
       <li>
         {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
         <a class="post-link" href="{{ post.url | relative_url }}">

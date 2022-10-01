@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "Chatbots"
+title:  "Chatbot. A cosa serve ? Può servirmi ?"
 date:   2019-03-23 21:03:36 +0530
 categories: Services
+lang: it
 ---
 
 Realiziamo chatbot personalizzati per qualsiasi attivià. Dal semplice bot che permette di ricevere il menù del giorno per il tuo ristorante al più complesso che permette di prenere un'appuntamento in linguaggio umano consultando gli slot liberi nella tua agenda.

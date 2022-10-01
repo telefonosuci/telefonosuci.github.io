@@ -1,8 +1,9 @@
 ---
 layout: tutorial
-title:  "Simple React countdown"
+title:  "Componente React per un conto alla rovescia"
 date:   2022-05-09 21:03:36 +0530
 categories: Tutorials
+lang: it
 ---
 A simple React countdown...
 
