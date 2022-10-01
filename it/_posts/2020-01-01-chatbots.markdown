@@ -4,7 +4,8 @@ title:  "Chatbots"
 date:   2019-03-23 21:03:36 +0530
 categories: Services
 ---
-We can create your own customized chatbot.
+
+Realiziamo chatbot personalizzati per qualsiasi attivià. Dal semplice bot che permette di ricevere il menù del giorno per il tuo ristorante al più complesso che permette di prenere un'appuntamento in linguaggio umano consultando gli slot liberi nella tua agenda.
 
 ```javascript
 console.log('Hi');
