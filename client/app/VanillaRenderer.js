@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-class Renderer {
+class VanillaRenderer {
   static render(el) {
 
     const container = document.getElementById(el.selector);
@@ -21,4 +21,4 @@ class Renderer {
   }
 }
 
-export default Renderer;
+export default VanillaRenderer;

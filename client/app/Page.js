@@ -1,4 +1,4 @@
-import Renderer from "./reactRenderer";
+import Renderer from "./ReactRenderer";
 
 class Page {
   

@@ -1,6 +1,7 @@
 import React from 'react';
-import Page from '@App/page.js';
+import Page from '@App/Page';
 import TextBanner from '@/components/text-banner/TextBanner';
+import SwiperSection from '@/components/swiper-section/SwiperSection';
      
 document.addEventListener('DOMContentLoaded', () => {
   
@@ -10,9 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
       component: TextBanner
     }
   ]
+
+  const vList = [
+    {
+      selector: 'js-swiper-section',
+      component: SwiperSection
+    }
+  ]
   
   const pdp = new Page({
-    vComponents: [],
+    vComponents: vList,
     rComponents: cList
   });
 

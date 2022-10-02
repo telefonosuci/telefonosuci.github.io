@@ -20,9 +20,9 @@ plainwhite:
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
   navigation: 
-    - name: contact
+    - name: Contact
       url: contact
-    - name: about
+    - name: About
       url: about
   
   # generate social links in footer

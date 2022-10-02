@@ -1,5 +1,5 @@
 import React from 'react';
-import Page from '@App/page.js';
+import Page from '@App/Page';
 import TextBanner from '@/components/text-banner/TextBanner';
      
 document.addEventListener('DOMContentLoaded', () => {

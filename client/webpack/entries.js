@@ -10,7 +10,7 @@ const vendor = 'vendors';
 
 const entriesNames = [
   // FFRONTEND SECTIONS ENTRIES //
-  'home',
+  'homepage',
   'contact',
 ];
 

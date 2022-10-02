@@ -108,6 +108,29 @@
 
     </main>
 
+
+    <div class="home-section"> 
+      <h3>SERVIZI</h3>
+
+      <div class="swiper swiper-section js-swiper-section">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 4</div>
+          <div class="swiper-slide">Slide 5</div>
+          <div class="swiper-slide">Slide 6</div>
+          <div class="swiper-slide">Slide 7</div>
+          <div class="swiper-slide">Slide 8</div>
+          <div class="swiper-slide">Slide 9</div>
+        </div>
+        <div class="swiper-pagination js-swiper-pagination"></div>
+      </div>
+    </div>
+
+
+
+
     <footer>
       {%- include footer.html -%}
     </footer>
@@ -117,12 +140,16 @@
     {%- if site.plainwhite.analytics_id -%}
       <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.plainwhite.analytics_id }}"></script>
       <script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-		gtag('config', '{{ site.plainwhite.analytics_id }}');
-	</script>
+        gtag('config', '{{ site.plainwhite.analytics_id }}');
+      </script>
     {%- endif -%}
   </body>
+
+
+  <script src="{{ "/assets/bundles/home-bundle.js" | relative_url }}"></script>
+
 </html>
