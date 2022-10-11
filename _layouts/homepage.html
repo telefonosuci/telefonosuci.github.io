@@ -153,14 +153,9 @@
       </script>
     {%- endif -%}
 
-
-
-    <div class="suc-sticky-alert">
-      <a href="/info"></span><img src="{{ "/assets/images/icons8-cookie-64.png" | relative_url }}" /></span> <span>Cookie-free site</span></a>
-    </div>
+    {% include components/sticky-notification.html %}
 
   </body>
-
 
   <script src="{{ "/assets/bundles/home-bundle.js" | relative_url }}"></script>
 

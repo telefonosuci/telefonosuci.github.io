@@ -6,7 +6,8 @@ categories: Services
 lang: en
 ---
 
-Chatbots have been around in various forms since 1966. Only recently have companies learned to use them for numerous business purposes such as Customer Support, Sales, payment collection and increased social media engagement. Are chatbots only feasible for big businesses with large budgets and a large number of customers or should SMBs seriously consider them? According to a study by Oracle, 80% of businesses already use chatbots or plan to use them by 2024. With this much popularity and their benefits why not have one working for your business too?
+Chatbots have been around for a while in various forms. Only recently companies have learned how to use them for numerous business purposes, such as Customer Support, Sales, payment collection and increased social media engagement.
+Are chatbots only feasible for big businesses with large budgets and a large number of customers or should SMBs seriously consider them? According to a study by Oracle, 80% of businesses already use chatbots or plan to use them by 2024. With this much popularity and their benefits why not have one working for your business too?
 
 ### What is a chatbot?
 

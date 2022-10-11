@@ -1,6 +1,5 @@
 .suc-sticky-alert {
   width: 300px;
-  height: 200px;
   border-radius: 22px;
   position: fixed;
   left: 20px;
@@ -10,4 +9,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: white;
+
+
+  @include media-xl {
+    left: 200px;
+  }
+
+  &__head {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+  }
+
+  .close {
+    cursor: pointer;
+  }
 }

@@ -3,11 +3,13 @@
 @import "./base/containers";
 @import "./base/typo";
 @import "./base/overrides";
+@import "./base/typography";
 
 @import "./components/navbar";
 @import "./components/walking-sprites";
 @import "./components/home-section";
 @import "./components/sticky-alert";
+@import "./components/links";
 
 @import "./pages/page";
 @import "./pages/contact";
