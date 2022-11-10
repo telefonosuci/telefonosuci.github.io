@@ -1,0 +1,14 @@
+.suc-footer {
+  background-color: $netar-black;
+  color: $netar-white;
+  display: flex;
+  justify-content: center;
+  min-height: 300px;
+
+  &__inner-container {
+
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+  }
+}
