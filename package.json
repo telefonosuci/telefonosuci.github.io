@@ -27,6 +27,7 @@
     "bootstrap": "^5.2.0",
     "chart.js": "^3.8.0",
     "dragula": "^3.7.3",
+    "grapejs": "^2.1.2",
     "lbh-frontend": "^3.6.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
