@@ -16,15 +16,16 @@ sass:
 include: ["node_modules"]
 plainwhite:
   name: Enrico Succhielli
+  disqus_shortname: sucisuci
   tagline: Pixel maniac web Developer
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
-  navigation: 
+  navigation:
     - name: Contact
       url: contact
     - name: About
       url: about
-  
+
   # generate social links in footer
   social_links:
     twitter: enricolebanane
