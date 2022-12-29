@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 ---
 {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
 <div class="tutorial-container">
@@ -22,7 +23,8 @@ layout: default
     <script>
       var disqus_config = function () {
         this.page.url = '{{ page.url | absolute_url }}';
-        this.page.identifier = '{{ page.url | absolute_url }}';
+        this.page.identifier = '{{ page.id }}';
+        this.page.title = '{{ page.title }}';
       };
       (function () {
         var d = document, s = d.createElement('script');
