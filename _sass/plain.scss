@@ -75,12 +75,12 @@ main {
       width: 70%;
     }
   }
-  
+
   .about {
 
     .badges-box {
       display: flex;
-      
+
       img {
         margin: 4px;
       }
@@ -88,22 +88,22 @@ main {
 
     display: flex;
     padding-bottom: 15vh;
-    
+
     @media screen and (max-width: $mobileW) {
       height: auto;
       padding: 6vh 0;
     }
-    
+
     @media screen and (min-width: ($mobileW + 1)) {
       width: 30%;
       max-width: 285px;
     }
 
-    min-width: $leftWidth;
+    // min-width: $leftWidth;
     justify-content: center;
     flex-direction: column;
-    align-items: center;    
-    
+    align-items: center;
+
     h2 {
       font-size: 22px;
       margin-top: 25px;
@@ -111,7 +111,7 @@ main {
       color: #222222;
       font-weight: normal;
     }
-    
+
     .tagline {
       font-size: 22px;
       margin-top: 17px;
@@ -119,7 +119,7 @@ main {
       white-space: pre-wrap;
       line-height: normal;
     }
-    
+
     img {
       max-width: 150px;
     }
@@ -193,7 +193,7 @@ main {
     background-color: #e3e3e3;
     padding: 5px 20px;
     border-radius: 2px;
-    
+
     @media screen and (max-width: $mobileW) {
       margin-top: 5px;
     }
@@ -254,7 +254,7 @@ main {
   font-weight: 300;
   color: #222;
   line-height: 1.9em;
-  
+
   a {
     color: $linkColor;
     text-decoration: none;
