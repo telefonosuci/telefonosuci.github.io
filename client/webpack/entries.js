@@ -9,6 +9,7 @@ const vendorsLibraries = [
 const vendor = 'vendors';
 
 const entriesNames = [
+  'global',
   // FFRONTEND SECTIONS ENTRIES //
   'homepage',
   'contact',
