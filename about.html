@@ -3,3 +3,45 @@ layout: page
 title: About
 ---
 
+
+<style>
+  .swiper {
+    width: 600px;
+    height: 300px;
+  }
+  .swiper-slide {
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+<h2>I can help you with:</h2>
+<div class="js-swiper-section">
+  <!-- Slider main container -->
+  <div id="js-swiper-technology-section" class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">Build up your company website.</div>
+      <div class="swiper-slide">create an online store and rise visibility.</div>
+      <div class="swiper-slide">Crate a custom chat-bot to help you with your business daily routines.</div>
+    </div>
+
+    <!-- If we need navigation buttons --
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    -->
+  </div>
+</div>
+
+
+<div id="js-webar-r-about-hero-component">
+
+</div>
+
+
+<script src="{{ "/assets/bundles/about-bundle.js" | relative_url }}"></script>

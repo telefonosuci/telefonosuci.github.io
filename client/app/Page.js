@@ -1,27 +1,27 @@
-import Renderer from "./ReactRenderer";
+import ReactRenderer from "./ReactRenderer";
+import VanillaRenderer from "./ReactRenderer";
 
 class Page {
-  
+
   constructor({vComponents, rComponents}) {
     this._autoloadVanilla = vComponents;
     this._autoloadReact = rComponents;
   }
 
-  load() { 
+  load() {
 
     console.log("LOADING PAGE");
 
-    if(this._autoloadVanilla){
-      this._autoloadReact.forEach(el => {
-        Renderer.render(el);
+    if (this._autoloadVanilla){
+      this._autoloadVanilla.forEach(el => {
+        VanillaRenderer.render(el);
       });
     }
-    
+
+
     if(this._autoloadReact){
       this._autoloadReact.forEach(el => {
-
-        
-        Renderer.render(el);
+        ReactRenderer.render(el);
       });
     }
   }

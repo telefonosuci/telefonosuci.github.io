@@ -111,7 +111,7 @@ const initialState = {
 };
 
 const WalkingSprites = ({props}) => {
-  
+
   const [stateSpriteIndex, setStateSpriteIndex] = useState(0)
   /*
   const [powersState, setPowerState] = useState(initialState.spritesRed.sprites[stateSpriteIndex].powers)
@@ -142,7 +142,7 @@ const WalkingSprites = ({props}) => {
   }
 
   const onDrop = el => {
-    
+
     const { objectId } = el.dataset;
 
     console.log('Dropped object ID: ', objectId);
@@ -151,7 +151,7 @@ const WalkingSprites = ({props}) => {
   }
 
 /**
- * 
+ *
  * TODO: Only the last item get added to powers and chart is not updated correctly
  *
   const updatePowers = powers => {
@@ -176,7 +176,7 @@ const WalkingSprites = ({props}) => {
 */
   return (
     <div className="walking-sprites">
-      
+
       <div className='walking-sprites__header-text'>
         <h1>Scegli il tuo sviluppatore ideale e compila il form!</h1>
       </div>
@@ -190,7 +190,7 @@ const WalkingSprites = ({props}) => {
       </div>
 
       <div className="walking-sprites__sprites-navigation">
-        <span onClick={setPreviousActive}>&lt; Previous</span><span onClick={setNextActive}>Next &gt;</span>
+        <span onClick={setPreviousActive}>&lt;</span><span onClick={setNextActive}>&gt;</span>
       </div>
 
 
@@ -205,7 +205,7 @@ const WalkingSprites = ({props}) => {
         ))}
       </div>
       */}
-      
+
     </div>
   );
 }

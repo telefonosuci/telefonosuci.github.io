@@ -13,6 +13,7 @@ const entriesNames = [
   // FFRONTEND SECTIONS ENTRIES //
   'homepage',
   'contact',
+  'about',
 ];
 
 const entry = {};

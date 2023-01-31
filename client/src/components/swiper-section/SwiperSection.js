@@ -1,24 +1,30 @@
-import Swiper from 'swiper'
+import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
+import 'swiper/css';
 
 export default class SwiperSection {
 
-  constructor(selector, scrollbarSelector){
-    this.selector = selector
-    this.scrollbarSelector = scrollbarSelector 
-    this.instance = null
+  constructor(selector){
+    this.selector = selector;
+    this.instance = null;
   }
 
   render() {
 
+    console.log("Rendering swiper:", this.selector);
     let swiper = new Swiper(this.selector, {
-      scrollbar: {
-        el: this.scrollbarSelector,
-        hide: true,
+      loop: true,
+      modules: [Navigation, Pagination, Autoplay],
+      /* Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      */
+      autoplay: {
+        delay: 5000,
       },
      });
 
-    this.instance = swiper
-    
-    return this.instance
+     this.instance = swiper;
   }
 }
