@@ -1,4 +1,3 @@
-const path = require("path");
 const scss = require("./client/webpack/scss");
 const entry = require("./client/webpack/entries").entry;
 const aliases = require("./client/webpack/aliases");
@@ -33,7 +32,7 @@ module.exports = env => ({
       },
       {
         test: /\.css$/,
-        // exclude: / (node_modules)/, // Remove this 
+        // exclude: / (node_modules)/, // Remove this
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
@@ -46,7 +45,7 @@ module.exports = env => ({
         options: 'url-loader?limit=100000'
       },
       */
-     /* 
+     /*
       {
         test: /\.(woff(2)?|ttf|eot|jpg|jpeg|png|)(\?v=\d+\.\d+\.\d+)?$/,
         use: [

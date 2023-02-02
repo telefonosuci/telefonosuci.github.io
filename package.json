@@ -35,7 +35,8 @@
     "react-dom": "^18.2.0",
     "sucipack": "^0.1.0",
     "swiper": "^8.4.7",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@babel/plugin-syntax-jsx": "^7.18.6",

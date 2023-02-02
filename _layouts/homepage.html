@@ -1,9 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     {%- include head.html -%}
   </head>
+
   <body>
+
+    <style>
+      .slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 500%;
+        height: 100%;
+        animation: animate 10s linear infinite;
+      }
+      .slider .slide {
+        position: relative;
+        width: 20%;
+        height: 100%;
+        float: left;
+      }
+      .slider .slide .caption {
+        /* position: absolute;
+        bottom: 60px;
+
+        left: 60px;
+        right: 60px;
+        */
+        height: 100%;
+        z-index: -1;
+        position: relative;
+        padding: 30px;
+        background: rgba(0, 0, 0, .5);
+        box-sizing: border-box;
+        transition: 0.5s;
+      }
+      .slider .slide .caption h2 {
+        margin: 0 0 20;
+        padding: 0;
+        color: #fff;
+        font-size: 48px;
+        transition: 0.5s;
+      }
+      .slider .slide .caption p {
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        font-size: 20px;
+        transition: 0.5s;
+      }
+      @media (max-width: 768px) {
+        .slider .slide .caption {
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          right: 20px;
+          padding: 20px;
+        }
+        .slider .slide .caption h2 {
+          margin: 0 0 10;
+          font-size: 30px;
+        }
+        .slider .slide .caption p {
+          font-size: 16px;
+        }
+      }
+      @keyframes animate {
+        0% {
+            left: 0;
+        }
+        20% {
+            left: 0;
+        }
+        25% {
+            left: -100%;
+        }
+        45% {
+            left: -100%;
+        }
+        50% {
+            left: -200%;
+        }
+        70% {
+            left: -200%;
+        }
+        75% {
+            left: -300%;
+        }
+        95% {
+            left: -300%;
+        }
+        100% {
+            left: -400%;
+        }
+      }
+      .container .slider .slide.slide1 {
+        background: url(1.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+      .container .slider .slide.slide2 {
+        background: url(2.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+      .container .slider .slide.slide3 {
+        background: url(3.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+      .container .slider .slide.slide4 {
+        background: url(4.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+
+    <div class="slider">
+      <div class="slide slide1">
+        <div class="caption">
+          <h2>Slide 1</h2>
+          <p>Description 1</p>
+        </div>
+      </div>
+      <div class="slide slide2">
+        <div class="caption">
+          <h2>Slide 2</h2>
+          <p>Description 2</p>
+        </div>
+      </div>
+      <div class="slide slide3">
+        <div class="caption">
+          <h2>Slide 3</h2>
+          <p>Description 3</p>
+        </div>
+      </div>
+      <div class="slide slide4">
+        <div class="caption">
+          <h2>Slide 4</h2>
+          <p>Description 4</p>
+        </div>
+      </div>
+      <div class="slide slide1">
+        <div class="caption">
+          <h2>Slide 5</h2>
+          <p>Description 5</p>
+        </div>
+      </div>
+    </div>
+
     <div class="suc-navbar suc-cont__center">
       <div class="suc-cont suc-cont__def suc-navbar__container">
         <nav class="suc-navbar__nav">
@@ -26,98 +173,14 @@
     {%- endif -%}
 
     <main class="suc-cont">
-      <aside class="about suc-about">
-        <a href="/"><img class="def-lay-profile-image" src="{{ "/assets/portfolio.jpg" | relative_url }}" alt="{{ site.plainwhite.name }}"></a>
-        <div class="container badges-box">
-          <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/{{ site.plainwhite.social_links.github }}?style=for-the-badge">
-          <img alt="GitHub followers" src="https://img.shields.io/github/followers/{{ site.plainwhite.social_links.github }}?style=for-the-badge">
-        </div>
-        <h2 id="title">
-          <a href="/">{{ site.plainwhite.name }}</a>
-        </h2>
-        <p class="tagline suc-cont__center">{{ site.plainwhite.tagline }}</p>
-        <ul class="social">
-          {%- if site.plainwhite.social_links.github -%}
-            <a href="https://github.com/{{ site.plainwhite.social_links.github }}">
-              <li>
-                <i class="icon-github-circled"></i>
-              </li>
-            </a>
 
-          {%- endif -%}
-          {%- if site.plainwhite.social_links.linkedIn -%}
-            <a href="https://www.linkedin.com/{{ site.plainwhite.social_links.linkedIn }}">
-              <li>
-                <i class="icon-linkedin-squared"></i>
-              </li>
-            </a>
-          {%- endif -%}
-          {%- if site.plainwhite.social_links.twitter -%}
-            <a href="https://twitter.com/{{ site.plainwhite.social_links.twitter }}">
-              <li>
-                <i class="icon-twitter-squared"></i>
-              </li>
-            </a>
-          {%- endif -%}
-          {%- if site.plainwhite.social_links.instagram -%}
-            <a href="https://instagram.com/{{ site.plainwhite.social_links.instagram }}">
-              <li>
-                <i class="icon-instagram"></i>
-              </li>
-            </a>
-          {%- endif -%}
-          {%- if site.plainwhite.social_links.facebook -%}
-            <a href="https://facebook.com/{{ site.plainwhite.social_links.facebook }}">
-              <li>
-                <i class="icon-facebook"></i>
-              </li>
-            </a>
-          {%- endif -%}
-          {%- if site.plainwhite.social_links.youtube -%}
-            <a href="https://youtube.com/{{ site.plainwhite.social_links.youtube }}">
-              <li>
-                <i class="icon-youtube"></i>
-              </li>
-            </a>
-          {%- endif -%}
-          {%- if site.plainwhite.social_links.pinterest -%}
-            <a href="https://pinterest.com/{{ site.plainwhite.social_links.pinterest }}">
-              <li>
-                <i class="icon-pinterest"></i>
-              </li>
-            </a>
-          {%- endif -%}
-          {%- if site.plainwhite.social_links.dribbble -%}
-            <a href="https://dribbble.com/{{ site.plainwhite.social_links.dribbble }}">
-              <li>
-                <i class="icon-dribbble"></i>
-              </li>
-            </a>
-          {%- endif -%}
-          {%- if site.plainwhite.social_links.flickr -%}
-            <a href="https://flickr.com/{{ site.plainwhite.social_links.flickr }}">
-              <li>
-                <i class="icon-flickr"></i>
-              </li>
-            </a>
-          {%- endif -%}
-        </ul>
-
-        <p>&copy;
-          {{ "now" | date: "%Y" }}
-        </p>
-      </aside>
-      <section class="content">
-
+      <section class="suc-content">
         {{ content }}
-
       </section>
 
     </main>
 
-
-
-<!--
+    <!--
     {%- comment -%}
     <div class="home-section">
       <h3>SERVIZI</h3>
@@ -166,6 +229,6 @@
 
   </body>
 
-  <script src="{{ "/assets/bundles/home-bundle.js" | relative_url }}"></script>
+  <script src="{{ "/assets/bundles/homepage-bundle.js" | relative_url }}"></script>
 
 </html>

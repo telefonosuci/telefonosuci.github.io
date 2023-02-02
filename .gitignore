@@ -1,5 +1,7 @@
 .jekyll-cache
 _site
 Gemfile.lock
+yarn.lock
 node_modules
 assets/bundles/**/*-bundle.js
+assets/bundles/**/*.css

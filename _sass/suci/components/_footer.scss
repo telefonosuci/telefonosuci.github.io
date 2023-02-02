@@ -1,9 +1,15 @@
 .suc-footer {
   background-color: $netar-black;
   color: $netar-white;
-  display: flex;
-  justify-content: center;
   min-height: 300px;
+  padding: 20px;
+
+  .suc-about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   &__inner-container {
 
