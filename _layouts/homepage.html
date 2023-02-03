@@ -27,7 +27,7 @@
         position: absolute;
         width: 500%;
         height: 100%;
-        animation: RollBackground 10s linear infinite;
+        animation: RollBackground 10s ease-in-out infinite;
       }
 
       .bg-slider .slide {
@@ -91,29 +91,35 @@
         0% {
             left: 0;
         }
-        20% {
+        10% {
             left: 0;
         }
-        25% {
+        20% {
             left: -100%;
         }
-        45% {
+        30% {
             left: -100%;
+        }
+        40% {
+            left: -200%;
         }
         50% {
             left: -200%;
         }
+        60% {
+            left: -300%;
+        }
         70% {
-            left: -200%;
-        }
-        75% {
             left: -300%;
         }
-        95% {
-            left: -300%;
+        80% {
+            left: -400%;
+        }
+        99% {
+            left: -400%;
         }
         100% {
-            left: -400%;
+            left: 0%;
         }
       }
 
@@ -133,6 +139,11 @@
         background-position: center;
       }
       .bg-slider .slide.slide4 {
+        background-color: yellow;
+        background-size: cover;
+        background-position: center;
+      }
+      .bg-slider .slide.slide5 {
         background-color: red;
         background-size: cover;
         background-position: center;
@@ -158,10 +169,15 @@
         </div>
         <div class="slide slide3">
           <div class="caption">
-            <h2>SUCI</h2>
+            <h2>DESIGN</h2>
           </div>
         </div>
         <div class="slide slide4">
+          <div class="caption">
+            <h2>SUCI</h2>
+          </div>
+        </div>
+        <div class="slide slide5">
           <div class="caption">
             <h2>REPEAT</h2>
           </div>
