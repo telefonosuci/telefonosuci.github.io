@@ -12,6 +12,12 @@
         align-items: center;
         justify-content: center;
         margin: 0;
+        /* opacity: 1;
+        */
+      }
+
+      .full-banner.over {
+        z-index: 1;
       }
 
       .netar-body {
@@ -19,7 +25,6 @@
         text-align: center;
         position: absolute;
         text-align: center;
-        top: 100%;
       }
 
       .bg-container {
@@ -39,6 +44,7 @@
       }
 
       .bg-strobo {
+        background-color: #fff;
         animation: Strobe 200ms steps(1,end) infinite;
       }
 
@@ -214,28 +220,59 @@
     <script>
       console.log('Inline script');
 
+      window.heroScroll = 0;
+      window.heroFade = 1;
       document.addEventListener('DOMContentLoaded', event => {
 
         const banner = document.querySelector('.full-banner');
         console.log('Banner: ', banner);
 
-        document.addEventListener('scroll', event => {
+        if (banner) {
+          document.body.style.overflow = 'hidden';
+        }
+
+
+        const scrollSuperHero = event => {
+
           console.log('Event: ', event);
+          console.log('Window H: ', window.innerHeight);
 
           console.log('Scroll Window: ', window.pageYOffset);
 
 
-          // banner.style.opacity = 0.5;
 
-        });
+          console.log('Scroll DeltaY: ', event.deltaY);
+
+
+          // delta sta a windowHeight come X sta a 100
+          // (delta * 100) / windowHeight
+          // window.heroScroll = 0;
+          if (window.heroScroll <= 0 || event.deltaY < 0) {
+            const percentDelta = ((event.deltaY * 100) / window.innerHeight).toFixed(0);
+
+            console.log('Scroll Percent Delta: ', percentDelta);
+            window.heroScroll = window.heroScroll - ( percentDelta * 3);
+            console.log('Banner top: ', banner.style.top);
+            console.log('Banner top: ', banner.scrollTop);
+
+
+            banner.scrollTop = window.heroScroll;
+            banner.scrollTo(window.heroScroll);
+            console.log('Banner top dimmed: ', banner.scrollTop);
+          }
+        }
+        document.addEventListener('wheel', scrollSuperHero);
+        document.addEventListener('touchmove', scrollSuperHero);
+
+
 
       });
 
     </script>
 
 
-    <div class="bg-strobo full-banner">
-      <h2>SUCI</h2>
+    <div class="bg-strobo full-banner over">
+      <h2>CODE</h2>
     </div>
 
     <div class="netar-body">
