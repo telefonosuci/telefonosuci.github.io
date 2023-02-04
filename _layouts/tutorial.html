@@ -2,7 +2,7 @@
 layout: default
 comments: true
 ---
-{%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
+{%- assign date_format = site.suci.date_format | default: "%b %-d, %Y" -%}
 <div class="tutorial-container">
   <a class="tutorial-link" href="{{ page.url | relative_url }}">
     <h2 class="tutorial-title">{{ page.title | escape }}</h2>
@@ -18,7 +18,7 @@ comments: true
   <div class="tutorial">
     {{ content }}
   </div>
-  {%- if site.plainwhite.disqus_shortname -%}
+  {%- if site.suci.disqus_shortname -%}
     <div id="disqus_thread" style="margin-top:25px"></div>
     <script>
       var disqus_config = function () {
@@ -28,7 +28,7 @@ comments: true
       };
       (function () {
         var d = document, s = d.createElement('script');
-        s.src = 'https://{{ site.plainwhite.disqus_shortname }}.disqus.com/embed.js';
+        s.src = 'https://{{ site.suci.disqus_shortname }}.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
       })();

@@ -13,13 +13,13 @@ lang: it
     <li>
       <h1 id="posts-label">articoli</h1>
     </li>
-    
+
     {% assign selectedPosts = site.posts | where:"lang", page.lang %}
 
 
     {%- for post in selectedPosts -%}
       <li>
-        {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
+        {%- assign date_format = site.suci.date_format | default: "%b %-d, %Y" -%}
         <a class="post-link" href="{{ post.url | relative_url }}">
           <h2 class="post-title">{{ post.title | escape }}</h2>
         </a>

@@ -8,7 +8,7 @@
     <div class="suc-navbar suc-cont__center">
       <div class="suc-cont suc-cont__def suc-navbar__container">
         <nav class="suc-navbar__nav">
-          {%- for el in site.plainwhite.navigation -%}
+          {%- for el in site.suci.navigation -%}
             <a href="/{{ el.url }}">{{ el.name }}</a>
           {%- endfor -%}
         </nav>
@@ -34,14 +34,14 @@
 
 
 
-    {%- if site.plainwhite.analytics_id -%}
-      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.plainwhite.analytics_id }}"></script>
+    {%- if site.suci.analytics_id -%}
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.suci.analytics_id }}"></script>
       <script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag() { dataLayer.push(arguments); }
 		gtag('js', new Date());
 
-		gtag('config', '{{ site.plainwhite.analytics_id }}');
+		gtag('config', '{{ site.suci.analytics_id }}');
 	</script>
     {%- endif -%}
   </body>
