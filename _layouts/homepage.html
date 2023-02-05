@@ -216,17 +216,12 @@
     </div>
     -->
 
-
     <script>
-      // console.log('Inline script');
 
+      // console.log('Inline script');
       window.heroScroll = 0;
       window.heroFade = 1;
       document.addEventListener('DOMContentLoaded', event => {
-
-        console.log('SCROLLING TO TOP OF THE PAGE');
-        window.scrollTo(0, 0);
-
         const banner = document.querySelector('.full-banner');
         // console.log('Banner: ', banner);
 
@@ -267,7 +262,8 @@
       });
 
       window.addEventListener('beforeunload', event => {
-
+        console.log('SCROLLING TO TOP OF THE PAGE');
+        window.scrollTo(0, 0);
       });
 
     </script>
