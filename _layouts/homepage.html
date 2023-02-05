@@ -242,7 +242,7 @@
           // delta sta a windowHeight come X sta a 100
           // (delta * 100) / windowHeight
           // window.heroScroll = 0;
-          if (Math.abs(window.heroScroll) <= window.innerHeight) {
+          if ((Math.abs(window.heroScroll) <= window.innerHeight) &&  event.deltaY > 0) {
             const percentDelta = ((event.deltaY * 100) / window.innerHeight).toFixed(0);
 
             //console.log('Scroll Percent Delta: ', percentDelta);
