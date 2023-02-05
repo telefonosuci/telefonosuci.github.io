@@ -1,0 +1,31 @@
+.suc-navbar {
+  color: black;
+  padding: 8px;
+  margin-bottom: 32px;
+
+  &__nav {
+    a {
+      // color: white;
+      text-decoration: none;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+
+    a:visited {
+      // color: white;
+      text-decoration: none;
+    }
+  }
+
+  &__container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .language-bar {
+    .language-image {
+      height: 32px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.suc-sticky-alert {
+  width: 300px;
+  border-radius: 22px;
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+
+
+  @include media-xl {
+    left: 200px;
+  }
+
+  &__head {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+  }
+
+  .close {
+    cursor: pointer;
+  }
+}
