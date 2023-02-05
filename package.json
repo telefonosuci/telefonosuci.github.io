@@ -9,8 +9,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --config webpack.config.js --env watch=true",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d assets/bundles"
+    "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",
