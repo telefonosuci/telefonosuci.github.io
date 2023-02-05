@@ -53,7 +53,20 @@ plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
   - jekyll-multiple-languages-plugin
+  - jekyll-admin
+  - jekyll-redirect-from
 
 # The first item of languages will be used as the default.
 lang: en
 languages: ["en", "it"]
+
+
+collections:
+  authors:
+    output: true
+  annunci:
+    output: true
+
+jekyll_admin:
+  homepage: "posts"
+

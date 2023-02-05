@@ -224,6 +224,9 @@
       window.heroFade = 1;
       document.addEventListener('DOMContentLoaded', event => {
 
+        console.log('SCROLLING TO TOP OF THE PAGE');
+        window.scrollTo(0, 0);
+
         const banner = document.querySelector('.full-banner');
         // console.log('Banner: ', banner);
 
@@ -232,6 +235,9 @@
         }
 
         const scrollSuperHero = event => {
+
+          console.log('ENTERING SCROLL CALLBACK');
+
           /*
           console.log('Event: ', event);
           console.log('Scroll DeltaY: ', event.deltaY);
@@ -255,10 +261,12 @@
             document.body.style.overflow = 'auto';
           }
         }
+
         document.addEventListener('wheel', scrollSuperHero);
         document.addEventListener('touchmove', scrollSuperHero);
+      });
 
-
+      window.addEventListener('beforeunload', event => {
 
       });
 
