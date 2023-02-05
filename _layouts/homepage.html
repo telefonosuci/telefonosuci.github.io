@@ -246,7 +246,7 @@
           if ((Math.abs(window.heroScroll) <= window.innerHeight) &&  event.deltaY > 0) {
             const percentDelta = ((event.deltaY * 100) / window.innerHeight).toFixed(0);
 
-            //console.log('Scroll Percent Delta: ', percentDelta);
+            console.log('Scroll Percent Delta: ', percentDelta);
             window.heroScroll = window.heroScroll - ( percentDelta * 5);
             //console.log('Banner top: ', banner.style.top);
             //console.log('Banner scroll top: ', banner.scrollTop);
