@@ -9,7 +9,8 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --config webpack.config.js --env watch=true",
-    "predeploy": "npm run build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d assets/bundles"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "eslint-loader": "^4.0.2",
+    "gh-pages": "^5.0.0",
     "mini-css-extract-plugin": "^2.6.1",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
