@@ -221,9 +221,10 @@
       // console.log('Inline script');
       window.heroScroll = 0;
       window.heroFade = 1;
-      document.addEventListener('DOMContentLoaded', event => {
+      window.addEventListener('DOMContentLoaded', event => {
         const banner = document.querySelector('.full-banner');
         // console.log('Banner: ', banner);
+
 
         if (banner) {
           document.body.style.overflow = 'hidden';
@@ -231,8 +232,8 @@
 
         const scrollSuperHero = event => {
 
-          console.log('ENTERING SCROLL CALLBACK');
-          alert("TEST");
+          console.log('ENTERING SCROLL CALLBACK: ', event);
+          //alert("TEST");
           /*
           console.log('Event: ', event);
           console.log('Scroll DeltaY: ', event.deltaY);
@@ -258,7 +259,7 @@
         }
 
         document.addEventListener('wheel', scrollSuperHero);
-        document.addEventListener('scroll', scrollSuperHero);
+        document.addEventListener('touchmove', scrollSuperHero);
       });
 
       window.addEventListener('beforeunload', event => {
