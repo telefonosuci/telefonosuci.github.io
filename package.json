@@ -1,6 +1,6 @@
 {
-  "name": "github-site-client",
-  "description": "Github site client",
+  "name": "telefonosuci.github.io",
+  "description": "SUCI - Jekyll Website",
   "version": "1.0.0",
   "engines": {
     "node": "17.4.0",
@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/webar-52100/webar-shopify.git"
+    "url": "https://github.com/telefonosuci/telefonosuci.github.io.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/webar-52100/webar-shopify/issues"
+    "url": "https://github.com/telefonosuci/telefonosuci.github.io/issues"
   },
-  "homepage": "https://github.com/webar-52100/webar-shopify",
+  "homepage": "hhttps://telefonosuci.github.io",
   "dependencies": {
     "@babel/core": "^7.19.3",
     "bootstrap": "^5.2.0",
