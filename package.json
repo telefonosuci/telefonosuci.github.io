@@ -10,7 +10,7 @@
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --config webpack.config.js --env watch=true",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d public"
+    "deploy": "gh-pages -d _site"
   },
   "repository": {
     "type": "git",
