@@ -1,8 +1,8 @@
-const scss = require("./client/webpack/scss");
-const entry = require("./client/webpack/entries").entry;
-const aliases = require("./client/webpack/aliases");
-const rootPath = require('./client/webpack/rootPath');
-const copyAssets = require('./client/webpack/copyAssets');
+const scss = require("./_client/webpack/scss");
+const entry = require("./_client/webpack/entries").entry;
+const aliases = require("./_client/webpack/aliases");
+const rootPath = require('./_client/webpack/rootPath');
+const copyAssets = require('./_client/webpack/copyAssets');
 
 // entry.scss = './src/style/sass/main.scss';
 

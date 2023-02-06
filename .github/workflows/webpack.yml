@@ -1,4 +1,4 @@
-name: Builda and Deploy
+name: Webpack Build
 on:
   push:
     branches: [ "master" ]
