@@ -5,56 +5,56 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
         <url>
-            <loc></loc>
+            <loc>http://localhost:4000</loc>
             <lastmod>2019-06-07T00:00:00+00:00</lastmod>
             <priority>1.00</priority>
         </url><url>
-                <loc>/tutorials/2022/05/09/react-countdown-component.html</loc>
+                <loc>http://localhost:4000/tutorials/2022/05/09/react-countdown-component.html</loc>
                 <lastmod>2022-05-09T17:33:36+02:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
             </url><url>
-                <loc>/en/tutorials/2022/05/09/react-countdown-component.html</loc>
+                <loc>http://localhost:4000/en/tutorials/2022/05/09/react-countdown-component.html</loc>
                 <lastmod>2022-05-09T17:33:36+02:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
             </url><url>
-                <loc>/frontend/2020/07/13/a-simple-react-component-renderer-with-dataset.html</loc>
+                <loc>http://localhost:4000/frontend/2020/07/13/a-simple-react-component-renderer-with-dataset.html</loc>
                 <lastmod>2020-07-13T17:33:36+02:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
             </url><url>
-                <loc>/en/frontend/2020/07/13/a-simple-react-component-renderer-with-dataset.html</loc>
+                <loc>http://localhost:4000/en/frontend/2020/07/13/a-simple-react-component-renderer-with-dataset.html</loc>
                 <lastmod>2020-07-13T17:33:36+02:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
             </url><url>
-                <loc>/salesforce/2020/04/30/import-contacts-from-linkedin-to-salesforce.html</loc>
+                <loc>http://localhost:4000/salesforce/2020/04/30/import-contacts-from-linkedin-to-salesforce.html</loc>
                 <lastmod>2020-04-30T17:33:36+02:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
             </url><url>
-                <loc>/en/salesforce/2020/04/30/import-contacts-from-linkedin-to-salesforce.html</loc>
+                <loc>http://localhost:4000/en/salesforce/2020/04/30/import-contacts-from-linkedin-to-salesforce.html</loc>
                 <lastmod>2020-04-30T17:33:36+02:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
             </url><url>
-                <loc>/services/2019/03/23/chatbots.html</loc>
+                <loc>http://localhost:4000/services/2019/03/23/chatbots.html</loc>
                 <lastmod>2019-03-23T16:33:36+01:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
             </url><url>
-                <loc>/personal/2019/03/23/about-myself.html</loc>
+                <loc>http://localhost:4000/personal/2019/03/23/about-myself.html</loc>
                 <lastmod>2019-03-23T16:33:36+01:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
             </url><url>
-                <loc>/en/services/2019/03/23/chatbots.html</loc>
+                <loc>http://localhost:4000/en/services/2019/03/23/chatbots.html</loc>
                 <lastmod>2019-03-23T16:33:36+01:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
             </url><url>
-                <loc>/en/personal/2019/03/23/about-myself.html</loc>
+                <loc>http://localhost:4000/en/personal/2019/03/23/about-myself.html</loc>
                 <lastmod>2019-03-23T16:33:36+01:00</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.80</priority>
