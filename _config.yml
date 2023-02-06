@@ -21,9 +21,6 @@ include:
   - _draft
   - _layouts
 
-source: src
-destination: public
-
 suci:
   name: Enrico Succhielli
   disqus_shortname: telefonosuci
