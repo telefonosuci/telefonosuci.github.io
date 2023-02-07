@@ -3,6 +3,11 @@
   <head>
     {%- include head.html -%}
     <style>
+
+      body {
+        height: 100%;
+      }
+
       .full-banner {
         position: absolute;
         width: 100%;
@@ -14,11 +19,12 @@
       }
 
       .full-banner.over {
-        z-index: 1;
+        z-index: 1200;
       }
 
       .netar-body {
         width: 100%;
+        min-height: 500px;
         text-align: center;
         position: absolute;
         text-align: center;
@@ -339,7 +345,7 @@
         </div>
       {%- endif -%}
 
-      <main class="suc-cont">
+      <main class="suc-cont home-main-content">
 
         <section class="suc-content">
           {{ content }}

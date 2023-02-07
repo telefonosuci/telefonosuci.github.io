@@ -1,15 +1,15 @@
 .suc-cont {
-
+  display: block;
   margin: 0 auto;
   padding: 16px;
 
   @include media-xl {
     max-width: 1200px;
-  } 
+  }
 
   @include media-lg {
     max-width: 1000px;
-  } 
+  }
 
   @include media-md {
     max-width: 800px;

@@ -28,10 +28,10 @@ suci:
   sitemap: true # set to true to generate sitemap.xml content
   cookie_notification: false
   navigation:
-    - name: Contact
-      url: contact
-    - name: About
+    - name: About me
       url: about
+    - name: Some Posts
+      url: posts
   # generate social links in footer
   social_links:
     twitter: enricolebanane
