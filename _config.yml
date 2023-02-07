@@ -28,7 +28,7 @@ suci:
   sitemap: true # set to true to generate sitemap.xml content
   cookie_notification: false
   navigation:
-    - name: About me
+    - name: About Me
       url: about
     - name: Some Posts
       url: posts
