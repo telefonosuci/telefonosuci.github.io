@@ -14,7 +14,6 @@ sass:
       - node_modules
 
 include:
-  - node_modules
   - _includes
   - _authors
   - _data
