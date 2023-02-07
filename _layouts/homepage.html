@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     {%- include head.html -%}
     <style>
@@ -12,8 +11,6 @@
         align-items: center;
         justify-content: center;
         margin: 0;
-        /* opacity: 1;
-        */
       }
 
       .full-banner.over {
@@ -62,12 +59,6 @@
       }
 
       .bg-slider .slide .caption {
-        /* position: absolute;
-        bottom: 60px;
-
-        left: 60px;
-        right: 60px;
-        */
         height: 100%;
         width: 100%;
         z-index: -1;
@@ -265,7 +256,6 @@
       window.heroFade = 1;
       document.addEventListener('DOMContentLoaded', event => {
         const banner = document.querySelector('.full-banner');
-        // console.log('Banner: ', banner);
 
         if (banner) {
           document.body.style.overflow = 'hidden';
@@ -274,9 +264,15 @@
         const scrollSuperHero = event => {
 
           console.log('ENTERING SCROLL CALLBACK');
-          document.body.style.overflow = 'auto';
 
-          banner.classList.add('scroll-up');
+          if (!banner.classList.contains('scroll-up')) {
+            console.log('ADDING SCROLL CLASS');
+
+            document.body.style.overflow = 'auto';
+            banner.classList.add('scroll-up');
+            window.scrollTo(0, 0);
+          }
+
           /*
           console.log('Event: ', event);
           console.log('Scroll DeltaY: ', event.deltaY);
@@ -284,9 +280,11 @@
           console.log('Window H: ', window.innerHeight);
           console.log('Hero Window: ', window.heroScroll);
           */
+
           // delta sta a windowHeight come X sta a 100
           // (delta * 100) / windowHeight
           // window.heroScroll = 0;
+
           /*
           if ((Math.abs(window.heroScroll) <= window.innerHeight &&  event.deltaY > 0) || !event.deltaY) {
             const percentDelta = ((event.deltaY * 100) / window.innerHeight).toFixed(0);
