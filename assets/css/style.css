@@ -989,6 +989,9 @@ main .about img {
   min-height: 300px;
   padding: 20px;
 }
+.suc-footer .badges-box {
+  margin: 16px 0;
+}
 .suc-footer a {
   color: white;
 }
@@ -1024,6 +1027,11 @@ main .about img {
 }
 .suc-footer__link-list {
   list-style: none;
+}
+@media (max-width: 576px) {
+  .suc-footer__link-list {
+    text-align: center;
+  }
 }
 .suc-footer__link-list-item a {
   color: #fff;
