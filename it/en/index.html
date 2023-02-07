@@ -33,12 +33,14 @@
 <meta property="og:locale" content="en" />
 <meta name="description" content="In Okinawa, programming, very serious business! [Miyagi]" />
 <meta property="og:description" content="In Okinawa, programming, very serious business! [Miyagi]" />
+<link rel="canonical" href="http://localhost:4000/en/" />
+<meta property="og:url" content="http://localhost:4000/en/" />
 <meta property="og:site_name" content="Suci’s Git space" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Suci’s Git space" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Suci"},"description":"In Okinawa, programming, very serious business! [Miyagi]","headline":"Suci’s Git space","url":"/en/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Suci"},"description":"In Okinawa, programming, very serious business! [Miyagi]","headline":"Suci’s Git space","url":"http://localhost:4000/en/"}</script>
 <!-- End Jekyll SEO tag -->
 
 <style>
@@ -151,13 +153,55 @@
         }
       }
 
+      .scroll-up {
+        position: absolute;
+        top: -100%;
+        animation: ScrollUp 200ms;
+      }
+
+      @keyframes ScrollUp {
+        0% {
+            top: 0;
+        }
+        10% {
+            top: -10%;
+        }
+        20% {
+            top: -20%;
+        }
+        30% {
+            top: -30%;
+        }
+        40% {
+            top: -40%;
+        }
+        50% {
+            top: -50%;
+        }
+        60% {
+            top: -60%;
+        }
+        70% {
+            top: -70%;
+        }
+        80% {
+            top: -80%;
+        }
+        90% {
+            top: -90%;
+        }
+        100% {
+            top: -100%;
+        }
+      }
+
       @keyframes Strobe {
       50% {
         background:black; color:white; }
       }
 
       @keyframes RollBackground {
-        0% {
+       0% {
             left: 0;
         }
         10% {
@@ -270,7 +314,9 @@
         const scrollSuperHero = event => {
 
           console.log('ENTERING SCROLL CALLBACK');
+          document.body.style.overflow = 'auto';
 
+          banner.classList.add('scroll-up');
           /*
           console.log('Event: ', event);
           console.log('Scroll DeltaY: ', event.deltaY);
@@ -281,7 +327,8 @@
           // delta sta a windowHeight come X sta a 100
           // (delta * 100) / windowHeight
           // window.heroScroll = 0;
-          if ((Math.abs(window.heroScroll) <= window.innerHeight) &&  event.deltaY > 0) {
+          /*
+          if ((Math.abs(window.heroScroll) <= window.innerHeight &&  event.deltaY > 0) || !event.deltaY) {
             const percentDelta = ((event.deltaY * 100) / window.innerHeight).toFixed(0);
 
             console.log('Scroll Percent Delta: ', percentDelta);
@@ -292,7 +339,7 @@
             //console.log('Banner top dimmed: ', banner.style.top);
           } else {
             document.body.style.overflow = 'auto';
-          }
+          }*/
         }
 
         document.addEventListener('wheel', scrollSuperHero);
