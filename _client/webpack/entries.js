@@ -1,5 +1,5 @@
 const path = require('path');
-const { root } = require('./rootPath');
+const { root } = require('./paths');
 
 const vendorsLibraries = [
   'react',

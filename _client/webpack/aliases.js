@@ -1,8 +1,8 @@
 const path = require("path");
-const rootPath = require("./rootPath").root;
+const root = require("./paths").root;
 
-console.log("Root path is: ", rootPath);
+console.log("Root path is: ", root);
 module.exports = {
-  "@": path.resolve(rootPath, "src"),
-  "@App": path.resolve(rootPath, "app"),
+  "@": path.resolve(root, "src"),
+  "@App": path.resolve(root, "app"),
 };

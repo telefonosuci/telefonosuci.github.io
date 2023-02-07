@@ -1,6 +1,6 @@
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin"); // eslint-disable-line import/no-extraneous-dependencies
-const { root } = require("./rootPath");
+const { root } = require("./paths");
 
 const sourcePath = path.join(root, "src/assets");
 const destPath = path.resolve(root, "../assets");
