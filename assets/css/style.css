@@ -844,6 +844,12 @@ main .about img {
   max-width: 1024px;
 }
 
+@media (max-width: 576px) {
+  .suc-text-cont {
+    text-align: center;
+  }
+}
+
 .suc-typo__h1 {
   font-size: 48;
 }
@@ -996,6 +1002,7 @@ main .about img {
   color: white;
 }
 .suc-footer .suc-about {
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
