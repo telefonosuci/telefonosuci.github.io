@@ -23,3 +23,9 @@
     max-width: 1024px;
   }
 }
+
+.suc-text-cont {
+  @include media-only-sm {
+    text-align: center;
+  }
+}
