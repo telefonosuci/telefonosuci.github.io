@@ -346,6 +346,8 @@
 
         document.addEventListener('touch', scrollSuperHero);
         document.addEventListener('click', scrollSuperHero);
+        document.addEventListener('scroll', scrollSuperHero);
+        document.addEventListener('wheel', scrollSuperHero);
       });
 
       window.addEventListener('beforeunload', event => {
