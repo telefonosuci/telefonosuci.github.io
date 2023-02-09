@@ -110,8 +110,44 @@
 
       .scroll-up {
         position: absolute;
+        animation: ScrollUp 300ms;
         top: -100%;
-        animation: ScrollUp 200ms;
+      }
+
+      @keyframes Fade {
+        0% {
+            opacity: 1;
+        }
+        10% {
+            opacity: .9;
+        }
+        20% {
+            opacity: .8;
+        }
+        30% {
+            opacity: .7;
+        }
+        40% {
+            opacity: .6;
+        }
+        50% {
+            opacity: .5;
+        }
+        60% {
+            opacity: .4;
+        }
+        70% {
+            opacity: .3;
+        }
+        80% {
+            opacity: .2;
+        }
+        90% {
+            opacity: .1;
+        }
+        100% {
+            opacity: 0;
+        }
       }
 
       @keyframes ScrollUp {
@@ -304,8 +340,8 @@
           }*/
         }
 
-        document.addEventListener('wheel', scrollSuperHero);
-        document.addEventListener('touchmove', scrollSuperHero);
+        document.addEventListener('touch', scrollSuperHero);
+        document.addEventListener('click', scrollSuperHero);
       });
 
       window.addEventListener('beforeunload', event => {
@@ -317,7 +353,8 @@
 
 
     <div class="bg-strobo full-banner over">
-      <h2>CODE</h2>
+      <h2 class="d-block d-md-none d-lg-none d-xl-none">TOUCH</h2>
+      <h2 class="d-none d-sm-block">CLICK</h2>
     </div>
 
     <div class="netar-body">
