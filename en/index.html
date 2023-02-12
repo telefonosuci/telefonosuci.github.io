@@ -41,12 +41,14 @@
 <meta property="og:locale" content="en" />
 <meta name="description" content="In Okinawa, programming, very serious business! [Miyagi]" />
 <meta property="og:description" content="In Okinawa, programming, very serious business! [Miyagi]" />
+<link rel="canonical" href="http://localhost:4000/en/" />
+<meta property="og:url" content="http://localhost:4000/en/" />
 <meta property="og:site_name" content="Suci’s Git space" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Suci’s Git space" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Suci"},"description":"In Okinawa, programming, very serious business! [Miyagi]","headline":"Suci’s Git space","url":"/en/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Suci"},"description":"In Okinawa, programming, very serious business! [Miyagi]","headline":"Suci’s Git space","url":"http://localhost:4000/en/"}</script>
 <!-- End Jekyll SEO tag -->
 
 <style>
@@ -98,6 +100,12 @@
 
       .bg-strobo h2 {
         font-size: 8em;
+      }
+
+      @media (max-width: 768px) {
+        .bg-strobo h2 {
+          font-size: 4em;
+        }
       }
 
       .bg-slider .slide {
@@ -389,6 +397,8 @@
 
         document.addEventListener('touch', scrollSuperHero);
         document.addEventListener('click', scrollSuperHero);
+        document.addEventListener('scroll', scrollSuperHero);
+        document.addEventListener('wheel', scrollSuperHero);
       });
 
       window.addEventListener('beforeunload', event => {
@@ -427,7 +437,10 @@
 </div>
 <div class="page-contact__formContainer">
   <script
-    src="https://cdn.form.io/formiojs/formio.embed.js?src=https://xfjbmfmkwzhddmf.form.io/contact&libs=true"></script>
+    src="https://cdn.form.io/formiojs/formio.embed.js?src=https://xfjbmfmkwzhddmf.form.io/contact&libs=true">
+  </script>
+
+
 </div>
 
 
