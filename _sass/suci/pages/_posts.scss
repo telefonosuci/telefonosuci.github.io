@@ -1,0 +1,21 @@
+.posts-page {
+  &__bg-doodle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__posts {
+    li {
+      background-color: white;
+      margin: 18px 0;
+    }
+  }
+
+  &__post-container {
+    padding: 18px;
+  }
+}

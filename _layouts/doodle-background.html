@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {%- include head.html -%}
+    <script src="https://unpkg.com/css-doodle@0.33.1/css-doodle.min.js"></script>
+
+    <style>
+      body {
+        position: relative;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <css-doodle click-to-update class="posts-page__bg-doodle">
+      <style>
+
+        :doodle {
+          @grid: 18 / 100vmax;
+          background: #0a0c27;
+        }
+
+        --hue: calc(180 + 1.5 * @row * @col);
+        background: hsl(var(--hue), 50%, 70%);
+        margin: -.5px;
+        transition: @r(.5s) ease;
+
+        clip-path: polygon(@pick('0 0, 100% 0, 100% 100%',
+            '0 0, 100% 0, 0 100%',
+            '0 0, 100% 100%, 0 100%',
+            '100% 0, 100% 100%, 0 100%'
+          ));
+
+      </style>
+    </css-doodle>
+
+    <script>
+
+      var timerId;
+
+      function debounce(func, timeout = 300) {
+        let timer;
+        return (...args) => {
+          clearTimeout(timer);
+          timer = setTimeout(() => { func.apply(this, args); }, timeout);
+        };
+      }
+
+       function throttle(func, delay) {
+          // If setTimeout is already scheduled, no need to do anything
+          if (timerId) {
+            return
+          }
+
+          // Schedule a setTimeout after delay seconds
+          timerId = setTimeout(function () {
+            func()
+
+            // Once setTimeout function execution is finished, timerId = undefined so that in <br>
+            // the next scroll event function execution can be scheduled by the setTimeout
+            timerId = undefined;
+          }, delay)
+        }
+
+      const doodle = document.querySelector('css-doodle');
+
+      document.addEventListener('scroll', function(e) {
+        throttle(() => {
+          console.log("throttle event doodle");
+          doodle.update();
+        }, 500);
+      });
+
+    </script>
+
+    <main class="suc-cont home-main-content">
+
+      <section class="suc-content">
+        {{ content }}
+      </section>
+
+    </main>
+  </body>
+
+
+</html>
