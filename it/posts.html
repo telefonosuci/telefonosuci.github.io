@@ -64,7 +64,7 @@
 
   <body>
 
-    <css-doodle click-to-update class="posts-page__bg-doodle">
+    <css-doodle id="desktop-doodle" click-to-update class="posts-page__bg-doodle hide-mobile">
       <style>
 
         :doodle {
@@ -77,18 +77,48 @@
         margin: -.5px;
         transition: @r(.5s) ease;
 
-        clip-path: polygon(@pick('0 0, 100% 0, 100% 100%',
-            '0 0, 100% 0, 0 100%',
-            '0 0, 100% 100%, 0 100%',
-            '100% 0, 100% 100%, 0 100%'
-          ));
+        clip-path: polygon(@pick(:doodle {
+          @media (min-width: 768px) {
+            @grid: 18 / 100vmax;
+            background: #0a0c27;
+          }
+          @media (max-width: 768px) {
+            @grid: 6 / 16px;
+            background: #0a0c27;
+          }
+        }
+          '0 0, 100% 0, 100% 100%',
+          '0 0, 100% 0, 0 100%',
+          '0 0, 100% 100%, 0 100%',
+          '100% 0, 100% 100%, 0 100%'
+        ));
 
       </style>
     </css-doodle>
 
+
+    <css-doodle id="mobile-doodle" click-to-update class="posts-page__bg-doodle hide-desktop">
+      @grid: 1 / 100vw 100vh;
+      background-color: #0a0c27;
+      background-size: 200px 200px;
+      background-image: @doodle(
+      @grid: 6 / 100%;
+      @size: 4px;
+      font-size: 4px;
+      color: hsl(@r240, 30%, 50%);
+      box-shadow: @m3x5(
+      calc(4em - @nx * 1em) calc(@ny * 1em)
+      @p(@m3(currentColor), @m2(#0000)),
+      calc(2em + @nx * 1em) calc(@ny * 1em)
+      @lp
+      );
+      );
+    </css-doodle>
+
+
     <script>
 
-      var timerId;
+      var timers = {};
 
       function debounce(func, timeout = 300) {
         let timer;
@@ -98,29 +128,30 @@
         };
       }
 
-       function throttle(func, delay) {
-          // If setTimeout is already scheduled, no need to do anything
-          if (timerId) {
-            return
-          }
-
-          // Schedule a setTimeout after delay seconds
-          timerId = setTimeout(function () {
-            func()
-
-            // Once setTimeout function execution is finished, timerId = undefined so that in <br>
-            // the next scroll event function execution can be scheduled by the setTimeout
-            timerId = undefined;
-          }, delay)
+      function throttle(id, func, delay) {
+        // If setTimeout is already scheduled, no need to do anything
+        if (timers[id]) {
+          return;
         }
 
-      const doodle = document.querySelector('css-doodle');
+        // Schedule a setTimeout after delay seconds
+        timers[id] = setTimeout(function () {
+          func();
+
+          // Once setTimeout function execution is finished, timerId = undefined so that in <br>
+          // the next scroll event function execution can be scheduled by the setTimeout
+          timers[id] = undefined;
+        }, delay);
+      }
+
+      const doodles = document.querySelectorAll('css-doodle');
 
       document.addEventListener('scroll', function(e) {
-        throttle(() => {
-          console.log("throttle event doodle");
-          doodle.update();
-        }, 500);
+        doodles.forEach(d => {
+          throttle(d.id, () => {
+            d.update();
+          }, 500);
+        });
       });
 
     </script>
@@ -130,6 +161,20 @@
       <section class="suc-content">
         <ul class="posts posts-page__posts">
     <li>
+
+        <div class="posts-page__post-container"><a class="post-link" href="/frontend/2023/02/14/javascript-throttling-and-debounce.html">
+            <h2 class="post-title">Javascript trottle and debounce</h2>
+          </a>
+          <div class="post-meta">
+            <ul class="post-categories"><li>Frontend</li></ul>
+            <div class="post-date">
+              <i class="icon-calendar"></i>
+              Feb 14, 2023</div>
+          </div>
+          <div class="post"><p>In a frontend application is nice to have a single object that is thacking care of the rendering of your components. So we can build a little framework and give a bit of structure to our application avoiding the repetition of same logic in our code.</p>
+</div>
+        </div>
+      </li><li>
 
         <div class="posts-page__post-container"><a class="post-link" href="/tutorials/2022/05/09/react-countdown-component.html">
             <h2 class="post-title">Componente React per un conto alla rovescia</h2>
@@ -187,16 +232,71 @@
         </div>
       </li></ul>
 
+  <!--
   <p class="feed-subscribe">
     <svg class="svg-icon orange">
 		  <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
 	  </svg>
     <a href="/feed.xml">Subscribe</a>
   </p>
+  -->
       </section>
 
     </main>
+
+    <footer><div class="suc-footer">
+
+  <div class="suc-footer__inner-container suc-footer__list-container suc-cont">
+
+    <div class="about suc-about">
+      <a href="/"><img class="def-lay-profile-image" src="/assets/portfolio.jpg"
+          alt="Enrico Succhielli"></a>
+      <div class="container badges-box">
+        <img alt="GitHub User's stars"
+          src="https://img.shields.io/github/stars/telefonosuci?style=for-the-badge">
+        <img alt="GitHub followers"
+          src="https://img.shields.io/github/followers/telefonosuci?style=for-the-badge">
+      </div>
+      <h2 id="title">
+        <a href="/">Enrico Succhielli</a>
+      </h2>
+      <p class="tagline suc-cont__center">Pixel maniac web Developer</p>
+      <ul class="social"><a href="https://github.com/telefonosuci">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/enrico-succhielli">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a><a href="https://twitter.com/enricolebanane">
+          <li>
+            <i class="icon-twitter-squared"></i>
+          </li>
+        </a></ul>
+
+      <p>&copy;
+        2023
+      </p>
+    </div>
+
+
+    <ul class="suc-footer__link-list">
+      <li class="suc-footer__link-list-header">Legal area</li>
+      <li class="suc-footer__link-list-item">Contact policy</li>
+      <li class="suc-footer__link-list-item"><a href="/comments-policy.html">Comments policy</a></li>
+      <li class="suc-footer__link-list-item">Privacy policy</li>
+    </ul>
+
+    <ul class="suc-footer__link-list">
+      <li class="suc-footer__link-list-header">Loved projects</li>
+      <li class="suc-footer__link-list-item"><a href="https://reactjs.org/">ReactJS</a></li>
+      <li class="suc-footer__link-list-item"><a href="https://prismic.io/">Prismic</a></li>
+      <li class="suc-footer__link-list-item"><a href="https://ghost.org/">Ghost CMS</a></li>
+      <li class="suc-footer__link-list-item"><a href="https://css-doodle.com/">CSS Doodle</a></li>
+    </ul>
+  </div>
+</div>
+</footer>
   </body>
-
-
 </html>
