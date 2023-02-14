@@ -25,3 +25,16 @@
       @content;
   }
 }
+
+
+.hide-desktop {
+  @include media-lg {
+    display: none;
+  }
+}
+
+.hide-mobile {
+  @include media-only-sm {
+    display: none;
+  }
+}

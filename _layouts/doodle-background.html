@@ -15,7 +15,7 @@
 
   <body>
 
-    <css-doodle click-to-update class="posts-page__bg-doodle">
+    <css-doodle click-to-update class="posts-page__bg-doodle hide-mobile">
       <style>
 
         :doodle {
@@ -28,12 +28,34 @@
         margin: -.5px;
         transition: @r(.5s) ease;
 
-        clip-path: polygon(@pick('0 0, 100% 0, 100% 100%',
-            '0 0, 100% 0, 0 100%',
-            '0 0, 100% 100%, 0 100%',
-            '100% 0, 100% 100%, 0 100%'
-          ));
+        clip-path: polygon(@pick(
+          '0 0, 100% 0, 100% 100%',
+          '0 0, 100% 0, 0 100%',
+          '0 0, 100% 100%, 0 100%',
+          '100% 0, 100% 100%, 0 100%'
+        ));
 
+      </style>
+    </css-doodle>
+
+    <css-doodle click-to-update class="posts-page__bg-doodle hide-desktop">
+      <style>
+        :doodle {
+          @grid: 6 / 16px;
+          background: #0a0c27;
+        }
+
+        --hue: calc(180 + 1.5 * @row * @col);
+        background: hsl(var(--hue), 50%, 70%);
+
+        transition: @r(.5s) ease;
+
+        clip-path: polygon(@pick(
+          '0 0, 100% 0, 100% 100%',
+          '0 0, 100% 0, 0 100%',
+          '0 0, 100% 100%, 0 100%',
+          '100% 0, 100% 100%, 0 100%'
+        ));
       </style>
     </css-doodle>
 
