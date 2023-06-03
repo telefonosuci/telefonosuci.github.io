@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
   <head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -43,203 +41,100 @@
 <meta property="og:locale" content="it" />
 <meta name="description" content="In Okinawa, programming, very serious business! [Miyagi]" />
 <meta property="og:description" content="In Okinawa, programming, very serious business! [Miyagi]" />
-<link rel="canonical" href="http://localhost:4000/posts.html" />
-<meta property="og:url" content="http://localhost:4000/posts.html" />
 <meta property="og:site_name" content="Suci’s Git space" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Suci’s Git space" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Suci"},"description":"In Okinawa, programming, very serious business! [Miyagi]","headline":"Suci’s Git space","url":"http://localhost:4000/posts.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Suci"},"description":"In Okinawa, programming, very serious business! [Miyagi]","headline":"Suci’s Git space","url":"/posts.html"}</script>
 <!-- End Jekyll SEO tag -->
 
-<script src="https://unpkg.com/css-doodle@0.33.1/css-doodle.min.js"></script>
-
-    <style>
-      body {
-        position: relative;
-      }
-    </style>
-  </head>
-
+</head>
   <body>
 
-    <css-doodle id="desktop-doodle" click-to-update class="posts-page__bg-doodle hide-mobile">
-      <style>
+    <div class="suc-navbar suc-cont__center">
+      <div class="suc-cont suc-cont__def suc-navbar__container">
+        <nav class="suc-navbar__nav"><a href="/about">About Me</a><a href="/posts">Some Posts</a></nav>
 
-        :doodle {
-          @grid: 18 / 100vmax;
-          background: #0a0c27;
-        }
+        <div class="language-bar">
+          <a href="/en"><img class="language-image" src="/assets/icons/icons8-gran-bretagna-48.png" /></a>
+          <a href="/it"><img class="language-image" src="/assets/icons/icons8-italy-48.png" /></a>
+        </div>
+      </div>
+    </div>
 
-        --hue: calc(180 + 1.5 * @row * @col);
-        background: hsl(var(--hue), 50%, 70%);
-        margin: -.5px;
-        transition: @r(.5s) ease;
-
-        clip-path: polygon(@pick(:doodle {
-          @media (min-width: 768px) {
-            @grid: 18 / 100vmax;
-            background: #0a0c27;
-          }
-          @media (max-width: 768px) {
-            @grid: 6 / 16px;
-            background: #0a0c27;
-          }
-        }
-          '0 0, 100% 0, 100% 100%',
-          '0 0, 100% 0, 0 100%',
-          '0 0, 100% 100%, 0 100%',
-          '100% 0, 100% 100%, 0 100%'
-        ));
-
-      </style>
-    </css-doodle>
-
-
-    <css-doodle id="mobile-doodle" click-to-update class="posts-page__bg-doodle hide-desktop">
-      @grid: 1 / 100vw 100vh;
-      background-color: #0a0c27;
-      background-size: 200px 200px;
-      background-image: @doodle(
-      @grid: 6 / 100%;
-      @size: 4px;
-      font-size: 4px;
-      color: hsl(@r240, 30%, 50%);
-      box-shadow: @m3x5(
-      calc(4em - @nx * 1em) calc(@ny * 1em)
-      @p(@m3(currentColor), @m2(#0000)),
-      calc(2em + @nx * 1em) calc(@ny * 1em)
-      @lp
-      );
-      );
-    </css-doodle>
-
-
-    <script>
-
-      var timers = {};
-
-      function debounce(func, timeout = 300) {
-        let timer;
-        return (...args) => {
-          clearTimeout(timer);
-          timer = setTimeout(() => { func.apply(this, args); }, timeout);
-        };
-      }
-
-      function throttle(id, func, delay) {
-        // If setTimeout is already scheduled, no need to do anything
-        if (timers[id]) {
-          return;
-        }
-
-        // Schedule a setTimeout after delay seconds
-        timers[id] = setTimeout(function () {
-          func();
-
-          // Once setTimeout function execution is finished, timerId = undefined so that in <br>
-          // the next scroll event function execution can be scheduled by the setTimeout
-          timers[id] = undefined;
-        }, delay);
-      }
-
-      const doodles = document.querySelectorAll('css-doodle');
-
-      document.addEventListener('scroll', function(e) {
-        doodles.forEach(d => {
-          throttle(d.id, () => {
-            d.update();
-          }, 500);
-        });
-      });
-
-    </script>
-
-    <main class="suc-cont home-main-content">
-
+    <main class="suc-cont">
       <section class="suc-content">
-        <ul class="posts posts-page__posts">
+        <div>
+  <div class="page-title">
+    
+
+      <h1 class="lbh-heading-h1"></h1>
+
+  </div>
+
+  <div>
+    <ul class="posts">
     <li>
+      <h1 id="posts-label">articoli</h1>
+    </li>
 
-        <div class="posts-page__post-container"><a class="post-link" href="/frontend/2023/02/14/javascript-throttling-and-debounce.html">
-            <h2 class="post-title">Javascript trottle and debounce</h2>
-          </a>
-          <div class="post-meta">
-            <ul class="post-categories"><li>Frontend</li></ul>
-            <div class="post-date">
-              <i class="icon-calendar"></i>
-              Feb 14, 2023</div>
-          </div>
-          <div class="post"><p>In a frontend application is nice to have a single object that is thacking care of the rendering of your components. So we can build a little framework and give a bit of structure to our application avoiding the repetition of same logic in our code.</p>
-</div>
+    <li><a class="post-link" href="/tutorials/2022/05/09/react-countdown-component.html">
+          <h2 class="post-title">Componente React per un conto alla rovescia</h2>
+        </a>
+        <div class="post-meta">
+          <ul class="post-categories"><li>Tutorials</li></ul>
+          <div class="post-date">
+            <i class="icon-calendar"></i>
+            May 9, 2022</div>
         </div>
-      </li><li>
-
-        <div class="posts-page__post-container"><a class="post-link" href="/tutorials/2022/05/09/react-countdown-component.html">
-            <h2 class="post-title">Componente React per un conto alla rovescia</h2>
-          </a>
-          <div class="post-meta">
-            <ul class="post-categories"><li>Tutorials</li></ul>
-            <div class="post-date">
-              <i class="icon-calendar"></i>
-              May 9, 2022</div>
-          </div>
-          <div class="post"><p>Un semplice conto alla rovescia per React.</p>
+        <div class="post"><p>Un semplice conto alla rovescia per React.</p>
 </div>
+      </li><li><a class="post-link" href="/frontend/2020/07/13/a-simple-react-component-renderer-with-dataset.html">
+          <h2 class="post-title">Un semplice renderizzatore per componenti React</h2>
+        </a>
+        <div class="post-meta">
+          <ul class="post-categories"><li>Frontend</li></ul>
+          <div class="post-date">
+            <i class="icon-calendar"></i>
+            Jul 13, 2020</div>
         </div>
-      </li><li>
-
-        <div class="posts-page__post-container"><a class="post-link" href="/frontend/2020/07/13/a-simple-react-component-renderer-with-dataset.html">
-            <h2 class="post-title">Un semplice renderizzatore per componenti React</h2>
-          </a>
-          <div class="post-meta">
-            <ul class="post-categories"><li>Frontend</li></ul>
-            <div class="post-date">
-              <i class="icon-calendar"></i>
-              Jul 13, 2020</div>
-          </div>
-          <div class="post"><p>In a frontend application is nice to have a single object that is thacking care of the rendering of your components. So we can build a little framework and give a bit of structure to our application avoiding the repetition of same logic in our code.</p>
+        <div class="post"><p>In a frontend application is nice to have a single object that is thacking care of the rendering of your components. So we can build a little framework and give a bit of structure to our application avoiding the repetition of same logic in our code.</p>
 </div>
+      </li><li><a class="post-link" href="/salesforce/2020/04/30/import-contacts-from-linkedin-to-salesforce.html">
+          <h2 class="post-title">Importare contatti da Linkedin a Salesforce</h2>
+        </a>
+        <div class="post-meta">
+          <ul class="post-categories"><li>Salesforce</li></ul>
+          <div class="post-date">
+            <i class="icon-calendar"></i>
+            Apr 30, 2020</div>
         </div>
-      </li><li>
-
-        <div class="posts-page__post-container"><a class="post-link" href="/salesforce/2020/04/30/import-contacts-from-linkedin-to-salesforce.html">
-            <h2 class="post-title">Importare contatti da Linkedin a Salesforce</h2>
-          </a>
-          <div class="post-meta">
-            <ul class="post-categories"><li>Salesforce</li></ul>
-            <div class="post-date">
-              <i class="icon-calendar"></i>
-              Apr 30, 2020</div>
-          </div>
-          <div class="post"><p>Import contacts from Linkedin to Salesforce</p>
+        <div class="post"><p>Import contacts from Linkedin to Salesforce</p>
 </div>
+      </li><li><a class="post-link" href="/services/2019/03/23/chatbots.html">
+          <h2 class="post-title">Chatbot Whatsapp o Telegram. A cosa serve ? Può servirmi ?</h2>
+        </a>
+        <div class="post-meta">
+          <ul class="post-categories"><li>Services</li></ul>
+          <div class="post-date">
+            <i class="icon-calendar"></i>
+            Mar 23, 2019</div>
         </div>
-      </li><li>
-
-        <div class="posts-page__post-container"><a class="post-link" href="/services/2019/03/23/chatbots.html">
-            <h2 class="post-title">Chatbot Whatsapp o Telegram. A cosa serve ? Può servirmi ?</h2>
-          </a>
-          <div class="post-meta">
-            <ul class="post-categories"><li>Services</li></ul>
-            <div class="post-date">
-              <i class="icon-calendar"></i>
-              Mar 23, 2019</div>
-          </div>
-          <div class="post"><p>Chatbots have been around in various forms since 1966. Only recently have companies learned to use them for numerous business purposes such as Customer Support, Sales, payment collection and increased social media engagement. Are chatbots only feasible for big businesses with large budgets and a large number of customers or should SMBs seriously consider them? According to a study by Oracle, 80% of businesses already use chatbots or plan to use them by 2024. With this much popularity and their benefits why not have one working for your business too?</p>
+        <div class="post"><p>Chatbots have been around in various forms since 1966. Only recently have companies learned to use them for numerous business purposes such as Customer Support, Sales, payment collection and increased social media engagement. Are chatbots only feasible for big businesses with large budgets and a large number of customers or should SMBs seriously consider them? According to a study by Oracle, 80% of businesses already use chatbots or plan to use them by 2024. With this much popularity and their benefits why not have one working for your business too?</p>
 </div>
-        </div>
       </li></ul>
 
-  <!--
   <p class="feed-subscribe">
     <svg class="svg-icon orange">
 		  <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
 	  </svg>
     <a href="/feed.xml">Subscribe</a>
   </p>
-  -->
+  </div>
+
+</div>
+
       </section>
 
     </main>
@@ -293,10 +188,15 @@
       <li class="suc-footer__link-list-item"><a href="https://reactjs.org/">ReactJS</a></li>
       <li class="suc-footer__link-list-item"><a href="https://prismic.io/">Prismic</a></li>
       <li class="suc-footer__link-list-item"><a href="https://ghost.org/">Ghost CMS</a></li>
-      <li class="suc-footer__link-list-item"><a href="https://css-doodle.com/">CSS Doodle</a></li>
     </ul>
   </div>
 </div>
-</footer>
-  </body>
+</footer></body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TP92MWJ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
 </html>

@@ -53,12 +53,6 @@
         font-size: 8em;
       }
 
-      @media (max-width: 768px) {
-        .bg-strobo h2 {
-          font-size: 4em;
-        }
-      }
-
       .bg-slider .slide {
         position: relative;
         width: 20%;
@@ -348,8 +342,6 @@
 
         document.addEventListener('touch', scrollSuperHero);
         document.addEventListener('click', scrollSuperHero);
-        document.addEventListener('scroll', scrollSuperHero);
-        document.addEventListener('wheel', scrollSuperHero);
       });
 
       window.addEventListener('beforeunload', event => {

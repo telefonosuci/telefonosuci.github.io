@@ -817,18 +817,6 @@ main .about img {
   }
 }
 
-@media (min-width: 992px) {
-  .hide-desktop {
-    display: none;
-  }
-}
-
-@media (max-width: 576px) {
-  .hide-mobile {
-    display: none;
-  }
-}
-
 .suc-cont {
   display: block;
   margin: 0 auto;
@@ -871,7 +859,6 @@ main .about img {
 }
 
 .suc-navbar {
-  background-color: white;
   color: black;
   padding: 8px;
   margin-bottom: 32px;
@@ -1086,25 +1073,6 @@ main .about img {
 
 .home-main-content {
   min-height: 500px;
-}
-
-.posts-page__bg-doodle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-}
-.posts-page__posts {
-  padding: 0;
-}
-.posts-page__posts > li {
-  background-color: white;
-  margin: 18px 0;
-}
-.posts-page__post-container {
-  padding: 18px;
 }
 
 .loader-wrapper {
