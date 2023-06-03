@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
+    "build-jekyll": "bundle exec jekyll build",
     "watch": "webpack --config webpack.config.js --env watch=true",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d _site"
