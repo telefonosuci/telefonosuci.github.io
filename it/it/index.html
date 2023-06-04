@@ -342,53 +342,37 @@
       window.heroScroll = 0;
       window.heroFade = 1;
       document.addEventListener('DOMContentLoaded', event => {
+
+
         const banner = document.querySelector('.full-banner');
 
-        if (banner) {
+        if(localStorage.getItem("strobo-banner-closed")) {
+          banner.style.display = 'none';
+        } else {
+
           document.body.style.overflow = 'hidden';
-        }
 
-        const scrollSuperHero = event => {
+          const scrollSuperHero = event => {
 
-          console.log('ENTERING SCROLL CALLBACK');
+            console.log('ENTERING SCROLL CALLBACK');
 
-          if (!banner.classList.contains('scroll-up')) {
-            console.log('ADDING SCROLL CLASS');
 
-            document.body.style.overflow = 'auto';
-            banner.classList.add('scroll-up');
-            window.scrollTo(0, 0);
+            localStorage.setItem("strobo-banner-closed", true);
+
+            if (!banner.classList.contains('scroll-up')) {
+              console.log('ADDING SCROLL CLASS');
+
+              document.body.style.overflow = 'auto';
+              banner.classList.add('scroll-up');
+              window.scrollTo(0, 0);
+            }
+
           }
 
-          /*
-          console.log('Event: ', event);
-          console.log('Scroll DeltaY: ', event.deltaY);
+          document.addEventListener('touch', scrollSuperHero);
+          document.addEventListener('click', scrollSuperHero);
 
-          console.log('Window H: ', window.innerHeight);
-          console.log('Hero Window: ', window.heroScroll);
-          */
-
-          // delta sta a windowHeight come X sta a 100
-          // (delta * 100) / windowHeight
-          // window.heroScroll = 0;
-
-          /*
-          if ((Math.abs(window.heroScroll) <= window.innerHeight &&  event.deltaY > 0) || !event.deltaY) {
-            const percentDelta = ((event.deltaY * 100) / window.innerHeight).toFixed(0);
-
-            console.log('Scroll Percent Delta: ', percentDelta);
-            window.heroScroll = window.heroScroll - ( percentDelta * 5);
-            //console.log('Banner top: ', banner.style.top);
-            //console.log('Banner scroll top: ', banner.scrollTop);
-            banner.style.top = window.heroScroll + 'px';
-            //console.log('Banner top dimmed: ', banner.style.top);
-          } else {
-            document.body.style.overflow = 'auto';
-          }*/
         }
-
-        document.addEventListener('touch', scrollSuperHero);
-        document.addEventListener('click', scrollSuperHero);
       });
 
       window.addEventListener('beforeunload', event => {
