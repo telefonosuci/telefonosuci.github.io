@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     rComponents: cList
   });
 
-  SimpleModal.init();
+  // SimpleModal.init();
   console.log("LOADING PDP, will become load post");
   // pdp.load();
 
