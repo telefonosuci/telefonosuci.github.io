@@ -7,6 +7,7 @@
     "npm": "8.3.1"
   },
   "scripts": {
+    "dev": "bundle exec jekyll serve",
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --config webpack.config.js --env watch=true",
     "predeploy": "npm run build",
