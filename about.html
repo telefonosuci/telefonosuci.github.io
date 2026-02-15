@@ -9,25 +9,45 @@ title: About
     height: 300px;
   }
   .swiper-slide {
-    background-color: antiquewhite;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+
+  .swiper-slide-background {
+    position: absolute;
+    opacity: .5;
+  }
+
+  .swiper-slide-text {
+    position: absolute;
+    font-size: 28px;
+    font-weight: bolder;
+    text-align: center;
   }
 </style>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 
-<h2>I can help you with:</h2>
+
 <div class="js-swiper-section">
   <!-- Slider main container -->
   <div id="js-swiper-technology-section" class="swiper">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
-      <div class="swiper-slide">Build up your company website.</div>
-      <div class="swiper-slide">create an online store and rise visibility.</div>
-      <div class="swiper-slide">Crate a custom chat-bot to help you with your business daily routines.</div>
+      <div class="swiper-slide">
+        <img class="swiper-slide-background" src="/assets/images/pexels-picjumbocom.jpg">
+        <span class="swiper-slide-text">Build up your company website.</span>
+      </div>
+      <div class="swiper-slide">
+        <img class="swiper-slide-background" src="/assets/images/pexels-karolina-grabowska.jpg">
+        <span class="swiper-slide-text">create an online store and rise visibility.</span>
+      </div>
+      <div class="swiper-slide">
+        <img class="swiper-slide-background" src="/assets/images/pexels-alex-knight.jpg">
+        <span class="swiper-slide-text">Crate a custom chat-bot to help you with your business daily routines.</span></div>
     </div>
 
     <!-- If we need navigation buttons --
