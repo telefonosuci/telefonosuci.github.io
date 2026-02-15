@@ -1,3 +1,5 @@
+@use '../base/mixins' as *;
+
 .page-contact {
   &__formContainer {
     @include media-only-sm {
