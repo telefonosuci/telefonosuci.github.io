@@ -1,3 +1,5 @@
+@use '../base/mixins' as *;
+
 .suc-sticky-alert {
   width: 300px;
   border-radius: 22px;

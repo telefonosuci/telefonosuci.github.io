@@ -1,0 +1,33 @@
+.posts-page {
+  &__bg-doodle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+  }
+
+  &__posts {
+
+    padding: 0;
+
+    & > li {
+      background-color: white;
+      margin: 18px 0;
+    }
+  }
+
+  &__post-container {
+    padding: 18px;
+  }
+}
+
+.doodle-background-page {
+  main,
+  footer {
+    position: relative;
+    z-index: 1;
+  }
+}

@@ -1,3 +1,5 @@
+@use '../base/mixins' as *;
+
 .page-title {
   @include media-only-sm {
     display: flex;

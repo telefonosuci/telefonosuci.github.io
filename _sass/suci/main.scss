@@ -1,20 +1,22 @@
-@import "./base/variables";
-@import "./base/mixins";
-@import "./base/containers";
-@import "./base/typo";
-@import "./base/typography";
+@use "./base/variables";
+@use "./base/mixins";
+@use "./base/containers";
+@use "./base/typo";
+@use "./base/typography";
 
-@import "./components/navbar";
-@import "./components/walking-sprites";
-@import "./components/home-section";
-@import "./components/sticky-alert";
-@import "./components/links";
-@import "./components/footer";
+@use "./components/navbar";
+@use "./components/walking-sprites";
+@use "./components/home-section";
+@use "./components/sticky-alert";
+@use "./components/links";
+@use "./components/footer";
 
-@import "./pages/page";
-@import "./pages/contact";
-@import "./pages/homepage";
+@use "./pages/page";
+@use "./pages/contact";
+@use "./pages/homepage";
+@use "./pages/posts";
 
+@use "./overrides/formio";
 
 @import "./helpers/containers";
 
