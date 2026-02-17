@@ -7,9 +7,7 @@
           alt="{{ site.suci.name }}"></a>
       <div class="container badges-box">
         <img alt="GitHub User's stars"
-          src="https://img.shields.io/github/stars/{{ site.suci.social_links.github }}?style=for-the-badge">
-        <img alt="GitHub followers"
-          src="https://img.shields.io/github/followers/{{ site.suci.social_links.github }}?style=for-the-badge">
+          src="https://img.shields.io/github/stars/{{ site.suci.social_links.github | strip }}?style=for-the-badge">
       </div>
       <h2 id="title">
         <a href="/">{{ site.suci.name }}</a>
@@ -17,7 +15,7 @@
       <p class="tagline suc-cont__center">{{ site.suci.tagline }}</p>
       <ul class="social">
         {%- if site.suci.social_links.github -%}
-        <a href="https://github.com/{{ site.suci.social_links.github }}">
+        <a href="https://github.com/{{ site.suci.social_links.github | strip }}">
           <li>
             <i class="icon-github-circled"></i>
           </li>
