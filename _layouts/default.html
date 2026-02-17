@@ -4,52 +4,20 @@
     {%- include head.html -%}
   </head>
   <body>
+    {%- include gtm-noscript.html -%}
 
-    <div class="suc-navbar suc-cont__center">
-      <div class="suc-cont suc-cont__def suc-navbar__container">
-        <nav class="suc-navbar__nav">
-          {%- for el in site.suci.navigation -%}
-            <a href="/{{ el.url }}">{{ el.name }}</a>
-          {%- endfor -%}
-        </nav>
-
-        <div class="language-bar">
-          <a href="/en"><img class="language-image" src="{{ "/assets/icons/icons8-gran-bretagna-48.png" | relative_url }}" /></a>
-          <a href="/it"><img class="language-image" src="{{ "/assets/icons/icons8-italy-48.png" | relative_url }}" /></a>
-        </div>
-      </div>
-    </div>
+    {%- include nav.html -%}
 
     <main class="suc-cont nopadding">
       <section class="suc-content">
         {{ content }}
-
       </section>
-
     </main>
 
     <footer>
       {%- include footer.html -%}
     </footer>
 
-
-
-    {%- if site.suci.analytics_id -%}
-      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.suci.analytics_id }}"></script>
-      <script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-
-		gtag('config', '{{ site.suci.analytics_id }}');
-	</script>
-    {%- endif -%}
+    {%- include analytics.html -%}
   </body>
-
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TP92MWJ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
 </html>

@@ -263,6 +263,7 @@
   </head>
 
   <body>
+    {%- include gtm-noscript.html -%}
     <!--
     <div class="bg-container">
       <div class="bg-slider">
@@ -295,69 +296,7 @@
     </div>
     -->
 
-    <script>
-
-      // console.log('Inline script');
-      window.heroScroll = 0;
-      window.heroFade = 1;
-      document.addEventListener('DOMContentLoaded', event => {
-        const banner = document.querySelector('.full-banner');
-
-        if (banner) {
-          document.body.style.overflow = 'hidden';
-        }
-
-        const scrollSuperHero = event => {
-
-          console.log('ENTERING SCROLL CALLBACK');
-
-          if (!banner.classList.contains('scroll-up')) {
-            console.log('ADDING SCROLL CLASS');
-
-            document.body.style.overflow = 'auto';
-            banner.classList.add('scroll-up');
-            window.scrollTo(0, 0);
-          }
-
-          /*
-          console.log('Event: ', event);
-          console.log('Scroll DeltaY: ', event.deltaY);
-
-          console.log('Window H: ', window.innerHeight);
-          console.log('Hero Window: ', window.heroScroll);
-          */
-
-          // delta sta a windowHeight come X sta a 100
-          // (delta * 100) / windowHeight
-          // window.heroScroll = 0;
-
-          /*
-          if ((Math.abs(window.heroScroll) <= window.innerHeight &&  event.deltaY > 0) || !event.deltaY) {
-            const percentDelta = ((event.deltaY * 100) / window.innerHeight).toFixed(0);
-
-            console.log('Scroll Percent Delta: ', percentDelta);
-            window.heroScroll = window.heroScroll - ( percentDelta * 5);
-            //console.log('Banner top: ', banner.style.top);
-            //console.log('Banner scroll top: ', banner.scrollTop);
-            banner.style.top = window.heroScroll + 'px';
-            //console.log('Banner top dimmed: ', banner.style.top);
-          } else {
-            document.body.style.overflow = 'auto';
-          }*/
-        }
-
-        document.addEventListener('touch', scrollSuperHero);
-        document.addEventListener('click', scrollSuperHero);
-        document.addEventListener('scroll', scrollSuperHero);
-        document.addEventListener('wheel', scrollSuperHero);
-      });
-
-      window.addEventListener('beforeunload', event => {
-        console.log('SCROLLING TO TOP OF THE PAGE');
-        window.scrollTo(0, 0);
-      });
-
-    </script>
+    {%- include homepage-hero-script.html -%}
 
 
     <div class="bg-strobo full-banner over">
@@ -367,20 +306,7 @@
 
     <div class="netar-body">
 
-      <div class="suc-navbar suc-cont__center">
-        <div class="suc-cont suc-cont__def suc-navbar__container">
-          <nav class="suc-navbar__nav">
-            {%- for el in site.suci.navigation -%}
-              <a href="/{{ el.url }}">{{ el.name }}</a>
-            {%- endfor -%}
-          </nav>
-
-          <div class="language-bar">
-            <a href="/en"><img class="language-image" src="{{ "/assets/icons/icons8-gran-bretagna-48.png" | relative_url }}" /></a>
-            <a href="/it"><img class="language-image" src="{{ "/assets/icons/icons8-italy-48.png" | relative_url }}" /></a>
-          </div>
-        </div>
-      </div>
+      {%- include nav.html -%}
 
       {%- if page.title == '' -%}
         <div class="suc-navbar suc-cont__center">
@@ -401,16 +327,7 @@
       </footer>
 
     </div>
-    {%- if site.suci.analytics_id -%}
-      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.suci.analytics_id }}"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', '{{ site.suci.analytics_id }}');
-      </script>
-    {%- endif -%}
+    {%- include analytics.html -%}
 
     {%- if site.suci.cookie_notification -%}
       {% include components/sticky-notification.html %}

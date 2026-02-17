@@ -1,0 +1,14 @@
+<div class="suc-navbar suc-cont__center">
+  <div class="suc-cont suc-cont__def suc-navbar__container">
+    <nav class="suc-navbar__nav">
+      {%- for el in site.suci.navigation -%}
+        <a href="/{{ el.url }}">{{ el.name }}</a>
+      {%- endfor -%}
+    </nav>
+
+    <div class="language-bar">
+      <a href="/en"><img class="language-image" src="{{ "/assets/icons/icons8-gran-bretagna-48.png" | relative_url }}" /></a>
+      <a href="/it"><img class="language-image" src="{{ "/assets/icons/icons8-italy-48.png" | relative_url }}" /></a>
+    </div>
+  </div>
+</div>

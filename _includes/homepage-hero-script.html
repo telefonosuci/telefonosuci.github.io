@@ -1,0 +1,28 @@
+<script>
+  window.heroScroll = 0;
+  window.heroFade = 1;
+  document.addEventListener('DOMContentLoaded', event => {
+    const banner = document.querySelector('.full-banner');
+
+    if (banner) {
+      document.body.style.overflow = 'hidden';
+    }
+
+    const scrollSuperHero = event => {
+      if (!banner.classList.contains('scroll-up')) {
+        document.body.style.overflow = 'auto';
+        banner.classList.add('scroll-up');
+        window.scrollTo(0, 0);
+      }
+    };
+
+    document.addEventListener('touch', scrollSuperHero);
+    document.addEventListener('click', scrollSuperHero);
+    document.addEventListener('scroll', scrollSuperHero);
+    document.addEventListener('wheel', scrollSuperHero);
+  });
+
+  window.addEventListener('beforeunload', event => {
+    window.scrollTo(0, 0);
+  });
+</script>

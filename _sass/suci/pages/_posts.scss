@@ -25,6 +25,11 @@
 }
 
 .doodle-background-page {
+  .suc-navbar {
+    position: relative;
+    z-index: 2;
+  }
+
   main,
   footer {
     position: relative;
