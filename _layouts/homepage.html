@@ -2,6 +2,23 @@
 <html lang="en">
   <head>
     {%- include head.html -%}
+    <script>
+      (function () {
+        var key = 'hero-strobo-unlocked-at';
+        var ttl = 24 * 60 * 60 * 1000;
+
+        try {
+          var raw = window.localStorage.getItem(key);
+          var unlockedAt = Number(raw);
+          var isWithinCooldown = Number.isFinite(unlockedAt) && (Date.now() - unlockedAt < ttl);
+          if (isWithinCooldown) {
+            document.documentElement.classList.add('hero-strobo-skip');
+          }
+        } catch (error) {
+          // Ignore storage read errors.
+        }
+      })();
+    </script>
     <style>
 
       body {
@@ -20,6 +37,10 @@
 
       .full-banner.over {
         z-index: 1200;
+      }
+
+      html.hero-strobo-skip .full-banner.over {
+        display: none;
       }
 
       .netar-body {
@@ -51,6 +72,30 @@
 
       .bg-strobo h2 {
         font-size: 8em;
+        letter-spacing: .04em;
+        transition: text-shadow 220ms ease;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+      }
+
+      .bg-strobo h2.strobo-text .strobo-char {
+        display: inline-block;
+        transform-origin: center;
+        transition: transform 320ms cubic-bezier(.2,.8,.2,1);
+      }
+
+      .bg-strobo h2.strobo-text .strobo-char:hover {
+        transform: scaleX(-1);
+      }
+
+      .bg-strobo h2.strobo-text .strobo-char:hover {
+        text-shadow:
+          0 0 12px rgba(255, 255, 255, .65),
+          0 0 28px rgba(255, 255, 255, .35),
+          0 0 44px rgba(255, 255, 255, .2);
       }
 
       @media (max-width: 768px) {
@@ -300,8 +345,12 @@
 
 
     <div class="bg-strobo full-banner over">
-      <h2 class="d-block d-md-none d-lg-none d-xl-none">TOUCH</h2>
-      <h2 class="d-none d-sm-block">CLICK</h2>
+      <h2 class="d-block d-sm-none strobo-text" aria-label="TOUCH">
+        <span class="strobo-char" style="--i:0">T</span><span class="strobo-char" style="--i:1">O</span><span class="strobo-char" style="--i:2">U</span><span class="strobo-char" style="--i:3">C</span><span class="strobo-char" style="--i:4">H</span>
+      </h2>
+      <h2 class="d-none d-sm-block strobo-text" aria-label="CLICK">
+        <span class="strobo-char" style="--i:0">C</span><span class="strobo-char" style="--i:1">L</span><span class="strobo-char" style="--i:2">I</span><span class="strobo-char" style="--i:3">C</span><span class="strobo-char" style="--i:4">K</span>
+      </h2>
     </div>
 
     <div class="netar-body">

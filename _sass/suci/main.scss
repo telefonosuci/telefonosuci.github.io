@@ -18,10 +18,6 @@
 
 @use "./overrides/formio";
 
-@import "./helpers/containers";
-
-
-@import "./overrides/formio";
-
-@import "./vendor/walking-sprites";
-// @import "./vendor/lbh-frontend";
+@use "./helpers/containers" as helpers-containers;
+@use "./vendor/walking-sprites" as vendor-walking-sprites;
+// @use "./vendor/lbh-frontend";

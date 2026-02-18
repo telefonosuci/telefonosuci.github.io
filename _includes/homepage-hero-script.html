@@ -1,28 +1,79 @@
 <script>
   window.heroScroll = 0;
   window.heroFade = 1;
-  document.addEventListener('DOMContentLoaded', event => {
+  const HERO_UNLOCK_KEY = 'hero-strobo-unlocked-at';
+  const HERO_UNLOCK_TTL_MS = 24 * 60 * 60 * 1000;
+
+  const getStoredUnlockTime = () => {
+    try {
+      const raw = window.localStorage.getItem(HERO_UNLOCK_KEY);
+      if (!raw) return null;
+      const value = Number(raw);
+      return Number.isFinite(value) ? value : null;
+    } catch (error) {
+      return null;
+    }
+  };
+
+  const setStoredUnlockTime = () => {
+    try {
+      window.localStorage.setItem(HERO_UNLOCK_KEY, String(Date.now()));
+    } catch (error) {
+      // Ignore storage write errors (e.g. private mode restrictions)
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
     const banner = document.querySelector('.full-banner');
 
-    if (banner) {
-      document.body.style.overflow = 'hidden';
+    if (!banner) {
+      return;
     }
 
-    const scrollSuperHero = event => {
-      if (!banner.classList.contains('scroll-up')) {
-        document.body.style.overflow = 'auto';
-        banner.classList.add('scroll-up');
-        window.scrollTo(0, 0);
+    const unlockedAt = getStoredUnlockTime();
+    const isWithinCooldown = unlockedAt && Date.now() - unlockedAt < HERO_UNLOCK_TTL_MS;
+
+    if (isWithinCooldown) {
+      document.body.style.overflow = 'auto';
+      banner.classList.add('scroll-up');
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    document.body.style.overflow = 'hidden';
+
+    const unlockHero = () => {
+      if (banner.classList.contains('scroll-up')) return;
+
+      setStoredUnlockTime();
+      document.body.style.overflow = 'auto';
+      banner.classList.add('scroll-up');
+      window.scrollTo(0, 0);
+      cleanupListeners();
+    };
+
+    const onPointerDown = () => unlockHero();
+    const onTouchStart = () => unlockHero();
+    const onMouseDown = () => unlockHero();
+
+    const cleanupListeners = () => {
+      if ('PointerEvent' in window) {
+        document.removeEventListener('pointerdown', onPointerDown);
+      } else {
+        document.removeEventListener('touchstart', onTouchStart);
+        document.removeEventListener('mousedown', onMouseDown);
       }
     };
 
-    document.addEventListener('touch', scrollSuperHero);
-    document.addEventListener('click', scrollSuperHero);
-    document.addEventListener('scroll', scrollSuperHero);
-    document.addEventListener('wheel', scrollSuperHero);
+    if ('PointerEvent' in window) {
+      document.addEventListener('pointerdown', onPointerDown, { passive: true });
+    } else {
+      document.addEventListener('touchstart', onTouchStart, { passive: true });
+      document.addEventListener('mousedown', onMouseDown);
+    }
   });
 
-  window.addEventListener('beforeunload', event => {
+  window.addEventListener('beforeunload', () => {
     window.scrollTo(0, 0);
   });
 </script>
