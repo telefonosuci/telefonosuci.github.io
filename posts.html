@@ -10,39 +10,65 @@ lang: it
 
 {%- if site.posts.size > 0 -%}
 
+  {% assign selectedPosts = site.posts | where:"lang", page.lang %}
+  {% assign allCategories = selectedPosts | map: "categories" | join: "|" | split: "|" | uniq | sort %}
+  {% assign categoriesLabel = "Categoria" %}
+  {% assign allCategoriesLabel = "Tutte" %}
+  {% if page.lang == "en" %}
+    {% assign categoriesLabel = "Category" %}
+    {% assign allCategoriesLabel = "All" %}
+  {% endif %}
 
+  <div class="posts-page__layout">
+    <aside class="posts-page__sidebar">
+      <div class="posts-page__sidebar-inner">
+        <p class="posts-page__sidebar-title">{{ categoriesLabel }}</p>
+        <ul class="posts-page__category-list">
+          <li>
+            <button type="button" class="posts-page__category-btn is-active" data-category-filter="all">{{ allCategoriesLabel }}</button>
+          </li>
+          {% for category in allCategories %}
+            {% assign trimmedCategory = category | strip %}
+            {% if trimmedCategory != "" %}
+              <li>
+                <button type="button" class="posts-page__category-btn" data-category-filter="{{ trimmedCategory | downcase }}">{{ trimmedCategory }}</button>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </aside>
 
-  <ul class="posts posts-page__posts">
-    {% assign selectedPosts = site.posts | where:"lang", page.lang %}
-
-
-    {%- for post in selectedPosts -%}
-      <li>
-
-        <div class="posts-page__post-container">
-          {%- assign date_format = site.suci.date_format | default: "%b %-d, %Y" -%}
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            <h2 class="post-title">{{ post.title | escape }}</h2>
-          </a>
-          <div class="post-meta">
-            <ul class="post-categories">
-              {%- for tag in post.categories -%}
-                <li>{{ tag }}</li>
-              {%- endfor -%}
-            </ul>
-            <div class="post-date">
-              <i class="icon-calendar"></i>
-              {{ post.date | date: date_format }}</div>
-          </div>
-          <div class="post">
-            {%- if site.show_excerpts -%}
-              {{ post.excerpt }}
-            {%- endif -%}
-          </div>
-        </div>
-      </li>
-    {%- endfor -%}
-  </ul>
+    <div class="posts-page__content">
+      <ul class="posts posts-page__posts">
+        {%- for post in selectedPosts -%}
+          <li data-post-item="true" data-categories="{{ post.categories | join: '|' | downcase }}">
+            <div class="posts-page__post-container">
+              {%- assign date_format = site.suci.date_format | default: "%b %-d, %Y" -%}
+              <a class="post-link" href="{{ post.url | relative_url }}">
+                <h2 class="post-title">{{ post.title | escape }}</h2>
+              </a>
+              <div class="post-meta">
+                <ul class="post-categories">
+                  {%- for tag in post.categories -%}
+                    <li>{{ tag }}</li>
+                  {%- endfor -%}
+                </ul>
+                <div class="post-date">
+                  <i class="icon-calendar"></i>
+                  {{ post.date | date: date_format }}</div>
+              </div>
+              <div class="post">
+                {%- if site.show_excerpts -%}
+                  {{ post.excerpt }}
+                {%- endif -%}
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
 
   <!--
   <p class="feed-subscribe">
@@ -53,5 +79,38 @@ lang: it
   </p>
   -->
 {%- endif -%}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var categoryButtons = Array.prototype.slice.call(document.querySelectorAll('[data-category-filter]'));
+    if (categoryButtons.length === 0) return;
+
+    var postItems = Array.prototype.slice.call(document.querySelectorAll('[data-post-item="true"]'));
+    var activeFilter = 'all';
+
+    var applyFilter = function (selected) {
+      activeFilter = (selected || 'all').toLowerCase();
+
+      categoryButtons.forEach(function (button) {
+        var value = (button.getAttribute('data-category-filter') || '').toLowerCase();
+        button.classList.toggle('is-active', value === activeFilter);
+      });
+
+      postItems.forEach(function (item) {
+        var categories = (item.getAttribute('data-categories') || '').split('|');
+        var isVisible = activeFilter === 'all' || categories.indexOf(activeFilter) !== -1;
+        item.style.display = isVisible ? '' : 'none';
+      });
+    };
+
+    categoryButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        applyFilter(button.getAttribute('data-category-filter'));
+      });
+    });
+
+    applyFilter('all');
+  });
+</script>
 
 
