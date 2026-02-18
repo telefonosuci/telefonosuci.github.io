@@ -3,4 +3,4 @@ _site
 Gemfile.lock
 yarn.lock
 node_modules
-assets/bundles
+
