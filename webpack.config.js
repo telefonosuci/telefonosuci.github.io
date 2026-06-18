@@ -10,9 +10,9 @@ console.log("Webpack entries: ", entry);
 
 module.exports = env => ({
   watch: Boolean(env.watch),
-  mode: "development",
+  mode: env.watch ? "development" : "production",
   entry,
-  devtool: 'inline-source-map',
+  devtool: env.watch ? "inline-source-map" : false,
   output: {
     path: paths.bundleDestination,
     filename: "[name]-bundle.js",

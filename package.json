@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/telefonosuci/telefonosuci.github.io/issues"
   },
-  "homepage": "hhttps://telefonosuci.github.io",
+  "homepage": "https://telefonosuci.github.io",
   "dependencies": {
     "@babel/core": "^7.19.3",
     "bootstrap": "^5.2.0",

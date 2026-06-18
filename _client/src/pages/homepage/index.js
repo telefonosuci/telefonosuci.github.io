@@ -2,7 +2,7 @@ import React from 'react';
 import Page from '@App/Page';
 import TextBanner from '@/components/text-banner/TextBanner';
 import SwiperSection from '@/components/swiper-section/SwiperSection';
-import SimpleModal from '@/components/modal/simple-modal.js'
+import { SimpleModal } from '@/components/modal/simple-modal.js'
 
 document.addEventListener('DOMContentLoaded', () => {
 

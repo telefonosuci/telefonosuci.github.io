@@ -15,9 +15,7 @@ sass:
 
 include:
   - _includes
-  - _authors
   - _data
-  - _draft
   - _layouts
 
 suci:

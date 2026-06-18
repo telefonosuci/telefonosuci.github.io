@@ -1,5 +1,5 @@
 import ReactRenderer from "./ReactRenderer";
-import VanillaRenderer from "./ReactRenderer";
+import VanillaRenderer from "./VanillaRenderer";
 
 class Page {
 

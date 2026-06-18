@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {%- include head.html -%}
-  </head>
-  <body>
-    {%- include gtm-noscript.html -%}
+---
+layout: base
+---
+{%- include nav.html -%}
 
-    {%- include nav.html -%}
+<main class="suc-cont nopadding">
+  <section class="suc-content">
+    {{ content }}
+  </section>
+</main>
 
-    <main class="suc-cont nopadding">
-      <section class="suc-content">
-        {{ content }}
-      </section>
-    </main>
-
-    <footer>
-      {%- include footer.html -%}
-    </footer>
-
-    {%- include analytics.html -%}
-  </body>
-</html>
+<footer>
+  {%- include footer.html -%}
+</footer>

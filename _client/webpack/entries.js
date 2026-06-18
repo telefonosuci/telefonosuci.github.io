@@ -2,8 +2,7 @@ const path = require('path');
 const { root } = require('./paths');
 
 const vendorsLibraries = [
-  'react',
-  'bootstrap'
+  'react'
 ];
 
 const vendor = 'vendors';

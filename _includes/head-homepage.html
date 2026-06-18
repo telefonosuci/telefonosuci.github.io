@@ -1,0 +1,21 @@
+{%- comment -%}
+  Hides the homepage strobo intro overlay for 24h after the first interaction.
+  Runs in <head> so the .hero-strobo-skip class is set before first paint.
+{%- endcomment -%}
+<script>
+  (function () {
+    var key = 'hero-strobo-unlocked-at';
+    var ttl = 24 * 60 * 60 * 1000;
+
+    try {
+      var raw = window.localStorage.getItem(key);
+      var unlockedAt = Number(raw);
+      var isWithinCooldown = Number.isFinite(unlockedAt) && (Date.now() - unlockedAt < ttl);
+      if (isWithinCooldown) {
+        document.documentElement.classList.add('hero-strobo-skip');
+      }
+    } catch (error) {
+      // Ignore storage read errors.
+    }
+  })();
+</script>

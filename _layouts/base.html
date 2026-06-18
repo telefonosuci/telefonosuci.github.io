@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang }}">
+  <head>
+    {%- include head.html -%}
+
+    {%- if page.layout == 'homepage' -%}
+      {%- include head-homepage.html -%}
+    {%- endif -%}
+
+    {%- if page.layout == 'doodle-background' -%}
+      <script src="https://unpkg.com/css-doodle@0.33.1/css-doodle.min.js"></script>
+    {%- endif -%}
+  </head>
+
+  <body class="{% if page.layout == 'doodle-background' %}doodle-background-page{% endif %}">
+    {%- include gtm-noscript.html -%}
+
+    {{ content }}
+
+    {%- include analytics.html -%}
+
+    {%- if site.suci.cookie_notification -%}
+      {% include components/sticky-notification.html %}
+    {%- endif -%}
+  </body>
+</html>
