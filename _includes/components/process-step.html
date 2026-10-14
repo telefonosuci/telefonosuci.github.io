@@ -1,0 +1,6 @@
+{%- comment -%} One phase of the work process, shown as a big panel. Params: it (title, text), n. {%- endcomment -%}
+<div class="process-step">
+  <span class="process-step__n" aria-hidden="true">{{ include.n }}</span>
+  <h3>{{ include.it.title }}</h3>
+  <p>{{ include.it.text }}</p>
+</div>

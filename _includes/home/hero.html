@@ -1,0 +1,15 @@
+<section class="hero" data-hero>
+  <canvas class="hero__canvas" id="hero-gl" aria-hidden="true" data-hero-bg></canvas>
+  <div class="wrap hero__inner" data-hero-content>
+    <p class="eyebrow">{{ h.hero.eyebrow }}</p>
+    <h1 class="hero__title">{{ h.hero.title }}</h1>
+    <p class="lead">{{ h.hero.lead }}</p>
+    <p class="hero__actions">
+      <a class="btn" href="{{ t.contact_url | relative_url }}">{{ h.hero.cta }}</a>
+      <a class="btn btn--ghost" href="#{{ h.services.id }}">{{ h.hero.secondary }}</a>
+    </p>
+    <p class="hero__note muted">{{ h.hero.note }}</p>
+  </div>
+  <span class="hero__scroll" aria-hidden="true"></span>
+</section>
+<script src="{{ '/assets/js/hero-gl.js' | relative_url }}" defer></script>

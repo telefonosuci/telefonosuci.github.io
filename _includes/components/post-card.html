@@ -1,0 +1,6 @@
+{%- comment -%} Blog post teaser. Params: post. {%- endcomment -%}
+<a class="card card--link" href="{{ include.post.url | relative_url }}">
+  <p class="eyebrow">{{ include.post.categories | join: ' · ' }}</p>
+  <h3>{{ include.post.title | escape }}</h3>
+  <span class="muted">{{ t.read_more }} →</span>
+</a>

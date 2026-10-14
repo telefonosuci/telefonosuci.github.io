@@ -1,0 +1,46 @@
+// Horizontal section. Default = native swipe row with snap (mobile, no JS, reduced motion).
+// .is-pinned (added by assets/js/motion/hscroll.js) = full-screen pinned panel moved by GSAP.
+$gutter: max(16px, calc((100vw - 1160px) / 2));
+
+.hscroll {
+  overflow: hidden;
+
+  &__track {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 8px $gutter 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: $gutter;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  &__item {
+    flex: 0 0 min(78vw, 340px);
+    scroll-snap-align: start;
+    > * { height: 100%; }
+  }
+
+  &__progress {
+    height: 2px;
+    margin-top: 32px;
+    background: var(--border);
+    display: none;
+    span { display: block; height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
+  }
+
+  &.is-pinned {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 96px; // clears the sticky header
+    .hscroll__track { overflow: visible; will-change: transform; }
+    .hscroll__progress { display: block; }
+  }
+
+  &--process .hscroll__item { flex-basis: min(86vw, 520px); }
+}

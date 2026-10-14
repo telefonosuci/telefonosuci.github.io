@@ -1,0 +1,7 @@
+{%- comment -%} Content card. Params: title, text, icon (optional), modifier (optional), speed (optional parallax). {%- endcomment -%}
+<article class="card {{ include.modifier }}"{% if include.speed %} data-speed="{{ include.speed }}"{% endif %}>
+  {%- if include.icon %}<span class="card__icon" aria-hidden="true">{{ include.icon }}</span>{% endif %}
+  <h3>{{ include.title }}</h3>
+  {%- if include.text %}<p>{{ include.text }}</p>{% endif %}
+  {{ include.body }}
+</article>

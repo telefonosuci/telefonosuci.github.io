@@ -1,7 +1,7 @@
 # telefonosuci.github.io
 
 Sito professionale di Enrico Succhielli, Shopify developer freelance.
-Jekyll puro (nessun build step JS), pubblicato su GitHub Pages tramite GitHub Actions.
+Jekyll + un piccolo bundle JS (GSAP via npm, compilato con esbuild), pubblicato su GitHub Pages tramite GitHub Actions.
 
 - Avvio locale: vedi [RUNNING_LOCAL.md](RUNNING_LOCAL.md)
 - Stato del lavoro e cose da fare: vedi [TODO.md](TODO.md)
@@ -12,11 +12,31 @@ Jekyll puro (nessun build step JS), pubblicato su GitHub Pages tramite GitHub Ac
 | --- | --- |
 | `_data/home.yml` | Testi della homepage (IT/EN) |
 | `_data/i18n.yml` | Etichette UI (menu, footer…) per lingua |
-| `_includes/home.html` | Struttura della homepage |
-| `_posts/it`, `_posts/en` | Articoli del blog (`/blog/…` e `/en/blog/…`) |
+| `_includes/home.html` | Elenco ordinato delle sezioni della home |
+| `_includes/home/*.html` | Una sezione per file (hero, servizi, flusso, integrazioni…) |
+| `_includes/components/*.html` | Componenti riusabili (card, chips, section-head, hscroll, marquee…) |
+| `_js/motion/*.js` | Animazioni GSAP, un modulo per comportamento |
 | `assets/js/hero-gl.js` | Shader WebGL dello sfondo della home |
 | `assets/js/lab-webgpu.js` | Demo particelle WebGPU (`/lab/`) |
-| `_sass/_site.scss` | Tutti gli stili |
+| `_sass/site/**` | Stili, un partial per componente/sezione |
+| `_posts/it`, `_posts/en` | Articoli del blog |
+
+## Animazioni
+
+I componenti dichiarano il comportamento con attributi `data-*`; ogni modulo in
+`_js/motion/` ne gestisce uno:
+
+| Attributo | Modulo | Effetto |
+| --- | --- | --- |
+| `data-hero` | `hero.js` | Intro + contenuto che sfuma, sfondo in parallasse |
+| `data-reveal`, `data-reveal-stagger` | `reveal.js` | Comparsa dal basso (a cascata) |
+| `data-speed="0.1"` | `parallax.js` | Parallasse verticale (negativo = più veloce) |
+| `data-marquee="1\|-1"` | `marquee.js` | Scritta gigante che scorre di lato |
+| `data-hscroll` | `hscroll.js` | Sezione bloccata con scroll orizzontale (solo desktop) |
+| `data-zoom` | `zoom.js` | Blocco che si ingrandisce entrando |
+
+Con `prefers-reduced-motion` non si anima nulla; su mobile le sezioni orizzontali
+diventano uno swipe nativo con scroll-snap.
 
 ## Lingue
 

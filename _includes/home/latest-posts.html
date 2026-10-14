@@ -1,0 +1,13 @@
+{%- assign posts = site.posts | where: "lang", lang -%}
+{%- if posts.size > 0 %}
+<section class="section">
+  <div class="wrap">
+    {% include components/section-head.html title=t.latest_posts %}
+    <div class="cards cards--3" data-reveal-stagger>
+      {%- for p in posts limit: 3 %}
+      {% include components/post-card.html post=p %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}

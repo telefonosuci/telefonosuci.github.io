@@ -1,0 +1,19 @@
+{%- comment -%}
+  Horizontal-scroll section. On desktop the section is pinned and the track moves
+  sideways with the scroll (assets/js/motion/hscroll.js); on mobile, without JS or
+  with reduced motion it is a native swipeable row.
+  Params: id, title, lead, items, item (include path rendered for each item), modifier.
+{%- endcomment -%}
+<section class="section hscroll {{ include.modifier }}"{% if include.id %} id="{{ include.id }}"{% endif %} data-hscroll>
+  <div class="wrap">
+    {% include components/section-head.html title=include.title lead=include.lead %}
+  </div>
+  <ol class="hscroll__track" data-hscroll-track>
+    {%- for it in include.items %}
+    <li class="hscroll__item" data-hscroll-item>
+      {% include {{ include.item }} it=it n=forloop.index %}
+    </li>
+    {%- endfor %}
+  </ol>
+  <div class="wrap hscroll__progress" aria-hidden="true"><span data-hscroll-progress></span></div>
+</section>

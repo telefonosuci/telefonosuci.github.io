@@ -1,0 +1,4 @@
+{%- comment -%} Giant outlined text that slides sideways while scrolling. Params: text, direction (1 or -1). {%- endcomment -%}
+<div class="marquee" aria-hidden="true">
+  <p class="marquee__line" data-marquee="{{ include.direction | default: 1 }}">{{ include.text }}{{ include.text }}</p>
+</div>

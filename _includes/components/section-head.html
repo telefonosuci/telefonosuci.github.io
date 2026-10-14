@@ -1,0 +1,6 @@
+{%- comment -%} Section heading. Params: title, lead (optional), eyebrow (optional). {%- endcomment -%}
+<header class="section-head" data-reveal>
+  {%- if include.eyebrow %}<p class="eyebrow">{{ include.eyebrow }}</p>{% endif %}
+  <h2 class="section-head__title">{{ include.title }}</h2>
+  {%- if include.lead %}<p class="lead">{{ include.lead }}</p>{% endif %}
+</header>

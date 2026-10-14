@@ -1,0 +1,19 @@
+// Generic page
+.page { padding: clamp(40px, 7vw, 80px) 0 80px; }
+.page__title { font-size: clamp(2rem, 5vw, 3.2rem); }
+.prose {
+  max-width: 75ch;
+  h2 { margin-top: 1.6em; font-size: 1.6rem; }
+  h3 { margin-top: 1.4em; }
+  li { margin-bottom: .4em; }
+  pre, .highlight { border-radius: 10px; overflow-x: auto; }
+  pre { padding: 16px; }
+  .page:has(.contact) &, .page:has(.post-list) &, .page:has(.lab) & { max-width: none; }
+}
+.post .prose { font-size: 1.05rem; }
+.comments { margin-top: 64px; }
+
+.post-list {
+  list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 16px;
+  .eyebrow { margin-bottom: .4em; }
+}

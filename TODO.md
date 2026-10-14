@@ -26,6 +26,13 @@
 
 Verifica: la build Jekyll va a buon fine e ho controllato le schermate di home (desktop e mobile), contatti, blog, post e lab in Chrome.
 
+### Aggiornamento: animazioni GSAP e componenti
+- Home divisa in **sezioni** (`_includes/home/`) e **componenti** riusabili (`_includes/components/`). Anche gli stili sono divisi per componente in `_sass/site/`.
+- **GSAP + ScrollTrigger installati da npm** (niente CDN), compilati con esbuild in `assets/js/motion.js`. La CI esegue `npm ci && npm run build` prima di Jekyll.
+- Ritmo della pagina: hero (parallasse) → servizi (verticale) → scritta gigante → **viaggio dell'ordine (orizzontale, pinned)** → integrazioni (colonne in parallasse) → scritta gigante → **come lavoro (orizzontale, pinned)** → lab/chi sono (parallasse) → blog → CTA (zoom).
+- Accessibilità: con reduced motion non c'è nessuna animazione, su mobile lo scroll orizzontale diventa swipe nativo, senza JS il contenuto è comunque tutto visibile.
+- Aggiunta una favicon SVG.
+
 ## Cosa rimane da fare (in ordine di priorità)
 
 1. **Partita IVA**: per un professionista in Italia è obbligatoria sul sito. Compila `suci.vat` in `_config.yml`: comparirà nel footer e nella privacy policy.
@@ -46,4 +53,6 @@ Verifica: la build Jekyll va a buon fine e ho controllato le schermate di home (
 - **Disqus** carica molti tracker. Valuta [giscus](https://giscus.app) (commenti su GitHub Discussions), più leggero e adatto a un pubblico tecnico, oppure togli i commenti.
 - Per la parte "grafica", un **mini configuratore 3D di prodotto** (three.js o WebGPU) nel lab parlerebbe direttamente ai clienti Shopify più di una demo astratta.
 - Nel menu manca "Chi sono" perché la sezione è in home. Se aggiungi i casi studio, una voce "Progetti" diventa la più importante.
+- **Smooth scroll**: con GSAP puoi aggiungere `ScrollSmoother` (ora gratuito) o Lenis, per una parallasse più morbida. L'ho lasciato fuori perché altera lo scroll nativo e va provato su trackpad e mobile.
+- Il bundle GSAP pesa circa 115 KB minificato (circa 45 KB gzip) ed è caricato solo in home.
 - Tutto il codice rimosso è recuperabile dalla storia git (commit `db6e73ce`).

@@ -1,0 +1,16 @@
+// Giant outlined line; JS slides it sideways, without JS it is a static band.
+.marquee {
+  overflow: hidden;
+  padding: clamp(16px, 3vw, 40px) 0;
+  &__line {
+    margin: 0;
+    white-space: nowrap;
+    width: max-content;
+    font: 700 clamp(3.5rem, 11vw, 9rem)/1 var(--font-head);
+    letter-spacing: -.03em;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(108, 123, 255, .4);
+    will-change: transform;
+  }
+}

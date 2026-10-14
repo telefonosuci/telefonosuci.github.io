@@ -1,117 +1,20 @@
+{%- comment -%}
+  Homepage = a list of sections (_includes/home/*) built from components (_includes/components/*).
+  Text lives in _data/home.yml. Motion is declared with data-* attributes and wired by assets/js/motion/.
+  Rhythm: vertical → horizontal → vertical → horizontal → vertical, with parallax in between.
+{%- endcomment -%}
 {%- include i18n.html -%}
 {%- assign h = site.data.home[lang] -%}
-<section class="hero">
-  <canvas class="hero__canvas" id="hero-gl" aria-hidden="true"></canvas>
-  <div class="wrap hero__inner">
-    <p class="eyebrow">{{ h.hero.eyebrow }}</p>
-    <h1 class="hero__title">{{ h.hero.title }}</h1>
-    <p class="lead">{{ h.hero.lead }}</p>
-    <p class="hero__actions">
-      <a class="btn" href="{{ t.contact_url | relative_url }}">{{ h.hero.cta }}</a>
-      <a class="btn btn--ghost" href="#{{ h.services.id }}">{{ h.hero.secondary }}</a>
-    </p>
-    <p class="hero__note muted">{{ h.hero.note }}</p>
-  </div>
-</section>
 
-<section class="section" id="{{ h.services.id }}">
-  <div class="wrap">
-    <h2 class="section__title">{{ h.services.title }}</h2>
-    <p class="lead">{{ h.services.lead }}</p>
-    <div class="cards">
-      {%- for s in h.services.items %}
-      <article class="card">
-        <span class="card__icon" aria-hidden="true">{{ s.icon }}</span>
-        <h3>{{ s.title }}</h3>
-        <p>{{ s.text }}</p>
-      </article>
-      {%- endfor %}
-    </div>
-  </div>
-</section>
+{% include home/hero.html %}
+{% include home/services.html %}
+{% include components/marquee.html text="Shopify · Liquid · Functions · Checkout · Markets · Plus · " %}
+{% include home/flow.html %}
+{% include home/integrations.html %}
+{% include components/marquee.html text="ERP · PIM · CRM · GA4 · Meta · WebGL · WebGPU · " direction="-1" %}
+{% include home/process.html %}
+{% include home/lab-about.html %}
+{% include home/latest-posts.html %}
+{% include home/cta.html %}
 
-<section class="section section--alt">
-  <div class="wrap">
-    <h2 class="section__title">{{ h.flow.title }}</h2>
-    <p class="lead">{{ h.flow.lead }}</p>
-    <ol class="flow">
-      {%- for s in h.flow.steps %}
-      <li class="flow__step">
-        <h3>{{ s.title }}</h3>
-        <p>{{ s.text }}</p>
-        <code>{{ s.systems }}</code>
-      </li>
-      {%- endfor %}
-    </ol>
-  </div>
-</section>
-
-<section class="section" id="{{ h.integrations.id }}">
-  <div class="wrap">
-    <h2 class="section__title">{{ h.integrations.title }}</h2>
-    <p class="lead">{{ h.integrations.lead }}</p>
-    <div class="cards cards--3">
-      {%- for g in h.integrations.groups %}
-      <div class="card">
-        <h3>{{ g.title }}</h3>
-        <ul class="chips">
-          {%- for i in g.items %}<li>{{ i }}</li>{% endfor -%}
-        </ul>
-      </div>
-      {%- endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="section section--alt">
-  <div class="wrap">
-    <h2 class="section__title">{{ h.process.title }}</h2>
-    <ol class="steps">
-      {%- for s in h.process.steps %}
-      <li><h3>{{ s.title }}</h3><p>{{ s.text }}</p></li>
-      {%- endfor %}
-    </ol>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap split">
-    <div class="split__item card card--glow">
-      <h2>{{ h.lab.title }}</h2>
-      <p>{{ h.lab.text }}</p>
-      <a class="btn btn--ghost" href="{{ t.home | append: 'lab/' | relative_url }}">{{ h.lab.cta }} →</a>
-    </div>
-    <div class="split__item">
-      <h2>{{ h.about.title }}</h2>
-      <p>{{ h.about.text }}</p>
-    </div>
-  </div>
-</section>
-
-{%- assign posts = site.posts | where: "lang", lang -%}
-{%- if posts.size > 0 %}
-<section class="section section--alt">
-  <div class="wrap">
-    <h2 class="section__title">{{ t.latest_posts }}</h2>
-    <div class="cards cards--3">
-      {%- for p in posts limit: 3 %}
-      <a class="card card--link" href="{{ p.url | relative_url }}">
-        <p class="eyebrow">{{ p.categories | join: ' · ' }}</p>
-        <h3>{{ p.title }}</h3>
-        <span class="muted">{{ t.read_more }} →</span>
-      </a>
-      {%- endfor %}
-    </div>
-  </div>
-</section>
-{%- endif %}
-
-<section class="section cta">
-  <div class="wrap">
-    <h2 class="section__title">{{ h.contact.title }}</h2>
-    <p class="lead">{{ h.contact.text }}</p>
-    <a class="btn" href="{{ t.contact_url | relative_url }}">{{ h.contact.cta }}</a>
-  </div>
-</section>
-
-<script src="{{ '/assets/js/hero-gl.js' | relative_url }}" defer></script>
+{% include motion.html %}

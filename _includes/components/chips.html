@@ -1,0 +1,4 @@
+{%- comment -%} Tag list. Params: items (array of strings). {%- endcomment -%}
+<ul class="chips" data-reveal-stagger>
+  {%- for i in include.items %}<li>{{ i }}</li>{% endfor -%}
+</ul>

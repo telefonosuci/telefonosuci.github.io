@@ -3,3 +3,4 @@ _site
 yarn.lock
 node_modules
 
+assets/js/motion.js

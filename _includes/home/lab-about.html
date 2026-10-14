@@ -1,0 +1,12 @@
+{%- capture lab_body %}<a class="btn btn--ghost" href="{{ t.home | append: 'lab/' | relative_url }}">{{ h.lab.cta }} →</a>{% endcapture -%}
+<section class="section section--alt">
+  <div class="wrap split">
+    <div class="split__item">
+      {% include components/card.html modifier="card--glow" title=h.lab.title text=h.lab.text body=lab_body speed="-0.15" %}
+    </div>
+    <div class="split__item" data-speed="0.15">
+      <h2>{{ h.about.title }}</h2>
+      <p>{{ h.about.text }}</p>
+    </div>
+  </div>
+</section>
