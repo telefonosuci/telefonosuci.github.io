@@ -23,7 +23,7 @@ gsap.matchMedia().add(
     const cleanup = conditions.wide ? hscroll(gsap) : undefined;
     hero(gsap);
     reveal(gsap);
-    parallax(gsap);
+    parallax(gsap, conditions.wide);
     marquee(gsap);
     zoom(gsap);
     ScrollTrigger.sort();
