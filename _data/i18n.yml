@@ -1,0 +1,41 @@
+# UI strings per language. Page content lives in the page files themselves.
+it:
+  home: /
+  nav:
+    - { name: Servizi, url: "/#servizi" }
+    - { name: Integrazioni, url: "/#integrazioni" }
+    - { name: Lab, url: "/lab/" }
+    - { name: Blog, url: "/blog/" }
+  cta: Contattami
+  contact_url: /contatti/
+  skip: Vai al contenuto
+  other_lang: English
+  footer_legal: Note legali
+  privacy: Privacy policy
+  comments_policy: Policy commenti
+  vat: P.IVA
+  read_more: Leggi
+  all: Tutti
+  category: Categoria
+  latest_posts: Dal blog
+  comments_noscript: Abilita JavaScript per vedere i commenti.
+en:
+  home: /en/
+  nav:
+    - { name: Services, url: "/en/#services" }
+    - { name: Integrations, url: "/en/#integrations" }
+    - { name: Lab, url: "/en/lab/" }
+    - { name: Blog, url: "/en/blog/" }
+  cta: Get in touch
+  contact_url: /en/contact/
+  skip: Skip to content
+  other_lang: Italiano
+  footer_legal: Legal
+  privacy: Privacy policy
+  comments_policy: Comments policy
+  vat: VAT
+  read_more: Read
+  all: All
+  category: Category
+  latest_posts: From the blog
+  comments_noscript: Enable JavaScript to see the comments.

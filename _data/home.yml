@@ -1,0 +1,248 @@
+# Homepage content. Structure is in _includes/home.html; edit text here.
+it:
+  hero:
+    eyebrow: Shopify Developer freelance
+    title: Ecommerce su Shopify che funzionano davvero, dal catalogo al magazzino.
+    lead: >-
+      Progetto e sviluppo temi, app e integrazioni per Shopify e Shopify Plus.
+      Collego il negozio ai sistemi che usi già (ERP, PIM, CRM, marketplace,
+      analytics) e lo rendo memorabile con esperienze visive in WebGL e WebGPU.
+    cta: Parliamo del tuo progetto
+    secondary: Cosa faccio
+    note: Lo sfondo è uno shader WebGL scritto a mano. Muovi il mouse.
+
+  services:
+    id: servizi
+    title: Cosa faccio
+    lead: Quattro competenze che di solito servono insieme, in un unico interlocutore.
+    items:
+      - icon: "⇄"
+        title: Flussi ecommerce
+        text: >-
+          Prima dei pixel, i processi: catalogo e varianti, listini e prezzi B2B,
+          promozioni, checkout, pagamenti, spedizioni, resi e post-vendita.
+          Disegno il flusso dell'ordine end-to-end e trovo i punti dove si perdono
+          vendite o tempo.
+      - icon: "◆"
+        title: Piattaforma Shopify
+        text: >-
+          Temi Online Store 2.0 su misura (Liquid, sezioni e blocchi), Shopify Plus,
+          Checkout Extensibility e Shopify Functions, metafield e metaobject,
+          Markets per multi-lingua e multi-valuta, app custom con Admin GraphQL API
+          e webhook, migrazioni da altre piattaforme.
+      - icon: "⛓"
+        title: Integrazioni tra sistemi
+        text: >-
+          Shopify al centro, i dati dove servono: ERP, PIM, CRM, marketplace e social,
+          strumenti di analytics. Sincronizzazioni robuste con code, retry,
+          idempotenza e log, perché un ordine perso costa più di un'integrazione fatta bene.
+      - icon: "✦"
+        title: Grafica WebGL e WebGPU
+        text: >-
+          Shader, 3D di prodotto, configuratori e animazioni che fanno ricordare
+          il brand senza sacrificare le prestazioni: fallback, lazy loading e
+          attenzione ai Core Web Vitals.
+
+  flow:
+    title: Il viaggio di un ordine
+    lead: >-
+      Ogni negozio è una catena di sistemi. Questo è il flusso tipico che
+      progetto e integro: ogni passaggio è un punto dove i dati devono arrivare
+      corretti e in tempo.
+    steps:
+      - title: Catalogo
+        text: Schede prodotto, attributi e media arrivano dal PIM.
+        systems: PIM → Shopify
+      - title: Prezzi e giacenze
+        text: Listini, disponibilità e regole B2B sincronizzati dall'ERP.
+        systems: ERP → Shopify
+      - title: Vetrina
+        text: Tema veloce, ricerca, filtri, merchandising ed esperienze visive.
+        systems: Shopify · WebGL
+      - title: Checkout
+        text: Pagamenti, sconti e logiche custom con Functions ed estensioni.
+        systems: Shopify Checkout
+      - title: Ordine e fulfillment
+        text: L'ordine va al gestionale, il tracking torna al cliente.
+        systems: Shopify ⇄ ERP / WMS
+      - title: Cliente e marketing
+        text: Profili, segmenti e automazioni nel CRM e nell'email marketing.
+        systems: Shopify → CRM
+      - title: Misurazione
+        text: Eventi affidabili lato client e server per decisioni basate sui dati.
+        systems: GA4 · GTM · CAPI
+
+  integrations:
+    id: integrazioni
+    title: Integrazioni
+    lead: >-
+      Esempi delle famiglie di sistemi che collego a Shopify, via app pubbliche
+      quando bastano, via middleware o app custom quando servono regole su misura.
+    groups:
+      - title: ERP e gestionali
+        items: [SAP, Microsoft Dynamics, Odoo, gestionali italiani]
+      - title: PIM
+        items: [Akeneo, Pimcore, feed CSV / XML]
+      - title: CRM e marketing
+        items: [Salesforce, HubSpot, Klaviyo]
+      - title: Social e marketplace
+        items: [Meta / Instagram Shop, Google Merchant Center, TikTok, Amazon]
+      - title: Analytics e tracking
+        items: [GA4, Google Tag Manager, server-side tagging, Meta Conversions API, Shopify Web Pixels]
+      - title: Come le realizzo
+        items: [Admin GraphQL API, webhook, code e retry, app custom, serverless, "iPaaS (Make, n8n)"]
+
+  process:
+    title: Come lavoro
+    steps:
+      - title: Analisi
+        text: Capisco obiettivi, processi e sistemi esistenti. Ne esce una mappa dei flussi e delle priorità.
+      - title: Progetto
+        text: Architettura, integrazioni, stima chiara. Niente sorprese a metà strada.
+      - title: Sviluppo
+        text: Rilasci incrementali su ambiente di staging, codice versionato e documentato.
+      - title: Go-live e supporto
+        text: Lancio monitorato, passaggio di consegne e manutenzione evolutiva.
+
+  lab:
+    title: Lab grafico
+    text: >-
+      Mi piace spingere il browser al limite. Nel lab trovi una simulazione di
+      particelle calcolata sulla GPU con WebGPU (compute shader), interattiva.
+    cta: Apri il lab
+
+  about:
+    title: Chi sono
+    text: >-
+      Sono Enrico Succhielli, sviluppatore web con la fissa del dettaglio.
+      Unisco la parte meno visibile dell'ecommerce (dati, processi, integrazioni)
+      con la cura dell'interfaccia e della grafica. Lavoro come libero
+      professionista, direttamente con aziende e brand o a supporto di agenzie.
+
+  contact:
+    title: Hai un progetto Shopify?
+    text: Raccontami di cosa hai bisogno, ti rispondo con una prima valutazione.
+    cta: Scrivimi
+
+en:
+  hero:
+    eyebrow: Freelance Shopify Developer
+    title: Shopify stores that actually work, from catalog to warehouse.
+    lead: >-
+      I design and build themes, apps and integrations for Shopify and Shopify
+      Plus. I connect your store to the systems you already use (ERP, PIM, CRM,
+      marketplaces, analytics) and make it memorable with WebGL and WebGPU visuals.
+    cta: Let's talk about your project
+    secondary: What I do
+    note: The background is a hand-written WebGL shader. Move your mouse.
+
+  services:
+    id: services
+    title: What I do
+    lead: Four skills that are usually needed together, in a single point of contact.
+    items:
+      - icon: "⇄"
+        title: Ecommerce flows
+        text: >-
+          Processes before pixels: catalog and variants, price lists and B2B pricing,
+          promotions, checkout, payments, shipping, returns and after-sales.
+          I map the order flow end-to-end and find where sales or time get lost.
+      - icon: "◆"
+        title: Shopify platform
+        text: >-
+          Custom Online Store 2.0 themes (Liquid, sections and blocks), Shopify Plus,
+          Checkout Extensibility and Shopify Functions, metafields and metaobjects,
+          Markets for multi-language and multi-currency, custom apps with the
+          Admin GraphQL API and webhooks, migrations from other platforms.
+      - icon: "⛓"
+        title: System integrations
+        text: >-
+          Shopify at the center, data where it's needed: ERP, PIM, CRM, marketplaces
+          and social, analytics tools. Robust syncs with queues, retries,
+          idempotency and logging, because a lost order costs more than a well-built integration.
+      - icon: "✦"
+        title: WebGL and WebGPU graphics
+        text: >-
+          Shaders, product 3D, configurators and animations that make the brand
+          stick without hurting performance: fallbacks, lazy loading and
+          Core Web Vitals in mind.
+
+  flow:
+    title: The journey of an order
+    lead: >-
+      Every store is a chain of systems. This is the typical flow I design and
+      integrate: each step is a place where data must arrive correct and on time.
+    steps:
+      - title: Catalog
+        text: Product data, attributes and media come from the PIM.
+        systems: PIM → Shopify
+      - title: Prices and stock
+        text: Price lists, availability and B2B rules synced from the ERP.
+        systems: ERP → Shopify
+      - title: Storefront
+        text: Fast theme, search, filters, merchandising and visual experiences.
+        systems: Shopify · WebGL
+      - title: Checkout
+        text: Payments, discounts and custom logic with Functions and extensions.
+        systems: Shopify Checkout
+      - title: Order and fulfillment
+        text: The order goes to the back office, tracking goes back to the customer.
+        systems: Shopify ⇄ ERP / WMS
+      - title: Customer and marketing
+        text: Profiles, segments and automations in the CRM and email marketing.
+        systems: Shopify → CRM
+      - title: Measurement
+        text: Reliable client and server-side events for data-driven decisions.
+        systems: GA4 · GTM · CAPI
+
+  integrations:
+    id: integrations
+    title: Integrations
+    lead: >-
+      Examples of the system families I connect to Shopify: through public apps
+      when they're enough, through middleware or custom apps when you need your own rules.
+    groups:
+      - title: ERP and back office
+        items: [SAP, Microsoft Dynamics, Odoo, Italian ERPs]
+      - title: PIM
+        items: [Akeneo, Pimcore, CSV / XML feeds]
+      - title: CRM and marketing
+        items: [Salesforce, HubSpot, Klaviyo]
+      - title: Social and marketplaces
+        items: [Meta / Instagram Shop, Google Merchant Center, TikTok, Amazon]
+      - title: Analytics and tracking
+        items: [GA4, Google Tag Manager, server-side tagging, Meta Conversions API, Shopify Web Pixels]
+      - title: How I build them
+        items: [Admin GraphQL API, webhooks, queues and retries, custom apps, serverless, "iPaaS (Make, n8n)"]
+
+  process:
+    title: How I work
+    steps:
+      - title: Discovery
+        text: I learn your goals, processes and existing systems. The output is a map of flows and priorities.
+      - title: Design
+        text: Architecture, integrations, a clear estimate. No surprises halfway through.
+      - title: Build
+        text: Incremental releases on staging, versioned and documented code.
+      - title: Launch and support
+        text: Monitored go-live, handover and ongoing improvements.
+
+  lab:
+    title: Graphics lab
+    text: >-
+      I like pushing the browser to its limits. In the lab you'll find a particle
+      simulation computed on the GPU with WebGPU (compute shaders), interactive.
+    cta: Open the lab
+
+  about:
+    title: About me
+    text: >-
+      I'm Enrico Succhielli, a web developer obsessed with details. I combine the
+      less visible side of ecommerce (data, processes, integrations) with care
+      for interface and graphics. I work as a freelancer, directly with companies
+      and brands or supporting agencies.
+
+  contact:
+    title: Got a Shopify project?
+    text: Tell me what you need and I'll get back to you with a first assessment.
+    cta: Write to me

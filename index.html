@@ -1,12 +1,9 @@
 ---
-layout: homepage
+layout: base
 lang: it
+ref: home
+redirect_from:
+  - /it/
+  - /about.html
 ---
-
-{%- if page.title -%}
-  <h1 class="page-heading">{{ page.title }}</h1>
-{%- endif -%}
-
-
-
-{% include contact-form.html %}
+{% include home.html %}

@@ -1,64 +1,50 @@
-title: Suci's Git space
-author: Suci
+title: Enrico Succhielli · Shopify Developer
+description: >-
+  Sviluppatore Shopify freelance: temi, app, flussi ecommerce e integrazioni
+  con ERP, PIM, CRM, social e analytics. Esperienze visive in WebGL e WebGPU.
+url: https://telefonosuci.github.io
+baseurl: ""
+lang: it
+author: Enrico Succhielli
 email: telefonosuci@gmail.com
-description: > # this means to ignore newlines until "show_exerpts:"
-  In Okinawa, programming, very serious business! [Miyagi]
-show_excerpts: true # set to true to show excerpts on the homepage
-
-# Minima date format
-# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
-sass:
-  # sass_dir: _sass
-  load_paths:
-      - _sass
-      - node_modules
-
-include:
-  - _includes
-  - _data
-  - _layouts
+show_excerpts: true
 
 suci:
   name: Enrico Succhielli
+  tagline: Shopify Developer · ecommerce, integrazioni, WebGL
+  # Partita IVA: obbligatoria sul sito per i professionisti in Italia. Compila e verrà mostrata nel footer.
+  vat: ""
+  date_format: "%d/%m/%Y"
   disqus_shortname: telefonosuci
-  tagline: Pixel maniac web Developer
-  date_format: "%b %-d, %Y"
-  sitemap: true # set to true to generate sitemap.xml content
-  cookie_notification: false
-  navigation:
-    - name: About Me
-      url: about
-    - name: Some Posts
-      url: posts
-  # generate social links in footer
+  gtm_id: GTM-TP92MWJ
+  sentry_loader: https://js.sentry-cdn.com/47580faa06234c8a1655108d106bdcc2.min.js
+  formio_contact: https://xfjbmfmkwzhddmf.form.io/contact
   social_links:
-    twitter: enricolebanane
-    github:  telefonosuci
+    github: telefonosuci
     linkedIn: in/enrico-succhielli
-    rss: rss
-    # dribbble: jekyll
-    # flickr:   jekyll
-    # instagram: jekyll
-    # pinterest: jekyll
-    # youtube: jekyll
-    # facebook: jekyll
+    twitter: enricolebanane
 
-    # Mastodon instances
-    # mastodon:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
+sass:
+  sass_dir: _sass
+  style: compressed
 
-# Build settings
-#theme: suci
+defaults:
+  - scope: { path: "_posts/it", type: posts }
+    values: { lang: it, layout: post, permalink: "/blog/:slug/" }
+  - scope: { path: "_posts/en", type: posts }
+    values: { lang: en, layout: post, permalink: "/en/blog/:slug/" }
 
 plugins:
   - jekyll-seo-tag
-  - jekyll-multiple-languages-plugin
   - jekyll-redirect-from
-#  - jekyll-feed
 
-# The first item of languages will be used as the default.
-lang: en
-languages: ["en", "it"]
+exclude:
+  - README.md
+  - RUNNING_LOCAL.md
+  - TODO.md
+  - LICENSE.txt
+  - Gemfile
+  - Gemfile.lock
+  - "*.code-workspace"
+  - vendor
+  - node_modules

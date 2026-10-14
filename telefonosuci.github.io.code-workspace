@@ -1,0 +1,75 @@
+{
+  "folders": [{ "path": "." }],
+  "settings": {
+    // Homebrew Ruby first: macOS system Ruby (2.6) can't run Jekyll 4 (see RUNNING_LOCAL.md)
+    "terminal.integrated.env.osx": {
+      "PATH": "/opt/homebrew/opt/ruby/bin:${env:PATH}"
+    },
+    "files.exclude": {
+      "_site": true,
+      ".jekyll-cache": true
+    },
+    "search.exclude": {
+      "_site": true,
+      ".jekyll-cache": true,
+      "node_modules": true,
+      "assets/bundles": true,
+      "package-lock.json": true,
+      "Gemfile.lock": true
+    },
+    "files.watcherExclude": {
+      "**/_site/**": true,
+      "**/.jekyll-cache/**": true,
+      "**/node_modules/**": true
+    },
+    "files.associations": {
+      "*.html": "liquid"
+    },
+    "cSpell.language": "en,it"
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "options": {
+      "env": { "PATH": "/opt/homebrew/opt/ruby/bin:${env:PATH}" }
+    },
+    "tasks": [
+      {
+        "label": "webpack: watch",
+        "type": "shell",
+        "command": "npm run watch",
+        "isBackground": true,
+        "problemMatcher": []
+      },
+      {
+        "label": "jekyll: serve",
+        "type": "shell",
+        "command": "bundle exec jekyll serve --livereload --drafts",
+        "isBackground": true,
+        "problemMatcher": []
+      },
+      {
+        "label": "dev",
+        "dependsOn": ["webpack: watch", "jekyll: serve"],
+        "group": { "kind": "build", "isDefault": true },
+        "problemMatcher": []
+      },
+      {
+        "label": "deploy",
+        "type": "shell",
+        "command": "npm run deploy",
+        "problemMatcher": []
+      }
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "sissel.shopify-liquid",
+      "redhat.vscode-yaml",
+      "yzhang.markdown-all-in-one",
+      "davidanson.vscode-markdownlint",
+      "esbenp.prettier-vscode",
+      "streetsidesoftware.code-spell-checker",
+      "streetsidesoftware.code-spell-checker-italian"
+    ]
+  }
+}

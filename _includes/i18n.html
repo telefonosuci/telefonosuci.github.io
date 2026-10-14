@@ -1,0 +1,3 @@
+{%- comment -%} Sets `lang` and `t` (UI strings). Needed in page content too, which renders before layouts. {%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign t = site.data.i18n[lang] -%}
