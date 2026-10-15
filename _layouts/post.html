@@ -2,7 +2,7 @@
 layout: base
 ---
 {%- assign date_format = site.suci.date_format | default: "%d/%m/%Y" -%}
-<article class="wrap page post">
+<article class="wrap page post" data-component-name="blog-post">
   <p class="eyebrow">
     <a href="{{ t.home | append: 'blog/' | relative_url }}">Blog</a>
     · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: date_format }}</time>

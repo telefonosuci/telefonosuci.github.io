@@ -1,5 +1,5 @@
 // Horizontal section. Default = native swipe row with snap (mobile, no JS, reduced motion).
-// .is-pinned (added by assets/js/motion/hscroll.js) = full-screen pinned panel moved by GSAP.
+// .is-pinned (added by _js/motion/hscroll.js) = full-screen pinned panel moved by GSAP.
 $gutter: max(16px, calc((100vw - 1160px) / 2));
 
 .hscroll {

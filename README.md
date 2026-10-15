@@ -21,6 +21,14 @@ Jekyll + un piccolo bundle JS (GSAP via npm, compilato con esbuild), pubblicato 
 | `_sass/site/**` | Stili, un partial per componente/sezione |
 | `_posts/it`, `_posts/en` | Articoli del blog |
 
+## Nomi dei componenti
+
+Ogni componente ha sull'elemento radice `data-component-name` con un nome parlante
+(`home-hero`, `service-card`, `home-order-flow`, `order-flow-step`, `site-header`…),
+utile per ritrovarlo nel DOM, nei test e nel tracking (es. trigger GTM sui click).
+I componenti generici accettano il parametro `name` per specializzarlo:
+`{% include components/card.html name="service-card" … %}`.
+
 ## Animazioni
 
 I componenti dichiarano il comportamento con attributi `data-*`; ogni modulo in

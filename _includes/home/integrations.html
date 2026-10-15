@@ -1,6 +1,6 @@
 {%- comment -%} Cards get alternating parallax speeds so the grid columns drift apart while scrolling. {%- endcomment -%}
 {%- assign speeds = "0.05,-0.08,0.12" | split: "," -%}
-<section class="section" id="{{ h.integrations.id }}">
+<section class="section" data-component-name="home-integrations" id="{{ h.integrations.id }}">
   <div class="wrap">
     {% include components/section-head.html title=h.integrations.title lead=h.integrations.lead %}
     <div class="cards cards--3">
@@ -8,7 +8,7 @@
       {%- capture chips %}{% include components/chips.html items=g.items %}{% endcapture %}
       {%- assign i = forloop.index0 | modulo: 3 %}
       {%- assign speed = speeds[i] %}
-      {% include components/card.html title=g.title body=chips speed=speed %}
+      {% include components/card.html name="integration-card" title=g.title body=chips speed=speed %}
       {%- endfor %}
     </div>
   </div>

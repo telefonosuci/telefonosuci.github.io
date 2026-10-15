@@ -11,7 +11,7 @@
 </head>
 <body class="{{ page.body_class }}">
   {%- include gtm-noscript.html %}
-  <a class="skip-link" href="#main">{{ t.skip }}</a>
+  <a class="skip-link" data-component-name="skip-link" href="#main">{{ t.skip }}</a>
   {%- include nav.html %}
   <main id="main">
     {{ content }}

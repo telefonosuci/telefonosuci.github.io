@@ -1,5 +1,5 @@
 {%- comment -%} One step of the order journey. Params: it (title, text, systems), n. {%- endcomment -%}
-<div class="flow-step">
+<div class="flow-step" data-component-name="order-flow-step">
   <span class="flow-step__n">{{ include.n | prepend: '0' | slice: -2, 2 }}</span>
   <h3>{{ include.it.title }}</h3>
   <p>{{ include.it.text }}</p>

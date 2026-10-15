@@ -1,6 +1,6 @@
 {%- assign posts = site.posts | where: "lang", lang -%}
 {%- if posts.size > 0 %}
-<section class="section">
+<section class="section" data-component-name="home-latest-posts">
   <div class="wrap">
     {% include components/section-head.html title=t.latest_posts %}
     <div class="cards cards--3" data-reveal-stagger>

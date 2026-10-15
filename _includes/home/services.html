@@ -1,9 +1,9 @@
-<section class="section" id="{{ h.services.id }}">
+<section class="section" data-component-name="home-services" id="{{ h.services.id }}">
   <div class="wrap">
     {% include components/section-head.html title=h.services.title lead=h.services.lead %}
     <div class="cards" data-reveal-stagger>
       {%- for s in h.services.items %}
-      {% include components/card.html icon=s.icon title=s.title text=s.text %}
+      {% include components/card.html name="service-card" icon=s.icon title=s.title text=s.text %}
       {%- endfor %}
     </div>
   </div>
