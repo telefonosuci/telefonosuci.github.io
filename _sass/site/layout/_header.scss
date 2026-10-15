@@ -1,25 +1,43 @@
 // Header
 .site-header {
   position: sticky; top: 0; z-index: 10;
-  background: rgba(11, 13, 26, .75);
+  background: rgba(255, 255, 255, .8);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
-  &__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; flex-wrap: wrap; }
+  &__inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; }
 }
 .brand {
-  display: flex; align-items: center; gap: 10px;
-  color: var(--text); text-decoration: none; font: 700 1rem var(--font-head);
+  display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+  color: var(--text); text-decoration: none; font: 700 .95rem var(--font-head);
   &__mark {
-    display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #111;
+    display: grid; place-items: center; width: 28px; height: 28px; border-radius: 7px; font-size: .8rem;
+    background: var(--accent); color: #111;
   }
 }
+.icon { flex-shrink: 0; }
 .site-nav {
-  display: flex; align-items: center; gap: 4px 20px; flex-wrap: wrap;
-  a:not(.btn) { color: var(--muted); text-decoration: none; font-size: .95rem; &:hover { color: var(--text); } }
+  display: flex; align-items: center; gap: 2px;
+  a { display: inline-flex; align-items: center; gap: 6px; }
+  a:not(.btn) {
+    color: var(--muted); text-decoration: none; font-size: .875rem;
+    padding: 6px 10px; border-radius: 8px;
+    &:hover { color: var(--text); background: rgba(0, 0, 0, .05); }
+  }
+  &__cta { margin-left: 6px; }
 }
-@media (max-width: 720px) {
+// Icons only below tablet; labels stay as title/aria for a11y.
+@media (max-width: 900px) {
   .brand__name { display: none; }
-  .site-header__inner { padding: 8px 0; }
-  .site-nav { gap: 4px 14px; font-size: .9rem; }
+  .site-nav a > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .site-nav a:not(.btn) { padding: 8px; }
+  .site-nav__cta { padding: 8px; }
+}
+// Language switch: small floating pill, bottom-right.
+.lang-switch {
+  position: fixed; right: 16px; bottom: 16px; z-index: 20;
+  display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px;
+  font-size: .75rem; font-weight: 600; letter-spacing: .04em; text-decoration: none;
+  color: var(--text); background: rgba(255, 255, 255, .85); backdrop-filter: blur(12px);
+  border: 1px solid var(--border); box-shadow: 0 4px 16px rgba(0, 0, 0, .08);
+  &:hover { border-color: var(--text); }
 }

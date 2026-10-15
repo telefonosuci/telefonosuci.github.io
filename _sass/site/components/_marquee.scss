@@ -10,7 +10,7 @@
     letter-spacing: -.03em;
     text-transform: uppercase;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(108, 123, 255, .4);
+    -webkit-text-stroke: 1px var(--accent);
     will-change: transform;
   }
 }

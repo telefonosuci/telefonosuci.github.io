@@ -9,6 +9,6 @@
   text-decoration: none;
   transition: transform .15s, background .15s, color .15s;
   &:hover { color: #111; background: #ffc35c; transform: translateY(-1px); }
-  &--ghost { background: transparent; color: var(--accent); &:hover { color: #111; } }
+  &--ghost { background: transparent; color: var(--text); &:hover { color: #111; } }
   &--small { padding: .45em 1em; font-size: .9rem; }
 }

@@ -1,16 +1,16 @@
 <header class="site-header" data-component-name="site-header">
   <div class="wrap site-header__inner">
-    <a class="brand" href="{{ t.home | relative_url }}">
-      <span class="brand__mark" aria-hidden="true">ES</span>
-      <span class="brand__name">Enrico Succhielli</span>
+    <a class="brand" href="{{ t.home | relative_url }}" aria-label="SUCI">
+      <span class="brand__mark" aria-hidden="true">S</span>
+      <span class="brand__name">SUCI</span>
     </a>
     <nav class="site-nav" aria-label="Main">
       {%- for el in t.nav %}
-      <a href="{{ el.url | relative_url }}">{{ el.name }}</a>
+      <a href="{{ el.url | relative_url }}" title="{{ el.name }}">{% include icon.html name=el.icon %}<span>{{ el.name }}</span></a>
       {%- endfor %}
-      <a class="lang-switch" lang="{% if lang == 'it' %}en{% else %}it{% endif %}"
-         href="{% if alt %}{{ alt.url | relative_url }}{% elsif lang == 'it' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">{{ t.other_lang }}</a>
-      <a class="btn btn--small" href="{{ t.contact_url | relative_url }}">{{ t.cta }}</a>
+      <a class="btn btn--small site-nav__cta" href="{{ t.contact_url | relative_url }}" title="{{ t.cta }}">{% include icon.html name="mail" %}<span>{{ t.cta }}</span></a>
     </nav>
   </div>
 </header>
+<a class="lang-switch" data-component-name="lang-switch" lang="{% if lang == 'it' %}en{% else %}it{% endif %}" title="{{ t.other_lang }}" aria-label="{{ t.other_lang }}"
+   href="{% if alt %}{{ alt.url | relative_url }}{% elsif lang == 'it' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">{% include icon.html name="globe" %}{% if lang == 'it' %}EN{% else %}IT{% endif %}</a>

@@ -1,4 +1,4 @@
-{%- comment -%} Giant outlined text that slides sideways while scrolling. Params: text, direction (1 or -1). {%- endcomment -%}
+{%- comment -%} Giant outlined text that slides sideways in an endless loop. Params: text, direction (1 or -1), speed (px/s, default 80). {%- endcomment -%}
 <div class="marquee" data-component-name="marquee-text" aria-hidden="true">
-  <p class="marquee__line" data-marquee="{{ include.direction | default: 1 }}">{{ include.text }}{{ include.text }}</p>
+  <p class="marquee__line" data-marquee="{{ include.direction | default: 1 }}"{% if include.speed %} data-marquee-speed="{{ include.speed }}"{% endif %}>{{ include.text }}{{ include.text }}</p>
 </div>

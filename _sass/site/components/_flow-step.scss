@@ -3,7 +3,7 @@
   border-top: 3px solid var(--accent);
   background: var(--surface);
   border-radius: 0 0 var(--radius) var(--radius);
-  &__n { font: 700 .85rem var(--font-head); color: var(--accent); }
+  &__n { font: 700 .85rem var(--font-head); color: var(--accent-ink); }
   h3 { margin-top: 10px; font-size: 1.35rem; }
   p { color: var(--muted); }
   &__systems { color: var(--accent-2); font-size: .85rem; }

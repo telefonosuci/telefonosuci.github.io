@@ -2,14 +2,14 @@
 it:
   hero:
     eyebrow: Shopify Developer freelance
-    title: Ecommerce su Shopify che funzionano davvero, dal catalogo al magazzino.
+    title: Metti ordine nelle tue vendite online, dal caos del catalogo all'ultimo pacco spedito.
     lead: >-
       Progetto e sviluppo temi, app e integrazioni per Shopify e Shopify Plus.
       Collego il negozio ai sistemi che usi già (ERP, PIM, CRM, marketplace,
       analytics) e lo rendo memorabile con esperienze visive in WebGL e WebGPU.
     cta: Parliamo del tuo progetto
     secondary: Cosa faccio
-    note: Lo sfondo è uno shader WebGL scritto a mano. Muovi il mouse.
+    note: Ogni cubo è un pacco da spedire. Passaci sopra col mouse e mettili in fila.
 
   services:
     id: servizi
@@ -88,9 +88,24 @@ it:
       - title: Social e marketplace
         items: [Meta / Instagram Shop, Google Merchant Center, TikTok, Amazon]
       - title: Analytics e tracking
-        items: [GA4, Google Tag Manager, server-side tagging, Meta Conversions API, Shopify Web Pixels]
+        items:
+          [
+            GA4,
+            Google Tag Manager,
+            server-side tagging,
+            Meta Conversions API,
+            Shopify Web Pixels,
+          ]
       - title: Come le realizzo
-        items: [Admin GraphQL API, webhook, code e retry, app custom, serverless, "iPaaS (Make, n8n)"]
+        items:
+          [
+            Admin GraphQL API,
+            webhook,
+            code e retry,
+            app custom,
+            serverless,
+            "iPaaS (Make, n8n)",
+          ]
 
   process:
     title: Come lavoro
@@ -114,7 +129,7 @@ it:
   about:
     title: Chi sono
     text: >-
-      Sono Enrico Succhielli, sviluppatore web con la fissa del dettaglio.
+      Sono Enrico Succhielli, per tutti Suci: sviluppatore web con la fissa del dettaglio.
       Unisco la parte meno visibile dell'ecommerce (dati, processi, integrazioni)
       con la cura dell'interfaccia e della grafica. Lavoro come libero
       professionista, direttamente con aziende e brand o a supporto di agenzie.
@@ -127,14 +142,14 @@ it:
 en:
   hero:
     eyebrow: Freelance Shopify Developer
-    title: Shopify stores that actually work, from catalog to warehouse.
+    title: Bring order to your online sales, from catalog chaos to the last parcel shipped.
     lead: >-
       I design and build themes, apps and integrations for Shopify and Shopify
       Plus. I connect your store to the systems you already use (ERP, PIM, CRM,
       marketplaces, analytics) and make it memorable with WebGL and WebGPU visuals.
     cta: Let's talk about your project
     secondary: What I do
-    note: The background is a hand-written WebGL shader. Move your mouse.
+    note: Every cube is a parcel to ship. Sweep your mouse over them and line them up.
 
   services:
     id: services
@@ -211,9 +226,24 @@ en:
       - title: Social and marketplaces
         items: [Meta / Instagram Shop, Google Merchant Center, TikTok, Amazon]
       - title: Analytics and tracking
-        items: [GA4, Google Tag Manager, server-side tagging, Meta Conversions API, Shopify Web Pixels]
+        items:
+          [
+            GA4,
+            Google Tag Manager,
+            server-side tagging,
+            Meta Conversions API,
+            Shopify Web Pixels,
+          ]
       - title: How I build them
-        items: [Admin GraphQL API, webhooks, queues and retries, custom apps, serverless, "iPaaS (Make, n8n)"]
+        items:
+          [
+            Admin GraphQL API,
+            webhooks,
+            queues and retries,
+            custom apps,
+            serverless,
+            "iPaaS (Make, n8n)",
+          ]
 
   process:
     title: How I work
@@ -237,7 +267,7 @@ en:
   about:
     title: About me
     text: >-
-      I'm Enrico Succhielli, a web developer obsessed with details. I combine the
+      I'm Enrico Succhielli, Suci for short: a web developer obsessed with details. I combine the
       less visible side of ecommerce (data, processes, integrations) with care
       for interface and graphics. I work as a freelancer, directly with companies
       and brands or supporting agencies.

@@ -10,8 +10,8 @@ html body {
 }
 
 img { max-width: 100%; height: auto; }
-a { color: var(--accent); text-underline-offset: 3px; }
-a:hover { color: #ffc35c; }
+a { color: var(--accent-ink); text-underline-offset: 3px; }
+a:hover { color: var(--text); }
 h1, h2, h3 { font-family: var(--font-head); line-height: 1.15; margin: 0 0 .5em; color: var(--text); }
 h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
 h3 { font-size: 1.15rem; }
@@ -26,7 +26,7 @@ code { font-size: .85em; }
   font: 600 .8rem/1.4 var(--font);
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-ink);
   margin-bottom: .75em;
   a { color: inherit; }
 }

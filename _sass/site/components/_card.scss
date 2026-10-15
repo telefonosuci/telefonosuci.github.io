@@ -9,12 +9,12 @@
   border-radius: var(--radius);
   padding: 28px;
   p:last-child { margin-bottom: 0; }
-  &__icon { display: block; font-size: 1.6rem; color: var(--accent); margin-bottom: 12px; }
+  &__icon { display: block; font-size: 1.6rem; color: var(--accent-ink); margin-bottom: 12px; }
   &--link {
     display: block; height: 100%; color: var(--text); text-decoration: none;
     transition: border-color .2s, transform .2s;
     &:hover { color: var(--text); border-color: var(--accent); transform: translateY(-2px); }
     h2 { font-size: 1.35rem; }
   }
-  &--glow { background: linear-gradient(160deg, #22275a, var(--surface) 60%); }
+  &--glow { background: linear-gradient(160deg, rgba(252, 163, 17, .15), var(--surface) 60%); }
 }

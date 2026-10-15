@@ -39,7 +39,7 @@ I componenti dichiarano il comportamento con attributi `data-*`; ogni modulo in
 | `data-hero` | `hero.js` | Intro + contenuto che sfuma, sfondo in parallasse |
 | `data-reveal`, `data-reveal-stagger` | `reveal.js` | Comparsa dal basso (a cascata) |
 | `data-speed="0.1"` | `parallax.js` | Parallasse verticale (negativo = più veloce) |
-| `data-marquee="1\|-1"` | `marquee.js` | Scritta gigante che scorre di lato |
+| `data-marquee="1\|-1"` + `data-marquee-speed` (px/s) | `marquee.js` | Scritta gigante che scorre di lato in loop a velocità fissa |
 | `data-hscroll` | `hscroll.js` | Sezione bloccata con scroll orizzontale (solo desktop) |
 | `data-zoom` | `zoom.js` | Blocco che si ingrandisce entrando |
 

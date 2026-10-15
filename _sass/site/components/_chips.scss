@@ -3,6 +3,6 @@
 }
 .chips li, .chip {
   font-size: .85rem; padding: .3em .8em; border-radius: 999px;
-  background: rgba(108, 123, 255, .12); border: 1px solid var(--border); color: var(--text);
+  background: rgba(0, 0, 0, .04); border: 1px solid var(--border); color: var(--text);
 }
 .chip { cursor: pointer; font: inherit; font-size: .9rem; &.is-active { background: var(--accent); color: #111; border-color: var(--accent); } }

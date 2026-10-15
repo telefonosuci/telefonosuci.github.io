@@ -2,10 +2,10 @@
 it:
   home: /
   nav:
-    - { name: Servizi, url: "/#servizi" }
-    - { name: Integrazioni, url: "/#integrazioni" }
-    - { name: Lab, url: "/lab/" }
-    - { name: Blog, url: "/blog/" }
+    - { name: Servizi, icon: services, url: "/#servizi" }
+    - { name: Integrazioni, icon: integrations, url: "/#integrazioni" }
+    - { name: Lab, icon: lab, url: "/lab/" }
+    - { name: Blog, icon: blog, url: "/blog/" }
   cta: Contattami
   contact_url: /contatti/
   skip: Vai al contenuto
@@ -22,10 +22,10 @@ it:
 en:
   home: /en/
   nav:
-    - { name: Services, url: "/en/#services" }
-    - { name: Integrations, url: "/en/#integrations" }
-    - { name: Lab, url: "/en/lab/" }
-    - { name: Blog, url: "/en/blog/" }
+    - { name: Services, icon: services, url: "/en/#services" }
+    - { name: Integrations, icon: integrations, url: "/en/#integrations" }
+    - { name: Lab, icon: lab, url: "/en/lab/" }
+    - { name: Blog, icon: blog, url: "/en/blog/" }
   cta: Get in touch
   contact_url: /en/contact/
   skip: Skip to content
