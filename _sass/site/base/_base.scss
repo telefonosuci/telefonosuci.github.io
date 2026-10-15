@@ -1,7 +1,6 @@
 *, *::before, *::after { box-sizing: border-box; }
 
-// `html body` wins over Bootstrap, which form.io injects on the contact page.
-html body {
+body {
   margin: 0;
   background: var(--bg);
   color: var(--text);

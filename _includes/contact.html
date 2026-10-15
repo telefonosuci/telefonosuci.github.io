@@ -1,7 +1,30 @@
 <div class="contact" data-component-name="contact-form">
-  <div class="contact__form card">
-    <script src="https://cdn.form.io/formiojs/formio.embed.js?src={{ site.suci.formio_contact }}&libs=true"></script>
-  </div>
+  {%- include i18n.html -%}
+  <form class="contact__form card" action="{{ site.suci.formspree_contact }}" method="POST">
+    <label>{{ t.form.name }} <input name="name" autocomplete="name" required></label>
+    <label>{{ t.form.email }} <input type="email" name="email" autocomplete="email" required></label>
+    <label>{{ t.form.message }} <textarea name="message" rows="6" required></textarea></label>
+    <label class="contact__check"><input type="checkbox" name="privacy" required> <span>{{ t.form.privacy }}</span></label>
+    <input type="text" name="_gotcha" hidden tabindex="-1" autocomplete="off">
+    <button class="btn" type="submit">{{ t.form.send }}</button>
+    <p class="contact__status" role="status" hidden></p>
+  </form>
+  <script>
+    // Submit via fetch so the visitor stays on the page instead of Formspree's thank-you page.
+    document.querySelector('.contact__form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target, status = form.querySelector('.contact__status'), btn = form.querySelector('button');
+      btn.disabled = true;
+      let ok = false;
+      try {
+        ok = (await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })).ok;
+      } catch {}
+      status.textContent = ok ? {{ t.form.sent | jsonify }} : {{ t.form.error | jsonify }};
+      status.hidden = false;
+      if (ok) form.reset();
+      btn.disabled = false;
+    });
+  </script>
   <aside class="contact__aside">
     {{ include.aside | markdownify }}
     <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>

@@ -10,7 +10,7 @@ title: Privacy policy
 
 ## Dati raccolti
 
-- **Modulo di contatto**: nome, email e messaggio che inserisci volontariamente, raccolti tramite [Form.io](https://form.io). Sono usati solo per risponderti e per l'eventuale preventivo, e non sono ceduti a terzi.
+- **Modulo di contatto**: nome, email e messaggio che inserisci volontariamente, raccolti tramite [Formspree](https://formspree.io). Sono usati solo per risponderti e per l'eventuale preventivo, e non sono ceduti a terzi.
 - **Dati di navigazione**: il sito usa Google Tag Manager per statistiche di utilizzo e Sentry per rilevare errori tecnici. Questi servizi possono trattare dati come indirizzo IP, browser e pagine visitate.
 - **Commenti al blog**: gestiti da [Disqus](https://disqus.com), che applica la propria informativa.
 

@@ -18,7 +18,7 @@ suci:
   disqus_shortname: telefonosuci
   gtm_id: GTM-TP92MWJ
   sentry_loader: https://js.sentry-cdn.com/47580faa06234c8a1655108d106bdcc2.min.js
-  formio_contact: https://xfjbmfmkwzhddmf.form.io/contact
+  formspree_contact: https://formspree.io/f/xzedyede
   social_links:
     github: telefonosuci
     linkedIn: in/enrico-succhielli

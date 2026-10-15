@@ -44,7 +44,7 @@ Verifica: la build Jekyll va a buon fine e ho controllato le schermate di home (
    - il post "Javascript trottle and debounce" contiene il testo del renderer React, non quello su throttle/debounce (e c'è un refuso nel titolo);
    - il post IT sui chatbot è in inglese;
    - i post sono datati e poco legati a Shopify: valuta di nasconderli (`published: false`) e scriverne di nuovi (ad es. "Sincronizzare giacenze ERP → Shopify senza oversell", "Checkout Extensibility: migrare da checkout.liquid", "Tracciamento server-side su Shopify").
-7. **Form.io**: verifica che il form funzioni ancora e che le notifiche arrivino. Per GDPR conviene aggiungere al form una checkbox di presa visione della privacy.
+7. **Formspree**: fai un invio di prova dal sito e conferma l'email di attivazione che arriva da Formspree.
 8. **Immagine social (og:image)**: crea un'immagine 1200×630 e impostala con `image:` in `_config.yml` per avere anteprime curate su LinkedIn e WhatsApp.
 9. **Dominio personalizzato** (ad es. `enricosucchielli.dev`): più professionale di `github.io`. Aggiungi un file `CNAME` e aggiorna `url` in `_config.yml`.
 

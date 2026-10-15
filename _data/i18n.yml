@@ -18,6 +18,7 @@ it:
   all: Tutti
   category: Categoria
   latest_posts: Dal blog
+  form: { name: Nome, email: Email, message: Messaggio, privacy: "Ho letto la <a href='/privacy/'>privacy policy</a>", send: Invia, sent: "Grazie! Ti rispondo al più presto.", error: "Invio non riuscito, riprova o scrivimi via email." }
   comments_noscript: Abilita JavaScript per vedere i commenti.
 en:
   home: /en/
@@ -38,4 +39,5 @@ en:
   all: All
   category: Category
   latest_posts: From the blog
+  form: { name: Name, email: Email, message: Message, privacy: "I have read the <a href='/privacy/'>privacy policy</a>", send: Send, sent: "Thanks! I'll get back to you soon.", error: "Sending failed, try again or email me." }
   comments_noscript: Enable JavaScript to see the comments.

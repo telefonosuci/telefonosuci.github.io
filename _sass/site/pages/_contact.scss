@@ -3,10 +3,12 @@
   display: grid; gap: 40px; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); margin-top: 32px;
   @media (max-width: 860px) { grid-template-columns: 1fr; }
   &__form {
-    // form.io renders with Bootstrap: keep its inputs readable on the dark card.
-    label, .formio-component { color: var(--text); }
-    .form-control { background: var(--surface); color: var(--text); border-color: var(--border); }
-    .btn-primary { background: var(--accent) !important; border-color: var(--accent) !important; color: #111 !important; border-radius: 999px; padding: .6em 1.6em; }
+    display: grid; gap: 16px; align-content: start;
+    label { display: grid; gap: 6px; color: var(--text); }
+    input, textarea { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: .6em .8em; }
+    textarea { resize: vertical; }
+    .btn { justify-self: start; }
+    .contact__check { display: flex; gap: 8px; align-items: center; color: var(--muted); }
   }
   &__aside { color: var(--muted); h3 { color: var(--text); } }
 }
