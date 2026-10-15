@@ -10,5 +10,9 @@
     .btn { justify-self: start; }
     .contact__check { display: flex; gap: 8px; align-items: center; color: var(--muted); }
   }
+  &__dialog {
+    max-width: min(420px, calc(100vw - 32px)); border: 0; color: var(--text); text-align: center;
+    &::backdrop { background: rgb(0 0 0 / .5); }
+  }
   &__aside { color: var(--muted); h3 { color: var(--text); } }
 }

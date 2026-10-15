@@ -21,8 +21,6 @@ suci:
   formspree_contact: https://formspree.io/f/xzedyede
   social_links:
     github: telefonosuci
-    linkedIn: in/enrico-succhielli
-    twitter: enricolebanane
 
 sass:
   sass_dir: _sass

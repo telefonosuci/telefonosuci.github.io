@@ -7,20 +7,23 @@
     <label class="contact__check"><input type="checkbox" name="privacy" required> <span>{{ t.form.privacy }}</span></label>
     <input type="text" name="_gotcha" hidden tabindex="-1" autocomplete="off">
     <button class="btn" type="submit">{{ t.form.send }}</button>
-    <p class="contact__status" role="status" hidden></p>
   </form>
+  <dialog class="contact__dialog card">
+    <p></p>
+    <form method="dialog"><button class="btn">OK</button></form>
+  </dialog>
   <script>
     // Submit via fetch so the visitor stays on the page instead of Formspree's thank-you page.
     document.querySelector('.contact__form').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const form = e.target, status = form.querySelector('.contact__status'), btn = form.querySelector('button');
+      const form = e.target, dialog = document.querySelector('.contact__dialog'), btn = form.querySelector('button');
       btn.disabled = true;
       let ok = false;
       try {
         ok = (await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })).ok;
       } catch {}
-      status.textContent = ok ? {{ t.form.sent | jsonify }} : {{ t.form.error | jsonify }};
-      status.hidden = false;
+      dialog.querySelector('p').textContent = ok ? {{ t.form.sent | jsonify }} : {{ t.form.error | jsonify }};
+      dialog.showModal();
       if (ok) form.reset();
       btn.disabled = false;
     });
