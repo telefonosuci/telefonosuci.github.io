@@ -1,43 +1,96 @@
-// Header
 .site-header {
-  position: sticky; top: 0; z-index: 10;
-  background: rgba(255, 255, 255, .8);
-  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
   border-bottom: 1px solid var(--border);
-  &__inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; }
-}
-.brand {
-  display: flex; align-items: center; gap: 8px; flex-shrink: 0;
-  color: var(--text); text-decoration: none; font: 700 .95rem var(--font-head);
-  &__mark {
-    display: grid; place-items: center; width: 28px; height: 28px; border-radius: 7px; font-size: .8rem;
-    background: var(--accent); color: #111;
+  background: rgb(255 255 255 / .8);
+  backdrop-filter: blur(12px);
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 52px;
   }
 }
-.icon { flex-shrink: 0; }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  color: var(--text);
+  font: 700 .95rem var(--font-head);
+  text-decoration: none;
+  &__mark {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-size: .8rem;
+  }
+  &__name {
+    @media (max-width: 900px) { display: none; }
+  }
+}
+
+// Icons only below tablet; labels stay as title/aria for a11y.
 .site-nav {
-  display: flex; align-items: center; gap: 2px;
-  a { display: inline-flex; align-items: center; gap: 6px; }
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
   a:not(.btn) {
-    color: var(--muted); text-decoration: none; font-size: .875rem;
-    padding: 6px 10px; border-radius: 8px;
-    &:hover { color: var(--text); background: rgba(0, 0, 0, .05); }
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: var(--muted);
+    font-size: .875rem;
+    text-decoration: none;
+    &:hover {
+      background: rgb(0 0 0 / .05);
+      color: var(--text);
+    }
   }
   &__cta { margin-left: 6px; }
+  @media (max-width: 900px) {
+    a > span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+    a:not(.btn), &__cta { padding: 8px; }
+  }
 }
-// Icons only below tablet; labels stay as title/aria for a11y.
-@media (max-width: 900px) {
-  .brand__name { display: none; }
-  .site-nav a > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .site-nav a:not(.btn) { padding: 8px; }
-  .site-nav__cta { padding: 8px; }
-}
+
 // Language switch: small floating pill, bottom-right.
 .lang-switch {
-  position: fixed; right: 16px; bottom: 16px; z-index: 20;
-  display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px;
-  font-size: .75rem; font-weight: 600; letter-spacing: .04em; text-decoration: none;
-  color: var(--text); background: rgba(255, 255, 255, .85); backdrop-filter: blur(12px);
-  border: 1px solid var(--border); box-shadow: 0 4px 16px rgba(0, 0, 0, .08);
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgb(255 255 255 / .85);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgb(0 0 0 / .08);
+  color: var(--text);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-decoration: none;
   &:hover { border-color: var(--text); }
 }

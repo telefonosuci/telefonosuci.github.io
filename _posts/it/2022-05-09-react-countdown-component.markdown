@@ -1,168 +1,80 @@
 ---
 layout: post
 title:  "Componente React per un conto alla rovescia"
-date:   2022-05-09 21:03:36 +0530
+date:   2022-05-09 21:03:36 +0200
 categories: Tutorials
 lang: it
 ---
-Un semplice conto alla rovescia per React.
 
-Il componente per essere usato in NextJS deve essere caricato attraverso l'importo dinamico per evitare che il contenuto renderizzato si adifferente dalla copia sul server in fase di rendering.
-
-Il nostro componente:
+Un componente React per il conto alla rovescia: giorni, ore, minuti e secondi aggiornati ogni secondo, con una callback quando il tempo scade.
 
 ```javascript
-  import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
-  const Countodown = ({ expire, setExpired, expireDate }) => {
+const getTimeLeft = (expireDate) => {
+  const diff = Math.max(0, new Date(expireDate) - Date.now());
+  return {
+    days: Math.floor(diff / 86400000),
+    hours: Math.floor(diff / 3600000) % 24,
+    minutes: Math.floor(diff / 60000) % 60,
+    seconds: Math.floor(diff / 1000) % 60,
+  };
+};
 
-    const calculateTimeLeft = () => {
-      const difference = +new Date(expireDate) - +new Date();
-      let timeLeft = {};
+const isZero = (t) => Object.values(t).every((v) => v === 0);
 
-      if (difference > 0) {
-        timeLeft = {
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        };
-      } else {
-        setExpired(true)
+export default function Countdown({ expireDate, onExpire }) {
+  const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(expireDate));
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      const next = getTimeLeft(expireDate);
+      setTimeLeft(next);
+      if (isZero(next)) {
+        clearInterval(id);
+        onExpire?.();
       }
+    }, 1000);
+    return () => clearInterval(id); // ferma il timer allo smontaggio
+  }, [expireDate, onExpire]);
 
-      return timeLeft;
-    };
+  if (isZero(timeLeft)) return <span className="countdown__expired">Tempo scaduto!</span>;
 
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
-    useEffect(() => {
-      setTimeout(() => {
-        setTimeLeft(calculateTimeLeft());
-      }, 1000);
-    });
-
-    const timerComponents = [];
-
-    Object.keys(timeLeft).forEach((interval, i) => {
-      timerComponents.push(
-        <div key={i} className='countdownbanner__cell'>
-          <div>
-            {timeLeft[interval]}
-          </div>
-          <div>
-            {interval}{" "}
-          </div>
-          <style jsx>{`
-          .countdownbanner__cell {
-            background-color: #fff;
-            border-radius: 8px;
-            width: 80px;
-            height: 80px;
-            display: flex;
-            flex-direction: column;
-            margin: 6px;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-          }
-          @media (max-width: 768px) {
-            .countdownbanner__cell {
-              font-size: 14px;
-              width: 56px;
-              height: 56px;
-              margin: 3px;
-            }
-          }
-
-        `}</style>
+  return (
+    <div className="countdown">
+      {Object.entries(timeLeft).map(([unit, value]) => (
+        <div key={unit} className="countdown__cell">
+          <strong>{value}</strong>
+          <span>{unit}</span>
         </div>
-      );
-    });
-
-    return (
-      <div>
-        <div className='countdownbanner'>
-
-            <div className='countdownbanner-timer'>
-              {timerComponents.length ? timerComponents : <span className='expired'>{`Time's up!`}</span>}
-            </div>
-        </div>
-
-        <style jsx>{`
-
-          .countdownbanner {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 12px;
-          }
-
-          @media (max-width: 768px) {
-            .countdownbanner {
-              padding: 0;
-            }
-          }
-
-          .countdownbanner-logo {
-            height: 40vmin;
-            pointer-events: none;
-          }
-
-          @media (prefers-reduced-motion: no-preference) {
-            .countdownbanner-logo {
-              animation: countdownbanner-logo-spin infinite 20s linear;
-            }
-          }
-
-          .countdownbanner-header {
-            background-color: #282c34;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: calc(10px + 2vmin);
-            color: white;
-          }
-
-          .countdownbanner-link {
-            color: #61dafb;
-          }
-
-          @keyframes countdownbanner-logo-spin {
-            from {
-              transform: rotate(0deg);
-            }
-
-            to {
-              transform: rotate(360deg);
-            }
-          }
-
-          .countdownbanner-timer {
-            display: flex;
-            margin: 0 auto;
-          }
-
-          .countdownbannercell {
-            background-color: #fff;
-            border-radius: 8px;
-            width: 64px;
-            height: 64px;
-            display: flex;
-            flex-direction: column;
-            margin: 6px;
-            align-items: center;
-            justify-content: center;
-            font-size: 42px;
-          }
-
-        `}</style>
-      </div>
-    )
-  }
-
-  export default Countodown
+      ))}
+    </div>
+  );
+}
 ```
+
+CSS minimo:
+
+```css
+.countdown { display: flex; justify-content: center; gap: 6px; }
+.countdown__cell {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  width: 80px; height: 80px; border-radius: 8px; background: #fff;
+}
+.countdown__cell strong { font-size: 1.5rem; }
+@media (max-width: 768px) {
+  .countdown__cell { width: 56px; height: 56px; font-size: 14px; }
+}
+```
+
+### Usarlo con Next.js
+
+Server e browser renderizzano in momenti diversi, quindi i secondi non coincidono e React segnala un *hydration mismatch*. La soluzione più semplice è renderizzare il componente solo nel browser:
+
+```javascript
+import dynamic from 'next/dynamic';
+
+const Countdown = dynamic(() => import('../components/Countdown'), { ssr: false });
+```
+
+Con l'App Router, `dynamic(..., { ssr: false })` va chiamato dentro un file marcato `'use client'`.

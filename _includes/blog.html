@@ -12,6 +12,7 @@
   {%- for p in posts %}
   <li data-cats="{{ p.categories | join: '|' | downcase }}">
     <a class="card card--link" data-component-name="blog-post-card" href="{{ p.url | relative_url }}">
+      {% include post-symbol.html post=p %}
       <p class="eyebrow"><time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: date_format }}</time> · {{ p.categories | join: ' · ' }}</p>
       <h2>{{ p.title | escape }}</h2>
       {%- if site.show_excerpts %}<p class="muted">{{ p.excerpt | strip_html | truncatewords: 30 }}</p>{% endif %}
@@ -20,12 +21,12 @@
   {%- endfor %}
 </ul>
 <script>
-  document.querySelectorAll('[data-filter]').forEach(function (btn, _, all) {
-    btn.addEventListener('click', function () {
-      var f = btn.dataset.filter;
-      all.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
-      document.querySelectorAll('[data-cats]').forEach(function (li) {
-        li.hidden = f !== 'all' && li.dataset.cats.split('|').indexOf(f) === -1;
+  document.querySelectorAll('[data-filter]').forEach((btn, _, all) => {
+    btn.addEventListener('click', () => {
+      const f = btn.dataset.filter;
+      all.forEach((b) => b.classList.toggle('is-active', b === btn));
+      document.querySelectorAll('[data-cats]').forEach((li) => {
+        li.hidden = f !== 'all' && !li.dataset.cats.split('|').includes(f);
       });
     });
   });

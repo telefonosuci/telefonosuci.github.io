@@ -1,27 +1,37 @@
 ---
 layout: post
 title:  "Un semplice renderizzatore per componenti React"
-date:   2020-07-13 21:03:36 +0530
+date:   2022-07-13 21:03:36 +0200
 categories: Frontend
 lang: it
 ---
 
-In a frontend application is nice to have a single object that is thacking care of the rendering of your components. So we can build a little framework and give a bit of structure to our application avoiding the repetition of same logic in our code.
+Su un sito che non è una single-page app (un tema Shopify, WordPress, Jekyll) capita spesso di dover montare qualche componente React in punti precisi della pagina. Invece di ripetere ovunque la stessa logica con `createRoot`, basta una piccola funzione che lo fa e passa gli attributi `data-*` dell'elemento come props.
 
 ```javascript
-
-import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-class Renderer {
-  static render(el) {
-    const container = document.getElementById(el.selector)
-    const root = createRoot(container);
-    root.render(<el.component props={container.dataset}></el.component>);
-  }
+export function render({ selector, component: Component }) {
+  const container = document.getElementById(selector);
+  if (!container) return; // il componente non è in questa pagina
+
+  createRoot(container).render(<Component {...container.dataset} />);
 }
-
-export default Renderer;
-
 ```
 
+Nell'HTML la configurazione sta negli attributi `data-*`:
+
+```html
+<div id="countdown" data-expire-date="2026-12-31T23:59:59"></div>
+```
+
+E nel file di ingresso:
+
+```javascript
+import { render } from './render';
+import Countdown from './Countdown';
+
+render({ selector: 'countdown', component: Countdown });
+```
+
+`dataset` trasforma `data-expire-date` in `expireDate`, quindi il componente riceve `props.expireDate`. Attenzione: tutti i valori arrivano come **stringhe**, numeri e booleani vanno convertiti dentro il componente.

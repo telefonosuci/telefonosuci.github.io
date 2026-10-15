@@ -1,0 +1,24 @@
+{%- if page.lang == 'en' -%}
+{%- assign phases = "Analysis;0;2|Design;2;5|Theme development;4;11|Integrations;5;12|Data migration;8;13|Testing;11;15|Go-live;15;16|Post-launch support;16;18" | split: "|" -%}
+{%- assign wk = "wk" -%}
+{%- assign cap = "Phases of a mid-size migration (about 4 months). Phases overlap: data migration starts while the theme is still being built." -%}
+{%- assign title = "Timeline diagram of a migration over 18 weeks: analysis, design, theme development, integrations, data migration, testing, go-live and post-launch support, partly overlapping" -%}
+{%- else -%}
+{%- assign phases = "Analisi;0;2|Design;2;5|Sviluppo tema;4;11|Integrazioni;5;12|Migrazione dati;8;13|Test;11;15|Go-live;15;16|Assistenza post lancio;16;18" | split: "|" -%}
+{%- assign wk = "sett." -%}
+{%- assign cap = "Le fasi di una migrazione di media complessità (circa 4 mesi). Le fasi si sovrappongono: la migrazione dei dati parte mentre il tema è ancora in sviluppo." -%}
+{%- assign title = "Diagramma temporale di una migrazione in 18 settimane: analisi, design, sviluppo tema, integrazioni, migrazione dati, test, go-live e assistenza post lancio, in parte sovrapposte" -%}
+{%- endif -%}
+<figure class="diagram">
+<svg viewBox="0 0 640 300" role="img" aria-label="{{ title }}">
+{%- for w in (0..18) %}{% assign m = w | modulo: 4 %}{% if m == 0 %}{% assign x = w | times: 26 | plus: 166 %}
+<path class="line dash" d="M{{ x }} 26 V292" style="stroke:var(--border)"/><text class="sub" x="{{ x }}" y="16">{{ wk }} {{ w }}</text>
+{%- endif %}{% endfor %}
+{%- for p in phases %}{% assign f = p | split: ";" %}{% assign y = forloop.index0 | times: 33 | plus: 34 %}
+{%- assign x = f[1] | times: 26 | plus: 166 %}{% assign w = f[2] | minus: f[1] | times: 26 %}
+<text x="154" y="{{ y | plus: 16 }}" style="text-anchor:end;font-size:14px">{{ f[0] }}</text>
+<g{% if f[0] == 'Go-live' %} class="hl"{% endif %}><rect x="{{ x }}" y="{{ y }}" width="{{ w }}" height="22" rx="6"{% unless f[0] == 'Go-live' %} style="fill:var(--accent-2);stroke:var(--accent-2);opacity:.85"{% endunless %}/></g>
+{%- endfor %}
+</svg>
+<figcaption>{{ cap }}</figcaption>
+</figure>

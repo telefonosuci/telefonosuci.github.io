@@ -1,19 +1,80 @@
-// Generic page
-.page { padding: clamp(40px, 7vw, 80px) 0 80px; }
-.page__title { font-size: clamp(2rem, 5vw, 3.2rem); }
+// Generic page and blog post.
+.page {
+  padding: clamp(40px, 7vw, 80px) 0 80px;
+  &__title { font-size: clamp(2rem, 5vw, 3.2rem); }
+}
+
 .prose {
   max-width: 75ch;
-  h2 { margin-top: 1.6em; font-size: 1.6rem; }
+  h2 {
+    margin-top: 1.6em;
+    font-size: 1.6rem;
+  }
   h3 { margin-top: 1.4em; }
   li { margin-bottom: .4em; }
-  pre, .highlight { border-radius: 10px; overflow-x: auto; }
+  pre, .highlight {
+    overflow-x: auto;
+    border-radius: 10px;
+  }
   pre { padding: 16px; }
+  // ponytail: scrolls horizontally on mobile instead of a wrapper element
+  table {
+    display: block;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin: 1.4em 0;
+    font-size: .95em;
+  }
+  th, td {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--bg-alt); }
   .page:has(.contact) &, .page:has(.post-list) &, .page:has(.lab) & { max-width: none; }
+  .post & { font-size: 1.05rem; }
 }
-.post .prose { font-size: 1.05rem; }
+
 .comments { margin-top: 64px; }
 
+// ponytail: CSS columns masonry (order runs top-to-bottom per column); switch to grid-lanes when browsers ship it.
 .post-list {
-  list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 16px;
+  columns: 3 280px;
+  column-gap: 16px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+  li { break-inside: avoid; margin-bottom: 16px; }
+  .card--link { height: auto; }
   .eyebrow { margin-bottom: .4em; }
+}
+
+.post-symbol {
+  display: grid;
+  place-items: center;
+  height: 160px;
+  margin: -28px -28px 24px;
+  border-bottom: 1px solid var(--border);
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: #fff;
+  color: var(--accent);
+  &--h1 { height: 220px; }
+  &--h2 { height: 120px; }
+  svg { width: 72px; height: 72px; }
+}
+
+// Inline SVG diagrams in posts (_includes/diagrams/), themed via tokens.
+.diagram {
+  margin: 2em 0;
+  svg { display: block; width: 100%; height: auto; font-family: var(--font); }
+  rect { fill: var(--bg-alt); stroke: var(--border); stroke-width: 1.5; }
+  .hl rect { fill: var(--accent); stroke: var(--accent); }
+  text { fill: var(--text); font-size: 17px; font-weight: 600; text-anchor: middle; }
+  .sub { fill: var(--muted); font-size: 13px; font-weight: 400; }
+  .hl .sub { fill: var(--on-accent); }
+  .line { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+  .dash { stroke-dasharray: 5 5; }
+  .tag { font-size: 13px; font-weight: 500; fill: var(--accent-ink); }
+  figcaption { margin-top: .8em; color: var(--muted); font-size: .9em; text-align: center; }
 }

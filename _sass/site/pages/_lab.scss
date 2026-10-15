@@ -1,8 +1,25 @@
-// Lab
 .lab {
-  position: relative; margin: 32px 0 48px;
-  border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border);
-  background: #050505;
-  &__canvas { display: block; width: 100%; height: min(70vh, 640px); touch-action: none; cursor: crosshair; }
-  &__fallback { position: absolute; inset: 0; display: grid; place-items: center; padding: 32px; text-align: center; color: var(--muted); margin: 0; }
+  position: relative;
+  overflow: hidden;
+  margin: 32px 0 48px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #050505; // matches the WebGPU clear color
+  &__canvas {
+    display: block;
+    width: 100%;
+    height: min(70vh, 640px);
+    touch-action: none;
+    cursor: crosshair;
+  }
+  &__fallback {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    padding: 32px;
+    color: var(--muted);
+    text-align: center;
+  }
 }

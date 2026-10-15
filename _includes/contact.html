@@ -1,6 +1,6 @@
 <div class="contact" data-component-name="contact-form">
   {%- include i18n.html -%}
-  <form class="contact__form card" action="{{ site.suci.formspree_contact }}" method="POST">
+  <form class="contact__form card" data-contact-form action="{{ site.suci.formspree_contact }}" method="POST">
     <label>{{ t.form.name }} <input name="name" autocomplete="name" required></label>
     <label>{{ t.form.email }} <input type="email" name="email" autocomplete="email" required></label>
     <label>{{ t.form.message }} <textarea name="message" rows="6" required></textarea></label>
@@ -9,15 +9,15 @@
     <button class="btn" type="submit">{{ t.form.send }}</button>
   </form>
   <!-- ponytail: closedby="none" disables Esc natively; browsers without support still close on Esc. -->
-  <dialog class="contact__dialog card" closedby="none">
+  <dialog class="contact__dialog card" data-contact-dialog closedby="none">
     <p></p>
     <form method="dialog"><button class="btn">OK</button></form>
   </dialog>
   <script>
     // Submit via fetch so the visitor stays on the page instead of Formspree's thank-you page.
-    document.querySelector('.contact__form').addEventListener('submit', async (e) => {
+    document.querySelector('[data-contact-form]').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const form = e.target, dialog = document.querySelector('.contact__dialog'), btn = form.querySelector('button');
+      const form = e.target, dialog = document.querySelector('[data-contact-dialog]'), btn = form.querySelector('button');
       btn.disabled = true;
       let ok = false;
       try {

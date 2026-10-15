@@ -1,7 +1,7 @@
 // WebGPU particle field: a compute pass integrates 65k particles, a render pass draws them
 // as additive instanced quads. Particle data lives only on the GPU.
-const canvas = document.getElementById('lab-gpu');
-const fallback = document.querySelector('.lab__fallback');
+const canvas = document.querySelector('[data-lab-canvas]');
+const fallback = document.querySelector('[data-lab-fallback]');
 const N = 65536;
 
 const common = /* wgsl */ `
@@ -64,13 +64,13 @@ async function start() {
   const device = await adapter?.requestDevice();
   if (!device) return fail();
   device.lost.then(fail);
-  device.addEventListener("uncapturederror", (e) => { console.error(e.error.message); fail(); });
+  device.addEventListener('uncapturederror', (e) => { console.error(e.error.message); fail(); });
 
   const ctx = canvas.getContext('webgpu');
   const format = navigator.gpu.getPreferredCanvasFormat();
   ctx.configure({ device, format, alphaMode: 'opaque' });
 
-  const dpr = Math.min(devicePixelRatio || 1, 2);
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
   let aspect = 1;
   const resize = () => {
     canvas.width = canvas.clientWidth * dpr;
@@ -78,7 +78,7 @@ async function start() {
     aspect = canvas.width / canvas.height;
   };
   resize();
-  addEventListener('resize', resize);
+  window.addEventListener('resize', resize);
 
   const init = new Float32Array(N * 4);
   for (let i = 0; i < N; i++) {
@@ -120,11 +120,11 @@ async function start() {
   };
   canvas.addEventListener('pointermove', toSpace);
   canvas.addEventListener('pointerdown', (e) => { pointer.push = 1; toSpace(e); });
-  addEventListener('pointerup', () => { pointer.push = 0; });
+  window.addEventListener('pointerup', () => { pointer.push = 0; });
   canvas.addEventListener('pointerleave', () => { pointer.active = 0; pointer.push = 0; });
 
   // Respect reduced motion: only animate while the user is interacting.
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let running = false, visible = true, last = performance.now(), idle = 0;
 
   function frame(now) {

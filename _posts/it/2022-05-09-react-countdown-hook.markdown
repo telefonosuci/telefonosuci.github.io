@@ -1,48 +1,48 @@
 ---
 layout: post
-title:  "Componente React per un conto alla rovescia"
-date:   2022-05-09 21:03:36 +0530
+title:  "Un hook React per il conto alla rovescia"
+date:   2022-05-09 22:03:36 +0200
 categories: Tutorials
 lang: it
-published: false
 ---
-A simple React countdown...
 
-Our component:
+Se del conto alla rovescia ti servono solo i numeri e vuoi costruire il markup a modo tuo, un hook personalizzato è più pulito di un componente completo.
 
 ```javascript
-  import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-  const useCountdown = (targetDate) => {
-    const countDownDate = new Date(targetDate).getTime();
+export function useCountdown(targetDate) {
+  const target = new Date(targetDate).getTime();
+  const [left, setLeft] = useState(() => Math.max(0, target - Date.now()));
 
-    const [countDown, setCountDown] = useState(
-      countDownDate - new Date().getTime()
-    );
+  useEffect(() => {
+    const id = setInterval(() => {
+      const next = Math.max(0, target - Date.now());
+      setLeft(next);
+      if (next === 0) clearInterval(id);
+    }, 1000);
+    return () => clearInterval(id);
+  }, [target]);
 
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setCountDown(countDownDate - new Date().getTime());
-      }, 1000);
-
-      return () => clearInterval(interval);
-    }, [countDownDate]);
-
-    return getReturnValues(countDown);
+  return {
+    days: Math.floor(left / 86400000),
+    hours: Math.floor(left / 3600000) % 24,
+    minutes: Math.floor(left / 60000) % 60,
+    seconds: Math.floor(left / 1000) % 60,
+    expired: left === 0,
   };
-
-  const getReturnValues = (countDown) => {
-    // calculate time left
-    const days = Math.floor(countDown / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (countDown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor((countDown % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((countDown % (1000 * 60)) / 1000);
-
-    return [days, hours, minutes, seconds];
-  };
-
-  export { useCountdown };
+}
 ```
 
+Uso:
+
+```javascript
+function SaleBanner() {
+  const { days, hours, minutes, seconds, expired } = useCountdown('2026-12-31T23:59:59');
+
+  if (expired) return <p>I saldi sono finiti.</p>;
+  return <p>Termina tra {days}g {hours}h {minutes}m {seconds}s</p>;
+}
+```
+
+`Math.max(0, …)` evita valori negativi quando la data è passata, e l'intervallo si ferma da solo quando arriva a zero.

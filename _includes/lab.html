@@ -1,5 +1,5 @@
 <div class="lab" data-component-name="webgpu-lab">
-  <canvas id="lab-gpu" class="lab__canvas"></canvas>
-  <p class="lab__fallback" hidden>{{ page.fallback }}</p>
+  <canvas class="lab__canvas" data-lab-canvas></canvas>
+  <p class="lab__fallback" data-lab-fallback hidden>{{ page.fallback }}</p>
 </div>
-<script src="{{ '/assets/js/lab-webgpu.js' | relative_url }}" type="module"></script>
+<script src="{{ '/assets/js/lab-webgpu.js' | relative_url }}?v={{ site.time | date: '%s' }}" type="module"></script>
