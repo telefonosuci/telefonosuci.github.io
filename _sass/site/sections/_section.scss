@@ -3,7 +3,6 @@
   overflow-x: clip; // side slide-ins on mobile must not widen the page
   padding: clamp(56px, 9vw, 112px) 0;
   &--alt { background: var(--bg-alt); }
-  &__title { margin-bottom: .3em; }
 }
 
 .split { display: grid; gap: 40px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: center; }

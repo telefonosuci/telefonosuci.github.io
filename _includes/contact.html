@@ -8,7 +8,8 @@
     <input type="text" name="_gotcha" hidden tabindex="-1" autocomplete="off">
     <button class="btn" type="submit">{{ t.form.send }}</button>
   </form>
-  <dialog class="contact__dialog card">
+  <!-- ponytail: closedby="none" disables Esc natively; browsers without support still close on Esc. -->
+  <dialog class="contact__dialog card" closedby="none">
     <p></p>
     <form method="dialog"><button class="btn">OK</button></form>
   </dialog>
