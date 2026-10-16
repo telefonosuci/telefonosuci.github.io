@@ -2,6 +2,7 @@
 title: "Agentic commerce on Shopify: what it is and how to get ready"
 date: 2026-10-16 09:00:00 +0200
 categories: Ecommerce
+related: [shopify-ai-sales-agent, shopify, pim]
 ---
 
 Until recently, the buying journey started on Google or social media and ended on the store's website. Today a growing share of searches happens inside an AI assistant: *"find me waterproof trail running shoes under 150 euros"*. The assistant compares products and, more and more often, takes the customer all the way to payment. This is **agentic commerce**: the customer hands part of the research and buying work to an AI agent.
@@ -34,6 +35,8 @@ In practice:
 
 - if you **also sell to the US**, the channel already affects you;
 - if you sell **only in Italy or Europe**, you have a head start to get ready before the channel arrives here too.
+
+You don't even have to wait: you can already build a sales agent on your own store, with the standard Shopify checkout. More on that in [an AI sales assistant on Shopify, outside the US, today](/en/blog/shopify-ai-sales-agent/).
 
 ### What to do now
 
