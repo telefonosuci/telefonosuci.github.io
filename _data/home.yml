@@ -6,7 +6,7 @@ it:
     lead: >-
       Progetto e sviluppo temi, app e integrazioni per Shopify e Shopify Plus.
       Collego il negozio ai sistemi che usi già (ERP, PIM, CRM, marketplace,
-      analytics) e lo rendo memorabile con esperienze visive in WebGL e WebGPU.
+      analytics) e lo rendo memorabile con esperienze visive curate.
     cta: Parliamo del tuo progetto
     secondary: Cosa faccio
     note: Ogni cubo è un pacco da spedire. Passaci sopra col mouse e mettili in fila.
@@ -37,10 +37,10 @@ it:
           strumenti di analytics. Sincronizzazioni robuste con code, retry,
           idempotenza e log, perché un ordine perso costa più di un'integrazione fatta bene.
       - icon: "✦"
-        title: Grafica WebGL e WebGPU
+        title: Esperienze visive
         text: >-
-          Shader, 3D di prodotto, configuratori e animazioni che fanno ricordare
-          il brand senza sacrificare le prestazioni: fallback, lazy loading e
+          Tecniche grafiche avanzate, 3D di prodotto, configuratori e animazioni
+          che fanno ricordare il brand senza sacrificare le prestazioni, con
           attenzione ai Core Web Vitals.
 
   flow:
@@ -58,7 +58,7 @@ it:
         systems: ERP → Shopify
       - title: Vetrina
         text: Tema veloce, ricerca, filtri, merchandising ed esperienze visive.
-        systems: Shopify · WebGL
+        systems: Shopify
       - title: Checkout
         text: Pagamenti, sconti e logiche custom con Functions ed estensioni.
         systems: Shopify Checkout
@@ -122,8 +122,8 @@ it:
   lab:
     title: Lab grafico
     text: >-
-      Mi piace spingere il browser al limite. Nel lab trovi una simulazione di
-      particelle calcolata sulla GPU con WebGPU (compute shader), interattiva.
+      Mi piace spingere il browser al limite. Nel lab trovi esperimenti
+      grafici interattivi.
     cta: Apri il lab
 
   about:
@@ -149,7 +149,7 @@ en:
     lead: >-
       I design and build themes, apps and integrations for Shopify and Shopify
       Plus. I connect your store to the systems you already use (ERP, PIM, CRM,
-      marketplaces, analytics) and make it memorable with WebGL and WebGPU visuals.
+      marketplaces, analytics) and make it memorable with polished visual experiences.
     cta: Let's talk about your project
     secondary: What I do
     note: Every cube is a parcel to ship. Sweep your mouse over them and line them up.
@@ -179,10 +179,10 @@ en:
           and social, analytics tools. Robust syncs with queues, retries,
           idempotency and logging, because a lost order costs more than a well-built integration.
       - icon: "✦"
-        title: WebGL and WebGPU graphics
+        title: Visual experiences
         text: >-
-          Shaders, product 3D, configurators and animations that make the brand
-          stick without hurting performance: fallbacks, lazy loading and
+          Advanced graphics techniques, product 3D, configurators and animations
+          that make the brand stick without hurting performance, with
           Core Web Vitals in mind.
 
   flow:
@@ -199,7 +199,7 @@ en:
         systems: ERP → Shopify
       - title: Storefront
         text: Fast theme, search, filters, merchandising and visual experiences.
-        systems: Shopify · WebGL
+        systems: Shopify
       - title: Checkout
         text: Payments, discounts and custom logic with Functions and extensions.
         systems: Shopify Checkout
@@ -263,8 +263,8 @@ en:
   lab:
     title: Graphics lab
     text: >-
-      I like pushing the browser to its limits. In the lab you'll find a particle
-      simulation computed on the GPU with WebGPU (compute shaders), interactive.
+      I like pushing the browser to its limits. In the lab you'll find
+      interactive graphics experiments.
     cta: Open the lab
 
   about:

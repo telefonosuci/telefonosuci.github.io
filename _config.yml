@@ -1,7 +1,7 @@
 title: SUCI · Shopify Developer
 description: >-
   Sviluppatore Shopify freelance: temi, app, flussi ecommerce e integrazioni
-  con ERP, PIM, CRM, social e analytics. Esperienze visive in WebGL e WebGPU.
+  con ERP, PIM, CRM, social e analytics. Esperienze visive curate.
 url: https://telefonosuci.github.io
 baseurl: ""
 lang: it
@@ -11,7 +11,7 @@ show_excerpts: true
 
 suci:
   name: SUCI
-  tagline: Shopify Developer · ecommerce, integrazioni, WebGL
+  tagline: Shopify Developer · ecommerce, integrazioni, grafica
   # Partita IVA: obbligatoria sul sito per i professionisti in Italia. Compila e verrà mostrata nel footer.
   vat: ""
   date_format: "%d/%m/%Y"
