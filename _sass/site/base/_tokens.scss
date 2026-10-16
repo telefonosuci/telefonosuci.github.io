@@ -1,3 +1,7 @@
+// ponytail: self-hosted, latin subset only (no visitor IP sent to Google). Add latin-ext if needed.
+@font-face { font-family: "Inter"; font-weight: 400 600; font-display: swap; src: url("/assets/fonts/inter.woff2") format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-weight: 500 700; font-display: swap; src: url("/assets/fonts/space-grotesk.woff2") format("woff2"); }
+
 :root {
   --bg: #ffffff;
   --bg-alt: #f5f5f5;

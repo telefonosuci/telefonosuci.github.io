@@ -10,12 +10,12 @@
   {%- include head.html %}
 </head>
 <body class="{{ page.body_class }}">
-  {%- include gtm-noscript.html %}
   <a class="skip-link" data-component-name="skip-link" href="#main">{{ t.skip }}</a>
   {%- include nav.html %}
   <main id="main">
     {{ content }}
   </main>
   {%- include footer.html %}
+  {%- include consent.html %}
 </body>
 </html>

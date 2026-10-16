@@ -20,6 +20,9 @@ it:
   latest_posts: Dal blog
   form: { name: Nome, email: Email, message: Messaggio, privacy: "Ho letto la <a href='/privacy/'>privacy policy</a>", send: Invia, sent: "Grazie! Ti rispondo al più presto.", error: "Invio non riuscito, riprova o scrivimi via email." }
   comments_noscript: Abilita JavaScript per vedere i commenti.
+  comments_load: Mostra i commenti
+  comments_consent: "I commenti sono gestiti da Disqus, che una volta caricato imposta cookie propri, anche di profilazione (<a href='/privacy/'>privacy</a>)."
+  consent: { title: Cookie, text: "Uso cookie di Google Analytics per statistiche aggregate sulle visite, solo se accetti. Dettagli nella <a href='/privacy/'>privacy policy</a>.", accept: Accetta, deny: Rifiuta, prefs: Preferenze cookie }
 en:
   home: /en/
   nav:
@@ -41,3 +44,6 @@ en:
   latest_posts: From the blog
   form: { name: Name, email: Email, message: Message, privacy: "I have read the <a href='/privacy/'>privacy policy</a>", send: Send, sent: "Thanks! I'll get back to you soon.", error: "Sending failed, try again or email me." }
   comments_noscript: Enable JavaScript to see the comments.
+  comments_load: Show comments
+  comments_consent: "Comments are powered by Disqus, which sets its own cookies, including tracking ones, once loaded (<a href='/privacy/'>privacy</a>)."
+  consent: { title: Cookies, text: "I use Google Analytics cookies for aggregate visit statistics, only if you accept. Details in the <a href='/privacy/'>privacy policy</a>.", accept: Accept, deny: Reject, prefs: Cookie preferences }

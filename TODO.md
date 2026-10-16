@@ -35,7 +35,7 @@ Verifica: la build Jekyll va a buon fine e ho controllato le schermate di home (
 
 ## Cosa rimane da fare (in ordine di priorità)
 
-1. **Partita IVA**: per un professionista in Italia è obbligatoria sul sito. Compila `suci.vat` in `_config.yml`: comparirà nel footer e nella privacy policy.
+1. **Partita IVA**: per ora non serve (lavoro occasionale con ritenuta d'acconto), il sito non la mostra. Se la apri, compila `suci.vat` in `_config.yml`: è obbligatoria e comparirà nel footer e nella privacy policy.
 2. **Privacy e cookie (GDPR)**: la privacy policy è una **bozza** da far verificare. GTM senza banner di consenso non è conforme: serve una CMP (ad es. Iubenda, Cookiebot) oppure Consent Mode v2 configurato in GTM, in alternativa analytics senza cookie (Plausible, Umami).
 3. **Verifica i testi**: ho scritto contenuti plausibili, ma nomi di sistemi (SAP, Dynamics, Odoo, Akeneo, Pimcore, HubSpot, Klaviyo…) e competenze vanno confermati con la tua esperienza reale. Togli quello che non hai mai usato.
 4. **"Chi sono"**: aggiungi dettagli concreti (anni di esperienza, settori, una foto). Ho volutamente evitato di inventarli.

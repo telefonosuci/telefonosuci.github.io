@@ -1,6 +1,7 @@
 ---
 layout: base
 ---
+{%- include i18n.html -%}
 {%- assign date_format = site.suci.date_format | default: "%d/%m/%Y" -%}
 <article class="wrap page post" data-component-name="blog-post">
   <p class="eyebrow">
@@ -14,19 +15,24 @@ layout: base
   </div>
 
   {%- if site.suci.disqus_shortname and page.comments != false %}
-  <div id="disqus_thread" class="comments"></div>
+  {%- comment -%} Click-to-load: Disqus sets tracking cookies, so nothing loads without an explicit action. {%- endcomment -%}
+  <div id="disqus_thread" class="comments">
+    <p class="muted">{{ t.comments_consent }}</p>
+    <button class="btn" type="button" id="disqus_load">{{ t.comments_load }}</button>
+  </div>
   <script>
     var disqus_config = function () {
       this.page.url = '{{ page.url | absolute_url }}';
       this.page.identifier = '{{ page.id }}';
       this.language = '{{ lang }}';
     };
-    (function () {
+    document.getElementById('disqus_load').addEventListener('click', function () {
+      document.getElementById('disqus_thread').innerHTML = '';
       var s = document.createElement('script');
       s.src = 'https://{{ site.suci.disqus_shortname }}.disqus.com/embed.js';
       s.setAttribute('data-timestamp', +new Date());
       document.body.appendChild(s);
-    })();
+    });
   </script>
   <noscript>{{ t.comments_noscript }}</noscript>
   {%- endif %}

@@ -1,7 +1,7 @@
 # Homepage content. Structure is in _includes/home.html; edit text here.
 it:
   hero:
-    eyebrow: Shopify Developer freelance
+    eyebrow: Shopify Developer
     title: Metti ordine nelle tue vendite online, dal caos del catalogo all'ultimo pacco spedito.
     lead: >-
       Progetto e sviluppo temi, app e integrazioni per Shopify e Shopify Plus.
@@ -131,8 +131,8 @@ it:
     text: >-
       Sono Enrico Succhielli, per tutti Suci: sviluppatore web con la fissa del dettaglio.
       Unisco la parte meno visibile dell'ecommerce (dati, processi, integrazioni)
-      con la cura dell'interfaccia e della grafica. Lavoro come libero
-      professionista, direttamente con aziende e brand o a supporto di agenzie.
+      con la cura dell'interfaccia e della grafica. Sono disponibile per progetti
+      e collaborazioni, direttamente con aziende e brand o a supporto di agenzie.
       Sono specializzato in ecommerce e CMS, ma non solo: oltre a Shopify lavoro
       con WordPress e Strapi, ho competenze avanzate di frontend, in particolare con React,
       e sviluppo agenti AI e integrazioni con piattaforme di messaggistica.
@@ -144,7 +144,7 @@ it:
 
 en:
   hero:
-    eyebrow: Freelance Shopify Developer
+    eyebrow: Shopify Developer
     title: Bring order to your online sales, from catalog chaos to the last parcel shipped.
     lead: >-
       I design and build themes, apps and integrations for Shopify and Shopify
@@ -272,7 +272,7 @@ en:
     text: >-
       I'm Enrico Succhielli, Suci for short: a web developer obsessed with details. I combine the
       less visible side of ecommerce (data, processes, integrations) with care
-      for interface and graphics. I work as a freelancer, directly with companies
+      for interface and graphics. I'm available for projects and collaborations, directly with companies
       and brands or supporting agencies.
       I specialize in ecommerce and CMS, but not only: beyond Shopify I work
       with WordPress and Strapi, I have advanced frontend skills, especially with React,
