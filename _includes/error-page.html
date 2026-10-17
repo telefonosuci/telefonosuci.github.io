@@ -1,0 +1,7 @@
+{%- comment -%} Error page body with the parcels animation. Params: code, text. Bilingual: these pages have no language. {%- endcomment -%}
+<canvas class="lost" role="img" aria-label="{{ include.code }}" data-error-code="{{ include.code }}"></canvas>
+<noscript><img src="{{ '/assets/images/404.png' | relative_url }}" alt="" width="256"></noscript>
+<p class="lead">{{ include.text }}</p>
+<p class="muted">Clicca o tocca i pacchi per farli saltare · Click or tap the parcels to scatter them.</p>
+<p><a class="btn" href="{{ '/' | relative_url }}">Home</a> <a class="btn btn--ghost" href="{{ '/en/' | relative_url }}">English</a></p>
+<script src="{{ '/assets/js/error-page.js' | relative_url }}?v={{ site.time | date: '%s' }}" type="module"></script>
