@@ -3,12 +3,12 @@
   <div class="wrap hero__inner" data-hero-content>
     <p class="eyebrow">{{ h.hero.eyebrow }}</p>
     <h1 class="hero__title">{{ h.hero.title }}</h1>
-    <p class="lead">{{ h.hero.lead }}</p>
+    <p class="lead"><strong>{{ h.hero.lead }}</strong></p>
     <p class="hero__actions">
       <a class="btn" href="{{ t.contact_url | relative_url }}">{{ h.hero.cta }}</a>
       <a class="btn btn--ghost" href="#{{ h.services.id }}">{{ h.hero.secondary }}</a>
     </p>
-    <p class="hero__note muted">{{ h.hero.note }}</p>
+
   </div>
   <span class="hero__scroll" aria-hidden="true"></span>
 </section>
