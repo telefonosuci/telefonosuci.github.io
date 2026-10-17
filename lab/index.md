@@ -4,8 +4,8 @@ lang: it
 ref: lab
 title: Lab · WebGPU
 lead: >-
-  Migliaia di sfere e cubetti 3D simulati interamente sulla GPU con un compute shader WebGPU.
-  Tocca o clicca per un'onda d'urto, tieni premuto per radunarli. La CPU, nel frattempo, si gode le ferie.
+  Lo stesso mucchio di pacchi gialli della home, ma in 3D e simulato interamente sulla GPU con WebGPU.
+  Passaci sopra col mouse o col dito: li urti, e loro si urtano fra di loro. La CPU, nel frattempo, si gode le ferie.
 fallback: >-
   Il tuo browser non supporta ancora WebGPU (servono Chrome/Edge 113+, Safari 26+ o
   Firefox recente). Il futuro può attendere: intanto c'è lo shader WebGL nella home.
@@ -14,7 +14,7 @@ fallback: >-
 
 ## Come funziona
 
-- **Compute shader (WGSL)**: ogni frame aggiorna posizione e velocità di tutti gli oggetti in parallelo: un campo di rumore li fa derivare, il tocco li spinge via e poi li richiama.
+- **Compute shader (WGSL)**: ogni frame aggiorna tutti gli oggetti in parallelo: ognuno controlla le collisioni con gli altri e con le pareti, il puntatore è un disco solido che trasferisce la sua velocità a chi colpisce. Due buffer si alternano, così ogni urto legge un fotogramma stabile.
 - **Render pipeline**: i cubi sono mesh istanziate che ruotano mentre si spostano, le sfere sono quad che il fragment shader illumina come vere sfere (impostor). Un depth buffer tiene in ordine chi sta davanti. I dati non tornano mai alla CPU.
 - **Performance**: la simulazione si mette in pausa quando la pagina non è visibile e rispetta `prefers-reduced-motion`.
 
