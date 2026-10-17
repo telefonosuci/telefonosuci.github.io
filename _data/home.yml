@@ -6,15 +6,16 @@ it:
     lead: >-
       Progetto e sviluppo temi, app e integrazioni per Shopify e Shopify Plus.
       Collego il negozio ai sistemi che usi già (ERP, PIM, CRM, marketplace,
-      analytics) e lo rendo memorabile con esperienze visive curate.
+      analytics), così smettono di litigare tra loro. E lo rendo bello da
+      guardare, che non guasta.
     cta: Parliamo del tuo progetto
     secondary: Cosa faccio
-    note: Ogni cubo è un pacco da spedire. Passaci sopra col mouse e mettili in fila.
+    note: Ogni cubo è un pacco da spedire. Passaci sopra col mouse e mettili in fila. Il magazzino ringrazia.
 
   services:
     id: servizi
     title: Cosa faccio
-    lead: Quattro competenze che di solito servono insieme, in un unico interlocutore.
+    lead: Quattro competenze che di solito servono insieme. Un solo interlocutore, zero rimpalli.
     items:
       - icon: "⇄"
         title: Flussi ecommerce
@@ -22,33 +23,34 @@ it:
           Prima dei pixel, i processi: catalogo e varianti, listini e prezzi B2B,
           promozioni, checkout, pagamenti, spedizioni, resi e post-vendita.
           Disegno il flusso dell'ordine end-to-end e trovo i punti dove si perdono
-          vendite o tempo.
+          vendite o tempo. Spoiler: di solito è un file Excel.
       - icon: "◆"
         title: Piattaforma Shopify
         text: >-
           Temi Online Store 2.0 su misura (Liquid, sezioni e blocchi), Shopify Plus,
           Checkout Extensibility e Shopify Functions, metafield e metaobject,
           Markets per multi-lingua e multi-valuta, app custom con Admin GraphQL API
-          e webhook, migrazioni da altre piattaforme.
+          e webhook, migrazioni da altre piattaforme senza lasciare cadaveri per strada.
       - icon: "⛓"
         title: Integrazioni tra sistemi
         text: >-
           Shopify al centro, i dati dove servono: ERP, PIM, CRM, marketplace e social,
           strumenti di analytics. Sincronizzazioni robuste con code, retry,
           idempotenza e log, perché un ordine perso costa più di un'integrazione fatta bene.
+          E perché "lo sistemo a mano il lunedì" non è un'architettura.
       - icon: "✦"
         title: Esperienze visive
         text: >-
           Tecniche grafiche avanzate, 3D di prodotto, configuratori e animazioni
-          che fanno ricordare il brand senza sacrificare le prestazioni, con
-          attenzione ai Core Web Vitals.
+          che fanno ricordare il brand. Belle, ma non al prezzo di una pagina
+          che carica in otto secondi: i Core Web Vitals li guardo prima del cliente.
 
   flow:
     title: Il viaggio di un ordine
     lead: >-
-      Ogni negozio è una catena di sistemi. Questo è il flusso tipico che
-      progetto e integro: ogni passaggio è un punto dove i dati devono arrivare
-      corretti e in tempo.
+      Ogni negozio è una catena di sistemi, e una catena si rompe sempre
+      nell'anello che nessuno guarda. Questo è il flusso tipico che progetto e
+      integro: ogni passaggio è un punto dove i dati devono arrivare corretti e in tempo.
     steps:
       - title: Catalogo
         text: Schede prodotto, attributi e media arrivano dal PIM.
@@ -63,21 +65,22 @@ it:
         text: Pagamenti, sconti e logiche custom con Functions ed estensioni.
         systems: Shopify Checkout
       - title: Ordine e fulfillment
-        text: L'ordine va al gestionale, il tracking torna al cliente.
+        text: L'ordine va al gestionale, il tracking torna al cliente. Senza passare dalla scrivania di nessuno.
         systems: Shopify ⇄ ERP / WMS
       - title: Cliente e marketing
         text: Profili, segmenti e automazioni nel CRM e nell'email marketing.
         systems: Shopify → CRM
       - title: Misurazione
-        text: Eventi affidabili lato client e server per decisioni basate sui dati.
+        text: Eventi affidabili lato client e server, per decidere sui dati e non sulle sensazioni.
         systems: GA4 · GTM · CAPI
 
   integrations:
     id: integrazioni
     title: Integrazioni
     lead: >-
-      Esempi delle famiglie di sistemi che collego a Shopify, via app pubbliche
+      Esempi delle famiglie di sistemi che collego a Shopify: via app pubbliche
       quando bastano, via middleware o app custom quando servono regole su misura.
+      Se un'app da 9 $/mese risolve, te lo dico.
     groups:
       - title: ERP e gestionali
         items: [SAP, Microsoft Dynamics, Odoo, gestionali italiani]
@@ -111,19 +114,19 @@ it:
     title: Come lavoro
     steps:
       - title: Analisi
-        text: Capisco obiettivi, processi e sistemi esistenti. Ne esce una mappa dei flussi e delle priorità.
+        text: Capisco obiettivi, processi e sistemi esistenti, anche quelli di cui nessuno ricorda la password. Ne esce una mappa dei flussi e delle priorità.
       - title: Progetto
         text: Architettura, integrazioni, stima chiara. Niente sorprese a metà strada.
       - title: Sviluppo
-        text: Rilasci incrementali su ambiente di staging, codice versionato e documentato.
+        text: Rilasci incrementali su staging, codice versionato e documentato. Il venerdì pomeriggio non si va in produzione.
       - title: Go-live e supporto
-        text: Lancio monitorato, passaggio di consegne e manutenzione evolutiva.
+        text: Lancio monitorato, passaggio di consegne e manutenzione evolutiva. Non sparisco il giorno dopo.
 
   lab:
     title: Lab grafico
     text: >-
-      Mi piace spingere il browser al limite. Nel lab trovi esperimenti
-      grafici interattivi.
+      Mi piace spingere il browser al limite, e ogni tanto oltre. Nel lab trovi
+      esperimenti grafici interattivi. Ventola del portatile avvisata.
     cta: Apri il lab
 
   about:
@@ -136,10 +139,17 @@ it:
       Sono specializzato in ecommerce e CMS, ma non solo: oltre a Shopify lavoro
       con WordPress e Strapi, ho competenze avanzate di frontend, in particolare con React,
       e sviluppo agenti AI e integrazioni con piattaforme di messaggistica.
+    motto:
+      text: In Okinawa, programming is a serious thing.
+      cite: Mr. Miyagi
+      note: >-
+        Il codice, come il karate, non si fa "un po'": o lo fai bene, o non lo fai.
+        Si può ridere di tutto, ma un ordine perso, un checkout che si blocca o un
+        dato sbagliato non fanno ridere nessuno. Leggerezza nei modi, rigore nel lavoro.
 
   contact:
     title: Hai un progetto Shopify?
-    text: Raccontami di cosa hai bisogno, ti rispondo con una prima valutazione.
+    text: Raccontami di cosa hai bisogno, ti rispondo con una prima valutazione. Onesta, anche quando la risposta è "non ti serve".
     cta: Scrivimi
 
 en:
@@ -149,15 +159,16 @@ en:
     lead: >-
       I design and build themes, apps and integrations for Shopify and Shopify
       Plus. I connect your store to the systems you already use (ERP, PIM, CRM,
-      marketplaces, analytics) and make it memorable with polished visual experiences.
+      marketplaces, analytics) so they stop arguing with each other. And I make
+      it look good, which never hurts.
     cta: Let's talk about your project
     secondary: What I do
-    note: Every cube is a parcel to ship. Sweep your mouse over them and line them up.
+    note: Every cube is a parcel to ship. Sweep your mouse over them and line them up. The warehouse thanks you.
 
   services:
     id: services
     title: What I do
-    lead: Four skills that are usually needed together, in a single point of contact.
+    lead: Four skills that are usually needed together. One point of contact, no finger-pointing.
     items:
       - icon: "⇄"
         title: Ecommerce flows
@@ -165,31 +176,35 @@ en:
           Processes before pixels: catalog and variants, price lists and B2B pricing,
           promotions, checkout, payments, shipping, returns and after-sales.
           I map the order flow end-to-end and find where sales or time get lost.
+          Spoiler: it's usually a spreadsheet.
       - icon: "◆"
         title: Shopify platform
         text: >-
           Custom Online Store 2.0 themes (Liquid, sections and blocks), Shopify Plus,
           Checkout Extensibility and Shopify Functions, metafields and metaobjects,
           Markets for multi-language and multi-currency, custom apps with the
-          Admin GraphQL API and webhooks, migrations from other platforms.
+          Admin GraphQL API and webhooks, migrations from other platforms without
+          leaving bodies along the way.
       - icon: "⛓"
         title: System integrations
         text: >-
           Shopify at the center, data where it's needed: ERP, PIM, CRM, marketplaces
           and social, analytics tools. Robust syncs with queues, retries,
           idempotency and logging, because a lost order costs more than a well-built integration.
+          And because "I'll fix it by hand on Monday" is not an architecture.
       - icon: "✦"
         title: Visual experiences
         text: >-
           Advanced graphics techniques, product 3D, configurators and animations
-          that make the brand stick without hurting performance, with
-          Core Web Vitals in mind.
+          that make the brand stick. Beautiful, but not at the cost of a page
+          that takes eight seconds to load: I check Core Web Vitals before you do.
 
   flow:
     title: The journey of an order
     lead: >-
-      Every store is a chain of systems. This is the typical flow I design and
-      integrate: each step is a place where data must arrive correct and on time.
+      Every store is a chain of systems, and a chain always breaks at the link
+      nobody is watching. This is the typical flow I design and integrate: each
+      step is a place where data must arrive correct and on time.
     steps:
       - title: Catalog
         text: Product data, attributes and media come from the PIM.
@@ -204,13 +219,13 @@ en:
         text: Payments, discounts and custom logic with Functions and extensions.
         systems: Shopify Checkout
       - title: Order and fulfillment
-        text: The order goes to the back office, tracking goes back to the customer.
+        text: The order goes to the back office, tracking goes back to the customer. Without stopping at anyone's desk.
         systems: Shopify ⇄ ERP / WMS
       - title: Customer and marketing
         text: Profiles, segments and automations in the CRM and email marketing.
         systems: Shopify → CRM
       - title: Measurement
-        text: Reliable client and server-side events for data-driven decisions.
+        text: Reliable client and server-side events, so decisions run on data, not gut feeling.
         systems: GA4 · GTM · CAPI
 
   integrations:
@@ -219,6 +234,7 @@ en:
     lead: >-
       Examples of the system families I connect to Shopify: through public apps
       when they're enough, through middleware or custom apps when you need your own rules.
+      If a $9/month app does the job, I'll tell you.
     groups:
       - title: ERP and back office
         items: [SAP, Microsoft Dynamics, Odoo, Italian ERPs]
@@ -252,19 +268,19 @@ en:
     title: How I work
     steps:
       - title: Discovery
-        text: I learn your goals, processes and existing systems. The output is a map of flows and priorities.
+        text: I learn your goals, processes and existing systems, including the ones nobody remembers the password for. The output is a map of flows and priorities.
       - title: Design
         text: Architecture, integrations, a clear estimate. No surprises halfway through.
       - title: Build
-        text: Incremental releases on staging, versioned and documented code.
+        text: Incremental releases on staging, versioned and documented code. We don't deploy on Friday afternoon.
       - title: Launch and support
-        text: Monitored go-live, handover and ongoing improvements.
+        text: Monitored go-live, handover and ongoing improvements. I don't vanish the day after.
 
   lab:
     title: Graphics lab
     text: >-
-      I like pushing the browser to its limits. In the lab you'll find
-      interactive graphics experiments.
+      I like pushing the browser to its limits, and occasionally past them. In
+      the lab you'll find interactive graphics experiments. Your laptop fan has been warned.
     cta: Open the lab
 
   about:
@@ -277,8 +293,15 @@ en:
       I specialize in ecommerce and CMS, but not only: beyond Shopify I work
       with WordPress and Strapi, I have advanced frontend skills, especially with React,
       and I build AI agents and integrations with messaging platforms.
+    motto:
+      text: In Okinawa, programming is a serious thing.
+      cite: Mr. Miyagi
+      note: >-
+        Code, like karate, isn't something you do "kind of": you either do it right
+        or you don't do it at all. You can joke about anything, but a lost order, a
+        stuck checkout or bad data aren't funny to anyone. Light in manner, rigorous in work.
 
   contact:
     title: Got a Shopify project?
-    text: Tell me what you need and I'll get back to you with a first assessment.
+    text: Tell me what you need and I'll get back to you with a first assessment. An honest one, even when the answer is "you don't need it".
     cta: Write to me

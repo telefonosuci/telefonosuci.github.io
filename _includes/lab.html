@@ -1,5 +1,23 @@
+{%- include i18n.html -%}
+{%- assign c = t.lab_controls -%}
 <div class="lab" data-component-name="webgpu-lab">
   <canvas class="lab__canvas" data-lab-canvas></canvas>
   <p class="lab__fallback" data-lab-fallback hidden>{{ page.fallback }}</p>
 </div>
+<details class="lab-controls" data-component-name="lab-controls" open>
+  <summary>{{ c.title }}</summary>
+  <form class="lab-controls__grid" data-lab-controls>
+    <label>{{ c.shape }}<select name="shape"><option value="sphere">{{ c.sphere }}</option><option value="cube">{{ c.cube }}</option></select></label>
+    <label>{{ c.count }} <output></output><input type="range" name="count" min="512" max="32768" step="512" value="3072"></label>
+    <label>{{ c.flow }} <output></output><input type="range" name="flow" min="0" max="3" step="0.05" value="1"></label>
+    <label>{{ c.flow_speed }} <output></output><input type="range" name="flowSpeed" min="0" max="4" step="0.05" value="1"></label>
+    <label>{{ c.force }} <output></output><input type="range" name="force" min="0" max="4" step="0.05" value="1"></label>
+    <label>{{ c.damping }} <output></output><input type="range" name="damping" min="0.9" max="1" step="0.001" value="0.97"></label>
+    <label>{{ c.max_speed }} <output></output><input type="range" name="maxSpeed" min="0.5" max="6" step="0.1" value="2.5"></label>
+    <label>{{ c.size }} <output></output><input type="range" name="size" min="4" max="40" step="1" value="16"></label>
+    <label class="lab-controls__color">{{ c.slow }} <input type="color" name="colA" value="#4d57f2"></label>
+    <label class="lab-controls__color">{{ c.fast }} <input type="color" name="colB" value="#fca312"></label>
+    <button class="btn btn--ghost" type="reset">{{ c.reset }}</button>
+  </form>
+</details>
 <script src="{{ '/assets/js/lab-webgpu.js' | relative_url }}?v={{ site.time | date: '%s' }}" type="module"></script>

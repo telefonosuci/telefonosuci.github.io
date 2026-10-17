@@ -4,18 +4,18 @@ lang: it
 ref: lab
 title: Lab · WebGPU
 lead: >-
-  65.536 particelle simulate interamente sulla GPU con un compute shader WebGPU.
-  Muovi il puntatore per attirarle, tieni premuto per respingerle.
+  Migliaia di sfere e cubetti 3D simulati interamente sulla GPU con un compute shader WebGPU.
+  Tocca o clicca per un'onda d'urto, tieni premuto per radunarli. La CPU, nel frattempo, si gode le ferie.
 fallback: >-
   Il tuo browser non supporta ancora WebGPU (servono Chrome/Edge 113+, Safari 26+ o
-  Firefox recente). Puoi comunque vedere lo shader WebGL nella home.
+  Firefox recente). Il futuro può attendere: intanto c'è lo shader WebGL nella home.
 ---
 {% include lab.html %}
 
 ## Come funziona
 
-- **Compute shader (WGSL)**: ogni frame aggiorna posizione e velocità di tutte le particelle in parallelo, con attrazione verso il puntatore e un campo di rumore che le fa "fluire".
-- **Render pipeline**: le particelle sono disegnate come quad istanziati con blending additivo, senza che i dati tornino mai alla CPU.
+- **Compute shader (WGSL)**: ogni frame aggiorna posizione e velocità di tutti gli oggetti in parallelo: un campo di rumore li fa derivare, il tocco li spinge via e poi li richiama.
+- **Render pipeline**: i cubi sono mesh istanziate che ruotano mentre si spostano, le sfere sono quad che il fragment shader illumina come vere sfere (impostor). Un depth buffer tiene in ordine chi sta davanti. I dati non tornano mai alla CPU.
 - **Performance**: la simulazione si mette in pausa quando la pagina non è visibile e rispetta `prefers-reduced-motion`.
 
-Lo stesso approccio serve per sfondi interattivi, visualizzazioni di prodotto e configuratori in uno store Shopify, caricati solo dove servono e con un fallback statico.
+Lo stesso approccio serve per sfondi interattivi, visualizzazioni di prodotto e configuratori in uno store Shopify, caricati solo dove servono e con un fallback statico. Nessun cliente è stato rallentato durante la realizzazione.

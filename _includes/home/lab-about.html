@@ -5,6 +5,9 @@
       {% include components/card.html name="lab-teaser-card" modifier="card--glow" title=h.lab.title text=h.lab.text body=lab_body speed="-0.15" %}
     </div>
     <div class="split__item" data-component-name="about-me" data-speed="0.15">
+      {%- if h.about.motto %}
+      {% include components/quote.html text=h.about.motto.text cite=h.about.motto.cite note=h.about.motto.note %}
+      {%- endif %}
       <h2>{{ h.about.title }}</h2>
       <p>{{ h.about.text }}</p>
     </div>

@@ -1,0 +1,6 @@
+{%- comment -%} Highlighted quote. Params: text, cite (optional), note (optional). {%- endcomment -%}
+<figure class="quote" data-component-name="quote" data-reveal>
+  <blockquote class="quote__text"><p>“{{ include.text }}”</p></blockquote>
+  {%- if include.cite %}<figcaption class="quote__cite">{{ include.cite }}</figcaption>{% endif %}
+  {%- if include.note %}<p class="quote__note">{{ include.note }}</p>{% endif %}
+</figure>

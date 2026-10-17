@@ -23,6 +23,7 @@ it:
   comments_noscript: Abilita JavaScript per vedere i commenti.
   comments_load: Mostra i commenti
   comments_consent: "I commenti sono gestiti da Disqus, che una volta caricato imposta cookie propri, anche di profilazione (<a href='/privacy/'>privacy</a>)."
+  lab_controls: { title: Controlli, shape: Forma, sphere: Sfere, cube: Cubi, count: Oggetti, flow: Intensità flusso, flow_speed: Velocità flusso, force: Forza tocco, damping: Inerzia, max_speed: Velocità massima, size: Dimensione, slow: Colore lento, fast: Colore veloce, reset: Ripristina }
   consent: { title: Cookie, text: "Uso cookie di Google Analytics per statistiche aggregate sulle visite, solo se accetti. Dettagli nella <a href='/privacy/'>privacy policy</a>.", accept: Accetta, deny: Rifiuta, prefs: Preferenze cookie }
 en:
   home: /en/
@@ -48,4 +49,5 @@ en:
   comments_noscript: Enable JavaScript to see the comments.
   comments_load: Show comments
   comments_consent: "Comments are powered by Disqus, which sets its own cookies, including tracking ones, once loaded (<a href='/privacy/'>privacy</a>)."
+  lab_controls: { title: Controls, shape: Shape, sphere: Spheres, cube: Cubes, count: Objects, flow: Flow strength, flow_speed: Flow speed, force: Touch force, damping: Inertia, max_speed: Max speed, size: Size, slow: Slow color, fast: Fast color, reset: Reset }
   consent: { title: Cookies, text: "I use Google Analytics cookies for aggregate visit statistics, only if you accept. Details in the <a href='/privacy/'>privacy policy</a>.", accept: Accept, deny: Reject, prefs: Cookie preferences }

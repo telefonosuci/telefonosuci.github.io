@@ -11,7 +11,9 @@ const FACES = ['#fdc14a', '#fca311', '#d98a08', 'rgba(120, 70, 0, .35)']; // top
 
 const dpr = Math.min(window.devicePixelRatio || 1, 2);
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const touch = window.matchMedia('(pointer: coarse)').matches;
 const mouse = { x: -1e4, y: -1e4 };
+let tidy = false; // touch devices: first touch/scroll orders the whole pit for good
 let cubes = [], w = 0, h = 0, t = 0;
 let visible = true, raf = 0;
 
@@ -24,7 +26,7 @@ function resize() {
   for (let y = CELL / 2; y < h + CELL; y += CELL) {
     for (let x = CELL / 2; x < w + CELL; x += CELL) {
       const c = { hx: x, hy: y, ox: (Math.random() - 0.5) * 2 * CHAOS, oy: (Math.random() - 0.5) * 2 * CHAOS,
-                  oa: (Math.random() - 0.5) * 1.6, ph: Math.random() * 6.28, o: 0, vx: 0, vy: 0 };
+                  oa: (Math.random() - 0.5) * 1.6, ph: Math.random() * 6.28, o: tidy ? 1 : 0, vx: 0, vy: 0 };
       c.x = x + c.ox; c.y = y + c.oy; c.a = c.oa;
       cubes.push(c);
     }
@@ -35,7 +37,7 @@ function step() {
   t += 0.01;
   for (const c of cubes) {
     const dx = c.hx - mouse.x, dy = c.hy - mouse.y;
-    if (dx * dx + dy * dy < RADIUS * RADIUS) c.o += (1 - c.o) * 0.2;
+    if (tidy || dx * dx + dy * dy < RADIUS * RADIUS) c.o += (1 - c.o) * 0.2;
     else c.o = Math.max(0, c.o - 0.004); // ponytail: ~4s back to chaos; raise to keep order longer
     const m = 1 - c.o, wob = Math.sin(t + c.ph) * 4 * m;
     const tx = c.hx + (c.ox + wob) * m, ty = c.hy + (c.oy - wob) * m;
@@ -69,7 +71,10 @@ function frame() {
 }
 
 function start() {
-  window.addEventListener('pointermove', (e) => {
+  if (touch) {
+    const order = () => { tidy = true; };
+    for (const ev of ['touchstart', 'scroll']) window.addEventListener(ev, order, { passive: true, once: true });
+  } else window.addEventListener('pointermove', (e) => {
     const b = canvas.getBoundingClientRect();
     mouse.x = e.clientX - b.left; mouse.y = e.clientY - b.top;
   }, { passive: true });
