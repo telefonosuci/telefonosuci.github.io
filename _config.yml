@@ -16,12 +16,12 @@ suci:
   vat: ""
   date_format: "%d/%m/%Y"
   disqus_shortname: telefonosuci
-  # Caricato solo dopo il consenso cookie (vedi _includes/consent.html). Vuoto = niente GTM né banner.
-  gtm_id: GTM-TP92MWJ
+  # Caricato solo dopo il consenso cookie (vedi _includes/consent.html). Vuoto = niente GA né banner.
+  ga_id: G-NDPZWH3DY1
   consent:
     # Giorni di validità della scelta (accetta o rifiuta). Il Garante chiede di non riproporre il banner prima di 6 mesi.
     max_age_days: 180
-    # Incrementa quando cambiano i cookie usati (es. nuovi tag in GTM): il banner ricompare a tutti.
+    # Incrementa quando cambiano i cookie usati (es. nuovi tag): il banner ricompare a tutti.
     version: 1
   sentry_loader: https://js.sentry-cdn.com/47580faa06234c8a1655108d106bdcc2.min.js
   formspree_contact: https://formspree.io/f/xzedyede

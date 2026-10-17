@@ -1,8 +1,8 @@
 {%- comment -%}
-  Cookie banner: GTM loads only after "Accept" (no request to Google before consent).
-  ponytail: single "statistics" category; split into categories if the GTM container gets marketing tags.
+  Cookie banner: gtag.js (GA4) loads only after "Accept" (no request to Google before consent).
+  ponytail: single "statistics" category; split into categories if marketing tags get added.
 {%- endcomment -%}
-{%- if site.suci.gtm_id and jekyll.environment == 'production' %}
+{%- if site.suci.ga_id and jekyll.environment == 'production' %}
 <dialog class="consent card" data-consent aria-label="{{ t.consent.title }}">
   <p>{{ t.consent.text }}</p>
   <div class="consent__actions">
@@ -19,13 +19,16 @@
     const load = () => {
       if (loaded) return;
       loaded = true;
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer',{{ site.suci.gtm_id | jsonify }});
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + {{ site.suci.ga_id | jsonify }};
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', {{ site.suci.ga_id | jsonify }});
     };
-    // Revoking: drop GA cookies (_ga, _ga_*) and reload so GTM is gone from the page.
+    // Revoking: drop GA cookies (_ga, _ga_*) and reload so gtag is gone from the page.
     const revoke = () => {
       document.cookie.split('; ').map(c => c.split('=')[0]).filter(n => n.startsWith('_ga')).forEach(n => {
         document.cookie = n + '=; Max-Age=0; path=/';

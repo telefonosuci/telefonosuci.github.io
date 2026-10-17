@@ -12,7 +12,7 @@ title: Privacy policy
 
 - **Modulo di contatto**: nome, email e messaggio che inserisci volontariamente, raccolti tramite [Formspree](https://formspree.io) (fornitore con sede negli USA). Sono usati solo per risponderti e per l'eventuale preventivo, e non sono ceduti a terzi. Base giuridica: misure precontrattuali richieste da te.
 - **Errori tecnici**: il sito usa [Sentry](https://sentry.io) per rilevare malfunzionamenti. Può trattare dati tecnici come indirizzo IP, browser e pagina visitata. Base giuridica: legittimo interesse al corretto funzionamento del sito.
-- **Statistiche**: solo se accetti i cookie, il sito usa Google Analytics 4 (tramite Google Tag Manager) di Google Ireland Ltd. per statistiche aggregate su visite e pagine. Possono essere trattati identificativi online, browser, dispositivo e area geografica approssimativa; GA4 non registra l'indirizzo IP completo. I dati possono essere trasferiti negli USA, sulla base dell'EU-U.S. Data Privacy Framework. Conservazione: 2 mesi. Base giuridica: consenso, revocabile in ogni momento.
+- **Statistiche**: solo se accetti i cookie, il sito usa Google Analytics 4 di Google Ireland Ltd. per statistiche aggregate su visite e pagine. Possono essere trattati identificativi online, browser, dispositivo e area geografica approssimativa; GA4 non registra l'indirizzo IP completo. I dati possono essere trasferiti negli USA, sulla base dell'EU-U.S. Data Privacy Framework. Conservazione: 2 mesi. Base giuridica: consenso, revocabile in ogni momento.
 - **Commenti al blog**: gestiti da [Disqus](https://disqus.com/data-sharing-settings/), che applica la propria informativa.
 
 ## Cookie
