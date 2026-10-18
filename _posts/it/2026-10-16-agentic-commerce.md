@@ -3,6 +3,7 @@ title: "Ecommerce agentico su Shopify: cos'è e come prepararsi"
 date: 2026-10-16 09:00:00 +0200
 categories: Ecommerce
 related: [shopify-ai-sales-agent, shopify, pim]
+reading_time: 6
 ---
 
 Fino a ieri il percorso di acquisto partiva da Google o dai social e finiva sul sito del negozio. Oggi una parte crescente delle ricerche avviene dentro un assistente AI: *"trovami delle scarpe da trail impermeabili sotto i 150 euro"*. È l'assistente a confrontare i prodotti e, sempre più spesso, a portare il cliente fino al pagamento. Si chiama **ecommerce agentico** (*agentic commerce*): il cliente delega a un agente AI una parte del lavoro di ricerca e acquisto.

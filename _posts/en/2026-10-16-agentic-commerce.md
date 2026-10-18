@@ -3,6 +3,7 @@ title: "Agentic commerce on Shopify: what it is and how to get ready"
 date: 2026-10-16 09:00:00 +0200
 categories: Ecommerce
 related: [shopify-ai-sales-agent, shopify, pim]
+reading_time: 6
 ---
 
 Until recently, the buying journey started on Google or social media and ended on the store's website. Today a growing share of searches happens inside an AI assistant: *"find me waterproof trail running shoes under 150 euros"*. The assistant compares products and, more and more often, takes the customer all the way to payment. This is **agentic commerce**: the customer hands part of the research and buying work to an AI agent.

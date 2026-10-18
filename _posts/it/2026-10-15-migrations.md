@@ -2,6 +2,7 @@
 title: "Migrazioni ecommerce: cosa sono, quando servono e quanto durano"
 date: 2026-10-15 19:00:00 +0200
 categories: Ecommerce
+reading_time: 7
 ---
 
 Una **migrazione** è il passaggio di un negozio online da una piattaforma, una tecnologia o un sistema a un altro, portando con sé prodotti, clienti, ordini, contenuti e posizionamento su Google. È uno dei progetti più delicati per un ecommerce: fatta bene, apre anni di crescita; fatta male, costa vendite e traffico per mesi.

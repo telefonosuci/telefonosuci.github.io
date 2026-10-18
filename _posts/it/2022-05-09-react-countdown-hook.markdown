@@ -4,6 +4,7 @@ title:  "Un hook React per il conto alla rovescia"
 date:   2022-05-09 22:03:36 +0200
 categories: Tutorials
 lang: it
+reading_time: 2
 ---
 
 Se del conto alla rovescia ti servono solo i numeri e vuoi costruire il markup a modo tuo, un hook personalizzato è più pulito di un componente completo.

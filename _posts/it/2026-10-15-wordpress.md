@@ -2,6 +2,7 @@
 title: "WordPress: cos'è, quando usarlo e come si confronta con le alternative"
 date: 2026-10-15 10:00:00 +0200
 categories: Stack
+reading_time: 5
 ---
 
 **WordPress** è il CMS (Content Management System) open source più usato al mondo: alimenta una quota enorme dei siti web, dai blog personali ai portali editoriali. È scritto in PHP, usa un database MySQL/MariaDB e si installa su praticamente qualsiasi hosting. Attenzione a non confonderlo con **WordPress.com**, il servizio in hosting gestito da Automattic: qui parliamo di **WordPress.org**, il software che installi tu.

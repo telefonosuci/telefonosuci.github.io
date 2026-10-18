@@ -4,6 +4,7 @@ title:  "A simple React countdown component"
 date:   2022-05-09 21:03:36 +0200
 categories: Tutorials
 lang: en
+reading_time: 3
 ---
 
 A countdown component for React: days, hours, minutes and seconds, updated every second, with a callback when time is up.

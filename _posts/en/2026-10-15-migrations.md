@@ -2,6 +2,7 @@
 title: "Ecommerce migrations: what they are, when you need one and how long they take"
 date: 2026-10-15 19:00:00 +0200
 categories: Ecommerce
+reading_time: 7
 ---
 
 A **migration** is moving an online store from one platform, technology or system to another, bringing along products, customers, orders, content and Google rankings. It's one of the most delicate projects an ecommerce business can take on: done well, it opens years of growth; done badly, it costs sales and traffic for months.

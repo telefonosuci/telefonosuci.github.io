@@ -3,6 +3,7 @@ title: "An AI sales assistant on Shopify, outside the US, today"
 date: 2026-10-16 11:00:00 +0200
 categories: Integrations
 related: [agentic-commerce, pim, shopify]
+reading_time: 5
 ---
 
 [Shopify's Agentic Storefronts](/en/blog/agentic-commerce/) bring products into ChatGPT, Copilot and Gemini, but for now purchases only work with buyers in the United States. If you sell in Italy or elsewhere in Europe, you don't have to wait. The same building blocks (an AI-readable catalog, cart, checkout) can already be used to build **your own sales agent**, on your site or on WhatsApp, with the usual Shopify checkout.

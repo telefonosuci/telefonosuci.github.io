@@ -7,7 +7,7 @@ layout: base
   <p class="eyebrow">
     <a href="{{ t.home | append: 'blog/' | relative_url }}">Blog</a>
     · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: date_format }}</time>
-    {%- for c in page.categories %} · {{ c }}{% endfor %}
+    {%- for c in page.categories %} · {{ c }}{% endfor %}{% include reading-time.html post=page %}
   </p>
   <h1 class="page__title">{{ page.title | escape }}</h1>
   <div class="prose">

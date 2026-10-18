@@ -330,6 +330,9 @@ async function start() {
   // Both buffers start equal so objects added by the "count" slider appear at their own spot.
   for (const b of bufs) device.queue.writeBuffer(b, 0, init);
   window.addEventListener('resize', resize);
+  // Fill ~25% of the pit at the default size, so a tall phone canvas isn't overpacked into endless jostling.
+  const r = form.size.value * 0.001;
+  form.count.defaultValue = Math.min(Math.max(Math.round(aspect / (Math.PI * r * r) / 64) * 64, 64), +form.count.max);
   read();
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; kick(); }).observe(canvas);
   document.addEventListener('visibilitychange', kick);

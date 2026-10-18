@@ -3,6 +3,7 @@ title: "Un assistente AI di vendita su Shopify, già oggi in Italia"
 date: 2026-10-16 11:00:00 +0200
 categories: Integrations
 related: [agentic-commerce, pim, shopify]
+reading_time: 5
 ---
 
 Gli [Agentic Storefronts di Shopify](/blog/agentic-commerce/) portano i prodotti dentro ChatGPT, Copilot e Gemini, ma per ora gli acquisti funzionano solo con clienti negli Stati Uniti. Chi vende in Italia non deve per forza aspettare. Gli stessi mattoni (catalogo leggibile dalle AI, carrello, checkout) si possono già usare per costruire **un agente di vendita proprio**, sul sito o su WhatsApp, con il checkout Shopify di sempre.

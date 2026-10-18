@@ -4,6 +4,7 @@ title:  "Chatbot: a cosa servono e se servono alla mia attività"
 date:   2019-03-23 21:03:36 +0100
 categories: Services
 lang: it
+reading_time: 2
 ---
 
 I chatbot esistono in varie forme dal 1966 (ELIZA). Solo di recente le aziende hanno imparato a usarli per assistenza clienti, vendite, incassi e coinvolgimento sui social. Sono solo per le grandi aziende con grandi budget, o anche una piccola attività dovrebbe prenderli in considerazione?

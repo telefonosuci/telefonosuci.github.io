@@ -4,6 +4,7 @@ title:  "Chatbots: do I need one?"
 date:   2019-03-23 21:03:36 +0100
 categories: Services
 lang: en
+reading_time: 2
 ---
 
 Chatbots have existed in various forms since 1966 (ELIZA). Only recently have companies learned to use them for customer support, sales, payment collection and social media engagement. Are they only for big businesses with large budgets, or should small businesses consider them too?

@@ -79,6 +79,17 @@
   figcaption { margin-top: .8em; color: var(--muted); font-size: .9em; text-align: center; }
 }
 
+// Technical box in posts, for readers who can skip it: <div class="tech" markdown="1">.
+.tech {
+  margin: 2em 0;
+  padding: 4px 24px 8px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  background: var(--bg-alt);
+  > h3:first-of-type { margin-top: .6em; }
+}
+
 .related {
   margin-top: 64px;
   h2 { font-size: 1.6rem; }

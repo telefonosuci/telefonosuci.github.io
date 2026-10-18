@@ -15,6 +15,7 @@ it:
   comments_policy: Policy commenti
   vat: P.IVA
   read_more: Leggi
+  reading_time: min di lettura
   all: Tutti
   category: Categoria
   latest_posts: Dal blog
@@ -41,6 +42,7 @@ en:
   comments_policy: Comments policy
   vat: VAT
   read_more: Read
+  reading_time: min read
   all: All
   category: Category
   latest_posts: From the blog

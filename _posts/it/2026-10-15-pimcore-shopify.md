@@ -2,6 +2,7 @@
 title: "Pimcore e Shopify: come integrarli e quando conviene"
 date: 2026-10-15 18:00:00 +0200
 categories: Integrations
+reading_time: 7
 ---
 
 **Pimcore** e **Shopify** sono una coppia sempre più comune nelle aziende che hanno molti prodotti, molti dati e più canali di vendita. Pimcore è il luogo in cui i dati di prodotto nascono, si arricchiscono e vengono approvati; Shopify è il luogo in cui si vendono. Questo articolo spiega cosa fa ciascuno, come si collegano e cosa aspettarsi da un progetto di integrazione.

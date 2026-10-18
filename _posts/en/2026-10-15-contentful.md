@@ -2,6 +2,7 @@
 title: "Contentful: what it is, when to use it and how it compares"
 date: 2026-10-15 12:00:00 +0200
 categories: Stack
+reading_time: 4
 ---
 
 **Contentful** is a cloud (SaaS) *headless* CMS, one of the most popular among enterprises. Like Strapi it manages content and delivers it through APIs, but there's nothing to install: infrastructure, global CDN, security and scaling are handled by Contentful. It positions itself as a *composable content platform*: a single place where content lives, feeding the website, apps, ecommerce and other channels.

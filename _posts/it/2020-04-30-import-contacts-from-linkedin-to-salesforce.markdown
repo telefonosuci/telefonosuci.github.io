@@ -4,6 +4,7 @@ title:  "Importare contatti da LinkedIn a Salesforce"
 date:   2020-04-30 21:03:36 +0200
 categories: Salesforce
 lang: it
+reading_time: 2
 ---
 
 I collegamenti di LinkedIn possono diventare Lead o Contatti in Salesforce senza scrivere codice: si esporta un CSV da LinkedIn e lo si importa con il Data Import Wizard di Salesforce.
