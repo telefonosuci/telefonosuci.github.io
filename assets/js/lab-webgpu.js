@@ -4,7 +4,7 @@
 // Object data lives only on the GPU, ping-ponged between two buffers so collisions read a stable frame.
 const canvas = document.querySelector('[data-lab-canvas]');
 const fallback = document.querySelector('[data-lab-fallback]');
-const N = 4096; // max objects. ponytail: brute-force O(n²) collisions, add a spatial grid to go past ~8k
+const N = 200; // max objects, keep in sync with the "count" slider max in _includes/lab.html
 
 const common = /* wgsl */ `
 struct P { pos: vec2f, vel: vec2f };
@@ -332,7 +332,8 @@ async function start() {
   window.addEventListener('resize', resize);
   // Fill ~25% of the pit at the default size, so a tall phone canvas isn't overpacked into endless jostling.
   const r = form.size.value * 0.001;
-  form.count.defaultValue = Math.min(Math.max(Math.round(aspect / (Math.PI * r * r) / 64) * 64, 64), +form.count.max);
+  const step = +form.count.step;
+  form.count.defaultValue = Math.min(Math.max(Math.round(aspect / (Math.PI * r * r) / step) * step, +form.count.min), +form.count.max);
   read();
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; kick(); }).observe(canvas);
   document.addEventListener('visibilitychange', kick);
