@@ -5,6 +5,7 @@ date:   2022-07-13 21:03:36 +0200
 categories: Frontend
 lang: en
 reading_time: 2
+audience: dev
 ---
 
 On a site that is not a single-page app (a Shopify theme, WordPress, Jekyll) you often need to mount a few React components in specific spots of the page. Instead of repeating the same `createRoot` logic everywhere, one small function can do it and pass the element's `data-*` attributes as props.

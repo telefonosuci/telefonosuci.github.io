@@ -34,11 +34,16 @@ Step 5 is the key: payment stays with the store. Local payment methods, cards, V
 | Order status | **Customer Account API** | "Where's my order?" with the customer signed in |
 | Measurement | Cart attribute (e.g. `source: agent`) | Recognizing agent-driven orders in the admin |
 
+<div class="tech" markdown="1">
+<p class="eyebrow">Technical part · for developers</p>
+
 #### MCP or Storefront API?
 
 Every Shopify store exposes an **MCP server** (Model Context Protocol, the standard AI models use to call external tools) at `https://{store}.myshopify.com/api/mcp`, with no authentication needed for catalog search. It's the quickest way to start: the model gets ready-made tools such as product search and cart management.
 
 One caveat: Shopify is moving these tools to the new **Universal Commerce Protocol** (UCP). Developers in the community report a new endpoint (`/api/ucp/mcp`) and renamed tools. Before building on it, check the tools available on your store with a `tools/list` call. If you need more stability, the **Storefront API (GraphQL)** does the same things and is versioned: you write two or three tools by hand (search products, product details, create cart) and the model uses them the same way.
+
+</div>
 
 ### What you get
 

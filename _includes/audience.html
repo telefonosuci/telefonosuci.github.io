@@ -1,0 +1,2 @@
+{%- comment -%} Badge for posts written entirely for developers: `audience: dev` in front matter. Mixed posts use <div class="tech"> boxes instead. Params: post. {%- endcomment -%}
+{%- if include.post.audience == "dev" %} · <span class="dev-tag">{{ t.dev_post }}</span>{% endif -%}

@@ -34,11 +34,16 @@ Il punto chiave è il passo 5: il pagamento resta quello del negozio. Satispay, 
 | Stato ordini | **Customer Account API** | "Dov'è il mio ordine?" con il cliente autenticato |
 | Misurazione | Attributo sul carrello (es. `source: agent`) | Riconoscere nell'admin gli ordini nati dall'agente |
 
+<div class="tech" markdown="1">
+<p class="eyebrow">Parte tecnica · per sviluppatori</p>
+
 #### MCP o Storefront API?
 
 Ogni negozio Shopify espone un **MCP server** (Model Context Protocol, lo standard con cui i modelli AI chiamano strumenti esterni) all'indirizzo `https://{negozio}.myshopify.com/api/mcp`, senza autenticazione per la ricerca nel catalogo. È il modo più rapido per partire: il modello trova già pronti strumenti come la ricerca prodotti e la gestione del carrello.
 
 Attenzione però: Shopify sta spostando questi strumenti sul nuovo **Universal Commerce Protocol** (UCP). Nella community degli sviluppatori si segnalano un nuovo endpoint (`/api/ucp/mcp`) e strumenti rinominati. Prima di costruirci sopra conviene verificare gli strumenti disponibili sul proprio negozio con una chiamata `tools/list`. Se serve più stabilità, la **Storefront API GraphQL** fa le stesse cose ed è versionata: si scrivono a mano due o tre strumenti (cerca prodotti, dettaglio prodotto, crea carrello) e il modello li usa allo stesso modo.
+
+</div>
 
 ### Cosa si ottiene
 

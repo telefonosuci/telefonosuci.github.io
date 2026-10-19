@@ -56,7 +56,10 @@ All of this already improves classic SEO and Google Shopping. It's not wasted ef
 
 Shopify also launched the **Shopify Agentic Plan**, for brands selling on other platforms (WooCommerce, Magento, custom or SAP-based systems) that want to be present in AI channels without replatforming. It lets them load products into Shopify Catalog and sell through Agentic Storefronts. There's no monthly subscription: you pay payment fees on sales, and the plan integrates with existing PIM, tax and order management systems. The same geographic limits apply.
 
-### For developers: building agents on Shopify commerce
+<div class="tech" markdown="1">
+<p class="eyebrow">Technical part · for developers</p>
+
+### Building agents on Shopify commerce
 
 The protocol is open on the other side too: anyone building an agent or assistant can use Shopify's **MCP servers** (Model Context Protocol, the standard AI models use to call external tools). From the [developer documentation](https://shopify.dev/docs/agents):
 
@@ -64,6 +67,8 @@ The protocol is open on the other side too: anyone building an agent or assistan
 - **Cart MCP** and **Checkout MCP**: build and edit the cart over the conversation and turn it into a checkout. Payment happens on the store's site, or directly if the agent has a high enough trust tier;
 - **Order MCP** and webhooks: order status, fulfillment, returns and refunds;
 - **UCP CLI** and a `ucp` *skill* for Claude Code, Cursor and VS Code, to speed up development.
+
+</div>
 
 For a brand, this means it can build **its own shopping assistant**, on its site or in an app, using the same building blocks as general-purpose assistants.
 

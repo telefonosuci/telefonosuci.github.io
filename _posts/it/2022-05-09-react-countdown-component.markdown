@@ -5,6 +5,7 @@ date:   2022-05-09 21:03:36 +0200
 categories: Tutorials
 lang: it
 reading_time: 3
+audience: dev
 ---
 
 Un componente React per il conto alla rovescia: giorni, ore, minuti e secondi aggiornati ogni secondo, con una callback quando il tempo scade.

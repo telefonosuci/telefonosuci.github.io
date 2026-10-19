@@ -56,7 +56,10 @@ Tutto questo migliora già da ora anche la SEO classica e Google Shopping. Non �
 
 Shopify ha lanciato anche lo **Shopify Agentic Plan**, pensato per i brand che vendono su altre piattaforme (WooCommerce, Magento, sistemi custom o basati su SAP) e vogliono essere presenti nei canali AI senza migrare. Permette di caricare i prodotti nello Shopify Catalog e vendere tramite gli Agentic Storefronts. Non c'è un abbonamento mensile: si pagano le commissioni di pagamento sulle vendite e il piano si integra con PIM, gestione fiscale e sistemi di gestione ordini già in uso. Anche qui valgono gli stessi limiti geografici.
 
-### Per gli sviluppatori: costruire agenti sul commercio Shopify
+<div class="tech" markdown="1">
+<p class="eyebrow">Parte tecnica · per sviluppatori</p>
+
+### Costruire agenti sul commercio Shopify
 
 Il protocollo è aperto anche dall'altra parte: chi costruisce un agente o un assistente può usare gli **MCP server** di Shopify (Model Context Protocol, lo standard con cui i modelli AI chiamano strumenti esterni). Dalla [documentazione per sviluppatori](https://shopify.dev/docs/agents):
 
@@ -64,6 +67,8 @@ Il protocollo è aperto anche dall'altra parte: chi costruisce un agente o un as
 - **Cart MCP** e **Checkout MCP**: creano e modificano il carrello nel corso della conversazione e lo trasformano in checkout. Il pagamento avviene sul sito del negozio, oppure direttamente se l'agente ha un livello di fiducia sufficiente;
 - **Order MCP** e webhook: stato dell'ordine, spedizioni, resi e rimborsi;
 - **UCP CLI** e uno *skill* `ucp` per Claude Code, Cursor e VS Code, per sviluppare più in fretta.
+
+</div>
 
 Per un brand questo significa poter costruire un **assistente di vendita proprio**, sul sito o in un'app, che usa gli stessi mattoni degli assistenti generalisti.
 

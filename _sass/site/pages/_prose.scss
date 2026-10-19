@@ -94,3 +94,11 @@
   margin-top: 64px;
   h2 { font-size: 1.6rem; }
 }
+
+// Post written entirely for developers (`audience: dev`), shown in the eyebrow.
+.dev-tag {
+  padding: 1px 8px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  white-space: nowrap;
+}

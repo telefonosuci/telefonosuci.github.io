@@ -13,7 +13,7 @@
   <li data-cats="{{ p.categories | join: '|' | downcase }}">
     <a class="card card--link" data-component-name="blog-post-card" href="{{ p.url | relative_url }}">
       {% include post-symbol.html post=p %}
-      <p class="eyebrow"><time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: date_format }}</time> · {{ p.categories | join: ' · ' }}{% include reading-time.html post=p %}</p>
+      <p class="eyebrow"><time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: date_format }}</time> · {{ p.categories | join: ' · ' }}{% include reading-time.html post=p %}{% include audience.html post=p %}</p>
       <h2>{{ p.title | escape }}</h2>
       {%- if site.show_excerpts %}<p class="muted">{{ p.excerpt | strip_html | truncatewords: 30 }}</p>{% endif %}
     </a>

@@ -1,6 +1,6 @@
 {%- comment -%} Blog post teaser. Params: post. {%- endcomment -%}
 <a class="card card--link" data-component-name="post-card" href="{{ include.post.url | relative_url }}">
-  <p class="eyebrow">{{ include.post.categories | join: ' · ' }}{% include reading-time.html post=include.post %}</p>
+  <p class="eyebrow">{{ include.post.categories | join: ' · ' }}{% include reading-time.html post=include.post %}{% include audience.html post=include.post %}</p>
   <h3>{{ include.post.title | escape }}</h3>
   <span class="muted">{{ t.read_more }} →</span>
 </a>

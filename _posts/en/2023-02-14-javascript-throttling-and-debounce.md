@@ -5,6 +5,7 @@ date:   2023-02-14 09:03:36 +0100
 categories: Frontend
 lang: en
 reading_time: 2
+audience: dev
 ---
 
 Some events fire dozens of times per second: `scroll`, `resize`, `mousemove`, `input`. Running heavy code on every single one slows the page down. **Debounce** and **throttle** limit how often a function runs.

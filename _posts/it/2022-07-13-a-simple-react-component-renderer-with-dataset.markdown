@@ -5,6 +5,7 @@ date:   2022-07-13 21:03:36 +0200
 categories: Frontend
 lang: it
 reading_time: 2
+audience: dev
 ---
 
 Su un sito che non è una single-page app (un tema Shopify, WordPress, Jekyll) capita spesso di dover montare qualche componente React in punti precisi della pagina. Invece di ripetere ovunque la stessa logica con `createRoot`, basta una piccola funzione che lo fa e passa gli attributi `data-*` dell'elemento come props.

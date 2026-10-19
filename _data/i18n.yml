@@ -16,6 +16,7 @@ it:
   vat: P.IVA
   read_more: Leggi
   reading_time: min di lettura
+  dev_post: Per sviluppatori
   all: Tutti
   category: Categoria
   latest_posts: Dal blog
@@ -43,6 +44,7 @@ en:
   vat: VAT
   read_more: Read
   reading_time: min read
+  dev_post: For developers
   all: All
   category: Category
   latest_posts: From the blog

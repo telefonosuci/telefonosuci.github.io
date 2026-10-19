@@ -5,6 +5,7 @@ date:   2023-02-14 09:03:36 +0100
 categories: Frontend
 lang: it
 reading_time: 2
+audience: dev
 ---
 
 Alcuni eventi si attivano decine di volte al secondo: `scroll`, `resize`, `mousemove`, `input`. Eseguire codice pesante a ogni evento rallenta la pagina. **Debounce** e **throttle** limitano quante volte una funzione viene eseguita.

@@ -5,6 +5,7 @@ date:   2022-05-09 22:03:36 +0200
 categories: Tutorials
 lang: it
 reading_time: 2
+audience: dev
 ---
 
 Se del conto alla rovescia ti servono solo i numeri e vuoi costruire il markup a modo tuo, un hook personalizzato è più pulito di un componente completo.
