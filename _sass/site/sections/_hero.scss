@@ -3,7 +3,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  min-height: min(88vh, 820px);
+  min-height: min(88svh, 820px); // svh: stable when the mobile URL bar shows/hides
   background: radial-gradient(ellipse at 70% 30%, color-mix(in srgb, var(--accent) 18%, transparent) 0%, var(--bg) 60%);
   &__inner {
     position: relative;

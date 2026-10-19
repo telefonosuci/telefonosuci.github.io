@@ -110,7 +110,11 @@ function start() {
     const b = canvas.getBoundingClientRect();
     mouse.x = e.clientX - b.left; mouse.y = e.clientY - b.top;
   }, { passive: true });
-  window.addEventListener('resize', () => { resize(); draw(); });
+  // Mobile fires resize when the URL bar slides on scroll; rebuilding would re-scatter the ordered parcels.
+  window.addEventListener('resize', () => {
+    if (canvas.clientWidth === w && canvas.clientHeight === h) return;
+    resize(); draw();
+  });
 
   resize(); for (let i = 0; i < 30; i++) step(); draw(); // settle the initial overlaps unseen
   if (reduced) return; // static pit, no motion
