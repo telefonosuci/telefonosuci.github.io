@@ -4,18 +4,18 @@ it:
     eyebrow: Shopify Developer
     title: Metti ordine nelle tue vendite online, dal caos del catalogo all'ultimo pacco spedito.
     lead: >-
-      Progetto e sviluppo temi, app e integrazioni per Shopify e Shopify Plus.
-      Collego il negozio ai sistemi che usi già (ERP, PIM, CRM, marketplace,
-      analytics), così smettono di litigare tra loro. E lo rendo bello da
+      Mi occupo di temi, app e integrazioni per Shopify e Shopify Plus.
+      Collegare il negozio ai sistemi che usa già (ERP, PIM, CRM, marketplace,
+      analytics), così smettono di litigare tra loro. E renderlo bello da
       guardare, che non guasta.
-    cta: Parliamo del tuo progetto
+    cta: Parliamone
     secondary: Cosa faccio
     note: Ogni cubo è un pacco da spedire. Passaci sopra col mouse e mettili in fila. Il magazzino ringrazia.
 
   services:
     id: servizi
     title: Cosa faccio
-    lead: Quattro competenze che di solito servono insieme. Un solo interlocutore, zero rimpalli.
+    lead: Quattro competenze che di solito servono insieme, e che mi piace tenere unite.
     items:
       - icon: "⇄"
         title: Flussi ecommerce
@@ -43,7 +43,7 @@ it:
         text: >-
           Tecniche grafiche avanzate, 3D di prodotto, configuratori e animazioni
           che fanno ricordare il brand. Belle, ma non al prezzo di una pagina
-          che carica in otto secondi: i Core Web Vitals li guardo prima del cliente.
+          che carica in otto secondi: i Core Web Vitals vengono prima dell'effetto wow.
 
   flow:
     title: Il viaggio di un ordine
@@ -80,7 +80,7 @@ it:
     lead: >-
       Esempi delle famiglie di sistemi che collego a Shopify: via app pubbliche
       quando bastano, via middleware o app custom quando servono regole su misura.
-      Se un'app da 9 $/mese risolve, te lo dico.
+      Se un'app da 9 $/mese risolve, meglio quella.
     groups:
       - title: ERP e gestionali
         items: [SAP, Microsoft Dynamics, Odoo, gestionali italiani]
@@ -111,16 +111,16 @@ it:
           ]
 
   process:
-    title: Come lavoro
+    title: Il mio metodo
     steps:
       - title: Analisi
         text: Capisco obiettivi, processi e sistemi esistenti, anche quelli di cui nessuno ricorda la password. Ne esce una mappa dei flussi e delle priorità.
       - title: Progetto
-        text: Architettura, integrazioni, stima chiara. Niente sorprese a metà strada.
+        text: Architettura e integrazioni decise prima di scrivere codice. Niente sorprese a metà strada.
       - title: Sviluppo
         text: Rilasci incrementali su staging, codice versionato e documentato. Il venerdì pomeriggio non si va in produzione.
       - title: Go-live e supporto
-        text: Lancio monitorato, passaggio di consegne e manutenzione evolutiva. Non sparisco il giorno dopo.
+        text: Lancio monitorato, documentazione e miglioramento continuo. Il progetto non finisce il giorno del lancio.
 
   lab:
     title: Lab grafico
@@ -132,10 +132,10 @@ it:
   about:
     title: Chi sono
     text: >-
-      Sono Enrico Succhielli, per tutti Suci: sviluppatore web con la fissa del dettaglio.
+      Sono Suci, sviluppatore web con la fissa del dettaglio.
       Unisco la parte meno visibile dell'ecommerce (dati, processi, integrazioni)
-      con la cura dell'interfaccia e della grafica. Sono disponibile per progetti
-      e collaborazioni, direttamente con aziende e brand o a supporto di agenzie.
+      con la cura dell'interfaccia e della grafica. Questo sito è il mio
+      laboratorio: qui raccolgo esperimenti, appunti e quello che imparo sul campo.
       Sono specializzato in ecommerce e CMS, ma non solo: oltre a Shopify lavoro
       con WordPress e Strapi, ho competenze avanzate di frontend, in particolare con React,
       e sviluppo agenti AI e integrazioni con piattaforme di messaggistica.
@@ -148,8 +148,8 @@ it:
         dato sbagliato non fanno ridere nessuno. Leggerezza nei modi, rigore nel lavoro.
 
   contact:
-    title: Hai un progetto Shopify?
-    text: Raccontami di cosa hai bisogno, ti rispondo con una prima valutazione. Onesta, anche quando la risposta è "non ti serve".
+    title: Parliamo di Shopify?
+    text: Una domanda tecnica, un'idea da confrontare, un'integrazione che non torna. Scrivimi, rispondo volentieri. Con onestà, anche quando la risposta è "non ti serve".
     cta: Scrivimi
 
 en:
@@ -157,18 +157,18 @@ en:
     eyebrow: Shopify Developer
     title: Bring order to your online sales, from catalog chaos to the last parcel shipped.
     lead: >-
-      I design and build themes, apps and integrations for Shopify and Shopify
-      Plus. I connect your store to the systems you already use (ERP, PIM, CRM,
-      marketplaces, analytics) so they stop arguing with each other. And I make
+      I work on themes, apps and integrations for Shopify and Shopify Plus.
+      Connecting a store to the systems it already uses (ERP, PIM, CRM,
+      marketplaces, analytics) so they stop arguing with each other. And making
       it look good, which never hurts.
-    cta: Let's talk about your project
+    cta: Let's talk
     secondary: What I do
     note: Every cube is a parcel to ship. Sweep your mouse over them and line them up. The warehouse thanks you.
 
   services:
     id: services
     title: What I do
-    lead: Four skills that are usually needed together. One point of contact, no finger-pointing.
+    lead: Four skills that are usually needed together, and that I like to keep together.
     items:
       - icon: "⇄"
         title: Ecommerce flows
@@ -197,7 +197,7 @@ en:
         text: >-
           Advanced graphics techniques, product 3D, configurators and animations
           that make the brand stick. Beautiful, but not at the cost of a page
-          that takes eight seconds to load: I check Core Web Vitals before you do.
+          that takes eight seconds to load: Core Web Vitals come before the wow effect.
 
   flow:
     title: The journey of an order
@@ -234,7 +234,7 @@ en:
     lead: >-
       Examples of the system families I connect to Shopify: through public apps
       when they're enough, through middleware or custom apps when you need your own rules.
-      If a $9/month app does the job, I'll tell you.
+      If a $9/month app does the job, that's the better choice.
     groups:
       - title: ERP and back office
         items: [SAP, Microsoft Dynamics, Odoo, Italian ERPs]
@@ -265,16 +265,16 @@ en:
           ]
 
   process:
-    title: How I work
+    title: My approach
     steps:
       - title: Discovery
         text: I learn your goals, processes and existing systems, including the ones nobody remembers the password for. The output is a map of flows and priorities.
       - title: Design
-        text: Architecture, integrations, a clear estimate. No surprises halfway through.
+        text: Architecture and integrations settled before writing code. No surprises halfway through.
       - title: Build
         text: Incremental releases on staging, versioned and documented code. We don't deploy on Friday afternoon.
       - title: Launch and support
-        text: Monitored go-live, handover and ongoing improvements. I don't vanish the day after.
+        text: Monitored go-live, documentation and continuous improvement. The project doesn't end on launch day.
 
   lab:
     title: Graphics lab
@@ -286,10 +286,10 @@ en:
   about:
     title: About me
     text: >-
-      I'm Enrico Succhielli, Suci for short: a web developer obsessed with details. I combine the
+      I'm Suci, a web developer obsessed with details. I combine the
       less visible side of ecommerce (data, processes, integrations) with care
-      for interface and graphics. I'm available for projects and collaborations, directly with companies
-      and brands or supporting agencies.
+      for interface and graphics. This site is my lab: experiments, notes and
+      what I learn in the field.
       I specialize in ecommerce and CMS, but not only: beyond Shopify I work
       with WordPress and Strapi, I have advanced frontend skills, especially with React,
       and I build AI agents and integrations with messaging platforms.
@@ -302,6 +302,6 @@ en:
         stuck checkout or bad data aren't funny to anyone. Light in manner, rigorous in work.
 
   contact:
-    title: Got a Shopify project?
-    text: Tell me what you need and I'll get back to you with a first assessment. An honest one, even when the answer is "you don't need it".
+    title: Let's talk Shopify?
+    text: A technical question, an idea to bounce around, an integration that doesn't add up. Write to me, I'm happy to reply. Honestly, even when the answer is "you don't need it".
     cta: Write to me
