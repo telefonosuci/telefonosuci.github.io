@@ -1,0 +1,9 @@
+*, *::before, *::after { box-sizing: border-box; }
+// ponytail: replaces normalize.css v3 (IE8-era); form controls are the only default that still bites.
+html { -webkit-text-size-adjust: 100%; }
+button, input, textarea, select { font: inherit; }
+img {
+  max-width: 100%;
+  height: auto;
+}
+[hidden] { display: none !important; }

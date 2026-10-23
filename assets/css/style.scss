@@ -1,5 +1,49 @@
 ---
 ---
 
-@use "syntax";
-@use "site";
+// 7-1 entry point. One partial per block; order: abstracts → vendors → base → layout → components → pages → themes.
+// abstracts/ emits no CSS: each partial that needs it does its own @use.
+@use "vendors/solarized-light";
+@use "vendors/rouge";
+
+@use "base/reset";
+@use "base/typography";
+@use "base/animations";
+@use "base/helpers";
+
+@use "layout/container";
+@use "layout/header";
+@use "layout/footer";
+@use "layout/section";
+@use "layout/split";
+@use "layout/page";
+
+@use "components/skip-link";
+@use "components/brand";
+@use "components/lang-switch";
+@use "components/consent";
+@use "components/btn";
+@use "components/section-head";
+@use "components/card";
+@use "components/chips";
+@use "components/marquee";
+@use "components/hscroll";
+@use "components/flow-step";
+@use "components/process-step";
+@use "components/quote";
+@use "components/banner";
+@use "components/hero";
+@use "components/prose";
+@use "components/post-list";
+@use "components/post-symbol";
+@use "components/diagram";
+@use "components/tech";
+@use "components/dev-tag";
+
+@use "pages/home";
+@use "pages/post";
+@use "pages/contact";
+@use "pages/lab";
+@use "pages/not-found";
+
+@use "themes/default";

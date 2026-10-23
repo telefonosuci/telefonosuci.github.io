@@ -1,10 +1,10 @@
 {%- capture lab_body %}<a class="btn btn--ghost" href="{{ t.home | append: 'lab/' | relative_url }}">{{ h.lab.cta }} →</a>{% endcapture -%}
 <section class="section section--alt" data-component-name="home-lab-about">
   <div class="wrap split">
-    <div class="split__item">
+    <div>
       {% include components/card.html name="lab-teaser-card" modifier="card--glow" title=h.lab.title text=h.lab.text body=lab_body speed="-0.15" %}
     </div>
-    <div class="split__item" data-component-name="about-me" data-speed="0.15">
+    <div data-component-name="about-me" data-speed="0.15">
       {%- if h.about.motto %}
       {% include components/quote.html text=h.about.motto.text cite=h.about.motto.cite note=h.about.motto.note %}
       {%- endif %}

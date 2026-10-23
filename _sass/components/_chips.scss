@@ -1,0 +1,26 @@
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  padding: .3em .8em;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgb(0 0 0 / .04);
+  color: var(--text);
+  font-size: .85rem;
+  &--button {
+    font-size: .9rem;
+    cursor: pointer;
+  }
+  &--active {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+}

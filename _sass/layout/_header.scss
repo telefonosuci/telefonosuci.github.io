@@ -1,0 +1,50 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--border);
+  background: rgb(255 255 255 / .8);
+  backdrop-filter: blur(12px);
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 52px;
+  }
+}
+
+// Icons only below tablet; labels stay as title/aria for a11y.
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  &__link, &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  &__link {
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: var(--muted);
+    font-size: .875rem;
+    text-decoration: none;
+    &:hover {
+      background: rgb(0 0 0 / .05);
+      color: var(--text);
+    }
+  }
+  &__cta { margin-left: 6px; }
+  @media (max-width: 900px) {
+    &__label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+    &__link, &__cta { padding: 8px; }
+  }
+}

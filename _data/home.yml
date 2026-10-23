@@ -152,6 +152,11 @@ it:
     text: Una domanda tecnica, un'idea da confrontare, un'integrazione che non torna. Scrivimi, rispondo volentieri. Con onestà, anche quando la risposta è "non ti serve".
     cta: Scrivimi
 
+  banner:
+    eyebrow: Fulfillment
+    title: Dal carrello alla spedizione.
+    text: Si apre, si riempie, si chiude, parte. Come per magia, ma è solo un flusso fatto bene.
+
 en:
   hero:
     eyebrow: Shopify Developer
@@ -305,3 +310,8 @@ en:
     title: Let's talk Shopify?
     text: A technical question, an idea to bounce around, an integration that doesn't add up. Write to me, I'm happy to reply. Honestly, even when the answer is "you don't need it".
     cta: Write to me
+
+  banner:
+    eyebrow: Fulfillment
+    title: From cart to shipment.
+    text: It opens, fills up, closes, ships. Like magic, but it's just a well-built flow.

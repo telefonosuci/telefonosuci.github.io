@@ -1,5 +1,5 @@
-{%- comment -%} Inline stroke icons (Lucide-style). Usage: {% include icon.html name="mail" %} {%- endcomment -%}
-<svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+{%- comment -%} Inline stroke icons (Lucide-style). Usage: {% include icon.html name="mail" px=18 %} (px optional; not "size": Liquid reads that as the param count) {%- endcomment -%}
+<svg class="icon" width="{{ include.px | default: 18 }}" height="{{ include.px | default: 18 }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 {%- case include.name -%}
 {%- when "services" -%}<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/>
 {%- when "integrations" -%}<path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/>

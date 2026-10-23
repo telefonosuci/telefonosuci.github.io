@@ -1,0 +1,16 @@
+// Single-purpose text helpers, mixed into any block.
+.muted { color: var(--muted); }
+.lead {
+  max-width: 62ch;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+.eyebrow {
+  margin-bottom: .75em;
+  font: 600 .8rem/1.4 var(--font);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  a { color: inherit; }
+}
+.icon { flex-shrink: 0; }

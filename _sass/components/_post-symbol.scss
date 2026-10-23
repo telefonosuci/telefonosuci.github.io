@@ -1,0 +1,13 @@
+.post-symbol {
+  display: grid;
+  place-items: center;
+  height: 160px;
+  margin: -28px -28px 24px;
+  border-bottom: 1px solid var(--border);
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--surface);
+  color: var(--accent);
+  &--h1 { height: 220px; }
+  &--h2 { height: 120px; }
+  &__icon { width: 72px; height: 72px; }
+}

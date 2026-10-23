@@ -1,0 +1,7 @@
+.banner {
+  &__canvas {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 28vw, 320px);
+  }
+}

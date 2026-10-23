@@ -1,0 +1,22 @@
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  color: var(--text);
+  font: 700 .95rem var(--font-head);
+  text-decoration: none;
+  &__mark {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-size: .8rem;
+  }
+  &__name {
+    @media (max-width: 900px) { display: none; }
+  }
+}

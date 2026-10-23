@@ -1,0 +1,26 @@
+// ponytail: self-hosted, latin subset only (no visitor IP sent to Google). Add latin-ext if needed.
+@font-face { font-family: "Inter"; font-weight: 400 600; font-display: swap; src: url("/assets/fonts/inter.woff2") format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-weight: 500 700; font-display: swap; src: url("/assets/fonts/space-grotesk.woff2") format("woff2"); }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 17px/1.6 var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: var(--accent-ink);
+  text-underline-offset: 3px;
+  &:hover { color: var(--text); }
+}
+h1, h2, h3 {
+  margin: 0 0 .5em;
+  font-family: var(--font-head);
+  line-height: 1.15;
+  color: var(--text);
+}
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+h3 { font-size: 1.15rem; }
+p { margin: 0 0 1em; }
+code { font-size: .85em; }

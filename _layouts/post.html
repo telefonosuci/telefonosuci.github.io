@@ -10,7 +10,7 @@ layout: base
     {%- for c in page.categories %} · {{ c }}{% endfor %}{% include reading-time.html post=page %}{% include audience.html post=page %}
   </p>
   <h1 class="page__title">{{ page.title | escape }}</h1>
-  <div class="prose">
+  <div class="prose prose--post">
     {{ content }}
   </div>
 
@@ -29,7 +29,7 @@ layout: base
   {%- endif %}
   {%- if related.size > 0 %}
   <section class="related" data-component-name="related-posts">
-    <h2>{{ t.related }}</h2>
+    <h2 class="related__title">{{ t.related }}</h2>
     <div class="cards cards--3">
       {%- for p in related %}
       {% include components/post-card.html post=p %}

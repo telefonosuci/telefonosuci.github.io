@@ -1,0 +1,22 @@
+// Language switch: small floating pill, bottom-right.
+.lang-switch {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgb(255 255 255 / .85);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgb(0 0 0 / .08);
+  color: var(--text);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-decoration: none;
+  &:hover { border-color: var(--text); }
+}

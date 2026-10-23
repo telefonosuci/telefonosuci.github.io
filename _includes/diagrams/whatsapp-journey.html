@@ -3,11 +3,11 @@
 <svg viewBox="0 0 640 476" role="img" aria-label="Diagramma del percorso del cliente in sei passi: vede il prodotto su Instagram, apre la chat WhatsApp, riceve le schede prodotto, sceglie taglia e colore, apre il checkout Shopify, riceve la conferma su WhatsApp">
 <defs><marker id="wj" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"/></marker></defs>
 {%- for s in steps %}{% assign p = s | split: ";" %}{% assign y = forloop.index0 | times: 80 %}
-<g{% if forloop.last %} class="hl"{% endif %}><rect x="60" y="{{ y | plus: 1 }}" width="520" height="56" rx="12"/><text x="320" y="{{ y | plus: 26 }}">{{ p[0] }}</text><text class="sub" x="320" y="{{ y | plus: 46 }}">{{ p[1] }}</text></g>
-{%- unless forloop.last %}<path class="line" d="M320 {{ y | plus: 58 }} L320 {{ y | plus: 78 }}" marker-end="url(#wj)"/>{% endunless %}
+<g{% if forloop.last %} class="diagram__hl"{% endif %}><rect x="60" y="{{ y | plus: 1 }}" width="520" height="56" rx="12"/><text x="320" y="{{ y | plus: 26 }}">{{ p[0] }}</text><text class="diagram__sub" x="320" y="{{ y | plus: 46 }}">{{ p[1] }}</text></g>
+{%- unless forloop.last %}<path class="diagram__line" d="M320 {{ y | plus: 58 }} L320 {{ y | plus: 78 }}" marker-end="url(#wj)"/>{% endunless %}
 {%- endfor %}
-<path class="line dash" d="M582 269 H616 V189 H584" marker-end="url(#wj)"/>
-<text class="tag" transform="translate(632 229) rotate(90)">cambia idea</text>
+<path class="diagram__line diagram__line--dash" d="M582 269 H616 V189 H584" marker-end="url(#wj)"/>
+<text class="diagram__tag" transform="translate(632 229) rotate(90)">cambia idea</text>
 </svg>
 <figcaption>Il percorso del cliente: dalla scoperta su Instagram al pagamento, senza mai cercare il prodotto sul sito.</figcaption>
 </figure>

@@ -1,0 +1,5 @@
+.section-head {
+  margin-bottom: 40px;
+  &__title { margin-bottom: .3em; }
+  &--center .section-head__lead { margin-inline: auto; } // text-align comes from the parent (.cta)
+}

@@ -8,7 +8,7 @@ export default function hscroll(gsap) {
     const bar = section.querySelector('[data-hscroll-progress]');
     const distance = () => Math.max(0, track.scrollWidth - track.clientWidth);
 
-    section.classList.add('is-pinned');
+    section.classList.add('hscroll--pinned');
 
     const move = gsap.to(track, {
       x: () => -distance(),
@@ -42,5 +42,5 @@ export default function hscroll(gsap) {
   });
 
   // matchMedia reverts the tweens on breakpoint change; this drops the class with them.
-  return () => sections.forEach((s) => s.classList.remove('is-pinned'));
+  return () => sections.forEach((s) => s.classList.remove('hscroll--pinned'));
 }

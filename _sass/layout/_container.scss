@@ -1,0 +1,6 @@
+@use "../abstracts/variables" as *;
+
+.wrap {
+  width: min($container, 100% - 32px);
+  margin-inline: auto;
+}

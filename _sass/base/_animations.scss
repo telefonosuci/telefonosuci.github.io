@@ -1,0 +1,14 @@
+// ponytail: native cross-document View Transitions (default crossfade); browsers without support just navigate normally.
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+
+  // Swipe: old page exits left, new page enters from right.
+  ::view-transition-old(root) { animation: vt-out .35s cubic-bezier(.4, 0, .2, 1) both; }
+  ::view-transition-new(root) { animation: vt-in .35s cubic-bezier(.4, 0, .2, 1) both; }
+}
+@keyframes vt-out { to { transform: translateX(-30%); opacity: 0; } }
+@keyframes vt-in { from { transform: translateX(100%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

@@ -1,12 +1,12 @@
 <div class="contact" data-component-name="contact-form">
   {%- include i18n.html -%}
   <form class="contact__form card" data-contact-form action="{{ site.suci.formspree_contact }}" method="POST">
-    <label>{{ t.form.name }} <input name="name" autocomplete="name" required></label>
-    <label>{{ t.form.email }} <input type="email" name="email" autocomplete="email" required></label>
-    <label>{{ t.form.message }} <textarea name="message" rows="6" required></textarea></label>
+    <label class="contact__field">{{ t.form.name }} <input class="contact__input" name="name" autocomplete="name" required></label>
+    <label class="contact__field">{{ t.form.email }} <input class="contact__input" type="email" name="email" autocomplete="email" required></label>
+    <label class="contact__field">{{ t.form.message }} <textarea class="contact__input contact__input--area" name="message" rows="6" required></textarea></label>
     <label class="contact__check"><input type="checkbox" name="privacy" required> <span>{{ t.form.privacy }}</span></label>
     <input type="text" name="_gotcha" hidden tabindex="-1" autocomplete="off">
-    <button class="btn" type="submit">{{ t.form.send }}</button>
+    <button class="btn contact__submit" type="submit">{{ t.form.send }}</button>
   </form>
   <!-- ponytail: closedby="none" disables Esc natively; browsers without support still close on Esc. -->
   <dialog class="contact__dialog card" data-contact-dialog closedby="none">

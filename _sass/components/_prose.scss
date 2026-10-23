@@ -1,0 +1,68 @@
+// Rich text from Markdown: tag selectors are intentional, the content has no classes.
+.prose {
+  max-width: 75ch;
+  &--wide { max-width: none; }
+  &--post { font-size: 1.05rem; }
+  h2 {
+    margin-top: 1.6em;
+    font-size: 1.6rem;
+  }
+  h3 { margin-top: 1.4em; }
+  li { margin-bottom: .4em; }
+  pre, .highlight {
+    overflow-x: auto;
+    border-radius: 10px;
+  }
+  pre { padding: 16px; }
+  // ponytail: scrolls horizontally on mobile instead of a wrapper element
+  table {
+    display: block;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin: 1.4em 0;
+    font-size: .95em;
+  }
+  th, td {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--bg-alt); }
+
+  // Sources: native kramdown footnotes, `text[^id]` + `[^id]: Author, [Title](url).` at the end of the post.
+  // Class names come from kramdown, not BEM.
+  .footnote {
+    padding: 0 .3em;
+    border-radius: 4px;
+    font-size: .75em;
+    font-weight: 600;
+    color: var(--accent-ink);
+    text-decoration: none;
+    &:hover { background: var(--accent); color: var(--on-accent); }
+  }
+  .footnotes {
+    margin-top: 3em;
+    padding-top: 1.2em;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: .9em;
+    &::before {
+      content: "Fonti";
+      display: block;
+      margin-bottom: .6em;
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    &:lang(en)::before { content: "Sources"; }
+    ol { padding-left: 1.4em; }
+    li::marker { color: var(--accent-ink); font-weight: 600; }
+    li:target { background: var(--bg-alt); border-radius: 6px; }
+    p { margin: 0; }
+    a { overflow-wrap: anywhere; }
+  }
+  .reversefootnote { margin-left: .3em; text-decoration: none; }
+  [id^="fn"] { scroll-margin-top: 90px; } // ponytail: clears the sticky header; tune if header height changes
+}

@@ -2,19 +2,19 @@
 {%- assign posts = site.posts | where: "lang", lang -%}
 {%- assign cats = posts | map: "categories" | join: "|" | split: "|" | uniq | sort -%}
 {%- assign date_format = site.suci.date_format | default: "%d/%m/%Y" -%}
-<div class="filters" data-component-name="blog-category-filter" role="group" aria-label="{{ t.category }}">
-  <button type="button" class="chip is-active" data-filter="all">{{ t.all }}</button>
+<div class="chips" data-component-name="blog-category-filter" role="group" aria-label="{{ t.category }}">
+  <button type="button" class="chip chip--button chip--active" data-filter="all">{{ t.all }}</button>
   {%- for c in cats %}
-  <button type="button" class="chip" data-filter="{{ c | downcase }}">{{ c }}</button>
+  <button type="button" class="chip chip--button" data-filter="{{ c | downcase }}">{{ c }}</button>
   {%- endfor %}
 </div>
 <ul class="post-list" data-component-name="blog-post-list">
   {%- for p in posts %}
-  <li data-cats="{{ p.categories | join: '|' | downcase }}">
-    <a class="card card--link" data-component-name="blog-post-card" href="{{ p.url | relative_url }}">
+  <li class="post-list__item" data-cats="{{ p.categories | join: '|' | downcase }}">
+    <a class="card card--link post-list__card" data-component-name="blog-post-card" href="{{ p.url | relative_url }}">
       {% include post-symbol.html post=p %}
-      <p class="eyebrow"><time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: date_format }}</time> · {{ p.categories | join: ' · ' }}{% include reading-time.html post=p %}{% include audience.html post=p %}</p>
-      <h2>{{ p.title | escape }}</h2>
+      <p class="eyebrow post-list__meta"><time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: date_format }}</time> · {{ p.categories | join: ' · ' }}{% include reading-time.html post=p %}{% include audience.html post=p %}</p>
+      <h2 class="card__title card__title--large">{{ p.title | escape }}</h2>
       {%- if site.show_excerpts %}<p class="muted">{{ p.excerpt | strip_html | truncatewords: 30 }}</p>{% endif %}
     </a>
   </li>
@@ -24,7 +24,7 @@
   document.querySelectorAll('[data-filter]').forEach((btn, _, all) => {
     btn.addEventListener('click', () => {
       const f = btn.dataset.filter;
-      all.forEach((b) => b.classList.toggle('is-active', b === btn));
+      all.forEach((b) => b.classList.toggle('chip--active', b === btn));
       document.querySelectorAll('[data-cats]').forEach((li) => {
         li.hidden = f !== 'all' && !li.dataset.cats.split('|').includes(f);
       });

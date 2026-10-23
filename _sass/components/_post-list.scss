@@ -1,0 +1,11 @@
+// ponytail: CSS columns masonry (order runs top-to-bottom per column); switch to grid-lanes when browsers ship it.
+.post-list {
+  columns: 3 280px;
+  column-gap: 16px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+  &__item { break-inside: avoid; margin-bottom: 16px; }
+  &__card { height: auto; }
+  &__meta { margin-bottom: .4em; }
+}
