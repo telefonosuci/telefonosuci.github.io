@@ -7,7 +7,7 @@ reading_time: 10
 audience: dev
 ---
 
-Nell'articolo su [PHP2Shell](/php2shell-shopify-security) ho scritto che quella vulnerabilità "non è banale come Log4Shell". Vale la pena spiegare perché Log4Shell è diventata il metro di paragone di ogni RCE catastrofica: non per quanto fosse sofisticata, ma per quanto fosse **banale da innescare** e **impossibile da censire**.
+Nell'articolo su [PHP2Shell]({% post_url it/2026-10-22-php2shell-shopify-security %}) ho scritto che quella vulnerabilità "non è banale come Log4Shell". Vale la pena spiegare perché Log4Shell è diventata il metro di paragone di ogni RCE catastrofica: non per quanto fosse sofisticata, ma per quanto fosse **banale da innescare** e **impossibile da censire**.
 
 A dicembre 2021 bastava scrivere una stringa di una riga nel posto giusto — spesso un campo che l'utente controlla senza nemmeno autenticarsi — per eseguire codice arbitrario su server che non sapevano nemmeno di usare la libreria vulnerabile.
 
