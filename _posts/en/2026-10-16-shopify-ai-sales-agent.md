@@ -39,7 +39,7 @@ Step 5 is the key: payment stays with the store. Local payment methods, cards, V
 
 #### MCP or Storefront API?
 
-Every Shopify store exposes an **MCP server** (Model Context Protocol, the standard AI models use to call external tools) at `https://{store}.myshopify.com/api/mcp`, with no authentication needed for catalog search. It's the quickest way to start: the model gets ready-made tools such as product search and cart management.
+Every Shopify store exposes an **MCP server** (Model Context Protocol, the standard AI models use to call external tools) at `https://{store}.myshopify.com/api/mcp`, with no authentication needed for catalog search.[^mcp] It's the quickest way to start: the model gets ready-made tools such as product search and cart management.
 
 One caveat: Shopify is moving these tools to the new **Universal Commerce Protocol** (UCP). Developers in the community report a new endpoint (`/api/ucp/mcp`) and renamed tools. Before building on it, check the tools available on your store with a `tools/list` call. If you need more stability, the **Storefront API (GraphQL)** does the same things and is versioned: you write two or three tools by hand (search products, product details, create cart) and the model uses them the same way.
 
@@ -67,7 +67,7 @@ It's a few days of work. WhatsApp, ERP, order status and metrics come later, onc
 
 In the EU these aren't details:
 
-- **Transparency (AI Act)**: customers must know they're talking to an AI system, not a person.
+- **Transparency (AI Act)**: customers must know they're talking to an AI system, not a person.[^aiact]
 - **GDPR**: update your privacy policy, choose providers with data processing agreements and consider where data is processed. Many AI model providers offer EU processing or zero data retention.
 - **No payment data in the chat**: with Shopify checkout the issue doesn't come up.
 - **Clear limits**: the agent doesn't invent discounts, doesn't promise delivery times it can't guarantee, and hands off to a person when needed.
@@ -88,3 +88,6 @@ It's work you need anyway: when Agentic Storefronts arrive here too, a well-kept
 "Official" agentic commerce hasn't reached Europe yet, but the technology to build it has. A sales agent on your own store is a contained project, uses the Shopify checkout you already have and immediately gives you data on how customers look for products. The hard part isn't the AI: it's **catalog data** and **integrations** with business systems. If you want to assess it for your store, [get in touch](/en/contact/).
 
 *Information current as of October 2026. Shopify's AI tools change often: always check the [official documentation](https://shopify.dev/docs/agents).*
+
+[^mcp]: Shopify.dev, [Storefront MCP](https://shopify.dev/docs/apps/build/storefront-mcp).
+[^aiact]: [Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) (AI Act), Art. 50: transparency obligations.

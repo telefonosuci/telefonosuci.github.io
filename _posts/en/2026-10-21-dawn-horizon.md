@@ -13,7 +13,7 @@ This article covers where the two themes come from, how they differ, the strengt
 {% raw %}
 ### The story of Dawn
 
-Dawn was released on **29 June 2021**, together with **Online Store 2.0**, the biggest overhaul of Shopify themes up to that point. Online Store 2.0 introduced:
+Dawn was released on **29 June 2021**, together with **Online Store 2.0**[^os20], the biggest overhaul of Shopify themes up to that point. Online Store 2.0 introduced:
 
 - **JSON templates**, which brought *sections* to every page (until then they were limited to the home page);
 - **app blocks**, which let apps plug into the theme as draggable blocks, without touching the code;
@@ -23,9 +23,9 @@ Dawn was born as a **reference theme**: the model of how Shopify thinks a 2.0 th
 
 ### The story of Horizon
 
-Horizon was presented with the **Summer '25 Edition** (May 2025). More than a single theme, it is a **family**: one codebase that powers ten free themes with different styles (Horizon, Atelier, Dwell, Fabric, Heritage, Pitch, Ritual, Savor, Tinker and Vessel). Since then it has been the default theme for new stores.
+Horizon was presented with the **Summer '25 Edition** (May 2025).[^summer25] More than a single theme, it is a **family**: one codebase that powers ten free themes with different styles (Horizon, Atelier, Dwell, Fabric, Heritage, Pitch, Ritual, Savor, Tinker and Vessel). Since then it has been the default theme for new stores.
 
-The repository README sums up its principles in four points:
+The repository README sums up its principles in four points[^horizon]:
 
 - **Web-native**: it makes full use of modern browser features, with *progressive enhancement* instead of polyfills.
 - **Lean and fast**: features are excluded by default; a theme shouldn't support everything Shopify offers.
@@ -42,7 +42,7 @@ In **Dawn** the unit of composition is the **section**. Each section defines in 
 - nesting is very limited: section → block, and little else;
 - the inner layout of a section is decided by the developer. The merchant can reorder blocks but cannot, for example, put two columns inside a section that wasn't built for them.
 
-In **Horizon** the unit of composition is the **theme block**: a Liquid file in the `blocks/` folder, defined once at theme level and reusable in any section that accepts it.
+In **Horizon** the unit of composition is the **theme block**: a Liquid file in the `blocks/` folder, defined once at theme level and reusable in any section that accepts it.[^themeblocks]
 
 ```json
 {
@@ -71,7 +71,7 @@ Theme blocks can contain other blocks, so you can build nested structures: a **g
 | Update pace | Slow, now in maintenance | Frequent |
 | External contributions | Open to issues and pull requests | Public repository, contributions not accepted |
 
-An important detail for developers: the Horizon README explicitly states that **themes derived from Horizon cannot be submitted to the Theme Store**. For commercial themes Shopify points to the **Skeleton theme** as the base; Horizon remains an excellent model to study, and a legitimate base for a custom theme on a single store.
+An important detail for developers: the Horizon README explicitly states that **themes derived from Horizon cannot be submitted to the Theme Store**. For commercial themes Shopify points to the **Skeleton theme** as the base[^skeleton]; Horizon remains an excellent model to study, and a legitimate base for a custom theme on a single store.
 
 ### Dawn's strengths
 
@@ -135,3 +135,9 @@ Moving from Dawn to Horizon **is not an update: it's a migration**. Section sett
 - In return it brings more complexity, more JavaScript and some app compatibility issues.
 - Rule of thumb: **new projects on Horizon, stable Dawn stores on Dawn until the next redesign.**
 {% endraw %}
+
+[^os20]: Shopify.dev, [Online Store 2.0](https://shopify.dev/docs/storefronts/themes/os20); [Shopify/dawn](https://github.com/Shopify/dawn) on GitHub.
+[^summer25]: Shopify, [Summer '25 Edition](https://www.shopify.com/news/summer-25-edition-merchant).
+[^horizon]: [Shopify/horizon](https://github.com/Shopify/horizon) on GitHub, README.
+[^themeblocks]: Shopify.dev, [Theme blocks](https://shopify.dev/docs/storefronts/themes/architecture/blocks/theme-blocks).
+[^skeleton]: [Shopify/skeleton-theme](https://github.com/Shopify/skeleton-theme) on GitHub.

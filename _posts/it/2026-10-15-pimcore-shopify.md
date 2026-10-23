@@ -21,7 +21,7 @@ Pimcore è una piattaforma open source per la gestione dei dati aziendali, nata 
 
 A differenza dei PIM "pronti all'uso", Pimcore si **modella** sull'azienda: le schede prodotto, le relazioni, le regole di validazione e i flussi di approvazione si progettano su misura. È la sua forza e anche il motivo per cui richiede un progetto di sviluppo.
 
-Una nota sulla licenza: negli ultimi anni Pimcore ha cambiato le condizioni della versione gratuita (Community Edition). Prima di scegliere, conviene verificare quale edizione è adatta alla dimensione e all'uso della tua azienda.
+Una nota sulla licenza: negli ultimi anni Pimcore ha cambiato le condizioni della versione gratuita (Community Edition).[^pocl] Prima di scegliere, conviene verificare quale edizione è adatta alla dimensione e all'uso della tua azienda.
 
 ### Perché unirli
 
@@ -55,7 +55,7 @@ Insieme si ottiene:
 | --- | --- |
 | Classe di prodotto (es. "Scarpa", "Divano") | Tipo di prodotto, con il suo insieme di metafield |
 | Campi del prodotto | Campi standard (titolo, descrizione, prezzo) e **metafield** |
-| Varianti (oggetti figli del prodotto) | **Varianti**, con massimo tre opzioni per prodotto |
+| Varianti (oggetti figli del prodotto) | **Varianti**, con massimo tre opzioni per prodotto[^options] |
 | Gruppi di attributi dinamici (classification store, object brick) | **Metafield** con un namespace per gruppo |
 | Oggetti collegati (materiali, designer, certificazioni) | **Metaobject**, mostrati nel tema come schede riutilizzabili |
 | Immagini del DAM | **Media** del prodotto, nel formato e nella dimensione giusti |
@@ -99,3 +99,6 @@ Se Pimcore va ancora implementato da zero (modello dati, importazioni dall'ERP, 
 **Conviene** se hai cataloghi grandi o tecnici, dati regolamentati, più marchi o più negozi Shopify, più canali oltre all'ecommerce, o processi di approvazione tra reparti. In questi casi Pimcore ripaga l'investimento in ordine, velocità di lancio e meno errori.
 
 **Non conviene** se hai un catalogo semplice e un solo negozio: un PIM SaaS più leggero (come Plytix o Akeneo) o l'admin di Shopify ben organizzato sono più rapidi ed economici. Pimcore è uno strumento potente, ma va scelto quando la complessità c'è davvero.
+
+[^pocl]: Pimcore, [Pimcore says goodbye to GPL and enters a new era with POCL](https://pimcore.com/en/resources/blog/breaking-free-pimcore-says-goodbye-to-gpl-and-enters-a-new-era-with-pocl): dalla versione 2025.1 la Community Edition passa da GPLv3 alla Pimcore Open Core License.
+[^options]: Shopify Help Center, [Adding variants](https://help.shopify.com/en/manual/products/variants/add-variants): massimo 3 opzioni per prodotto.

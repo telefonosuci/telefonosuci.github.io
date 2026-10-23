@@ -25,7 +25,7 @@ Un esempio concreto, per un negozio di abbigliamento:
 5. Si apre il **checkout Shopify** con il prodotto, la taglia e il colore già inseriti. Paga con carta, PayPal, Satispay o Scalapay, come sul sito.
 6. La conferma d'ordine e il tracking della spedizione arrivano nella stessa chat.
 
-Una precisazione importante. Il pagamento **dentro** WhatsApp, senza aprire nessuna pagina, esiste solo in pochi Paesi (India, Brasile, Singapore). In Italia il checkout si apre con un tocco, nel browser interno di WhatsApp, ma è il checkout del tuo negozio. È un vantaggio: valgono i metodi di pagamento, gli sconti, le spese di spedizione e l'antifrode che hai già configurato.
+Una precisazione importante. Il pagamento **dentro** WhatsApp, senza aprire nessuna pagina, esiste solo in pochi Paesi (India, Brasile, Singapore).[^wapay] In Italia il checkout si apre con un tocco, nel browser interno di WhatsApp, ma è il checkout del tuo negozio. È un vantaggio: valgono i metodi di pagamento, gli sconti, le spese di spedizione e l'antifrode che hai già configurato.
 
 ### Il ruolo di Instagram
 
@@ -101,7 +101,7 @@ Prima della tecnologia, servono alcune cose che solo il negozio può preparare:
 
 I costi si dividono in tre voci:
 
-- **Messaggi WhatsApp.** Meta fa pagare per messaggio, a seconda del tipo. Le **risposte** al cliente entro 24 ore dal suo ultimo messaggio sono **gratuite**: è la maggior parte della conversazione di vendita. Si pagano i messaggi che il negozio invia per primo, come le promozioni e, fuori dalle 24 ore, le notifiche di servizio (conferme e tracking).
+- **Messaggi WhatsApp.** Meta fa pagare per messaggio, a seconda del tipo. Le **risposte** al cliente entro 24 ore dal suo ultimo messaggio sono **gratuite**[^waprice]: è la maggior parte della conversazione di vendita. Si pagano i messaggi che il negozio invia per primo, come le promozioni e, fuori dalle 24 ore, le notifiche di servizio (conferme e tracking).
 - **Modello AI.** Pochi centesimi a conversazione, a seconda della lunghezza e del modello scelto.
 - **Sviluppo e manutenzione.** Il lavoro di integrazione, una tantum, più un piccolo costo mensile per il server.
 
@@ -136,7 +136,7 @@ L'agente ha pochi strumenti, ognuno con un compito preciso:
 
 ### Schede prodotto e varianti
 
-WhatsApp ha due messaggi interattivi per il catalogo: `product` (una singola scheda) e `product_list` (fino a 30 prodotti divisi in sezioni). Ogni elemento è identificato dal `product_retailer_id` del catalogo Meta. L'app Facebook & Instagram crea **un elemento per ogni variante** Shopify, raggruppate per prodotto: taglie e colori diventano elementi distinti dello stesso gruppo. Il formato dell'ID va verificato nel Commerce Manager (di solito contiene ID prodotto e ID variante Shopify).
+WhatsApp ha due messaggi interattivi per il catalogo: `product` (una singola scheda) e `product_list` (fino a 30 prodotti divisi in sezioni)[^wampm]. Ogni elemento è identificato dal `product_retailer_id` del catalogo Meta. L'app Facebook & Instagram crea **un elemento per ogni variante** Shopify, raggruppate per prodotto: taglie e colori diventano elementi distinti dello stesso gruppo. Il formato dell'ID va verificato nel Commerce Manager (di solito contiene ID prodotto e ID variante Shopify).
 
 ```json
 {
@@ -176,14 +176,14 @@ Il link si invia con un messaggio interattivo `cta_url` (pulsante «Vai al pagam
 
 Ogni conversazione ha uno stato salvato nel backend (Workers KV, D1 o un database): `agente` oppure `negoziante`. Lo strumento `passa_al_negoziante` imposta lo stato, genera il riassunto e invia la notifica. Finché lo stato è `negoziante`, i messaggi in arrivo vengono girati alla inbox e l'agente non risponde. Dopo un timeout, o su comando del negoziante, lo stato torna `agente`.
 
-Con la **coexistence** lo stesso numero è attivo sia sull'app WhatsApp Business sia sulla Cloud API. I messaggi inviati dal negoziante dal telefono arrivano al backend come *echo* (`smb_message_echoes`): se il negoziante scrive, il backend lo rileva e mette in pausa l'agente in automatico. La coexistence ha alcune limitazioni (per esempio su gruppi e alcuni tipi di messaggi): vanno verificate nella documentazione Meta prima di scegliere questa strada.
+Con la **coexistence** lo stesso numero è attivo sia sull'app WhatsApp Business sia sulla Cloud API. I messaggi inviati dal negoziante dal telefono arrivano al backend come *echo* (`smb_message_echoes`): se il negoziante scrive, il backend lo rileva e mette in pausa l'agente in automatico. La coexistence ha alcune limitazioni (per esempio su gruppi e alcuni tipi di messaggi): vanno verificate nella documentazione Meta prima di scegliere questa strada.[^wacoex]
 
 ### Videochiamate
 
 Le strade sono due, da scegliere in base a come lavora il negozio:
 
 - **App WhatsApp Business sul telefono** (con la coexistence): il negoziante fa chiamate e videochiamate dalla chat come su WhatsApp normale. È la soluzione più semplice e non richiede sviluppo.
-- **Calling API** della Cloud API: chiamate gestite da software, utili per una inbox web con più operatori. Il cliente può chiamare il negozio e il negozio può chiamare il cliente dopo avergli chiesto il permesso con un messaggio apposito. Il supporto video, i Paesi abilitati e le tariffe delle chiamate in uscita cambiano spesso: vanno verificati nella documentazione Meta prima di progettare su questa strada.
+- **Calling API** della Cloud API[^wacall]: chiamate gestite da software, utili per una inbox web con più operatori. Il cliente può chiamare il negozio e il negozio può chiamare il cliente dopo avergli chiesto il permesso con un messaggio apposito. Il supporto video, i Paesi abilitati e le tariffe delle chiamate in uscita cambiano spesso: vanno verificati nella documentazione Meta prima di progettare su questa strada.
 
 L'agente ha bisogno di un solo strumento in più, per esempio `proponi_videochiamata`. Controlla gli orari e la disponibilità degli operatori, propone uno slot e, se il cliente accetta, avvisa il negoziante (o crea un evento in calendario) e imposta lo stato della conversazione su `negoziante`. Per gli appuntamenti si può usare anche un'app di prenotazione Shopify già in uso, inviando il link di prenotazione in chat. Dopo la chiamata il negoziante crea il carrello con lo stesso flusso visto sopra, e l'attributo `canale: videochiamata` permette di misurare quanto rendono le chiamate.
 
@@ -196,10 +196,10 @@ Entro 24 ore dall'ultimo messaggio del cliente si può rispondere liberamente. F
 
 In Italia e in Europa alcune regole sono obbligatorie, non facoltative:
 
-- **Trasparenza (AI Act).** Il cliente deve sapere che sta parlando con un assistente AI. Basta dirlo nel primo messaggio, con un tono naturale.
+- **Trasparenza (AI Act).** Il cliente deve sapere che sta parlando con un assistente AI. Basta dirlo nel primo messaggio, con un tono naturale.[^aiact]
 - **GDPR.** Aggiorna la privacy policy, scegli fornitori con accordi sul trattamento dei dati e, se possibile, elaborazione in UE.
 - **Consenso per il marketing.** Rispondere a chi ti scrive va bene. Inviare promozioni su WhatsApp richiede il consenso esplicito del cliente.
-- **Policy di Meta.** Da gennaio 2026 Meta vieta su WhatsApp Business gli assistenti AI *generici*, quelli che rispondono a qualsiasi argomento. Gli assistenti di un'azienda, dedicati ai suoi prodotti e ai suoi clienti, sono consentiti: è proprio il caso di un negozio.
+- **Policy di Meta.** Da gennaio 2026 Meta vieta su WhatsApp Business gli assistenti AI *generici*, quelli che rispondono a qualsiasi argomento. Gli assistenti di un'azienda, dedicati ai suoi prodotti e ai suoi clienti, sono consentiti: è proprio il caso di un negozio.[^wapolicy]
 - **Niente dati di pagamento in chat.** Con il checkout Shopify il problema non si pone.
 
 ### Da dove partire
@@ -220,3 +220,11 @@ I clienti italiani vogliono comprare dove già parlano: su WhatsApp, dopo aver v
 Per capire il quadro più ampio, leggi [cos'è l'ecommerce agentico su Shopify](/blog/agentic-commerce/) e [come costruire un assistente AI di vendita](/blog/shopify-ai-sales-agent/). Se vuoi valutarlo per il tuo negozio, [scrivimi](/contatti/).
 
 *Informazioni aggiornate a ottobre 2026. Funzionalità, prezzi e policy di Meta e Shopify cambiano spesso: verifica sempre la documentazione ufficiale di [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp) e di [Shopify](https://shopify.dev/docs).*
+
+[^wapay]: Meta, Payments API per [India](https://developers.facebook.com/documentation/business-messaging/whatsapp/payments/payments-in/overview) e [Brasile](https://developers.facebook.com/documentation/business-messaging/whatsapp/payments/payments-br/overview); per Singapore, Tech Wire Asia, [WhatsApp now allows in-chat payments in Singapore](https://techwireasia.com/2023/05/as-whatsapp-now-allows-in-chat-payments-in-singapore-should-e-wallet-players-be-concerned/).
+[^waprice]: Meta, [WhatsApp Business Platform pricing](https://developers.facebook.com/docs/whatsapp/pricing).
+[^wampm]: Meta, [Multi-product messages](https://developers.facebook.com/documentation/business-messaging/whatsapp/catalogs/multi-product-messages/).
+[^wacoex]: Meta, [Onboarding WhatsApp Business app users (coexistence)](https://developers.facebook.com/docs/whatsapp/embedded-signup/custom-flows/onboarding-business-app-users).
+[^wacall]: Meta, [Calling API](https://developers.facebook.com/docs/whatsapp/cloud-api/calling).
+[^aiact]: [Regolamento (UE) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) (AI Act), art. 50: obblighi di trasparenza.
+[^wapolicy]: WhatsApp, [Business Solution Terms](https://www.whatsapp.com/legal/business-solution-terms); TechCrunch, [WhatsApp changes its terms to bar general-purpose chatbots from its platform](https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform/).

@@ -17,7 +17,7 @@ reading_time: 4
   - *Content Delivery API* to read published content (served from a CDN);
   - *Content Preview API* to read drafts;
   - *Content Management API* to create and edit content from code (migrations, imports);
-  - *GraphQL Content API*.
+  - *GraphQL Content API*.[^cfapi]
 - **App Framework**: extensions to the web app, for example to pick a Shopify product right inside an entry.
 
 ### Typical use cases
@@ -39,7 +39,7 @@ reading_time: 4
 
 ### Disadvantages
 
-- **Cost**: the free plan is limited, and paid plans are expensive and grow with users, records, locales and environments.
+- **Cost**: the free plan is limited, and paid plans are expensive and grow with users, records, locales and environments.[^cfprice]
 - **Platform limits**: the number of content types, fields, records and API calls depends on the plan.
 - **Lock-in**: the data model and content live on the platform; they can be exported, but migrating takes work.
 - **A less visual editing experience**: without a configured preview, editors fill in fields without seeing the final page. Contentful has added visual tools, but they must be wired into the frontend.
@@ -64,3 +64,6 @@ reading_time: 4
 **Yes**, when there's a lot of content, spread across channels, markets and languages, managed by a team with different roles, and the company would rather pay for a service than run servers.
 
 **No**, for a small site or blog (the cost and complexity aren't justified), on a tight budget (Strapi or a static site is better), or if marketing mainly wants to build pages visually (consider Storyblok, or a Shopify theme).
+
+[^cfapi]: Contentful, [API reference](https://www.contentful.com/developers/docs/references/).
+[^cfprice]: Contentful, [Pricing](https://www.contentful.com/pricing/).

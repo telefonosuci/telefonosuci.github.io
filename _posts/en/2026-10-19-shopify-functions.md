@@ -20,8 +20,9 @@ This guide explains what they are, where they come from, how to write one, when 
 | **2022** | Developer preview and the first generally available APIs: **discounts** (product, order, shipping). |
 | **2023** | **Delivery customization**, **payment customization**, **cart and checkout validation** and **cart transform** (bundles) arrive. |
 | **2024** | **Fulfillment constraints**, **order routing** and pickup option generators are added. |
-| **2025** | **Unified Discount API**: a single function can discount products, order and shipping. From April 2025 Scripts can no longer be edited or published. |
-| **June 30, 2026** | **Scripts stop working**. Functions are the only way to customise this logic. |
+| **2025** | **Unified Discount API**: a single function can discount products, order and shipping. |
+| **April 15, 2026** | Scripts can no longer be edited or published. |
+| **June 30, 2026** | **Scripts stop working**.[^fnscripts] Functions are the only way to customise this logic. |
 
 The shift isn't just a change of language. Scripts were interpreted code tied to the old `checkout.liquid`. Functions are **WebAssembly** modules shipped inside an app, versioned with the app, and they work with the extensible checkout, Shop Pay, the cart APIs and headless channels.
 
@@ -227,13 +228,13 @@ mutation {
 - **They work everywhere.** Online checkout, Shop Pay, cart via the Storefront API, headless, in many cases POS too.
 - **They are versioned.** They live in the app, ship with `shopify app deploy`, and you roll back by releasing a previous version.
 - **They are configurable.** With metafields the merchant changes parameters without touching code.
-- **They're no longer Plus-only.** Functions inside a public app work on every plan. (**Custom apps** with functions, however, remain Plus-only.)
+- **They're no longer Plus-only.** Functions inside a public app work on every plan. (**Custom apps** with functions, however, remain Plus-only.)[^fnplans]
 - **They're easy to test.** They are pure functions: JSON in, JSON out. A unit test is a fixture file and an `expect`.
 
 ### Limits
 
 - **No network, no state.** A function can't call an external API or remember anything between runs. Data must come from the input query: metafields on products, customers, the shop or the function's own object. (Some APIs offer read-only network access, reserved for Enterprise plans.)
-- **Tight resource limits.** Around **11 million instructions** per run (scaled for very large carts), a compiled module of a few **hundred KB**, capped input and output sizes and a maximum input query cost. JavaScript logic with many dependencies hits them quickly: one reason Shopify recommends Rust.
+- **Tight resource limits.** Around **11 million instructions** per run[^fnlimits] (scaled for very large carts), a compiled module of a few **hundred KB**, capped input and output sizes and a maximum input query cost. JavaScript logic with many dependencies hits them quickly: one reason Shopify recommends Rust.
 - **Only what the API allows.** Each Function API has a closed set of operations. You can't, for example, change a shipping rate's price with a delivery customization: you can only hide, rename or move it.
 - **Limited number of active functions.** There are caps per type (for example a maximum number of active payment or delivery customizations per store): a "one function per rule" strategy doesn't scale, a configurable function does.
 - **You need an app.** Even for a simple rule you have to create, deploy and maintain an app, with its own release cycle.
@@ -260,3 +261,7 @@ The most common pattern in real projects is that last mix: a backend (or an ERP,
 - They're fast, scalable, versioned and work on every channel, but they have **no network and no state** and tight resource limits.
 - The rule of thumb: **the function decides, metafields configure it, a backend keeps them up to date.**
 {% endraw %}
+
+[^fnscripts]: Shopify Changelog, [Shopify Scripts can no longer be edited or published](https://changelog.shopify.com/posts/shopify-scripts-can-no-longer-be-edited-or-published); [Shopify Scripts will be deprecated on June 30, 2026](https://shopify.dev/changelog/shopify-scripts-will-be-deprecated-on-june-30-2026).
+[^fnlimits]: Shopify.dev, [Shopify Functions](https://shopify.dev/docs/api/functions): resource limits.
+[^fnplans]: Shopify.dev, [Shopify Functions](https://shopify.dev/docs/api/functions): custom apps with functions require Shopify Plus; public apps work on every plan.

@@ -13,7 +13,7 @@ To reason about it with a concrete case, let's take **PHP2Shell**, the pair of P
 
 ### What PHP2Shell is
 
-PHP2Shell names a pair of critical vulnerabilities in PHP's Zend engine (**CVE-2026-109618** and **CVE-2026-109619**, CVSS 9.2) that allow **remote code execution (RCE)** before any application code (WordPress, WooCommerce, Magento) actually runs.
+PHP2Shell names a pair of critical vulnerabilities in PHP's Zend engine (**CVE-2026-109618** and **CVE-2026-109619**, CVSS 9.2)[^php2shell] that allow **remote code execution (RCE)** before any application code (WordPress, WooCommerce, Magento) actually runs.
 
 The weakness lies in how the PHP interpreter handles abnormal interruptions (fatal errors and memory exhaustion in particular) while parsing the HTTP request.
 
@@ -49,12 +49,12 @@ In practice: not every server will fall in the first few hours, but a motivated 
 
 #### Fix and mitigations
 
-- **Patch**: upgrade now to **PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12**.
+- **Patch**: upgrade now to **PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12**.[^phpchangelog]
 - **If you can't upgrade right away**: filter unexpected `multipart/form-data` requests at the WAF or reverse proxy, and disable `session.upload_progress.enabled` and `opcache.enable`.
 
 ### The point that matters: who applies the patch?
 
-Read the list of fixed versions again. **There is no PHP 8.1, no 8.0, no 7.x.** Those versions are end of life: no official patch is coming. And a huge number of WooCommerce, Magento and PrestaShop stores still run on them, often on shared hosting where the merchant doesn't even know which PHP version they are using.
+Read the list of fixed versions again. **There is no PHP 8.1, no 8.0, no 7.x.** Those versions are end of life: no official patch is coming.[^phpsupported] And a huge number of WooCommerce, Magento and PrestaShop stores still run on them, often on shared hosting where the merchant doesn't even know which PHP version they are using.
 
 This is the real problem with self-hosted e-commerce. On WooCommerce, when PHP2Shell comes out, someone has to:
 
@@ -64,7 +64,7 @@ This is the real problem with self-hosted e-commerce. On WooCommerce, when PHP2S
 4. check that WordPress, WooCommerce and every plugin still work on the new version;
 5. if the upgrade breaks something, choose between a broken site and a vulnerable one.
 
-Step 4 is what keeps stores stuck on old PHP versions for years: an abandoned shipping plugin, a custom theme written in 2018, a payment gateway that doesn't support 8.x. And PHP2Shell is not an isolated case: in 2024 **CVE-2024-4577** (PHP-CGI on Windows, CVSS 9.8) and **CosmicSting** (CVE-2024-34102, Magento, CVSS 9.8) were mass-exploited for weeks after the patch, precisely because thousands of stores hadn't applied it.
+Step 4 is what keeps stores stuck on old PHP versions for years: an abandoned shipping plugin, a custom theme written in 2018, a payment gateway that doesn't support 8.x. And PHP2Shell is not an isolated case: in 2024 **CVE-2024-4577** (PHP-CGI on Windows, CVSS 9.8)[^cve4577] and **CosmicSting** (CVE-2024-34102, Magento, CVSS 9.8)[^cve34102] were mass-exploited for weeks after the patch, precisely because thousands of stores hadn't applied it.
 
 ### Why Shopify doesn't have this problem
 
@@ -72,10 +72,10 @@ A Shopify store has no PHP server to update. No server at all, for that matter.
 
 - **No exposed runtime.** The platform is written in Ruby on Rails, not PHP, so PHP2Shell doesn't affect it. But the language isn't the point: Ruby has had its CVEs too. The point is that the merchant **doesn't run any runtime**.
 - **Centralised patching.** When an infrastructure vulnerability comes out, Shopify fixes it once for every store. Nobody has to notice, nobody has to open a ticket with their host.
-- **No third-party code on the server.** Shopify apps don't run inside the store: they run on the developer's servers and talk to Shopify through APIs, with explicit permissions (scopes) approved at install time. A vulnerable app can expose the data it received, but it can't take over the platform. On WordPress a vulnerable plugin runs code with the same permissions as everything else: **most WordPress compromises start from plugins**, not from core.
+- **No third-party code on the server.** Shopify apps don't run inside the store: they run on the developer's servers and talk to Shopify through APIs, with explicit permissions (scopes) approved at install time. A vulnerable app can expose the data it received, but it can't take over the platform. On WordPress a vulnerable plugin runs code with the same permissions as everything else: **most WordPress compromises start from plugins**[^patchstack], not from core.
 - **Liquid is a sandbox.** Themes are written in Liquid, a template language that can't touch the filesystem, run commands or make arbitrary database queries. A badly written theme can be slow or ugly, but it can't open a shell.
-- **Certified checkout and payments.** Shopify is **PCI DSS Level 1** certified and the checkout is run by the platform. With WooCommerce, PCI compliance is (at least partly) the merchant's responsibility.
-- **Public bug bounty.** Shopify runs one of the best-paying programmes on HackerOne, with researchers hunting for vulnerabilities full time.
+- **Certified checkout and payments.** Shopify is **PCI DSS Level 1** certified[^pci] and the checkout is run by the platform. With WooCommerce, PCI compliance is (at least partly) the merchant's responsibility.
+- **Public bug bounty.** Shopify runs one of the best-paying programmes on HackerOne[^h1], with researchers hunting for vulnerabilities full time.
 
 ### What's still on you, even on Shopify
 
@@ -114,3 +114,12 @@ If those are in place, WooCommerce or Magento remain valid choices, especially w
 - Shopify's advantage isn't better code, it's a **different responsibility model**: Shopify updates the infrastructure, for everyone, without the merchant doing anything.
 - On Shopify, **accounts, apps and third-party scripts** are still your job.
 - WooCommerce and Magento can be secure, but only if someone actually owns keeping them updated. If nobody does, Shopify is the safer bet.
+
+[^php2shell]: Zscaler ThreatLabz, [CVE-2026-109618 and CVE-2026-109619: PHP2Shell](https://www.zscaler.com/blogs/security-research/cve-2026-109618-and-cve-2026-109619-php-vulnerable-unauthenticated-rce); Qualys, [PHP2Shell: Find, Mitigate, and Patch Now](https://blog.qualys.com/vulnerabilities-threat-research/2026/10/20/php-announces-critical-security-release-for-two-vulnerabilities).
+[^phpchangelog]: PHP, [ChangeLog PHP 8](https://www.php.net/ChangeLog-8.php).
+[^phpsupported]: PHP, [Supported Versions](https://www.php.net/supported-versions.php).
+[^cve4577]: NIST NVD, [CVE-2024-4577](https://nvd.nist.gov/vuln/detail/CVE-2024-4577).
+[^cve34102]: NIST NVD, [CVE-2024-34102](https://nvd.nist.gov/vuln/detail/CVE-2024-34102).
+[^patchstack]: Patchstack, [State of WordPress Security in 2024](https://patchstack.com/whitepaper/state-of-wordpress-security-in-2024/): almost all reported vulnerabilities are in plugins and themes, not in core.
+[^pci]: Shopify, [PCI DSS compliance](https://www.shopify.com/pci-compliant).
+[^h1]: HackerOne, [Shopify bug bounty program](https://hackerone.com/shopify).

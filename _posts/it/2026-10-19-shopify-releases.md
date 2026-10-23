@@ -36,7 +36,7 @@ Il metodo più diffuso. Nel negozio si tengono tre temi fissi:
 - **Staging** (o *QA*): non pubblicato, riceve il codice pronto per il rilascio, si condivide con il link di anteprima.
 - **Development**: il tema locale di ogni sviluppatore, creato da `shopify theme dev` (è un *development theme* nascosto, non occupa posti nella libreria).
 
-Con la Shopify CLI gli ambienti si dichiarano in `shopify.theme.toml`:
+Con la Shopify CLI gli ambienti si dichiarano in `shopify.theme.toml`[^cliEnv]:
 
 ```toml
 [environments.staging]
@@ -53,13 +53,13 @@ shopify theme push -e staging
 shopify theme push -e production --allow-live
 ```
 
-Il token per la CI si genera con l'app **Theme Access** e si passa con la variabile `SHOPIFY_CLI_THEME_TOKEN`, senza scriverlo nel file.
+Il token per la CI si genera con l'app **Theme Access**[^themeaccess] e si passa con la variabile `SHOPIFY_CLI_THEME_TOKEN`, senza scriverlo nel file.
 
 **Quando usarlo**: team piccoli, un rilascio alla volta, pochi sviluppatori.
 
 #### 2. Tema per branch (branch-per-theme)
 
-È il metodo **raccomandato da Shopify** con la **GitHub integration** nativa: dalla libreria temi si collega un branch del repository a un tema. La sincronizzazione è bidirezionale: un push sul branch aggiorna il tema, e le modifiche fatte dal commerciante nell'editor diventano commit sul branch.
+È il metodo **raccomandato da Shopify** con la **GitHub integration** nativa[^ghint]: dalla libreria temi si collega un branch del repository a un tema. La sincronizzazione è bidirezionale: un push sul branch aggiorna il tema, e le modifiche fatte dal commerciante nell'editor diventano commit sul branch.
 
 Lo schema tipico:
 
@@ -123,7 +123,7 @@ Le app non stanno nel tema e non seguono i suoi ambienti. Un'app ha **una sola v
 
 #### App separate per ambiente
 
-È il metodo **raccomandato da Shopify**: si creano più app (ad esempio *Brand App Dev*, *Brand App Staging*, *Brand App*) collegate allo stesso codice, ognuna con il suo file di configurazione.
+È il metodo **raccomandato da Shopify**: si creano più app (ad esempio *Brand App Dev*, *Brand App Staging*, *Brand App*) collegate allo stesso codice, ognuna con il suo file di configurazione.[^appconfig]
 
 ```bash
 shopify app config link          # crea shopify.app.staging.toml
@@ -135,7 +135,7 @@ L'app di staging si installa su un **negozio di sviluppo** o sullo store di stag
 
 #### Deploy e release separati
 
-Il comando `shopify app deploy` crea una **app version** e normalmente la rilascia subito. Per coordinare l'app con il resto del go-live si separano i due momenti:
+Il comando `shopify app deploy` crea una **app version** e normalmente la rilascia subito.[^appversions] Per coordinare l'app con il resto del go-live si separano i due momenti:
 
 ```bash
 shopify app deploy --no-release --version "2026-11-bf"
@@ -163,7 +163,7 @@ Le app dell'App Store non si versionano: si aggiornano quando decide lo sviluppa
 Definizioni di metafield, metaobject, menu, filtri, mercati: sono condivisi tra tutti i temi e non hanno versioni. Il metodo che funziona è trattarli come le **migrazioni di un database**: script che si salvano nel repository e si eseguono in ordine.
 
 - **Script idempotenti** sulla Admin API GraphQL (`metafieldDefinitionCreate`, `metaobjectDefinitionCreate`, `metafieldsSet`): si possono rieseguire senza fare danni.
-- **Definizioni dichiarative nell'app**: per i metafield e metaobject di proprietà dell'app, Shopify permette di dichiararli in `shopify.app.toml`, e vengono creati al deploy.
+- **Definizioni dichiarative nell'app**: per i metafield e metaobject di proprietà dell'app, Shopify permette di dichiararli in `shopify.app.toml`, e vengono creati al deploy.[^declarative]
 
 ```toml
 [product.metafields.app.badge]
@@ -213,7 +213,7 @@ Gli strumenti per programmare lo stato commerciale:
 - **sconti** da attivare;
 - **prodotti** da pubblicare o nascondere.
 
-Alla fine dell'evento Launchpad **ripristina** prezzi e tema precedenti. Per un Black Friday su Plus è la scelta più semplice e meno rischiosa.
+Alla fine dell'evento Launchpad **ripristina** prezzi e tema precedenti. Per un Black Friday su Plus è la scelta più semplice e meno rischiosa.[^launchpad]
 
 #### Senza Plus
 
@@ -239,7 +239,7 @@ Si combinano gli strumenti nativi:
             SHOPIFY_FLAG_STORE: mio-negozio.myshopify.com
   ```
 
-  Il cron di GitHub Actions può partire con qualche minuto di ritardo: per un go-live al minuto, meglio pubblicare il tema prima e usare un flag (vedi sotto).
+  Il cron di GitHub Actions può partire con qualche minuto di ritardo[^ghcron]: per un go-live al minuto, meglio pubblicare il tema prima e usare un flag (vedi sotto).
 
 #### Feature flag (dark launch)
 
@@ -272,7 +272,7 @@ Il catalogo si copia con un export e import (Matrixify o script sull'API), le ap
 
 ### Headless: Hydrogen e Oxygen
 
-Chi usa **Hydrogen** con l'hosting **Oxygen** ha ambienti veri per il frontend: ogni branch genera un deployment di anteprima, e si possono definire ambienti *staging* e *production* con variabili diverse. Il problema dei dati però resta identico: lo staging punta allo stesso negozio, salvo collegarlo a uno store di staging.
+Chi usa **Hydrogen** con l'hosting **Oxygen** ha ambienti veri per il frontend: ogni branch genera un deployment di anteprima, e si possono definire ambienti *staging* e *production* con variabili diverse.[^oxygen] Il problema dei dati però resta identico: lo staging punta allo stesso negozio, salvo collegarlo a uno store di staging.
 
 ### Un go-live completo: esempio Black Friday
 
@@ -317,3 +317,13 @@ Il piano di **rollback** si scrive prima, una riga per livello: tema (ripubblica
 - Prezzi e promozioni **non stanno nel tema**: si programmano con sconti a data, Flow, feature flag o Launchpad.
 - Il go-live diventa così una serie di passi piccoli, ognuno con il suo rollback, invece di un unico momento in cui deve funzionare tutto.
 {% endraw %}
+
+[^cliEnv]: Shopify.dev, [Environments in Shopify CLI](https://shopify.dev/docs/storefronts/themes/tools/cli/environments).
+[^themeaccess]: Shopify.dev, [Theme Access](https://shopify.dev/docs/storefronts/themes/tools/theme-access).
+[^ghint]: Shopify.dev, [Shopify GitHub integration for themes](https://shopify.dev/docs/storefronts/themes/tools/github).
+[^appconfig]: Shopify.dev, [App configuration](https://shopify.dev/docs/apps/build/cli-for-apps/app-configuration).
+[^appversions]: Shopify.dev, [Deploy app versions](https://shopify.dev/docs/apps/launch/deployment/deploy-app-versions).
+[^declarative]: Shopify.dev, [Declarative custom data definitions](https://shopify.dev/docs/apps/build/custom-data/declarative-custom-data-definitions).
+[^launchpad]: Shopify App Store, [Launchpad](https://apps.shopify.com/launchpad).
+[^ghcron]: GitHub Docs, [Events that trigger workflows: schedule](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule): gli eventi pianificati possono subire ritardi nei momenti di carico.
+[^oxygen]: Shopify.dev, [Oxygen environments](https://shopify.dev/docs/storefronts/hydrogen/deploy/oxygen/environments).

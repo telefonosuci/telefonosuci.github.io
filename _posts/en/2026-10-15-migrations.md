@@ -14,7 +14,7 @@ This article covers the types of migration, how to tell whether you really need 
 - **Replatforming**: for example from Magento, WooCommerce or PrestaShop to Shopify. The most complete migration: theme, data, integrations and SEO.
 - **Moving to Shopify Plus**: from Shopify to its enterprise plan, to unlock B2B, multiple stores, checkout customisation and automation.
 - **Theme migration**: from an old theme (or a heavily modified, now fragile one) to a modern theme with sections and blocks that marketing manages on its own.
-- **Platform-mandated migrations**: Shopify retired `checkout.liquid` in favour of *Checkout Extensibility*, and Scripts in favour of *Shopify Functions*. Stores using the old technologies had to rebuild those customisations.
+- **Platform-mandated migrations**: Shopify retired `checkout.liquid` in favour of *Checkout Extensibility*[^checkoutliquid], and Scripts in favour of *Shopify Functions*.[^scriptsend] Stores using the old technologies had to rebuild those customisations.
 - **Going headless**: the store stays on Shopify, but the site is rebuilt with a separate frontend (Hydrogen, Next.js).
 - **Migrating connected systems**: a new ERP, introducing a PIM, replacing a warehouse system. The store doesn't change, but every integration does.
 
@@ -70,7 +70,7 @@ Answer yes or no to these questions. The more yeses, the more likely a migration
 | Data | Migrated? | Notes |
 | --- | --- | --- |
 | Products, variants, images | Yes | The perfect moment to clean up the catalogue and complete the data |
-| Customers | Yes | **Passwords can't be transferred** for security reasons: customers receive an invitation to activate their new account |
+| Customers | Yes | **Passwords can't be transferred**[^passwords] for security reasons: customers receive an invitation to activate their new account |
 | Order history | Usually | Useful for support and the customer area; imported with dedicated tools |
 | Reviews | Yes | Depends on the reviews app you choose |
 | Pages, blog, content | Yes | Often worth rewriting, not just copying |
@@ -119,3 +119,7 @@ Some rules of thumb for reading the result:
 ### In short
 
 A migration is worth it when the current platform costs more than it returns: in maintenance, lost sales or opportunities you can't seize. You decide by looking at the signals, you estimate by looking at the complexity factors, and you deliver with a thorough inventory, repeated data rehearsals and special care for SEO.
+
+[^checkoutliquid]: Shopify Changelog, [The checkout.liquid theme file is being deprecated](https://changelog.shopify.com/posts/the-checkout-liquid-theme-file-is-being-deprecated).
+[^scriptsend]: Shopify.dev Changelog, [Shopify Scripts will be deprecated on June 30, 2026](https://shopify.dev/changelog/shopify-scripts-will-be-deprecated-on-june-30-2026).
+[^passwords]: Shopify Help Center, [Importing and exporting customers](https://help.shopify.com/en/manual/customers/import-export-customers): customer passwords can't be migrated from another store.

@@ -39,7 +39,7 @@ Il punto chiave è il passo 5: il pagamento resta quello del negozio. Satispay, 
 
 #### MCP o Storefront API?
 
-Ogni negozio Shopify espone un **MCP server** (Model Context Protocol, lo standard con cui i modelli AI chiamano strumenti esterni) all'indirizzo `https://{negozio}.myshopify.com/api/mcp`, senza autenticazione per la ricerca nel catalogo. È il modo più rapido per partire: il modello trova già pronti strumenti come la ricerca prodotti e la gestione del carrello.
+Ogni negozio Shopify espone un **MCP server** (Model Context Protocol, lo standard con cui i modelli AI chiamano strumenti esterni) all'indirizzo `https://{negozio}.myshopify.com/api/mcp`, senza autenticazione per la ricerca nel catalogo.[^mcp] È il modo più rapido per partire: il modello trova già pronti strumenti come la ricerca prodotti e la gestione del carrello.
 
 Attenzione però: Shopify sta spostando questi strumenti sul nuovo **Universal Commerce Protocol** (UCP). Nella community degli sviluppatori si segnalano un nuovo endpoint (`/api/ucp/mcp`) e strumenti rinominati. Prima di costruirci sopra conviene verificare gli strumenti disponibili sul proprio negozio con una chiamata `tools/list`. Se serve più stabilità, la **Storefront API GraphQL** fa le stesse cose ed è versionata: si scrivono a mano due o tre strumenti (cerca prodotti, dettaglio prodotto, crea carrello) e il modello li usa allo stesso modo.
 
@@ -67,7 +67,7 @@ Sono pochi giorni di lavoro. WhatsApp, ERP, stato degli ordini e metriche si agg
 
 In Italia non sono dettagli:
 
-- **Trasparenza (AI Act)**: il cliente deve sapere che sta parlando con un sistema AI, non con una persona.
+- **Trasparenza (AI Act)**: il cliente deve sapere che sta parlando con un sistema AI, non con una persona.[^aiact]
 - **GDPR**: aggiorna la privacy policy, scegli fornitori con accordi sul trattamento dei dati e valuta dove vengono elaborati. Molti fornitori di modelli AI offrono elaborazione in UE o la non conservazione dei dati.
 - **Niente dati di pagamento nella chat**: con il checkout Shopify il problema non si pone.
 - **Limiti chiari**: l'agente non inventa sconti, non promette tempi di consegna non garantiti e passa la conversazione a una persona quando serve.
@@ -88,3 +88,6 @@ Mentre il checkout dentro ChatGPT e Gemini non arriva in Italia, gli assistenti 
 L'ecommerce agentico "ufficiale" in Italia non è ancora arrivato, ma la tecnologia per costruirlo sì. Un agente di vendita sul proprio negozio è un progetto contenuto, usa il checkout Shopify che hai già e ti dà subito dati su come i clienti cercano i prodotti. La parte difficile non è l'AI: sono i **dati di catalogo** e le **integrazioni** con i sistemi aziendali. Se vuoi valutarlo per il tuo negozio, [scrivimi](/contatti/).
 
 *Informazioni aggiornate a ottobre 2026. Gli strumenti AI di Shopify cambiano spesso: verifica sempre la [documentazione ufficiale](https://shopify.dev/docs/agents).*
+
+[^mcp]: Shopify.dev, [Storefront MCP](https://shopify.dev/docs/apps/build/storefront-mcp).
+[^aiact]: [Regolamento (UE) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) (AI Act), art. 50: obblighi di trasparenza.

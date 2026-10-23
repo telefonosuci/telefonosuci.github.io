@@ -14,7 +14,7 @@ In questo articolo vediamo quali tipi di migrazione esistono, come capire se ti 
 - **Cambio di piattaforma (replatforming)**: ad esempio da Magento, WooCommerce o PrestaShop a Shopify. È la migrazione più completa: tema, dati, integrazioni e SEO.
 - **Passaggio a Shopify Plus**: dallo stesso Shopify al piano enterprise, per sbloccare B2B, più negozi, personalizzazione del checkout e automazioni.
 - **Migrazione del tema**: da un tema vecchio (o molto modificato e ormai fragile) a un tema moderno, con sezioni e blocchi che il marketing gestisce in autonomia.
-- **Migrazioni imposte dalla piattaforma**: Shopify ha dismesso `checkout.liquid` a favore della *Checkout Extensibility*, e gli Scripts a favore delle *Shopify Functions*. Chi usava le vecchie tecnologie ha dovuto rifare quelle personalizzazioni.
+- **Migrazioni imposte dalla piattaforma**: Shopify ha dismesso `checkout.liquid` a favore della *Checkout Extensibility*[^checkoutliquid], e gli Scripts a favore delle *Shopify Functions*.[^scriptsend] Chi usava le vecchie tecnologie ha dovuto rifare quelle personalizzazioni.
 - **Passaggio a headless**: il negozio resta su Shopify, ma il sito viene ricostruito con un frontend separato (Hydrogen, Next.js).
 - **Migrazione dei sistemi collegati**: cambio di ERP, introduzione di un PIM, sostituzione di un gestionale di magazzino. Il negozio non cambia, ma tutte le integrazioni sì.
 
@@ -70,7 +70,7 @@ Rispondi sì o no a queste domande. Più sì ci sono, più la migrazione è prob
 | Dato | Si migra? | Note |
 | --- | --- | --- |
 | Prodotti, varianti, immagini | Sì | Occasione ideale per ripulire il catalogo e completare i dati |
-| Clienti | Sì | Le **password non si possono trasferire** per sicurezza: i clienti ricevono un invito ad attivare il nuovo account |
+| Clienti | Sì | Le **password non si possono trasferire**[^passwords] per sicurezza: i clienti ricevono un invito ad attivare il nuovo account |
 | Storico ordini | Sì, di solito | Utile per l'assistenza e per l'area cliente; si importa con strumenti dedicati |
 | Recensioni | Sì | Dipende dall'app di recensioni scelta |
 | Pagine, blog, contenuti | Sì | Spesso conviene riscriverli, non solo copiarli |
@@ -119,3 +119,7 @@ Alcune regole pratiche per leggere il risultato:
 ### In sintesi
 
 Una migrazione serve quando la piattaforma attuale costa più di quanto rende: in manutenzione, in vendite perse o in opportunità che non puoi cogliere. Si decide guardando i segnali, si stima guardando i fattori di complessità, e si porta a termine con un inventario accurato, prove ripetute dei dati e una cura particolare per la SEO.
+
+[^checkoutliquid]: Shopify Changelog, [The checkout.liquid theme file is being deprecated](https://changelog.shopify.com/posts/the-checkout-liquid-theme-file-is-being-deprecated).
+[^scriptsend]: Shopify.dev Changelog, [Shopify Scripts will be deprecated on June 30, 2026](https://shopify.dev/changelog/shopify-scripts-will-be-deprecated-on-june-30-2026).
+[^passwords]: Shopify Help Center, [Importing and exporting customers](https://help.shopify.com/en/manual/customers/import-export-customers): le password dei clienti non si possono importare da un altro negozio.

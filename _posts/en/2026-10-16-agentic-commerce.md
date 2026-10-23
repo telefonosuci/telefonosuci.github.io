@@ -12,7 +12,7 @@ Shopify has built dedicated infrastructure for it, yet few merchants know about 
 
 ### Agentic Storefronts: the sales channel for AI assistants
 
-With the **Winter '26 Edition** (December 2025) Shopify introduced **Agentic Storefronts**: a sales channel, like Facebook or Google, that makes the store's products available to AI assistants. You manage it in the admin under *Settings → Sales channels* and, for eligible stores, it's **on by default**.
+With the **Winter '26 Edition** (December 2025)[^winter26] Shopify introduced **Agentic Storefronts**: a sales channel, like Facebook or Google, that makes the store's products available to AI assistants. You manage it in the admin under *Settings → Sales channels* and, for eligible stores, it's **on by default**.
 
 Supported channels, according to [Shopify's official documentation](https://www.shopify.com/blog/how-agentic-commerce-works) (updated June 2026):
 
@@ -26,11 +26,11 @@ You don't need apps or custom integrations. Shopify charges **no extra fees** on
 
 **Shopify Catalog** is the global index of products from every Shopify store. It takes data from the admin (titles, descriptions, variants, prices, availability) and normalizes it. It also uses machine learning and transaction signals to infer attributes that are missing. Every change to prices and inventory reaches all AI channels.
 
-The second piece is the **Universal Commerce Protocol (UCP)**, an open standard developed by Shopify and Google and announced at NRF in New York in January 2026. It defines how an agent handles cart, checkout, payment and post-purchase with any store, with no separate integration for each platform. When the agent can't finish the purchase on its own, for example because the buyer needs a new payment method, the protocol hands control back to the buyer through an embedded checkout. Supporters include Microsoft, Amazon, Stripe, Visa and Mastercard.
+The second piece is the **Universal Commerce Protocol (UCP)**, an open standard developed by Shopify and Google and announced at NRF in New York in January 2026.[^ucp] It defines how an agent handles cart, checkout, payment and post-purchase with any store, with no separate integration for each platform. When the agent can't finish the purchase on its own, for example because the buyer needs a new payment method, the protocol hands control back to the buyer through an embedded checkout. Supporters include Microsoft, Amazon, Stripe, Visa and Mastercard.
 
 ### The catch: US buyers only, for now
 
-Right now, purchases through Agentic Storefronts are available **only to buyers in the United States**, wherever the store is based. ChatGPT and Copilot only require selling to the US. Google AI Mode and Gemini are limited to a selection of US-based stores. Shopify says stores will be ready by default when AI partners expand to other regions, but there's no date for Europe.
+Right now, purchases through Agentic Storefronts are available **only to buyers in the United States**, wherever the store is based.[^howagentic] ChatGPT and Copilot only require selling to the US. Google AI Mode and Gemini are limited to a selection of US-based stores. Shopify says stores will be ready by default when AI partners expand to other regions, but there's no date for Europe.
 
 In practice:
 
@@ -54,7 +54,7 @@ All of this already improves classic SEO and Google Shopping. It's not wasted ef
 
 ### Not on Shopify? The Agentic Plan
 
-Shopify also launched the **Shopify Agentic Plan**, for brands selling on other platforms (WooCommerce, Magento, custom or SAP-based systems) that want to be present in AI channels without replatforming. It lets them load products into Shopify Catalog and sell through Agentic Storefronts. There's no monthly subscription: you pay payment fees on sales, and the plan integrates with existing PIM, tax and order management systems. The same geographic limits apply.
+Shopify also launched the **Shopify Agentic Plan**, for brands selling on other platforms (WooCommerce, Magento, custom or SAP-based systems) that want to be present in AI channels without replatforming.[^agplan] It lets them load products into Shopify Catalog and sell through Agentic Storefronts. There's no monthly subscription: you pay payment fees on sales, and the plan integrates with existing PIM, tax and order management systems. The same geographic limits apply.
 
 <div class="tech" markdown="1">
 <p class="eyebrow">Technical part · for developers</p>
@@ -77,3 +77,8 @@ For a brand, this means it can build **its own shopping assistant**, on its site
 Agentic commerce doesn't replace the website: it extends it. Customers discover and choose inside the assistant, while the order, the payment and the relationship stay with the store. Shopify has made access almost automatic, and the real difference comes from **catalog data quality**. Outside the US the channel isn't open yet: now is the right time to get products, attributes and integrations in order, so you're not starting late when it arrives.
 
 *Information current as of October 2026, based on official Shopify sources. Channels and availability change often: check your store's admin.*
+
+[^winter26]: Shopify, [Winter '26 Edition: Agentic Storefronts](https://www.shopify.com/news/winter-26-edition-agentic-storefronts).
+[^ucp]: [Universal Commerce Protocol](https://ucp.dev/), the protocol's official site.
+[^howagentic]: Shopify, [How agentic commerce works](https://www.shopify.com/blog/how-agentic-commerce-works) (updated June 18, 2026).
+[^agplan]: Shopify, [Millions of merchants can sell in AI chats](https://www.shopify.com/news/agentic-commerce-momentum) (March 24, 2026): Agentic plan announcement.

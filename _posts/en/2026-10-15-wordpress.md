@@ -5,14 +5,14 @@ categories: Stack
 reading_time: 5
 ---
 
-**WordPress** is the most widely used open source CMS (Content Management System) in the world: it powers a huge share of the web, from personal blogs to editorial portals. It's written in PHP, uses a MySQL/MariaDB database and runs on practically any hosting. Don't confuse it with **WordPress.com**, the managed hosting service run by Automattic: here we're talking about **WordPress.org**, the software you install yourself.
+**WordPress** is the most widely used open source CMS (Content Management System) in the world: it powers a huge share of the web[^w3techs], from personal blogs to editorial portals. It's written in PHP, uses a MySQL/MariaDB database and runs on practically any hosting. Don't confuse it with **WordPress.com**, the managed hosting service run by Automattic: here we're talking about **WordPress.org**, the software you install yourself.
 
 ### How it works
 
 - **Core**: handles users, content (posts, pages, media), menus and permalinks.
 - **Block editor (Gutenberg)**: content is built from blocks (text, images, columns, buttons). With **block themes** and *Full Site Editing*, headers, footers and templates are edited in the editor too.
 - **Themes**: define the look. They're customised with a *child theme* so changes survive updates.
-- **Plugins**: add features. There are tens of thousands in the official directory.
+- **Plugins**: add features. There are tens of thousands in the official directory.[^wpplugins]
 - **Hooks**: the system of *actions* and *filters* that lets themes and plugins plug into the core without modifying it.
 - **API**: content can also be read by other systems, so WordPress can act as the "content store" for a site or app built with other technologies (*headless* mode).
 
@@ -37,7 +37,7 @@ reading_time: 5
 
 ### Disadvantages
 
-- **Security**: being the most popular CMS, it's also the most attacked. Core, themes and plugins must be kept up to date; most vulnerabilities come from third-party plugins.
+- **Security**: being the most popular CMS, it's also the most attacked. Core, themes and plugins must be kept up to date; most vulnerabilities come from third-party plugins.[^patchstack]
 - **Performance**: heavy themes and too many plugins slow the site down. You need caching, good hosting and discipline.
 - **Uneven plugin quality**: compatibility, support and code aren't always up to standard. An update can break things.
 - **Technical debt**: after years of plugins added "just this once", sites become hard to maintain.
@@ -64,3 +64,7 @@ reading_time: 5
 **Yes**, for content sites, blogs and company websites the client wants to run on their own, when you need a broad ecosystem on a modest budget, and when someone will take care of updates.
 
 **No**, if the project is mainly an ecommerce that needs to scale (Shopify is better), if content must feed several channels (a headless CMS is better), or if nobody will maintain it: an abandoned WordPress quickly becomes a security problem.
+
+[^w3techs]: W3Techs, [Usage statistics of WordPress](https://w3techs.com/technologies/details/cm-wordpress).
+[^wpplugins]: WordPress.org, [Plugin Directory](https://wordpress.org/plugins/).
+[^patchstack]: Patchstack, [State of WordPress Security in 2024](https://patchstack.com/whitepaper/state-of-wordpress-security-in-2024/): almost all reported vulnerabilities are in plugins and themes, not in core.

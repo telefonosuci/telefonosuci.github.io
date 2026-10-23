@@ -12,7 +12,7 @@ Shopify ha costruito un'infrastruttura apposita, ma in Italia se ne parla ancora
 
 ### Agentic Storefronts: il canale di vendita per gli assistenti AI
 
-Con la **Winter '26 Edition** (dicembre 2025) Shopify ha introdotto gli **Agentic Storefronts**: un canale di vendita, come Facebook o Google, che rende i prodotti del negozio disponibili agli assistenti AI. Si gestisce dall'admin in *Impostazioni → Canali di vendita* e, per i negozi idonei, è **attivo di default**.
+Con la **Winter '26 Edition** (dicembre 2025)[^winter26] Shopify ha introdotto gli **Agentic Storefronts**: un canale di vendita, come Facebook o Google, che rende i prodotti del negozio disponibili agli assistenti AI. Si gestisce dall'admin in *Impostazioni → Canali di vendita* e, per i negozi idonei, è **attivo di default**.
 
 I canali supportati, secondo la [documentazione ufficiale di Shopify](https://www.shopify.com/blog/how-agentic-commerce-works) (aggiornata a giugno 2026):
 
@@ -26,11 +26,11 @@ Non servono app né integrazioni custom. Shopify non applica **commissioni aggiu
 
 **Shopify Catalog** è l'indice globale dei prodotti di tutti i negozi Shopify. Prende i dati dall'admin (titoli, descrizioni, varianti, prezzi, disponibilità) e li normalizza. Con modelli di machine learning e i segnali delle transazioni ricava anche attributi che mancano. Ogni modifica a prezzi e giacenze arriva a tutti i canali AI.
 
-Il secondo pezzo è lo **Universal Commerce Protocol (UCP)**, uno standard aperto sviluppato da Shopify e Google e presentato a gennaio 2026 alla NRF di New York. Definisce come un agente gestisce carrello, checkout, pagamento e post-vendita con qualsiasi negozio, senza un'integrazione diversa per ogni piattaforma. Se l'agente non riesce a completare l'acquisto da solo, per esempio perché serve un metodo di pagamento nuovo, il protocollo passa la mano al cliente con un checkout incorporato. Tra chi lo supporta ci sono Microsoft, Amazon, Stripe, Visa e Mastercard.
+Il secondo pezzo è lo **Universal Commerce Protocol (UCP)**, uno standard aperto sviluppato da Shopify e Google e presentato a gennaio 2026 alla NRF di New York.[^ucp] Definisce come un agente gestisce carrello, checkout, pagamento e post-vendita con qualsiasi negozio, senza un'integrazione diversa per ogni piattaforma. Se l'agente non riesce a completare l'acquisto da solo, per esempio perché serve un metodo di pagamento nuovo, il protocollo passa la mano al cliente con un checkout incorporato. Tra chi lo supporta ci sono Microsoft, Amazon, Stripe, Visa e Mastercard.
 
 ### Il punto dolente: per ora solo clienti negli Stati Uniti
 
-Ad oggi gli acquisti tramite Agentic Storefronts sono disponibili **solo per clienti negli Stati Uniti**, ovunque si trovi il negozio. Per ChatGPT e Copilot basta vendere negli USA. Google AI Mode e Gemini sono limitati a una selezione di negozi con sede negli USA. Shopify dice che i negozi saranno pronti *by default* quando i partner AI si espanderanno in altre regioni, ma una data per l'Europa non c'è.
+Ad oggi gli acquisti tramite Agentic Storefronts sono disponibili **solo per clienti negli Stati Uniti**, ovunque si trovi il negozio.[^howagentic] Per ChatGPT e Copilot basta vendere negli USA. Google AI Mode e Gemini sono limitati a una selezione di negozi con sede negli USA. Shopify dice che i negozi saranno pronti *by default* quando i partner AI si espanderanno in altre regioni, ma una data per l'Europa non c'è.
 
 In pratica:
 
@@ -54,7 +54,7 @@ Tutto questo migliora già da ora anche la SEO classica e Google Shopping. Non �
 
 ### Per chi non usa Shopify: l'Agentic Plan
 
-Shopify ha lanciato anche lo **Shopify Agentic Plan**, pensato per i brand che vendono su altre piattaforme (WooCommerce, Magento, sistemi custom o basati su SAP) e vogliono essere presenti nei canali AI senza migrare. Permette di caricare i prodotti nello Shopify Catalog e vendere tramite gli Agentic Storefronts. Non c'è un abbonamento mensile: si pagano le commissioni di pagamento sulle vendite e il piano si integra con PIM, gestione fiscale e sistemi di gestione ordini già in uso. Anche qui valgono gli stessi limiti geografici.
+Shopify ha lanciato anche lo **Shopify Agentic Plan**, pensato per i brand che vendono su altre piattaforme (WooCommerce, Magento, sistemi custom o basati su SAP) e vogliono essere presenti nei canali AI senza migrare.[^agplan] Permette di caricare i prodotti nello Shopify Catalog e vendere tramite gli Agentic Storefronts. Non c'è un abbonamento mensile: si pagano le commissioni di pagamento sulle vendite e il piano si integra con PIM, gestione fiscale e sistemi di gestione ordini già in uso. Anche qui valgono gli stessi limiti geografici.
 
 <div class="tech" markdown="1">
 <p class="eyebrow">Parte tecnica · per sviluppatori</p>
@@ -77,3 +77,8 @@ Per un brand questo significa poter costruire un **assistente di vendita proprio
 L'ecommerce agentico non sostituisce il sito: ne diventa un'estensione. Il cliente scopre e sceglie nell'assistente, ma l'ordine, il pagamento e la relazione restano del negozio. Shopify ha reso l'accesso quasi automatico e la vera differenza la fa la **qualità dei dati di catalogo**. In Italia il canale non è ancora aperto: è il momento giusto per mettere in ordine prodotti, attributi e integrazioni, così da non partire in ritardo quando arriverà.
 
 *Informazioni aggiornate a ottobre 2026, basate sulle fonti ufficiali Shopify. Canali e disponibilità cambiano spesso: verifica nell'admin del tuo negozio.*
+
+[^winter26]: Shopify, [Winter '26 Edition: Agentic Storefronts](https://www.shopify.com/news/winter-26-edition-agentic-storefronts).
+[^ucp]: [Universal Commerce Protocol](https://ucp.dev/), sito ufficiale del protocollo.
+[^howagentic]: Shopify, [How agentic commerce works](https://www.shopify.com/blog/how-agentic-commerce-works) (aggiornato al 18 giugno 2026).
+[^agplan]: Shopify, [Millions of merchants can sell in AI chats](https://www.shopify.com/news/agentic-commerce-momentum) (24 marzo 2026): annuncio dell'Agentic plan.

@@ -20,8 +20,9 @@ Questa guida spiega cosa sono, da dove arrivano, come si scrive una function, in
 | **2022** | Developer preview e prime API in disponibilità generale: gli **sconti** (prodotto, ordine, spedizione). |
 | **2023** | Arrivano **delivery customization**, **payment customization**, **cart and checkout validation** e **cart transform** (bundle). |
 | **2024** | Si aggiungono **fulfillment constraints**, **order routing** e generatori di opzioni di ritiro. |
-| **2025** | **Discount API unificata**: una sola function può applicare sconti su prodotti, ordine e spedizione. Da aprile 2025 gli Scripts non si possono più modificare né pubblicare. |
-| **30 giugno 2026** | Gli **Scripts smettono di funzionare**. Le Functions sono l'unico modo per personalizzare questa logica. |
+| **2025** | **Discount API unificata**: una sola function può applicare sconti su prodotti, ordine e spedizione. |
+| **15 aprile 2026** | Gli Scripts non si possono più modificare né pubblicare. |
+| **30 giugno 2026** | Gli **Scripts smettono di funzionare**.[^fnscripts] Le Functions sono l'unico modo per personalizzare questa logica. |
 
 Il passaggio non è solo un cambio di linguaggio. Gli Scripts erano codice interpretato, legato al vecchio `checkout.liquid`. Le Functions sono moduli **WebAssembly** distribuiti dentro un'app, versionati con l'app, e funzionano con il checkout a estensioni, con lo Shop Pay, con le API del carrello e con i canali headless.
 
@@ -227,13 +228,13 @@ I **metafield** sull'oggetto sono il modo standard per configurare la function s
 - **Funzionano ovunque.** Checkout online, Shop Pay, carrello via Storefront API, headless, in molti casi anche POS.
 - **Sono versionate.** Vivono nell'app, si rilasciano con `shopify app deploy`, si torna indietro rilasciando una versione precedente.
 - **Sono configurabili.** Con i metafield il merchant cambia i parametri senza toccare il codice.
-- **Non sono più solo Plus.** Le function dentro un'app pubblica funzionano su tutti i piani. (Le **custom app** con function restano invece riservate a Plus.)
+- **Non sono più solo Plus.** Le function dentro un'app pubblica funzionano su tutti i piani. (Le **custom app** con function restano invece riservate a Plus.)[^fnplans]
 - **Si testano bene.** Sono funzioni pure: input JSON, output JSON. Un test unitario è un file di fixture e un `expect`.
 
 ### Limiti
 
 - **Niente rete, niente stato.** La function non può chiamare un'API esterna né ricordare nulla tra un'esecuzione e l'altra. I dati devono arrivare dalla query di input: metafield su prodotti, clienti, negozio o sull'oggetto della function. (Per alcune API esiste un accesso di rete in sola lettura, riservato ai piani Enterprise.)
-- **Limiti di risorse stretti.** Circa **11 milioni di istruzioni** per esecuzione (scalati sui carrelli molto grandi), modulo compilato di pochi **centinaia di KB**, input e output con dimensione massima e query di input con un costo massimo. Una logica in JavaScript con molte dipendenze li raggiunge in fretta: è uno dei motivi per cui Shopify consiglia Rust.
+- **Limiti di risorse stretti.** Circa **11 milioni di istruzioni** per esecuzione[^fnlimits] (scalati sui carrelli molto grandi), modulo compilato di pochi **centinaia di KB**, input e output con dimensione massima e query di input con un costo massimo. Una logica in JavaScript con molte dipendenze li raggiunge in fretta: è uno dei motivi per cui Shopify consiglia Rust.
 - **Solo ciò che l'API prevede.** Ogni Function API ha un insieme chiuso di operazioni. Non puoi, per esempio, cambiare il prezzo di una spedizione con una delivery customization: puoi solo nasconderla, rinominarla o spostarla.
 - **Numero di function attive limitato.** Ci sono tetti per tipo (per esempio un massimo di function di payment o delivery customization attive per negozio): una strategia "una function per regola" non scala, meglio una function configurabile.
 - **Serve un'app.** Anche per una regola semplice bisogna creare, distribuire e mantenere un'app, con il suo ciclo di versioni.
@@ -260,3 +261,7 @@ Il pattern più comune nei progetti reali è proprio l'ultimo misto: un backend 
 - Sono veloci, scalabili, versionate e funzionano su tutti i canali, ma **non hanno rete né stato** e hanno limiti di risorse stretti.
 - La regola pratica: **la function decide, i metafield la configurano, un backend li tiene aggiornati.**
 {% endraw %}
+
+[^fnscripts]: Shopify Changelog, [Shopify Scripts can no longer be edited or published](https://changelog.shopify.com/posts/shopify-scripts-can-no-longer-be-edited-or-published); [Shopify Scripts will be deprecated on June 30, 2026](https://shopify.dev/changelog/shopify-scripts-will-be-deprecated-on-june-30-2026).
+[^fnlimits]: Shopify.dev, [Shopify Functions](https://shopify.dev/docs/api/functions): limiti di risorse.
+[^fnplans]: Shopify.dev, [Shopify Functions](https://shopify.dev/docs/api/functions): le custom app con function richiedono Shopify Plus, le app pubbliche funzionano su tutti i piani.

@@ -21,7 +21,7 @@ Pimcore is an open source platform for managing business data, born in Austria a
 
 Unlike "ready-made" PIMs, Pimcore is **shaped** around the company: product records, relationships, validation rules and approval workflows are designed to fit. That's its strength, and also why it requires a development project.
 
-A note on licensing: in recent years Pimcore has changed the terms of its free edition (Community Edition). Before choosing, check which edition fits the size and use of your company.
+A note on licensing: in recent years Pimcore has changed the terms of its free edition (Community Edition).[^pocl] Before choosing, check which edition fits the size and use of your company.
 
 ### Why combine them
 
@@ -55,7 +55,7 @@ Together you get:
 | --- | --- |
 | Product class (e.g. "Shoe", "Sofa") | Product type, with its set of metafields |
 | Product fields | Standard fields (title, description, price) and **metafields** |
-| Variants (child objects of the product) | **Variants**, with at most three options per product |
+| Variants (child objects of the product) | **Variants**, with at most three options per product[^options] |
 | Dynamic attribute groups (classification store, object bricks) | **Metafields**, one namespace per group |
 | Linked objects (materials, designers, certifications) | **Metaobjects**, shown in the theme as reusable blocks |
 | DAM images | Product **media**, in the right format and size |
@@ -99,3 +99,6 @@ If Pimcore still needs to be implemented from scratch (data model, ERP imports, 
 **It pays off** if you have large or technical catalogues, regulated data, several brands or Shopify stores, channels beyond ecommerce, or approval processes across departments. In those cases Pimcore repays the investment in order, faster launches and fewer errors.
 
 **It doesn't** if you have a simple catalogue and a single store: a lighter SaaS PIM (like Plytix or Akeneo) or a well-organised Shopify admin are faster and cheaper. Pimcore is a powerful tool, but choose it when the complexity is really there.
+
+[^pocl]: Pimcore, [Pimcore says goodbye to GPL and enters a new era with POCL](https://pimcore.com/en/resources/blog/breaking-free-pimcore-says-goodbye-to-gpl-and-enters-a-new-era-with-pocl): from version 2025.1 the Community Edition moves from GPLv3 to the Pimcore Open Core License.
+[^options]: Shopify Help Center, [Adding variants](https://help.shopify.com/en/manual/products/variants/add-variants): up to 3 options per product.
