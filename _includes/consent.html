@@ -1,59 +1,13 @@
 {%- comment -%}
-  Cookie banner: gtag.js (GA4) loads only after "Accept" (no request to Google before consent).
+  Cookie banner: gtag.js (GA4) loads only after "Accept" (no request to Google before consent). Behaviour: _js/ui/consent.js.
   ponytail: single "statistics" category; split into categories if marketing tags get added.
 {%- endcomment -%}
 {%- if site.suci.ga_id and jekyll.environment == 'production' %}
-<dialog class="consent card" data-consent aria-label="{{ t.consent.title }}">
+<dialog class="consent card" data-consent data-ga-id="{{ site.suci.ga_id }}" data-version="{{ site.suci.consent.version | default: 1 }}" data-max-age-days="{{ site.suci.consent.max_age_days | default: 180 }}" aria-label="{{ t.consent.title }}">
   <p>{{ t.consent.text }}</p>
   <div class="consent__actions">
     <button class="btn btn--ghost" type="button" value="denied">{{ t.consent.deny }}</button>
     <button class="btn" type="button" value="granted">{{ t.consent.accept }}</button>
   </div>
 </dialog>
-<script>
-  (() => {
-    const KEY = 'consent-analytics', dialog = document.querySelector('[data-consent]');
-    const VERSION = {{ site.suci.consent.version | default: 1 | jsonify }};
-    const MAX_AGE = {{ site.suci.consent.max_age_days | default: 180 }} * 864e5;
-    let loaded = false;
-    const load = () => {
-      if (loaded) return;
-      loaded = true;
-      const s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + {{ site.suci.ga_id | jsonify }};
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function () { dataLayer.push(arguments); };
-      gtag('js', new Date());
-      gtag('config', {{ site.suci.ga_id | jsonify }});
-    };
-    // Revoking: drop GA cookies (_ga, _ga_*) and reload so gtag is gone from the page.
-    const revoke = () => {
-      document.cookie.split('; ').map(c => c.split('=')[0]).filter(n => n.startsWith('_ga')).forEach(n => {
-        document.cookie = n + '=; Max-Age=0; path=/';
-        document.cookie = n + '=; Max-Age=0; path=/; domain=' + location.hostname;
-      });
-      if (loaded) location.reload();
-    };
-    // Stored as { v, choice, at }; an outdated version or expired choice counts as no choice.
-    let choice = null;
-    try {
-      const saved = JSON.parse(localStorage.getItem(KEY));
-      if (saved && saved.v === VERSION && Date.now() - saved.at < MAX_AGE) choice = saved.choice;
-    } catch {}
-
-    dialog.addEventListener('click', (e) => {
-      const v = e.target.value;
-      if (!v) return;
-      try { localStorage.setItem(KEY, JSON.stringify({ v: VERSION, choice: v, at: Date.now() })); } catch {}
-      dialog.close();
-      v === 'granted' ? load() : revoke();
-    });
-    document.querySelectorAll('[data-consent-open]').forEach((b) => b.addEventListener('click', () => dialog.show()));
-
-    if (choice === 'granted') load();
-    else if (!choice) dialog.show();
-  })();
-</script>
 {%- endif %}

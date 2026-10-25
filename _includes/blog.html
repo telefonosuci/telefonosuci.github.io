@@ -20,14 +20,3 @@
   </li>
   {%- endfor %}
 </ul>
-<script>
-  document.querySelectorAll('[data-filter]').forEach((btn, _, all) => {
-    btn.addEventListener('click', () => {
-      const f = btn.dataset.filter;
-      all.forEach((b) => b.classList.toggle('chip--active', b === btn));
-      document.querySelectorAll('[data-cats]').forEach((li) => {
-        li.hidden = f !== 'all' && !li.dataset.cats.split('|').includes(f);
-      });
-    });
-  });
-</script>

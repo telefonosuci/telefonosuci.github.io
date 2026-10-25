@@ -1,12 +1,12 @@
 // Motion entry point. Components declare behaviour with data-* attributes;
 // each module below wires one attribute. Everything is skipped under
 // prefers-reduced-motion; parallax switches to a simpler variant on narrow screens.
-import hero from './hero.js';
-import reveal from './reveal.js';
-import parallax from './parallax.js';
-import marquee from './marquee.js';
-import hscroll from './hscroll.js';
-import zoom from './zoom.js';
+import hero from './motion/hero.js';
+import reveal from './motion/reveal.js';
+import parallax from './motion/parallax.js';
+import marquee from './motion/marquee.js';
+import hscroll from './motion/hscroll.js';
+import zoom from './motion/zoom.js';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 

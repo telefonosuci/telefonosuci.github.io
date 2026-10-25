@@ -1,9 +1,9 @@
 {
   "name": "telefonosuci.github.io",
   "private": true,
-  "description": "JS bundle for the Jekyll site (GSAP animations)",
+  "description": "JS bundles for the Jekyll site: every _js/*.js is an entry, built into assets/js/",
   "scripts": {
-    "build": "esbuild _js/motion/index.js --bundle --minify --format=esm --target=es2020 --outfile=assets/js/motion.js",
+    "build": "esbuild \"_js/*.js\" --bundle --splitting --minify --format=esm --target=es2020 --outdir=assets/js --chunk-names=chunks/[name]-[hash]",
     "watch": "npm run build -- --watch"
   },
   "dependencies": {

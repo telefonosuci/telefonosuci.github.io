@@ -1,8 +1,0 @@
-.lost {
-  display: block;
-  width: 100%;
-  height: clamp(180px, 36vw, 360px);
-  margin: 8px 0 24px;
-  cursor: pointer;
-  touch-action: manipulation; // taps scatter, scrolling still works
-}

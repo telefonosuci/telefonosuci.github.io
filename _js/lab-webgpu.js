@@ -2,6 +2,9 @@
 // A compute pass integrates the physics, a render pass draws lit instances with a depth buffer.
 // The pointer is a solid disc: it bumps the objects, and they bump each other and the walls.
 // Object data lives only on the GPU, ping-ponged between two buffers so collisions read a stable frame.
+import { reducedMotion } from './lib/env.js';
+import { fit } from './lib/canvas.js';
+
 const canvas = document.querySelector('[data-lab-canvas]');
 const fallback = document.querySelector('[data-lab-fallback]');
 const N = 200; // max objects, keep in sync with the "count" slider max in _includes/lab.html
@@ -198,11 +201,9 @@ async function start() {
   const format = navigator.gpu.getPreferredCanvasFormat();
   ctx.configure({ device, format, alphaMode: 'opaque' });
 
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
   let aspect = 1, depthTex;
   const resize = () => {
-    canvas.width = canvas.clientWidth * dpr;
-    canvas.height = canvas.clientHeight * dpr;
+    fit(canvas);
     aspect = canvas.width / canvas.height;
     depthTex?.destroy();
     depthTex = device.createTexture({ size: [canvas.width, canvas.height], format: 'depth24plus', usage: GPUTextureUsage.RENDER_ATTACHMENT });
@@ -273,7 +274,6 @@ async function start() {
   form.addEventListener('reset', () => setTimeout(read)); // reset fires before values change
 
   // Respect reduced motion: only animate while the user is interacting.
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let running = false, visible = true, last = performance.now(), idle = 0;
 
   function frame(now) {
@@ -311,7 +311,7 @@ async function start() {
 
     idle = pointer.moved ? 0 : idle + 1;
     pointer.moved = false;
-    running = visible && !document.hidden && (!reduced || idle < 60);
+    running = visible && !document.hidden && (!reducedMotion || idle < 60);
     if (running) requestAnimationFrame(frame);
   }
 

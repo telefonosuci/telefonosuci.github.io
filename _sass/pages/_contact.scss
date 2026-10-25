@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 // Lock page scroll while the confirmation dialog is open (showModal already blocks clicks).
 html:has(.contact__dialog[open]) { overflow: hidden; }
 
@@ -6,7 +8,7 @@ html:has(.contact__dialog[open]) { overflow: hidden; }
   gap: 40px;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
   margin-top: 32px;
-  @media (max-width: 860px) { grid-template-columns: 1fr; }
+  @include below(md) { grid-template-columns: 1fr; }
   &__form {
     display: grid;
     gap: 16px;

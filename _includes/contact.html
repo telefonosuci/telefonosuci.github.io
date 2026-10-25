@@ -9,26 +9,10 @@
     <button class="btn contact__submit" type="submit">{{ t.form.send }}</button>
   </form>
   <!-- ponytail: closedby="none" disables Esc natively; browsers without support still close on Esc. -->
-  <dialog class="contact__dialog card" data-contact-dialog closedby="none">
+  <dialog class="contact__dialog card" data-contact-dialog data-sent="{{ t.form.sent | escape }}" data-error="{{ t.form.error | escape }}" closedby="none">
     <p></p>
     <form method="dialog"><button class="btn">OK</button></form>
   </dialog>
-  <script>
-    // Submit via fetch so the visitor stays on the page instead of Formspree's thank-you page.
-    document.querySelector('[data-contact-form]').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const form = e.target, dialog = document.querySelector('[data-contact-dialog]'), btn = form.querySelector('button');
-      btn.disabled = true;
-      let ok = false;
-      try {
-        ok = (await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })).ok;
-      } catch {}
-      dialog.querySelector('p').textContent = ok ? {{ t.form.sent | jsonify }} : {{ t.form.error | jsonify }};
-      dialog.showModal();
-      if (ok) form.reset();
-      btn.disabled = false;
-    });
-  </script>
   <aside class="contact__aside">
     {{ include.aside | markdownify }}
     <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>

@@ -1,5 +1,9 @@
 // Hero background: a pit of yellow parcels seen from above. The pointer puts them in order.
 // Canvas 2D, no dependencies.
+import { reducedMotion, coarsePointer } from './lib/env.js';
+import { fit, onResize, loopWhileVisible } from './lib/canvas.js';
+import { drawParcels } from './lib/parcel.js';
+
 const canvas = document.querySelector('[data-hero-bg]');
 const ctx = canvas?.getContext('2d');
 
@@ -9,21 +13,15 @@ const RADIUS = 150;   // pointer influence
 const CHAOS = 22;     // how far a messy parcel sits from its slot
 const BOUNCE = 0.8;    // how much speed a hit gives back; 0 = they just stop
 const R = SIZE * 0.55; // collision radius, a disc around the square; 2R < CELL so the tidy grid never touches
-const FACES = ['#fdc14a', '#fca311', '#d98a08', 'rgba(120, 70, 0, .35)']; // top, side, bottom, tape
 
-const dpr = Math.min(window.devicePixelRatio || 1, 2);
-const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const touch = window.matchMedia('(pointer: coarse)').matches;
 const mouse = { x: -1e4, y: -1e4 };
 let sweep = -1e4; // touch devices: rows above this line (canvas px) are ordered for good; scrolling pushes it down
 let cubes = [], cols = 0, w = 0, h = 0, t = 0;
-let visible = true, raf = 0;
 
 // Parcels lie scattered; the pointer tidies the ones it passes into a neat grid,
 // and they slowly slide back into the mess once it leaves.
 function resize() {
-  w = canvas.clientWidth; h = canvas.clientHeight;
-  canvas.width = w * dpr; canvas.height = h * dpr;
+  ({ w, h } = fit(canvas));
   cubes = [];
   cols = Math.ceil((w + CELL / 2) / CELL);
   for (let y = CELL / 2; y < h + CELL; y += CELL) {
@@ -79,30 +77,10 @@ function collide() {
   }
 }
 
-function draw() {
-  ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  const s = SIZE / 2, depth = 6;
-  for (const c of cubes) {
-    const cos = Math.cos(c.a) * dpr, sin = Math.sin(c.a) * dpr;
-    // side: the same square pushed down, drawn darker under the top face
-    ctx.setTransform(cos, sin, -sin, cos, c.x * dpr, (c.y + depth) * dpr);
-    ctx.fillStyle = FACES[2]; ctx.fillRect(-s, -s, SIZE, SIZE);
-    ctx.setTransform(cos, sin, -sin, cos, c.x * dpr, (c.y + depth * 0.5) * dpr);
-    ctx.fillStyle = FACES[1]; ctx.fillRect(-s, -s, SIZE, SIZE);
-    ctx.setTransform(cos, sin, -sin, cos, c.x * dpr, c.y * dpr);
-    ctx.fillStyle = FACES[0]; ctx.fillRect(-s, -s, SIZE, SIZE);
-    ctx.fillStyle = FACES[3]; ctx.fillRect(-2, -s, 4, SIZE); // packing tape
-  }
-}
-
-function frame() {
-  step(); draw();
-  if (visible) raf = requestAnimationFrame(frame);
-}
+const draw = () => drawParcels(ctx, cubes, { size: SIZE, depth: 6, tape: 4 });
 
 function start() {
-  if (touch) {
+  if (coarsePointer) {
     // Scrolling half the hero's height sweeps the order line from its top edge to its bottom.
     const order = () => { sweep = Math.max(sweep, -canvas.getBoundingClientRect().top * 2 * (h + CELL) / h); };
     window.addEventListener('scroll', order, { passive: true });
@@ -110,20 +88,11 @@ function start() {
     const b = canvas.getBoundingClientRect();
     mouse.x = e.clientX - b.left; mouse.y = e.clientY - b.top;
   }, { passive: true });
-  // Mobile fires resize when the URL bar slides on scroll; rebuilding would re-scatter the ordered parcels.
-  window.addEventListener('resize', () => {
-    if (canvas.clientWidth === w && canvas.clientHeight === h) return;
-    resize(); draw();
-  });
+  onResize(canvas, () => { resize(); draw(); }); // rebuilding re-scatters the parcels, so only on real size changes
 
   resize(); for (let i = 0; i < 30; i++) step(); draw(); // settle the initial overlaps unseen
-  if (reduced) return; // static pit, no motion
-
-  new IntersectionObserver(([e]) => {
-    visible = e.isIntersecting;
-    cancelAnimationFrame(raf);
-    if (visible) raf = requestAnimationFrame(frame);
-  }).observe(canvas);
+  if (reducedMotion) return; // static pit, no motion
+  loopWhileVisible(canvas, () => { step(); draw(); });
 }
 
 if (ctx) start();

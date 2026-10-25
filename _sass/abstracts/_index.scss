@@ -1,0 +1,4 @@
+// Abstracts: Sass-only tools, no CSS output. In a partial: @use "../abstracts" as *;
+@forward "variables";
+@forward "functions";
+@forward "mixins";

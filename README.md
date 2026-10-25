@@ -1,7 +1,7 @@
 # telefonosuci.github.io
 
 Sito professionale di Enrico Succhielli, Shopify developer freelance.
-Jekyll + un piccolo bundle JS (GSAP via npm, compilato con esbuild), pubblicato su GitHub Pages tramite GitHub Actions.
+Jekyll + piccoli bundle JS (moduli ES compilati con esbuild, GSAP via npm), pubblicato su GitHub Pages tramite GitHub Actions.
 
 - Avvio locale: vedi [RUNNING_LOCAL.md](RUNNING_LOCAL.md)
 - Stato del lavoro e cose da fare: vedi [TODO.md](TODO.md)
@@ -15,10 +15,11 @@ Jekyll + un piccolo bundle JS (GSAP via npm, compilato con esbuild), pubblicato 
 | `_includes/home.html` | Elenco ordinato delle sezioni della home |
 | `_includes/home/*.html` | Una sezione per file (hero, servizi, flusso, integrazioni…) |
 | `_includes/components/*.html` | Componenti riusabili (card, chips, section-head, hscroll, marquee…) |
+| `_js/*.js` | Entry esbuild, una per script caricato (`site`, `motion`, `hero-bg`, `banner-*`, `error-page`, `lab-webgpu`) → `assets/js/` |
 | `_js/motion/*.js` | Animazioni GSAP, un modulo per comportamento |
-| `assets/js/hero-gl.js` | Shader WebGL dello sfondo della home |
-| `assets/js/lab-webgpu.js` | Demo particelle WebGPU (`/lab/`) |
-| `_sass/site/**` | Stili, un partial per componente/sezione |
+| `_js/ui/*.js` | Comportamenti dell'interfaccia (consenso cookie, filtro blog, form contatti, commenti) |
+| `_js/lib/*.js` | Codice condiviso tra le scene canvas (env, canvas, pacchi) |
+| `_sass/` | Stili 7-1 + BEM, un partial per blocco; strumenti Sass in `abstracts/` |
 | `_posts/it`, `_posts/en` | Articoli del blog |
 
 ## Nomi dei componenti

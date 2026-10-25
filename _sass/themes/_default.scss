@@ -10,6 +10,9 @@
   --accent-2: #0f766e;
   --accent-ink: #a16207; // ponytail: darker yellow for text, #fca311 on white is unreadable
   --on-accent: #111111;
+  --tint: rgb(0 0 0 / .05);          // hover/fill on neutral surfaces
+  --glass: rgb(255 255 255 / .85);   // translucent bar behind backdrop-filter
+  --code-bg: #f4f4f4;
   --radius: 14px;
   --font: "Inter", system-ui, sans-serif;
   --font-head: "Space Grotesk", var(--font);

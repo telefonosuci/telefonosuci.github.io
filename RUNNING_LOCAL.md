@@ -1,6 +1,6 @@
 # Running this site locally
 
-**Jekyll** site with a small **npm/esbuild** step that bundles the GSAP animations.
+**Jekyll** site with a small **npm/esbuild** step that bundles the JS (every `_js/*.js` is an entry).
 
 ## Requirements
 
@@ -18,7 +18,7 @@ npm install
 ## Run (two terminals)
 
 ```bash
-# 1 — rebuild the JS bundle on change (_js/ → assets/js/motion.js)
+# 1 — rebuild the JS bundles on change (_js/*.js → assets/js/)
 npm run watch
 
 # 2 — serve the site
@@ -27,8 +27,8 @@ bundle exec jekyll serve --livereload
 
 Open http://127.0.0.1:4000 (Italian) and http://127.0.0.1:4000/en/ (English).
 
-`assets/js/motion.js` is generated and git-ignored: run `npm run build` at least once,
-otherwise the homepage works but without animations.
+`assets/js/` is generated and git-ignored: run `npm run build` at least once,
+otherwise pages render but without any JS (animations, cookie banner, blog filter; the contact form falls back to a plain POST).
 
 Google Tag Manager and Sentry load only in production builds
 (`JEKYLL_ENV=production bundle exec jekyll build`).

@@ -1,36 +1,22 @@
 // Banner scene "parcel-line": a parcel glides along a plain surface and stops to be opened, filled, closed,
 // taped and labelled, then it glides off while the next empty one arrives.
-// Canvas 2D, same parcels as the home hero (hero-gl.js), no dependencies.
-const FACES = ['#fdc14a', '#fca311', '#d98a08', 'rgba(120, 70, 0, .35)']; // top, front, side, tape
+// Canvas 2D, same parcels as the home hero (hero-bg.js), no dependencies.
+import { dpr } from './lib/env.js';
+import { fit } from './lib/canvas.js';
+import { ease, prog } from './lib/math.js';
+import { FACES } from './lib/parcel.js'; // here: top, front, side, tape
+import { T, MOVE, OPEN, DROPS, FALL, CLOSE, TAPE, LABEL, play } from './lib/parcel-story.js';
+
 const INSIDE = '#8a5a06';
 const ITEMS = ['#0f766e', '#f4efe6', '#3f4a5a']; // folded garments that go in the parcel, one per drop
-
-// One parcel's timeline in seconds. It starts with the glide that brings it to the middle
-// (and ships the previous one off), then the parcel stands still for each step.
-const T = 6.2;
-const MOVE = [0, 1.4];
-const OPEN = [1.6, 2.2];
-const DROPS = [2.3, 2.9, 3.5], FALL = 0.55;
-const CLOSE = [4.3, 4.9];
-const TAPE = [5.0, 5.4];
-const LABEL = [5.5, 5.8];
-
-const dpr = Math.min(window.devicePixelRatio || 1, 2);
-const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const ease = (p) => p * p * (3 - 2 * p);
-const prog = (t, [a, b]) => Math.min(1, Math.max(0, (t - a) / (b - a)));
 
 for (const canvas of document.querySelectorAll('[data-banner-scene="parcel-line"]')) scene(canvas);
 
 function scene(canvas) {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
-  let w = 0, h = 0, raf = 0;
-
-  function resize() {
-    w = canvas.clientWidth; h = canvas.clientHeight;
-    canvas.width = w * dpr; canvas.height = h * dpr;
-  }
+  let w = 0, h = 0;
+  const resize = () => ({ w, h } = fit(canvas));
 
   function draw(t) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -69,7 +55,7 @@ function scene(canvas) {
       const p = (tau - d - FALL) / 0.25;
       if (p > 0 && p < 1) top += Math.sin(p * Math.PI) * S * 0.03;
     }
-    const open = ease(prog(tau, OPEN)) * (1 - ease(prog(tau, CLOSE)));
+    const open = ease(prog(tau, OPEN)) * (1 - ease(prog(tau, [CLOSE[0], CLOSE[2]])));
     const tape = ease(prog(tau, TAPE)), label = ease(prog(tau, LABEL));
 
     quad(FACES[2], x + S, y, x + S, top, x + S + dx, top + dy, x + S + dx, y + dy); // right side
@@ -128,31 +114,5 @@ function scene(canvas) {
     ctx.closePath(); ctx.fill();
   }
 
-  // With data-banner-scroll the scene time follows the page: crossing the viewport plays one parcel
-  // from arrival to shipping. Otherwise it follows the clock and loops.
-  const scroll = 'bannerScroll' in canvas.dataset;
-  const scrolled = () => {
-    const b = canvas.getBoundingClientRect();
-    return prog(innerHeight - b.top, [0, innerHeight + b.height]) * (T + MOVE[1]);
-  };
-  let now = scroll ? scrolled() : 0;
-
-  function frame(ms) {
-    if (scroll) now += (scrolled() - now) * 0.15; // ponytail: eases toward the scroll position, so wheel steps don't jump
-    else now = ms / 1000;
-    draw(now);
-    raf = requestAnimationFrame(frame);
-  }
-
-  window.addEventListener('resize', () => {
-    if (canvas.clientWidth === w && canvas.clientHeight === h) return;
-    resize(); if (reduced) draw(T - 0.1);
-  });
-  resize();
-  if (reduced) return draw(T - 0.1); // static: a packed parcel in the middle
-
-  new IntersectionObserver(([e]) => {
-    cancelAnimationFrame(raf);
-    if (e.isIntersecting) raf = requestAnimationFrame(frame);
-  }).observe(canvas);
+  play(canvas, resize, draw);
 }

@@ -1,7 +1,7 @@
 {%- comment -%}
   Banner with an animated canvas. Params: scene, title, text (optional), eyebrow (optional),
   scroll (optional, true: the animation follows the page scroll instead of looping on its own).
-  Each scene is its own script, /assets/js/banner-<scene>.js, wired to [data-banner-scene="<scene>"].
+  Each scene is its own entry, _js/banner-<scene>.js, wired to [data-banner-scene="<scene>"].
   Scenes: parcel-line (Canvas 2D), parcel-3d (WebGL2).
 {%- endcomment -%}
 <section class="section banner" data-component-name="banner">
@@ -14,4 +14,5 @@
     <canvas class="banner__canvas" aria-hidden="true" data-banner-scene="{{ include.scene }}"{% if include.scroll %} data-banner-scroll{% endif %}></canvas>
   </div>
 </section>
-<script src="{{ '/assets/js/banner-' | append: include.scene | append: '.js' | relative_url }}?v={{ site.time | date: '%s' }}" type="module"></script>
+{%- assign entry = 'banner-' | append: include.scene %}
+{% include script.html name=entry %}

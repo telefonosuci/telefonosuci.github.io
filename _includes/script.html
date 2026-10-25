@@ -1,0 +1,2 @@
+{%- comment -%} Loads an esbuild entry from _js/ (built into /assets/js/). Params: name (entry file name, no .js). {%- endcomment -%}
+<script src="{{ '/assets/js/' | append: include.name | append: '.js' | relative_url }}?v={{ site.time | date: '%s' }}" type="module"></script>

@@ -1,0 +1,7 @@
+@use "sass:map";
+@use "variables" as *;
+
+@function z($layer) {
+  @if not map.has-key($z-layers, $layer) { @error "Unknown z-layer `#{$layer}`."; }
+  @return map.get($z-layers, $layer);
+}

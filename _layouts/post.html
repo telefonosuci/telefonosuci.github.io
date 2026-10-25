@@ -40,24 +40,10 @@ layout: base
 
   {%- if site.suci.disqus_shortname and page.comments != false %}
   {%- comment -%} Click-to-load: Disqus sets tracking cookies, so nothing loads without an explicit action. {%- endcomment -%}
-  <div id="disqus_thread" class="comments">
+  <div id="disqus_thread" class="comments" data-comments data-shortname="{{ site.suci.disqus_shortname }}" data-url="{{ page.url | absolute_url }}" data-identifier="{{ page.id }}" data-lang="{{ lang }}">
     <p class="muted">{{ t.comments_consent }}</p>
-    <button class="btn" type="button" id="disqus_load">{{ t.comments_load }}</button>
+    <button class="btn" type="button" data-comments-load>{{ t.comments_load }}</button>
   </div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = '{{ page.url | absolute_url }}';
-      this.page.identifier = '{{ page.id }}';
-      this.language = '{{ lang }}';
-    };
-    document.getElementById('disqus_load').addEventListener('click', function () {
-      document.getElementById('disqus_thread').innerHTML = '';
-      var s = document.createElement('script');
-      s.src = 'https://{{ site.suci.disqus_shortname }}.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      document.body.appendChild(s);
-    });
-  </script>
   <noscript>{{ t.comments_noscript }}</noscript>
   {%- endif %}
 </article>

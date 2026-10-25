@@ -16,7 +16,7 @@
 
 ### Contenuti e design
 - **Nuova home (IT/EN)** costruita sui 4 punti richiesti: flussi ecommerce, piattaforma Shopify, integrazioni (ERP, PIM, CRM, social, analytics), grafica WebGL/WebGPU. Contiene anche un diagramma "Il viaggio di un ordine" (dal catalogo alla misurazione, con i sistemi coinvolti in ogni passaggio), il metodo di lavoro, "chi sono", gli ultimi post e la call to action.
-- **Hero con shader WebGL scritto a mano** (`assets/js/hero-gl.js`, circa 90 righe, nessuna dipendenza). Reagisce al mouse, si mette in pausa fuori schermo, rispetta `prefers-reduced-motion` e senza WebGL mostra un gradiente CSS.
+- **Hero con shader WebGL scritto a mano** (oggi `_js/hero-bg.js`, circa 90 righe, nessuna dipendenza). Reagisce al mouse, si mette in pausa fuori schermo, rispetta `prefers-reduced-motion` e senza WebGL mostra un gradiente CSS.
 - **Pagina Lab** (`/lab/`): 65.536 particelle simulate con un compute shader WebGPU e mostrate con rendering istanziato. Le particelle sono interattive (attrazione e repulsione). Senza WebGPU compare un messaggio di fallback.
 - **Pagina contatti** riscritta: form Form.io esistente, guida su cosa scrivere, email e link social.
 - **Blog** su `/blog/` e `/en/blog/` con filtro per categoria.

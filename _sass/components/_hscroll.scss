@@ -1,6 +1,6 @@
 // Horizontal section. Default = native swipe row with snap (no JS, reduced motion).
 // .hscroll--pinned (added by _js/motion/hscroll.js) = full-screen pinned panel moved by GSAP.
-@use "../abstracts/variables" as *;
+@use "../abstracts" as *;
 
 $gutter: max(16px, calc((100vw - #{$container}) / 2));
 
@@ -46,7 +46,7 @@ $gutter: max(16px, calc((100vw - #{$container}) / 2));
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 96px; // clears the sticky header
+    padding-top: $header-clearance;
     .hscroll__track { overflow: visible; will-change: transform; }
     .hscroll__progress { display: block; }
   }

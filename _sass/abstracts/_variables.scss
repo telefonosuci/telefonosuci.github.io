@@ -1,2 +1,20 @@
 // Sass-only values (no CSS output). Runtime design tokens live in themes/_default.scss.
 $container: 1160px;
+
+// All media queries go through the `below()` mixin. lg is mirrored in _js/motion.js (`wide`).
+// ponytail: md and lg are 40px apart; merge them if nothing needs the difference.
+$breakpoints: (
+  sm: 720px,
+  md: 860px,
+  lg: 900px,
+);
+
+// Stacking order, lowest first. Use z(name), never a bare number.
+$z-layers: (
+  header: 10,
+  floating: 20,
+  overlay: 100,
+);
+
+// Space the sticky header covers: pinned sections and anchor targets clear it.
+$header-clearance: 96px;

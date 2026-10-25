@@ -21,4 +21,4 @@
     <button class="btn btn--ghost lab-controls__reset" type="reset">{{ c.reset }}</button>
   </form>
 </details>
-<script src="{{ '/assets/js/lab-webgpu.js' | relative_url }}?v={{ site.time | date: '%s' }}" type="module"></script>
+{% include script.html name="lab-webgpu" %}

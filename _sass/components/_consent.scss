@@ -1,8 +1,10 @@
+@use "../abstracts" as *;
+
 // Non-modal (dialog.show()): the page stays usable, no forced choice.
 .consent {
   position: fixed;
   inset: auto 16px 16px auto;
-  z-index: 100;
+  z-index: z(overlay);
   max-width: min(400px, calc(100vw - 32px));
   margin: 0;
   font-size: .95rem;

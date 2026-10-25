@@ -1,0 +1,29 @@
+@use "../abstracts" as *;
+
+// Icons only below tablet; labels stay as title/aria for a11y.
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  &__link, &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  &__link {
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: var(--muted);
+    font-size: .875rem;
+    text-decoration: none;
+    &:hover {
+      background: var(--tint);
+      color: var(--text);
+    }
+  }
+  &__cta { margin-left: 6px; }
+  @include below(lg) {
+    &__label { @include visually-hidden; }
+    &__link, &__cta { padding: 8px; }
+  }
+}

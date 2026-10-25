@@ -1,26 +1,15 @@
 // Banner scene "parcel-3d": the parcel-line story (arrive, open, fill, close, tape, label, ship) in real 3D.
 // WebGL2, no dependencies. Every shape is the same unit cube, moved, turned and stretched per draw call.
+import { fit } from './lib/canvas.js';
+import { ease, prog } from './lib/math.js';
+import { T, MOVE, OPEN, DROPS, FALL, CLOSE, TAPE, LABEL, play } from './lib/parcel-story.js';
+
 const CARD = [0.99, 0.64, 0.07], TAPE_C = [0.8, 0.5, 0.06], WHITE = [1, 1, 1], INK = [0.3, 0.3, 0.3], PLANE = [0.94, 0.94, 0.94];
 const ITEMS = [[0.06, 0.46, 0.43], [0.96, 0.94, 0.9], [0.25, 0.29, 0.35]]; // folded garments, one per drop
-
-// One parcel's timeline in seconds, same as the 2D scene: the glide that brings it to the middle
-// (and ships the previous one off), then each step with the parcel standing still.
-const T = 6.2;
-const MOVE = [0, 1.4];
-const OPEN = [1.6, 2.2];
-const DROPS = [2.3, 2.9, 3.5], FALL = 0.55;
-const CLOSE = [4.3, 4.6, 4.9]; // short flaps fold first, the long ones go on top
-const TAPE = [5.0, 5.4];
-const LABEL = [5.5, 5.8];
 
 // Parcel size in world units, wall thickness, garment size.
 const W = 1.2, H = 0.8, D = 0.9, t = 0.03;
 const GW = W * 0.8, GH = 0.1, GD = D * 0.75;
-
-const dpr = Math.min(window.devicePixelRatio || 1, 2);
-const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const ease = (p) => p * p * (3 - 2 * p);
-const prog = (t, [a, b]) => Math.min(1, Math.max(0, (t - a) / (b - a)));
 
 // Column-major 4x4 matrices, just what this scene needs.
 const mat = (...v) => new Float32Array(v);
@@ -113,10 +102,9 @@ function scene(canvas) {
     gl.drawElements(gl.TRIANGLES, 36, gl.UNSIGNED_SHORT, 0);
   };
 
-  let w = 0, h = 0, raf = 0, halfW = 3, run = 5;
+  let w = 0, h = 0, halfW = 3, run = 5;
   function resize() {
-    w = canvas.clientWidth; h = canvas.clientHeight;
-    canvas.width = w * dpr; canvas.height = h * dpr;
+    ({ w, h } = fit(canvas));
     gl.viewport(0, 0, canvas.width, canvas.height);
     gl.uniformMatrix4fv(uVP, false, mul(persp(FOV, w / h, 0.1, 50), lookAt(EYE, TARGET)));
     halfW = Math.hypot(...EYE.map((v, i) => v - TARGET[i])) * Math.tan(FOV / 2) * w / h; // visible half width at the parcel
@@ -175,31 +163,5 @@ function scene(canvas) {
     }
   }
 
-  // With data-banner-scroll the scene time follows the page: crossing the viewport plays one parcel
-  // from arrival to shipping. Otherwise it follows the clock and loops.
-  const scroll = 'bannerScroll' in canvas.dataset;
-  const scrolled = () => {
-    const b = canvas.getBoundingClientRect();
-    return prog(innerHeight - b.top, [0, innerHeight + b.height]) * (T + MOVE[1]);
-  };
-  let now = scroll ? scrolled() : 0;
-
-  function frame(ms) {
-    if (scroll) now += (scrolled() - now) * 0.15; // ponytail: eases toward the scroll position, so wheel steps don't jump
-    else now = ms / 1000;
-    draw(now);
-    raf = requestAnimationFrame(frame);
-  }
-
-  window.addEventListener('resize', () => {
-    if (canvas.clientWidth === w && canvas.clientHeight === h) return;
-    resize(); if (reduced) draw(T - 0.1);
-  });
-  resize();
-  if (reduced) return draw(T - 0.1); // static: a packed parcel in the middle
-
-  new IntersectionObserver(([e]) => {
-    cancelAnimationFrame(raf);
-    if (e.isIntersecting) raf = requestAnimationFrame(frame);
-  }).observe(canvas);
+  play(canvas, resize, draw);
 }

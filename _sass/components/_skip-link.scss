@@ -1,8 +1,10 @@
+@use "../abstracts" as *;
+
 .skip-link {
   position: absolute;
   top: 8px;
   left: -999px;
-  z-index: 100;
+  z-index: z(overlay);
   padding: 8px 12px;
   border-radius: 6px;
   background: var(--accent);

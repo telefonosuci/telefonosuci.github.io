@@ -2,7 +2,7 @@
 ---
 
 // 7-1 entry point. One partial per block; order: abstracts → vendors → base → layout → components → pages → themes.
-// abstracts/ emits no CSS: each partial that needs it does its own @use.
+// abstracts/ emits no CSS: each partial that needs it does its own @use "../abstracts" as *.
 @use "vendors/solarized-light";
 @use "vendors/rouge";
 
@@ -13,6 +13,7 @@
 
 @use "layout/container";
 @use "layout/header";
+@use "layout/nav";
 @use "layout/footer";
 @use "layout/section";
 @use "layout/split";
@@ -44,6 +45,6 @@
 @use "pages/post";
 @use "pages/contact";
 @use "pages/lab";
-@use "pages/not-found";
+@use "pages/error-page";
 
 @use "themes/default";

@@ -1,2 +1,2 @@
 {%- comment -%} GSAP animations, bundled from _js/motion with esbuild (npm run build). {%- endcomment -%}
-<script src="{{ '/assets/js/motion.js' | relative_url }}?v={{ site.time | date: '%s' }}" type="module"></script>
+{% include script.html name="motion" %}

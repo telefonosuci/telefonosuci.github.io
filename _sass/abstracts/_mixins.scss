@@ -1,0 +1,29 @@
+@use "sass:map";
+@use "variables" as *;
+
+// Desktop-first: styles inside apply up to the named breakpoint.
+@mixin below($bp) {
+  @if not map.has-key($breakpoints, $bp) { @error "Unknown breakpoint `#{$bp}`."; }
+  @media (max-width: map.get($breakpoints, $bp)) { @content; }
+}
+
+// Hidden on screen, still read by screen readers.
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+// Scroll shadows: an edge darkens only while there is hidden content on that side.
+// `local` covers move with the content and hide the `scroll` shadows once an end is reached. $bg must match the element's background.
+@mixin scroll-shadows($bg) {
+  background:
+    linear-gradient(to right, $bg 30%, transparent) left / 40px 100% no-repeat local,
+    linear-gradient(to left, $bg 30%, transparent) right / 40px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, .25), transparent) left / 14px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, .25), transparent) right / 14px 100% no-repeat scroll,
+    $bg;
+}

@@ -1,13 +1,4 @@
-// Scroll shadows: an edge darkens only while there is hidden content on that side.
-// `local` covers move with the content and hide the `scroll` shadows once an end is reached. $bg must match the element's background.
-@mixin scroll-shadows($bg) {
-  background:
-    linear-gradient(to right, $bg 30%, transparent) left / 40px 100% no-repeat local,
-    linear-gradient(to left, $bg 30%, transparent) right / 40px 100% no-repeat local,
-    radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, .25), transparent) left / 14px 100% no-repeat scroll,
-    radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, .25), transparent) right / 14px 100% no-repeat scroll,
-    $bg;
-}
+@use "../abstracts" as *;
 
 // Rich text from Markdown: tag selectors are intentional, the content has no classes.
 .prose {
@@ -25,7 +16,7 @@
     border-radius: 10px;
   }
   pre { padding: 16px; }
-  pre.highlight { @include scroll-shadows(#f4f4f4); } // ponytail: same grey as vendors/_rouge, update both together
+  pre.highlight { @include scroll-shadows(var(--code-bg)); }
   // Long lines wrap instead of scrolling; inline code breaks anywhere so it can't widen the page.
   pre { white-space: pre-wrap; }
   code { overflow-wrap: anywhere; }
@@ -85,5 +76,5 @@
     a { overflow-wrap: anywhere; }
   }
   .reversefootnote { margin-left: .3em; text-decoration: none; }
-  [id^="fn"] { scroll-margin-top: 90px; } // ponytail: clears the sticky header; tune if header height changes
+  [id^="fn"] { scroll-margin-top: $header-clearance; }
 }
