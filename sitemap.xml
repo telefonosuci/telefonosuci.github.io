@@ -10,6 +10,8 @@ sitemap: false
   {%- endunless %}
 {%- endfor %}
 {%- for p in site.posts %}
-  <url><loc>{{ p.url | absolute_url }}</loc><lastmod>{{ p.date | date_to_xmlschema }}</lastmod></url>
+  {%- unless p.sitemap == false %}
+  <url><loc>{{ p.url | absolute_url }}</loc><lastmod>{{ p.last_modified_at | default: p.date | date_to_xmlschema }}</lastmod></url>
+  {%- endunless %}
 {%- endfor %}
 </urlset>
