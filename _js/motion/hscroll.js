@@ -6,7 +6,19 @@ export default function hscroll(gsap) {
   sections.forEach((section) => {
     const track = section.querySelector('[data-hscroll-track]');
     const bar = section.querySelector('[data-hscroll-progress]');
-    const distance = () => Math.max(0, track.scrollWidth - track.clientWidth);
+    // The run ends when the last item's right edge lands on the content's right
+    // boundary (the track's end padding = container gutter), so nothing stops
+    // mid-screen on wide viewports. scrollWidth can't be used: with the pinned
+    // track at overflow:visible browsers leave the end padding out of the
+    // scrollable area, which cut the run short by one gutter. Both rects shift
+    // with the track transform, so their difference is measurement-safe.
+    const distance = () => {
+      const last = track.lastElementChild;
+      if (!last) return 0;
+      const gutter = parseFloat(getComputedStyle(track).paddingRight) || 0;
+      const edge = track.getBoundingClientRect().right - gutter;
+      return Math.max(0, last.getBoundingClientRect().right - edge);
+    };
 
     section.classList.add('hscroll--pinned');
 

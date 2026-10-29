@@ -34,7 +34,7 @@ html:has(.contact__dialog[open]) { overflow: hidden; }
   }
   &__submit { justify-self: start; }
   &__dialog {
-    max-width: min(420px, calc(100vw - 32px));
+    max-width: min(420px, calc(100vw - var(--wrap-pad) * 2));
     text-align: center;
     &::backdrop { background: rgb(0 0 0 / .5); }
   }

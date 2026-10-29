@@ -1,5 +1,5 @@
 // Sass-only values (no CSS output). Runtime design tokens live in themes/_default.scss.
-$container: 1160px;
+$container: 1160px; // feeds --wrap; read it from CSS/JS as a token, not from Sass
 
 // All media queries go through the `below()` mixin. lg is mirrored in _js/motion.js (`wide`).
 // ponytail: md and lg are 40px apart; merge them if nothing needs the difference.

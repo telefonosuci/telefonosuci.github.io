@@ -1,22 +1,19 @@
 ---
 layout: default
-wide: true  # prose--wide: full width for the form/list/canvas
+wide: true  # prose--wide: full width for the canvas
 lang: it
 ref: lab
-title: Lab · WebGPU
+title: Lab · Pacco da spedire
 lead: >-
-  Lo stesso mucchio di pacchi gialli della home, ma in 3D e simulato interamente sulla GPU con WebGPU.
-  Passaci sopra col mouse o col dito: li urti, e loro si urtano fra di loro. La CPU, nel frattempo, si gode le ferie.
-fallback: >-
-  Il tuo browser non supporta ancora WebGPU (servono Chrome/Edge 113+, Safari 26+ o
-  Firefox recente). Il futuro può attendere: intanto c'è lo shader WebGL nella home.
+  Un piccolo gioco 3D sul mestiere che sta dietro ogni ecommerce: riempi il pacco, chiudi i lembi
+  nell'ordine giusto e sigillalo con la pistola del nastro, come in magazzino. Il rumore del nastro mettilo tu.
 ---
-{% include lab.html %}
+{% include parcel-game.html %}
 
 ## Come funziona
 
-- **Compute shader (WGSL)**: ogni frame aggiorna tutti gli oggetti in parallelo: ognuno controlla le collisioni con gli altri e con le pareti, il puntatore è un disco solido che trasferisce la sua velocità a chi colpisce. Due buffer si alternano, così ogni urto legge un fotogramma stabile.
-- **Render pipeline**: i cubi sono mesh istanziate che ruotano mentre si spostano, le sfere sono quad che il fragment shader illumina come vere sfere (impostor). Un depth buffer tiene in ordine chi sta davanti. I dati non tornano mai alla CPU.
-- **Performance**: la simulazione si mette in pausa quando la pagina non è visibile e rispetta `prefers-reduced-motion`.
+- **three.js, caricato solo qui**: il resto del sito non scarica un byte di 3D. I modelli glTF arrivano dopo, solo se esistono; fino ad allora tutto è fatto di parallelepipedi (greybox) e il gioco è già giocabile.
+- **Una macchina a stati, un sistema per fase**: riempimento, chiusura, nastro e spedizione sono moduli separati che ricevono il puntatore solo quando tocca a loro. Le regole del punteggio sono funzioni pure, facili da tarare.
+- **HTML prima del canvas**: istruzioni e risultato sono HTML generato da Jekyll, leggibili anche senza JavaScript. Il gioco si mette in pausa quando esce dallo schermo e, con `prefers-reduced-motion`, salta le animazioni senza smettere di funzionare.
 
-Lo stesso approccio serve per sfondi interattivi, visualizzazioni di prodotto e configuratori in uno store Shopify, caricati solo dove servono e con un fallback statico. Nessun cliente è stato rallentato durante la realizzazione.
+È un work in progress: arriveranno drag & drop, il nastro che risvolta sui bordi, l'etichetta e i modelli veri.

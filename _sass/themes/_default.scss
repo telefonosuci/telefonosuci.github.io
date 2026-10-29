@@ -1,4 +1,14 @@
+@use "../abstracts" as *;
+
 :root {
+  // Content box, shared by every block that has to line up with .wrap.
+  // --wrap-gutter is the space left of/right of the content: use it only on
+  // full-bleed elements (its 100% must be the viewport width), e.g. a padding
+  // that pushes content onto the .wrap grid while the box itself stays edge to edge.
+  --wrap: #{$container};
+  --wrap-pad: 16px;
+  --wrap-gutter: max(var(--wrap-pad), calc((100% - var(--wrap)) / 2));
+
   --bg: #ffffff;
   --bg-alt: #f5f5f5;
   --surface: #ffffff;
@@ -10,6 +20,7 @@
   --accent-2: #0f766e;
   --accent-ink: #a16207; // ponytail: darker yellow for text, #fca311 on white is unreadable
   --on-accent: #111111;
+  --danger: #c62828; // wrong moves in the lab game
   --tint: rgb(0 0 0 / .05);          // hover/fill on neutral surfaces
   --glass: rgb(255 255 255 / .85);   // translucent bar behind backdrop-filter
   --code-bg: #f4f4f4;

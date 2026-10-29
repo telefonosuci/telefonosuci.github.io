@@ -5,7 +5,7 @@
   position: fixed;
   inset: auto 16px 16px auto;
   z-index: z(overlay);
-  max-width: min(400px, calc(100vw - 32px));
+  max-width: min(400px, calc(100vw - var(--wrap-pad) * 2));
   margin: 0;
   font-size: .95rem;
   &__actions {

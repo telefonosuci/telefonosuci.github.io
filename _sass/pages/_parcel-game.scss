@@ -1,0 +1,139 @@
+@use "../abstracts" as *;
+
+// Lab game: the 3D stage (with hints and the end screen over it), then steps and restart below.
+// The canvas is transparent, the stage paints the table.
+.parcel-game {
+  margin: 32px 0 48px;
+  &__stage {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-alt);
+    transition: border-color .2s;
+    // Wrong move: red border while the class is on; the shake only when motion is fine.
+    &--error {
+      border-color: var(--danger);
+      @media (prefers-reduced-motion: no-preference) { animation: parcel-shake .4s; }
+    }
+  }
+  &__canvas {
+    display: block;
+    width: 100%;
+    height: min(70vh, 600px);
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  &__fallback {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    padding: 32px;
+    color: var(--muted);
+    text-align: center;
+  }
+  &__hint {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    translate: -50% 0;
+    width: max-content;
+    max-width: calc(100% - 32px);
+    margin: 0;
+    padding: .5em 1em;
+    border: 1px solid var(--danger);
+    border-radius: 999px;
+    background: var(--glass);
+    backdrop-filter: blur(8px);
+    color: var(--danger);
+    font-weight: 600;
+    text-align: center;
+  }
+  &__end {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 16px;
+    background: var(--glass);
+    backdrop-filter: blur(4px);
+  }
+  &__end-card {
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+    max-width: 100%;
+    padding: 32px 40px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    text-align: center;
+    @media (prefers-reduced-motion: no-preference) { animation: parcel-pop .45s cubic-bezier(.2, 1.4, .4, 1) both; }
+    @include below(sm) { padding: 24px 20px; }
+  }
+  &__end-title {
+    margin: 0;
+    font-family: var(--font-head);
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  &__rating {
+    margin: 0;
+    color: var(--accent);
+    font-size: 2rem;
+    letter-spacing: .1em;
+  }
+  &__verdict {
+    margin: 0;
+    color: var(--muted);
+  }
+  &__stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 24px;
+    margin: 8px 0;
+  }
+  &__stat-label {
+    font-size: .8rem;
+    color: var(--muted);
+  }
+  &__stat-value {
+    margin: 0;
+    font-family: var(--font-head);
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  &__panel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 32px;
+    margin-top: 16px;
+  }
+  &__steps {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    padding-left: 1.4em;
+  }
+  &__step {
+    color: var(--muted);
+    &[aria-current="step"] { color: var(--text); }
+    &--done { text-decoration: line-through; }
+  }
+}
+
+@keyframes parcel-shake {
+  20%, 60% { translate: -6px 0; }
+  40%, 80% { translate: 6px 0; }
+}
+@keyframes parcel-pop {
+  from { opacity: 0; scale: .85; }
+}

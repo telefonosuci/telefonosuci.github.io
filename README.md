@@ -15,7 +15,7 @@ Jekyll + piccoli bundle JS (moduli ES compilati con esbuild, GSAP via npm), pubb
 | `_includes/home.html` | Elenco ordinato delle sezioni della home |
 | `_includes/home/*.html` | Una sezione per file (hero, servizi, flusso, integrazioni…) |
 | `_includes/components/*.html` | Componenti riusabili (card, chips, section-head, hscroll, marquee…) |
-| `_js/*.js` | Entry esbuild, una per script caricato (`site`, `motion`, `hero-bg`, `banner-*`, `error-page`, `lab-webgpu`) → `assets/js/` |
+| `_js/*.js` | Entry esbuild, una per script caricato (`site`, `motion`, `hero-bg`, `banner-*`, `error-page`, `lab-parcel`) → `assets/js/` |
 | `_js/motion/*.js` | Animazioni GSAP, un modulo per comportamento |
 | `_js/ui/*.js` | Comportamenti dell'interfaccia (consenso cookie, filtro blog, form contatti, commenti) |
 | `_js/lib/*.js` | Codice condiviso tra le scene canvas (env, canvas, pacchi) |

@@ -1,0 +1,43 @@
+{%- comment -%}
+  Lab: the parcel packing game (three.js), booted by _js/lab-parcel.js. No params; copy from t.parcel_game.
+  Without JS or WebGL the steps still read as instructions and the fallback says why there's no game.
+  Each step's data-parcel-step must match a phase in _js/lab-parcel/state.js; each hint key a mistake id in _js/lab-parcel/systems/.
+  The end screen shows one verdict per star count (verdicts[0] = 1 star).
+{%- endcomment -%}
+{%- include i18n.html -%}
+{%- assign g = t.parcel_game -%}
+<div class="parcel-game" data-component-name="parcel-game" data-parcel-game data-assets-base="{{ '/assets/models/' | relative_url }}">
+  <div class="parcel-game__stage" data-parcel-stage>
+    <canvas class="parcel-game__canvas" role="img" aria-label="{{ g.canvas_label }}" data-parcel-canvas></canvas>
+    <p class="parcel-game__fallback" data-parcel-fallback>{{ g.fallback }}</p>
+    <div role="alert">
+      {%- for h in g.hints %}
+      <p class="parcel-game__hint" data-parcel-hint="{{ h[0] }}" hidden>{{ h[1] }}</p>
+      {%- endfor %}
+    </div>
+    <div class="parcel-game__end" aria-live="polite" data-parcel-end hidden>
+      <div class="parcel-game__end-card">
+        <p class="parcel-game__end-title">{{ g.end.title }}</p>
+        <p class="parcel-game__rating" data-parcel-value="rating"></p>
+        {%- for v in g.end.verdicts %}
+        <p class="parcel-game__verdict" data-parcel-verdict="{{ forloop.index }}" hidden>{{ v }}</p>
+        {%- endfor %}
+        <dl class="parcel-game__stats">
+          {%- for s in g.stats %}
+          <div class="parcel-game__stat"><dt class="parcel-game__stat-label">{{ s.label }}</dt><dd class="parcel-game__stat-value" data-parcel-value="{{ s.id }}"></dd></div>
+          {%- endfor %}
+        </dl>
+        <button class="btn" type="button" data-parcel-restart>{{ g.restart }}</button>
+      </div>
+    </div>
+  </div>
+  <div class="parcel-game__panel">
+    <ol class="parcel-game__steps">
+      {%- for s in g.steps %}
+      <li class="parcel-game__step" data-parcel-step="{{ s.id }}"><strong>{{ s.title }}</strong> {{ s.text }}</li>
+      {%- endfor %}
+    </ol>
+    <button class="btn btn--ghost btn--small" type="button" data-parcel-restart hidden>{{ g.reset }}</button>
+  </div>
+</div>
+{% include script.html name="lab-parcel" %}

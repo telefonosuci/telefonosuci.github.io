@@ -2,8 +2,6 @@
 // .hscroll--pinned (added by _js/motion/hscroll.js) = full-screen pinned panel moved by GSAP.
 @use "../abstracts" as *;
 
-$gutter: max(16px, calc((100vw - #{$container}) / 2));
-
 .hscroll {
   overflow: hidden;
 
@@ -12,10 +10,10 @@ $gutter: max(16px, calc((100vw - #{$container}) / 2));
     gap: 20px;
     list-style: none;
     margin: 0;
-    padding: 8px $gutter 24px;
+    padding: 8px var(--wrap-gutter) 24px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-padding-inline: $gutter;
+    scroll-padding-inline: var(--wrap-gutter);
     scrollbar-width: none;
     &::-webkit-scrollbar { display: none; }
   }

@@ -48,7 +48,7 @@ Setup and run commands: see [RUNNING_LOCAL.md](RUNNING_LOCAL.md). Deploy: push t
 - `_js/site.js`: loaded on every page by `_layouts/base.html`; calls the `_js/ui/` modules. Each `ui` module exports one default function that looks up its `data-*` hook and returns early if absent.
 - `_js/motion.js` + `_js/motion/`: GSAP, one module per `data-*` attribute, all skipped under `prefers-reduced-motion`.
 - `_js/lib/`: shared code — `env` (dpr, reduced motion, pointer), `math` (`ease`, `prog`), `canvas` (`fit`, `onResize`, `loopWhileVisible`), `parcel` (palette + top-down drawing), `parcel-story` (banner timeline + playback). Reuse before writing a new rAF/resize loop.
-- Canvas scenes (`hero-bg`, `banner-<scene>`, `error-page`, `lab-webgpu`) are their own entries, loaded only by the include that needs them. They must render a static frame under reduced motion and pause off screen.
+- Canvas scenes (`hero-bg`, `banner-<scene>`, `error-page`, `lab-parcel`) are their own entries, loaded only by the include that needs them. They must render a static frame under reduced motion and pause off screen.
 - ES modules, no framework, no globals (except what third parties require, e.g. `window.disqus_config`).
 
 ## React islands (planned)

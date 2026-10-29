@@ -1,6 +1,4 @@
-@use "../abstracts" as *;
-
 .wrap {
-  width: min($container, 100% - 32px);
+  width: min(var(--wrap), calc(100% - var(--wrap-pad) * 2));
   margin-inline: auto;
 }

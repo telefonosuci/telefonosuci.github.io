@@ -25,7 +25,30 @@ it:
   comments_noscript: Abilita JavaScript per vedere i commenti.
   comments_load: Mostra i commenti
   comments_consent: "I commenti sono gestiti da Disqus, che una volta caricato imposta cookie propri, anche di profilazione (<a href='/privacy/'>privacy</a>)."
-  lab_controls: { title: Controlli, shape: Forma, sphere: Sfere, cube: Cubi, count: Oggetti, flow: Deriva, radius: Raggio tocco, bounce: Elasticità urti, force: Forza tocco, damping: Inerzia, max_speed: Velocità massima, size: Dimensione, slow: Colore lento, fast: Colore veloce, reset: Ripristina }
+  parcel_game:
+    canvas_label: Un pacco di cartone aperto su un tavolo, con accanto alcuni oggetti da spedire e una pistola per nastro adesivo
+    fallback: Il gioco ha bisogno di JavaScript e WebGL. Qui sotto trovi comunque le regole.
+    steps:
+      - { id: fill, title: Riempi., text: "Tocca gli oggetti per metterli nel pacco: il più pesante va sul fondo." }
+      - { id: fold, title: Chiudi., text: "Piega i lembi: prima i corti, poi i lunghi." }
+      - { id: tape, title: Sigilla., text: Premi sul coperchio e trascina la pistola lungo la giunta. Rilascia per tagliare. }
+    hints:
+      fill_miss: Tocca uno degli oggetti sul tavolo.
+      fill_order: "Prima la scatola pesante: va sul fondo."
+      fold_miss: Tocca uno dei lembi aperti.
+      flap_order: Prima i lembi corti, se no non tiene.
+      tape_miss: Premi sul coperchio del pacco.
+      tape_off_seam: "Fuori giunta: il nastro va lungo la linea centrale."
+    end:
+      title: Pacco spedito!
+      verdicts: [Speriamo nel corriere., Arriverà intero., Da manuale di magazzino.]
+    stats:
+      - { id: coverage, label: Giunta coperta }
+      - { id: tape, label: Nastro usato }
+      - { id: mistakes, label: Errori }
+      - { id: time, label: Tempo }
+    restart: Un altro pacco
+    reset: Ricomincia
   consent: { title: Cookie, text: "Uso cookie di Google Analytics per statistiche aggregate sulle visite, solo se accetti. Dettagli nella <a href='/privacy/'>privacy policy</a>.", accept: Accetta, deny: Rifiuta, prefs: Preferenze cookie }
 en:
   home: /en/
@@ -53,5 +76,28 @@ en:
   comments_noscript: Enable JavaScript to see the comments.
   comments_load: Show comments
   comments_consent: "Comments are powered by Disqus, which sets its own cookies, including tracking ones, once loaded (<a href='/privacy/'>privacy</a>)."
-  lab_controls: { title: Controls, shape: Shape, sphere: Spheres, cube: Cubes, count: Objects, flow: Drift, radius: Touch radius, bounce: Bounciness, force: Touch force, damping: Inertia, max_speed: Max speed, size: Size, slow: Slow color, fast: Fast color, reset: Reset }
+  parcel_game:
+    canvas_label: An open cardboard parcel on a table, with a few things to ship and a tape gun next to it
+    fallback: The game needs JavaScript and WebGL. The rules are below anyway.
+    steps:
+      - { id: fill, title: Fill., text: "Tap the items to put them in the parcel: the heaviest goes at the bottom." }
+      - { id: fold, title: Close., text: "Fold the flaps: short ones first, then the long ones." }
+      - { id: tape, title: Seal., text: Press on the lid and drag the gun along the seam. Let go to cut. }
+    hints:
+      fill_miss: Tap one of the items on the table.
+      fill_order: "Heavy box first: it goes at the bottom."
+      fold_miss: Tap one of the open flaps.
+      flap_order: Short flaps first, or it won't hold.
+      tape_miss: Press on the parcel's lid.
+      tape_off_seam: "Off the seam: the tape goes along the middle line."
+    end:
+      title: Parcel shipped!
+      verdicts: [Let's trust the courier., It'll get there in one piece., Straight out of the warehouse manual.]
+    stats:
+      - { id: coverage, label: Seam covered }
+      - { id: tape, label: Tape used }
+      - { id: mistakes, label: Mistakes }
+      - { id: time, label: Time }
+    restart: Another parcel
+    reset: Start over
   consent: { title: Cookies, text: "I use Google Analytics cookies for aggregate visit statistics, only if you accept. Details in the <a href='/privacy/'>privacy policy</a>.", accept: Accept, deny: Reject, prefs: Cookie preferences }
