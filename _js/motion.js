@@ -7,6 +7,7 @@ import parallax from './motion/parallax.js';
 import marquee from './motion/marquee.js';
 import hscroll from './motion/hscroll.js';
 import zoom from './motion/zoom.js';
+import draw from './motion/draw.js';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -26,8 +27,12 @@ gsap.matchMedia().add(
     parallax(gsap, conditions.wide);
     marquee(gsap);
     zoom(gsap);
+    const stopDraw = draw(gsap);
     ScrollTrigger.sort();
-    return cleanup;
+    return () => {
+      cleanup?.();
+      stopDraw();
+    };
   }
 );
 

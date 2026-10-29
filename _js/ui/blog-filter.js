@@ -8,6 +8,8 @@ export default function blogFilter() {
       document.querySelectorAll('[data-cats]').forEach((li) => {
         li.hidden = f !== 'all' && !li.dataset.cats.split('|').includes(f);
       });
+      // Layout changed: let ScrollTrigger (motion.js) recompute reveal positions.
+      window.dispatchEvent(new Event('resize'));
     });
   });
 }

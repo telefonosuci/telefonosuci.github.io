@@ -47,7 +47,7 @@ Setup and run commands: see [RUNNING_LOCAL.md](RUNNING_LOCAL.md). Deploy: push t
 - Every `_js/*.js` file is an esbuild entry (`npm run build`, glob in `package.json`); shared imports become hashed chunks in `assets/js/chunks/`. Add an entry = add a file, nothing else to configure.
 - `_js/site.js`: loaded on every page by `_layouts/base.html`; calls the `_js/ui/` modules. Each `ui` module exports one default function that looks up its `data-*` hook and returns early if absent.
 - `_js/motion.js` + `_js/motion/`: GSAP, one module per `data-*` attribute, all skipped under `prefers-reduced-motion`.
-- `_js/lib/`: shared code — `env` (dpr, reduced motion, pointer), `math` (`ease`, `prog`), `canvas` (`fit`, `onResize`, `loopWhileVisible`), `parcel` (palette + top-down drawing), `parcel-story` (banner timeline + playback). Reuse before writing a new rAF/resize loop.
+- `_js/lib/`: shared code — `env` (dpr, reduced motion, pointer), `math` (`ease`, `prog`), `canvas` (`fit`, `onResize`, `loopWhileVisible`), `parcel` (palette + top-down drawing), `parcel-story` (banner timeline + playback), `visible` (`onEnter`: run once when an element appears). Reuse before writing a new rAF/resize loop.
 - Canvas scenes (`hero-bg`, `banner-<scene>`, `error-page`, `lab-webgpu`) are their own entries, loaded only by the include that needs them. They must render a static frame under reduced motion and pause off screen.
 - ES modules, no framework, no globals (except what third parties require, e.g. `window.disqus_config`).
 

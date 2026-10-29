@@ -10,7 +10,7 @@
 </div>
 <ul class="post-list" data-component-name="blog-post-list">
   {%- for p in posts %}
-  <li class="post-list__item" data-cats="{{ p.categories | join: '|' | downcase }}">
+  <li class="post-list__item" data-reveal data-cats="{{ p.categories | join: '|' | downcase }}">
     <a class="card card--link post-list__card" data-component-name="blog-post-card" href="{{ p.url | relative_url }}">
       {% include post-symbol.html post=p %}
       <p class="eyebrow post-list__meta"><time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: date_format }}</time> · {{ p.categories | join: ' · ' }}{% include reading-time.html post=p %}{% include audience.html post=p %}</p>
@@ -20,3 +20,4 @@
   </li>
   {%- endfor %}
 </ul>
+{% include motion.html %}
