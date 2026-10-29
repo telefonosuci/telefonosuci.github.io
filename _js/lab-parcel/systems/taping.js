@@ -1,6 +1,6 @@
 // Tape phase: press on the lid, drag the gun along the seam, release to cut.
-// Each press lays one straight strip; the phase ends once the seam is covered.
-// Mistakes: pressing off the lid, or laying a strip off the seam (it turns red and peels off, but the tape is spent).
+// Each press lays one straight strip, as many as needed; the phase ends once all strips together cover the seam.
+// Mistakes: pressing off the lid, or laying a strip off the seam (it turns red but stays, and still covers what it crosses).
 // On touch the gun sits a bit further up the screen than the finger, so the finger doesn't hide it.
 import { Color, Plane, Vector3 } from 'three';
 import { COLORS } from '../assets/greybox.js';
@@ -15,7 +15,7 @@ const MIN_STRIP = 0.05; // shorter than this is a tap, not a strip: dropped with
 const ROAM = [1.6, 1.2]; // |x|, |z| the gun can follow the pointer to, so it never leaves the frame
 const RED = new Color(COLORS.error);
 
-export function createTaping({ box, gun, cargo, strips, tweens, mistake, done }) {
+export function createTaping({ box, gun, cargo, strips, mistake, done }) {
   const plane = new Plane(new Vector3(0, 1, 0), -box.top);
   const p = new Vector3();
   let strip = null;
@@ -29,13 +29,6 @@ export function createTaping({ box, gun, cargo, strips, tweens, mistake, done })
     p.z = Math.max(-ROAM[1], Math.min(ROAM[1], p.z));
     gun.aim(p);
     return Math.abs(p.x) < SIZE.w / 2 + REACH && Math.abs(p.z) < SIZE.d / 2 + REACH ? p : null;
-  };
-
-  // Off-seam strip: red, then fades and leaves the lid. It stays in `strips` so its tape still counts as used.
-  const peel = (s) => {
-    const m = s.view.material, opacity = m.opacity;
-    m.color.copy(RED);
-    tweens.to(0.9, (t) => { m.opacity = opacity * (1 - t * t); }, (t) => t).then(() => cargo.remove(s.view));
   };
 
   return {
@@ -72,8 +65,8 @@ export function createTaping({ box, gun, cargo, strips, tweens, mistake, done })
         return;
       }
       if (!onSeam(s)) {
-        peel(s);
-        return mistake('tape_off_seam');
+        s.view.material.color.copy(RED); // stays on the lid: a mistake, but its tape is there
+        mistake('tape_off_seam');
       }
       if (coverage(strips, SIZE.w) >= DONE) done();
     },

@@ -7,6 +7,7 @@ import { FACES } from '../../lib/parcel.js';
 export const COLORS = {
   flap: FACES[0], card: FACES[1], cardIn: FACES[2],
   tape: '#b8741a', gunBody: '#2b2f36', gunGrip: '#e23d28',
+  glove: '#fbfaf6', ink: '#1b1d22', // cartoon hand cursor
   error: '#c62828', // same as --danger in the theme
 };
 

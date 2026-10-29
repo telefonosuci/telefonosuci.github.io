@@ -13,12 +13,14 @@ import { loadModels } from './assets/loader.js';
 import { createBox, SIZE } from './entities/box.js';
 import { CATALOG, createItem } from './entities/item.js';
 import { createTapeGun } from './entities/tape-gun.js';
+import { createHand } from './entities/hand.js';
 import { createPacking } from './systems/packing.js';
 import { createFolding } from './systems/folding.js';
 import { createTaping } from './systems/taping.js';
 import { createShipping } from './systems/shipping.js';
 import { rate } from './systems/scoring.js';
 
+const HAND = new Set(['fill', 'fold']); // phases where the cartoon hand is the mouse cursor
 const MAX_DT = 0.05; // s; a long pause (tab hidden, scrolled away) must not fast-forward the tweens
 
 export function createGame(root, { assetsBase }) {
@@ -33,7 +35,8 @@ export function createGame(root, { assetsBase }) {
   const items = CATALOG.map(createItem);
   cargo.add(box.view, ...items.map((i) => i.view));
   const gun = createTapeGun();
-  stage.scene.add(cargo, gun.view);
+  const hand = createHand();
+  stage.scene.add(cargo, gun.view, hand.view);
 
   const ctx = {
     stage, tweens, hud, cargo, box, items, gun, strips: [], startedAt: 0, seconds: 0, mistakes: 0,
@@ -55,17 +58,31 @@ export function createGame(root, { assetsBase }) {
     current = systems[phase];
     if (phase === 'ship') ctx.seconds = (performance.now() - ctx.startedAt) / 1000;
     hud.phase(phase);
+    if (!HAND.has(phase)) hand.show(false);
     current.enter?.();
   });
 
+  // Mouse and pen only: on touch the finger is the cursor.
+  const handFor = (e) => HAND.has(state.phase) && e.pointerType !== 'touch';
   createInput(canvas, stage.camera, {
-    down: (ray, e) => current.down?.(ray, e),
+    down: (ray, e) => {
+      if (handFor(e)) hand.press(true);
+      current.down?.(ray, e);
+    },
     move: (ray, e) => {
       current.move?.(ray, e);
-      canvas.style.cursor = current.hover?.(ray, e) ?? '';
+      const cursor = current.hover?.(ray, e) ?? '';
+      const own = handFor(e);
+      hand.show(own);
+      if (own) hand.aim(ray, stage.camera);
+      canvas.style.cursor = own ? 'none' : cursor;
     },
-    up: (ray, e) => current.up?.(ray, e),
+    up: (ray, e) => {
+      hand.press(false);
+      current.up?.(ray, e);
+    },
   });
+  canvas.addEventListener('pointerleave', () => hand.show(false));
 
   const reset = () => {
     tweens.clear();
@@ -94,5 +111,5 @@ export function createGame(root, { assetsBase }) {
     stage.render();
   });
 
-  loadModels([gun, ...items], assetsBase);
+  loadModels([gun, hand, ...items], assetsBase);
 }

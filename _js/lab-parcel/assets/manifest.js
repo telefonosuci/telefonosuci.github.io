@@ -5,6 +5,7 @@
 // per flap (flap-short-l, flap-short-r, flap-long-f, flap-long-b) and a mapping step in entities/box.js.
 export const MANIFEST = {
   'tape-gun': null,
+  hand: null, // origin at the index fingertip, not at the bottom
   tee: null,
   sweater: null,
   shoebox: null,
