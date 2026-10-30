@@ -4,15 +4,25 @@ sitemap: false
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{%- comment -%} Google ignores changefreq/priority; hreflang lives in <head> (_layouts/base.html). {%- endcomment -%}
+{%- comment -%}
+  hreflang lives in <head> (_layouts/base.html). changefreq/priority are ignored by Google
+  but kept for other crawlers; override per page with front matter `changefreq` / `priority`.
+{%- endcomment -%}
 {%- assign items = site.html_pages | concat: site.posts -%}
 {%- for p in items %}
-  {%- if p.sitemap == false or p.redirect %}{% continue %}{% endif %}
+  {%- if p.sitemap == false or p.redirect %}{% continue %}{% endif -%}
+  {%- if p.ref == "home" -%}{%- assign freq = "weekly" -%}{%- assign prio = "1.0" -%}
+  {%- elsif p.ref == "blog" -%}{%- assign freq = "weekly" -%}{%- assign prio = "0.9" -%}
+  {%- elsif p.date -%}{%- assign freq = "monthly" -%}{%- assign prio = "0.7" -%}
+  {%- else -%}{%- assign freq = "yearly" -%}{%- assign prio = "0.5" -%}
+  {%- endif %}
   <url>
     <loc>{{ p.url | absolute_url }}</loc>
     {%- if p.date %}
     <lastmod>{{ p.last_modified_at | default: p.date | date_to_xmlschema }}</lastmod>
     {%- endif %}
+    <changefreq>{{ p.changefreq | default: freq }}</changefreq>
+    <priority>{{ p.priority | default: prio }}</priority>
   </url>
 {%- endfor %}
 </urlset>
