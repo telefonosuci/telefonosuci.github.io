@@ -3,28 +3,15 @@ layout: null
 sitemap: false
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-{%- comment -%} Google ignores changefreq/priority; hreflang pairs mirror _layouts/base.html. {%- endcomment -%}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- comment -%} Google ignores changefreq/priority; hreflang lives in <head> (_layouts/base.html). {%- endcomment -%}
 {%- assign items = site.html_pages | concat: site.posts -%}
 {%- for p in items %}
-  {%- if p.sitemap == false or p.redirect %}{% continue %}{% endif -%}
-  {%- assign lang = p.lang | default: site.lang -%}
-  {%- if p.slug and p.date -%}
-    {%- assign alt = site.posts | where: "slug", p.slug | where_exp: "q", "q.lang != lang" | first -%}
-  {%- elsif p.ref -%}
-    {%- assign alt = site.pages | where: "ref", p.ref | where_exp: "q", "q.lang != lang" | first -%}
-  {%- else -%}
-    {%- assign alt = nil -%}
-  {%- endif %}
+  {%- if p.sitemap == false or p.redirect %}{% continue %}{% endif %}
   <url>
     <loc>{{ p.url | absolute_url }}</loc>
     {%- if p.date %}
     <lastmod>{{ p.last_modified_at | default: p.date | date_to_xmlschema }}</lastmod>
-    {%- endif %}
-    {%- if alt %}
-    <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ p.url | absolute_url }}"/>
-    <xhtml:link rel="alternate" hreflang="{{ alt.lang | default: site.lang }}" href="{{ alt.url | absolute_url }}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="{% if lang == site.lang %}{{ p.url | absolute_url }}{% else %}{{ alt.url | absolute_url }}{% endif %}"/>
     {%- endif %}
   </url>
 {%- endfor %}
