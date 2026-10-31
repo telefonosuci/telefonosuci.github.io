@@ -1,0 +1,23 @@
+{%- if page.lang == 'en' -%}
+{%- assign boxes = "Product data;tags, variant options, metafields, category|Search & Discovery;filters, synonyms, boosts, recommendations|Theme;collection pages, search, recommendation blocks|Customer;searches, filters, clicks, buys" | split: "|" -%}
+{%- assign back = "analytics" -%}
+{%- assign cap = "The app holds no products and renders no pages: it reads the catalogue data, adds rules, and lets the theme show the result. What customers search and click flows back as analytics." -%}
+{%- assign title = "Diagram: product data feeds Search & Discovery, which configures what the theme shows to the customer; customer searches and clicks go back to the app as analytics" -%}
+{%- else -%}
+{%- assign boxes = "Dati prodotto;tag, opzioni delle varianti, metafield, categoria|Search & Discovery;filtri, sinonimi, boost, raccomandazioni|Tema;pagine collezione, ricerca, blocchi di raccomandazione|Cliente;cerca, filtra, clicca, compra" | split: "|" -%}
+{%- assign back = "analytics" -%}
+{%- assign cap = "L'app non contiene prodotti e non disegna pagine: legge i dati del catalogo, aggiunge regole e lascia al tema la visualizzazione. Ciò che i clienti cercano e cliccano torna indietro come analytics." -%}
+{%- assign title = "Diagramma: i dati prodotto alimentano Search & Discovery, che configura ciò che il tema mostra al cliente; ricerche e clic del cliente tornano all'app come analytics" -%}
+{%- endif -%}
+<figure class="diagram">
+<svg viewBox="0 0 640 470" role="img" aria-label="{{ title }}">
+<defs><marker id="sd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"/></marker></defs>
+{%- for b in boxes %}{% assign p = b | split: ";" %}{% assign y = forloop.index0 | times: 130 %}
+<g{% if forloop.index == 2 %} class="diagram__hl"{% endif %}><rect x="110" y="{{ y | plus: 1 }}" width="420" height="72" rx="12"/><text x="320" y="{{ y | plus: 32 }}">{{ p[0] }}</text><text class="diagram__sub" x="320" y="{{ y | plus: 56 }}">{{ p[1] }}</text></g>
+{%- unless forloop.last %}<path class="diagram__line" d="M320 {{ y | plus: 74 }} L320 {{ y | plus: 126 }}" marker-end="url(#sd)"/>{% endunless %}
+{%- endfor %}
+<path class="diagram__line diagram__line--dash" d="M530 427 H580 V167 H534" marker-end="url(#sd)"/>
+<text class="diagram__tag" transform="translate(598 297) rotate(90)">{{ back }}</text>
+</svg>
+<figcaption>{{ cap }}</figcaption>
+</figure>

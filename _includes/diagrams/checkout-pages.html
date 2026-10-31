@@ -1,0 +1,27 @@
+{%- if page.lang == 'en' -%}
+{%- assign boxes = "Information;contact, shipping address|Shipping;delivery methods|Payment;payment methods, order summary|Thank you;right after the purchase|Order status;the page customers come back to" | split: "|" -%}
+{%- assign plus = "Plus only" -%}
+{%- assign all = "All plans" -%}
+{%- assign cap = "Where blocks can go. The checkout steps are editable only on Shopify Plus; the post-purchase pages are open to every plan." -%}
+{%- assign title = "Diagram: the five checkout pages in order. Information, shipping and payment are customisable only on Shopify Plus; thank you and order status pages on all plans" -%}
+{%- else -%}
+{%- assign boxes = "Informazioni;contatto, indirizzo di spedizione|Spedizione;metodi di consegna|Pagamento;metodi di pagamento, riepilogo|Thank you;subito dopo l'acquisto|Stato dell'ordine;la pagina su cui il cliente torna" | split: "|" -%}
+{%- assign plus = "Solo Plus" -%}
+{%- assign all = "Tutti i piani" -%}
+{%- assign cap = "Dove si possono aggiungere blocchi. I passaggi del checkout sono modificabili solo su Shopify Plus; le pagine dopo l'acquisto su tutti i piani." -%}
+{%- assign title = "Diagramma: le cinque pagine del checkout in ordine. Informazioni, spedizione e pagamento sono personalizzabili solo su Shopify Plus; thank you e stato dell'ordine su tutti i piani" -%}
+{%- endif -%}
+<figure class="diagram">
+<svg viewBox="0 0 640 402" role="img" aria-label="{{ title }}">
+<defs><marker id="cp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--muted)"/></marker></defs>
+{%- for b in boxes %}{% assign p = b | split: ";" %}{% assign y = forloop.index0 | times: 84 %}
+<g{% if forloop.index > 3 %} class="diagram__hl"{% endif %}><rect x="20" y="{{ y | plus: 1 }}" width="440" height="64" rx="12"/><text x="240" y="{{ y | plus: 28 }}">{{ p[0] }}</text><text class="diagram__sub" x="240" y="{{ y | plus: 50 }}">{{ p[1] }}</text></g>
+{%- unless forloop.last %}<path class="diagram__line" d="M240 {{ y | plus: 66 }} L240 {{ y | plus: 82 }}" marker-end="url(#cp)"/>{% endunless %}
+{%- endfor %}
+<path class="diagram__line" d="M472 1 H492 V233 H472"/>
+<text class="diagram__tag" x="560" y="122">{{ plus }}</text>
+<path class="diagram__line" d="M472 253 H492 V401 H472"/>
+<text class="diagram__tag" x="560" y="332">{{ all }}</text>
+</svg>
+<figcaption>{{ cap }}</figcaption>
+</figure>
